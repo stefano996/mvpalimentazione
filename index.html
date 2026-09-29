@@ -732,7 +732,7 @@ function render(){
  // ----- spesa: una sola lista "prossima spesa", i soldi spesi davvero, la dispensa
  const HEAD=`<header class="ph"><div><h1>Spesa</h1></div></header>`;
  const X=prossimaSpesa(),LS=S.lista||[],rec=id=>id&&id in X.q;
- const riga=it=>{const id=it.id,nome=id?I[id].nome:esc(it.nome);return`<div class="sp"><label class="sp-l"><input type="checkbox" data-lc="${it.k}" ${it.fatto?"checked":""}><span class="cb">${ic("check")}</span><span class="sp-n">${nome}</span>${rec(id)?`<span class="sugg" title="Consigliato per i tuoi pasti">${ic("sparkles")}</span>`:""}</label><span class="sp-q">${id&&it.q?qta(id,it.q,true):""}</span><button class="x" data-lrm="${it.k}" aria-label="Togli ${nome} dalla lista">${ic("x")}</button></div>`};
+ const riga=it=>{const id=it.id,nome=id?I[id].nome:esc(it.nome);return`<div class="sp"><label class="sp-l"><input type="checkbox" data-lc="${it.k}" ${it.fatto?"checked":""}><span class="cb">${ic("check")}</span><span class="sp-n">${nome}${rec(id)?`<span class="sugg" title="Consigliato per i tuoi pasti">${ic("sparkles")}</span>`:""}</span></label><button class="x" data-lrm="${it.k}" aria-label="Togli ${nome} dalla lista">${ic("x")}</button></div>`};
  function lista(){if(!LS.length)return`<section class="w"><p class="note">La lista è vuota.</p></section>`;
   const gr=new Map(),neg=NEG().length;LS.forEach(it=>{const g=it.id?(neg?negozioPer(I[it.id].dove):I[it.id].rep):"Altro";if(!gr.has(g))gr.set(g,[]);gr.get(g).push(it)});
   return[...gr].sort((x,y)=>x[0]=="Altro"?1:y[0]=="Altro"?-1:neg?(x[0]===primario()?-1:y[0]===primario()?1:x[0].km-y[0].km):String(x[0]).localeCompare(String(y[0]))).map(([g,l])=>`<div class="sh sp-h"><h3>${g=="Altro"?"Altro":neg?"Da "+esc(g.nome):g}</h3>${neg&&g!="Altro"?`<a href="${mapsUrl(g)}" target="_blank" rel="noopener">${ic(mezzo(g.km)[0])}${dist(g.km)}</a>`:""}</div><section class="w list">${l.map(riga).join("")}</section>`).join("")}
@@ -836,7 +836,7 @@ function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(
  <label for="pq" class="sr">Aggiungi alla dispensa</label><input id="pq" data-pq autocomplete="off" placeholder="Aggiungi: olio, pasta, sale, caffè…"><div class="tags sug" id="psug"></div>
  ${manca.length?`<div class="tags">${manca.slice(0,8).map(id=>`<button class="tag b" data-padd="${id}">${ic("plus")}${I[id].nome}</button>`).join("")}</div>`:""}
  ${ids.length?`<div class="disp">${vis.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
-  <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div><p class="note">${s.t}</p>
+  <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div>
   <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}${(()=>{const on=S.listaAperta&&(S.lista||[]).some(it=>it.id==id);return`<button class="tag b buy${on?" on":""}" data-pbuy="${id}" aria-pressed="${on}">${ic(on?"check":"shopping-cart")}${on?"Nella lista della spesa":"Aggiungi alla spesa"}</button>`})()}</div>${UNITA[id]?`<div class="dp-g"><button class="x" data-pu="${id}|-1" aria-label="Meno">${ic("minus")}</button><span>${unitaTxt(id)}</span><button class="x" data-pu="${id}|1" aria-label="Più">${ic("plus")}</button></div>`:""}</div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
@@ -1137,7 +1137,7 @@ function calc(){const{sesso,eta,peso,alt,att,obj}=S;if(!(eta&&peso&&alt))return 
 
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.tipo!==undefined)S.exl[t.dataset.tipo].tipo=t.value;
- else if(t.dataset.lc){const it=(S.lista||[]).find(x=>x.k==t.dataset.lc);if(it)spunta(it,t.checked);render();return}
+ else if(t.dataset.lc){const k=t.dataset.lc,y=t.getBoundingClientRect().top,it=(S.lista||[]).find(x=>x.k==k);if(it)spunta(it,t.checked);render();const n=document.querySelector(`[data-lc="${k}"]`);if(n)scrollBy(0,n.getBoundingClientRect().top-y);return}
  else if(t.dataset.c){const c=chkGet();c[t.dataset.c]=t.checked;chkSet(c);presoInDispensa(t.dataset.c,t.checked,+t.dataset.q||0)}
  else if(t.dataset.dg||t.dataset.dk){render();return}
  else if(t.dataset.flex!==undefined||t.dataset.glut!==undefined){if(t.dataset.flex!==undefined)S.flex=t.checked;else S.glutine=t.checked;save();profilo();render();return}
@@ -1249,7 +1249,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929202040";
+const VER="20260929202652";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
