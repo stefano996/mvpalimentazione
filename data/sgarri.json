@@ -3,252 +3,336 @@
     "nome": "Pizza margherita",
     "porzione": "1 pizza",
     "kcal": 800,
-    "proteine": 32
+    "proteine": 32,
+    "carboidrati": 100,
+    "grassi": 28
   },
   {
     "nome": "Pizza con salame o diavola",
     "porzione": "1 pizza",
     "kcal": 950,
-    "proteine": 40
+    "proteine": 40,
+    "carboidrati": 100,
+    "grassi": 40
   },
   {
     "nome": "Pizza quattro formaggi",
     "porzione": "1 pizza",
     "kcal": 1000,
-    "proteine": 42
+    "proteine": 42,
+    "carboidrati": 95,
+    "grassi": 50
   },
   {
     "nome": "Trancio di pizza",
     "porzione": "1 trancio",
     "kcal": 300,
-    "proteine": 12
+    "proteine": 12,
+    "carboidrati": 38,
+    "grassi": 11
   },
   {
     "nome": "Focaccia",
     "porzione": "1 pezzo",
     "kcal": 350,
-    "proteine": 8
+    "proteine": 8,
+    "carboidrati": 45,
+    "grassi": 15
   },
   {
     "nome": "Panino con prosciutto e formaggio",
     "porzione": "1 panino",
     "kcal": 450,
-    "proteine": 22
+    "proteine": 22,
+    "carboidrati": 50,
+    "grassi": 18
   },
   {
     "nome": "Kebab",
     "porzione": "1 panino o piadina",
     "kcal": 750,
-    "proteine": 35
+    "proteine": 35,
+    "carboidrati": 70,
+    "grassi": 32
   },
   {
     "nome": "Hamburger",
     "porzione": "1 panino",
     "kcal": 550,
-    "proteine": 28
+    "proteine": 28,
+    "carboidrati": 45,
+    "grassi": 28
   },
   {
     "nome": "Menu fast food",
     "porzione": "panino, patatine e bibita",
     "kcal": 1100,
-    "proteine": 30
+    "proteine": 30,
+    "carboidrati": 130,
+    "grassi": 45
   },
   {
     "nome": "Patatine fritte",
     "porzione": "porzione media",
     "kcal": 350,
-    "proteine": 4
+    "proteine": 4,
+    "carboidrati": 45,
+    "grassi": 17
   },
   {
     "nome": "Hot dog",
     "porzione": "1 panino",
     "kcal": 400,
-    "proteine": 13
+    "proteine": 13,
+    "carboidrati": 33,
+    "grassi": 24
   },
   {
     "nome": "Sushi",
     "porzione": "12 pezzi",
     "kcal": 550,
-    "proteine": 22
+    "proteine": 22,
+    "carboidrati": 95,
+    "grassi": 8
   },
   {
     "nome": "Sushi all you can eat",
     "porzione": "circa 25 pezzi",
     "kcal": 1100,
-    "proteine": 45
+    "proteine": 45,
+    "carboidrati": 190,
+    "grassi": 20
   },
   {
     "nome": "Poke bowl",
     "porzione": "1 bowl",
     "kcal": 650,
-    "proteine": 30
+    "proteine": 30,
+    "carboidrati": 85,
+    "grassi": 20
   },
   {
     "nome": "Ramen",
     "porzione": "1 ciotola",
     "kcal": 600,
-    "proteine": 25
+    "proteine": 25,
+    "carboidrati": 75,
+    "grassi": 20
   },
   {
     "nome": "Pasta alla carbonara",
     "porzione": "piatto al ristorante",
     "kcal": 800,
-    "proteine": 30
+    "proteine": 30,
+    "carboidrati": 80,
+    "grassi": 38
   },
   {
     "nome": "Pasta al ragù",
     "porzione": "1 piatto",
     "kcal": 700,
-    "proteine": 28
+    "proteine": 28,
+    "carboidrati": 90,
+    "grassi": 22
   },
   {
     "nome": "Lasagna",
     "porzione": "1 porzione",
     "kcal": 650,
-    "proteine": 30
+    "proteine": 30,
+    "carboidrati": 55,
+    "grassi": 33
   },
   {
     "nome": "Risotto",
     "porzione": "1 piatto",
     "kcal": 600,
-    "proteine": 14
+    "proteine": 14,
+    "carboidrati": 85,
+    "grassi": 20
   },
   {
     "nome": "Gnocchi al pomodoro",
     "porzione": "1 piatto",
     "kcal": 550,
-    "proteine": 12
+    "proteine": 12,
+    "carboidrati": 100,
+    "grassi": 10
   },
   {
     "nome": "Cotoletta con patatine",
     "porzione": "1 piatto",
     "kcal": 900,
-    "proteine": 40
+    "proteine": 40,
+    "carboidrati": 75,
+    "grassi": 50
   },
   {
     "nome": "Bistecca con contorno",
     "porzione": "1 piatto",
     "kcal": 700,
-    "proteine": 55
+    "proteine": 55,
+    "carboidrati": 20,
+    "grassi": 40
   },
   {
     "nome": "Insalatona",
     "porzione": "1 ciotola",
     "kcal": 450,
-    "proteine": 20
+    "proteine": 20,
+    "carboidrati": 25,
+    "grassi": 28
   },
   {
     "nome": "Tramezzino",
     "porzione": "1 pezzo",
     "kcal": 300,
-    "proteine": 10
+    "proteine": 10,
+    "carboidrati": 30,
+    "grassi": 15
   },
   {
     "nome": "Toast prosciutto e formaggio",
     "porzione": "1 toast",
     "kcal": 350,
-    "proteine": 18
+    "proteine": 18,
+    "carboidrati": 35,
+    "grassi": 15
   },
   {
     "nome": "Piadina crudo e squacquerone",
     "porzione": "1 piadina",
     "kcal": 650,
-    "proteine": 28
+    "proteine": 28,
+    "carboidrati": 55,
+    "grassi": 33
   },
   {
     "nome": "Arancino",
     "porzione": "1 pezzo",
     "kcal": 450,
-    "proteine": 12
+    "proteine": 12,
+    "carboidrati": 55,
+    "grassi": 20
   },
   {
     "nome": "Cornetto o brioche",
     "porzione": "1 pezzo",
     "kcal": 300,
-    "proteine": 5
+    "proteine": 5,
+    "carboidrati": 35,
+    "grassi": 15
   },
   {
     "nome": "Cappuccino",
     "porzione": "1 tazza",
     "kcal": 90,
-    "proteine": 5
+    "proteine": 5,
+    "carboidrati": 8,
+    "grassi": 4
   },
   {
     "nome": "Biscotti",
     "porzione": "5 biscotti",
     "kcal": 250,
-    "proteine": 3
+    "proteine": 3,
+    "carboidrati": 35,
+    "grassi": 10
   },
   {
     "nome": "Gelato",
     "porzione": "coppetta 2 gusti",
     "kcal": 250,
-    "proteine": 4
+    "proteine": 4,
+    "carboidrati": 32,
+    "grassi": 12
   },
   {
     "nome": "Tiramisù",
     "porzione": "1 porzione",
     "kcal": 450,
-    "proteine": 8
+    "proteine": 8,
+    "carboidrati": 40,
+    "grassi": 28
   },
   {
     "nome": "Fetta di torta",
     "porzione": "1 fetta",
     "kcal": 400,
-    "proteine": 5
+    "proteine": 5,
+    "carboidrati": 50,
+    "grassi": 20
   },
   {
     "nome": "Cioccolato",
     "porzione": "mezza tavoletta (50 g)",
     "kcal": 270,
-    "proteine": 3
+    "proteine": 3,
+    "carboidrati": 28,
+    "grassi": 16
   },
   {
     "nome": "Patatine in busta",
     "porzione": "1 busta (50 g)",
     "kcal": 270,
-    "proteine": 3
+    "proteine": 3,
+    "carboidrati": 27,
+    "grassi": 17
   },
   {
     "nome": "Birra media",
     "porzione": "0,4 litri",
     "kcal": 170,
-    "proteine": 2
+    "proteine": 2,
+    "carboidrati": 14,
+    "grassi": 0
   },
   {
     "nome": "Vino",
     "porzione": "1 bicchiere",
     "kcal": 120,
-    "proteine": 0
+    "proteine": 0,
+    "carboidrati": 4,
+    "grassi": 0
   },
   {
     "nome": "Spritz",
     "porzione": "1 bicchiere",
     "kcal": 180,
-    "proteine": 0
+    "proteine": 0,
+    "carboidrati": 15,
+    "grassi": 0
   },
   {
     "nome": "Cocktail",
     "porzione": "1 bicchiere",
     "kcal": 250,
-    "proteine": 0
+    "proteine": 0,
+    "carboidrati": 20,
+    "grassi": 0
   },
   {
     "nome": "Bibita zuccherata",
     "porzione": "1 lattina",
     "kcal": 140,
-    "proteine": 0
+    "proteine": 0,
+    "carboidrati": 35,
+    "grassi": 0
   },
   {
     "nome": "Aperitivo con stuzzichini",
     "porzione": "1 aperitivo",
     "kcal": 500,
-    "proteine": 10
+    "proteine": 10,
+    "carboidrati": 50,
+    "grassi": 25
   },
   {
     "nome": "Non ho mangiato",
     "porzione": "pasto saltato",
     "kcal": 0,
-    "proteine": 0
+    "proteine": 0,
+    "carboidrati": 0,
+    "grassi": 0
   }
 ]

@@ -23,7 +23,9 @@
       "Taglia la banana a rondelle e mettila sopra.",
       "Se vuoi risparmiare tempo al mattino, prepara yogurt e avena la sera prima e aggiungi la banana al momento."
     ],
-    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
+    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima.",
+    "tempo_totale_min": 3,
+    "attrezzi": []
   },
   {
     "id": "uova-strapazzate-e-pane",
@@ -50,7 +52,12 @@
       "Versa le uova e mescola piano con la spatola per 2-3 minuti, finché sono cremose.",
       "Tosta il pane in padella o nel tostapane e servi."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 8,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "riso-pollo-e-zucchine",
@@ -80,7 +87,12 @@
       "Aggiungi le zucchine, sala e cuoci altri 8 minuti mescolando ogni tanto.",
       "Scola il riso e uniscilo a pollo e zucchine."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "pollo-al-forno-patate-e-broccoli",
@@ -110,7 +122,12 @@
       "Inforna per 30-35 minuti, girando tutto a metà cottura.",
       "Controlla che il pollo sia cotto: tagliato al centro non deve essere rosa."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 45,
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "in_friggitrice": "In friggitrice ad aria: patate a 190 °C per 12 minuti, poi aggiungi pollo e broccoli e cuoci altri 15 minuti a 180 °C, scuotendo il cestello a metà."
   },
   {
     "id": "pasta-al-tonno-e-pomodoro",
@@ -138,7 +155,12 @@
       "Scola il tonno e aggiungilo al sugo negli ultimi 2 minuti.",
       "Scola la pasta al dente e mescolala nel sugo."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 20,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "pasta-e-ceci",
@@ -167,7 +189,12 @@
       "Butta la pasta nella pentola e cuocila mescolando spesso. Aggiungi acqua calda se si asciuga troppo.",
       "Spegni, aggiungi il parmigiano e un filo d'olio."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "insalata-di-riso-tonno-e-ceci",
@@ -194,7 +221,12 @@
       "In una ciotola grande unisci riso, tonno scolato e ceci sciacquati.",
       "Condisci con olio e sale e mescola."
     ],
-    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
+    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "frittata-di-zucchine-e-pane",
@@ -226,7 +258,12 @@
       "Gira la frittata aiutandoti con il coperchio o con un piatto e cuoci altri 2 minuti.",
       "Tagliala a spicchi e servila con il pane."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 20,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "quinoa-salmone-e-avocado",
@@ -256,7 +293,12 @@
       "Taglia l'avocado solo al momento di mangiare, perché annerisce.",
       "Componi il piatto con quinoa, salmone a pezzi e avocado, olio e sale."
     ],
-    "avanzi": "Scalda quinoa e salmone 1-2 minuti in microonde, poi aggiungi l'avocado appena tagliato."
+    "avanzi": "Scalda quinoa e salmone 1-2 minuti in microonde, poi aggiungi l'avocado appena tagliato.",
+    "tempo_totale_min": 20,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "insalata-di-quinoa-ceci-e-feta",
@@ -287,7 +329,12 @@
       "Unisci quinoa, ceci sciacquati, zucchine e feta sbriciolata.",
       "Condisci con olio e sale e mescola."
     ],
-    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
+    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "tofu-saltato-con-riso-e-broccoli",
@@ -317,7 +364,12 @@
       "Aggiungi i broccoli ancora surgelati con un goccio d'acqua e cuoci 6-7 minuti. Se ti piace, aggiungi un cucchiaio di salsa di soia.",
       "Unisci il riso e servi."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "merluzzo-spinaci-e-riso",
@@ -345,7 +397,12 @@
       "Copri e cuoci 8-10 minuti, finché il pesce si sfalda con la forchetta.",
       "Servi con il riso."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 20,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "porridge-latte-arachidi-e-banana",
@@ -371,7 +428,11 @@
       "Cuoci a fuoco medio mescolando per 3-4 minuti, finché si addensa.",
       "Versa in una ciotola, aggiungi il burro d'arachidi e la banana a rondelle."
     ],
-    "avanzi": "Si prepara al momento."
+    "avanzi": "Si prepara al momento.",
+    "tempo_totale_min": 6,
+    "attrezzi": [
+      "fornelli|microonde"
+    ]
   },
   {
     "id": "pane-ricotta-e-frutti-di-bosco",
@@ -395,7 +456,9 @@
       "Tosta il pane se ti piace.",
       "Spalma la ricotta sul pane e aggiungi i frutti di bosco sopra o a parte."
     ],
-    "avanzi": "Si prepara al momento."
+    "avanzi": "Si prepara al momento.",
+    "tempo_totale_min": 3,
+    "attrezzi": []
   },
   {
     "id": "yogurt-frutti-di-bosco-e-noci",
@@ -419,7 +482,9 @@
       "Versa lo yogurt in una ciotola.",
       "Aggiungi avena, frutti di bosco e noci spezzettate con le mani."
     ],
-    "avanzi": "Si prepara al momento."
+    "avanzi": "Si prepara al momento.",
+    "tempo_totale_min": 2,
+    "attrezzi": []
   },
   {
     "id": "chili-di-manzo-e-fagioli-con-riso",
@@ -448,7 +513,12 @@
       "Cuoci 10-15 minuti a fuoco basso, mescolando ogni tanto.",
       "Scola il riso e servilo con il chili."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 30,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "polpette-al-sugo-con-pane",
@@ -477,7 +547,12 @@
       "Copri e cuoci 15 minuti a fuoco basso, girandole a metà.",
       "Servi con il pane."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "lenticchie-e-riso",
@@ -504,7 +579,12 @@
       "Butta il riso direttamente nella pentola e cuoci per il tempo della confezione, mescolando e aggiungendo acqua se serve.",
       "Spegni e aggiungi il parmigiano."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 25,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "cous-cous-pollo-e-verdure",
@@ -532,7 +612,12 @@
       "Aggiungi le verdure grigliate e scalda 3-4 minuti.",
       "Sgrana il cous cous con la forchetta e uniscilo a pollo e verdure."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 15,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "farro-tacchino-e-piselli",
@@ -560,7 +645,12 @@
       "Aggiungi i piselli surgelati con un goccio d'acqua e cuoci 8 minuti.",
       "Scola il farro e uniscilo al tacchino e piselli."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 30,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "piadina-bresaola-e-mozzarella",
@@ -585,7 +675,11 @@
       "Farciscila con bresaola e mozzarella a fette.",
       "Chiudila a metà e scaldala ancora 1 minuto per far sciogliere un po' la mozzarella."
     ],
-    "avanzi": "Si prepara al momento."
+    "avanzi": "Si prepara al momento.",
+    "tempo_totale_min": 5,
+    "attrezzi": [
+      "fornelli"
+    ]
   },
   {
     "id": "pasta-ricotta-e-spinaci",
@@ -613,7 +707,12 @@
       "Spegni e aggiungi ricotta e parmigiano, con un mestolo di acqua della pasta per renderla cremosa.",
       "Scola la pasta e mescolala nel condimento."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 15,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
   },
   {
     "id": "tacchino-patate-e-verdure-al-forno",
@@ -641,7 +740,12 @@
       "Aggiungi il tacchino a pezzi e le verdure grigliate surgelate, mescola e inforna altri 15-20 minuti.",
       "Controlla che il tacchino sia cotto e servi."
     ],
-    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua.",
+    "tempo_totale_min": 40,
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "in_friggitrice": "In friggitrice ad aria: patate a 190 °C per 12 minuti, poi aggiungi tacchino e verdure e cuoci altri 12-15 minuti a 180 °C."
   },
   {
     "id": "insalata-di-farro-tonno-e-mozzarella",
@@ -669,6 +773,104 @@
       "Unisci farro, tonno scolato, verdure e mozzarella a cubetti.",
       "Condisci con olio e sale e mescola."
     ],
-    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
+    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima.",
+    "tempo_totale_min": 30,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
+  },
+  {
+    "id": "piadina-tacchino-e-verdure",
+    "nome": "Piadina con tacchino e verdure grigliate",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "piadina": 110,
+      "tacchino": 120,
+      "verdure-grigliate": 100,
+      "olio": 5
+    },
+    "utensili": [
+      "Padella",
+      "Tagliere",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Taglia il tacchino a striscioline e cuocilo in padella con l'olio per 4-5 minuti.",
+      "Aggiungi le verdure grigliate surgelate e scaldale 3 minuti.",
+      "Scalda la piadina in padella 1 minuto per lato, farciscila e chiudila."
+    ],
+    "avanzi": "",
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
+  },
+  {
+    "id": "uova-spinaci-e-pane",
+    "nome": "Uova e spinaci in padella con pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 180,
+      "spinaci": 150,
+      "pane": 70,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "utensili": [
+      "Padella con coperchio",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Cuoci gli spinaci surgelati in padella con l'olio per 5-6 minuti.",
+      "Fai quattro spazi tra gli spinaci e rompici dentro le uova.",
+      "Copri e cuoci 4-5 minuti, finché l'albume è bianco.",
+      "Aggiungi il parmigiano e servi con il pane."
+    ],
+    "avanzi": "",
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
+  },
+  {
+    "id": "cous-cous-veloce-tonno-e-ceci",
+    "nome": "Cous cous veloce con tonno e ceci",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "couscous": 80,
+      "tonno": 80,
+      "ceci": 120,
+      "verdure-grigliate": 100,
+      "olio": 8
+    },
+    "utensili": [
+      "Ciotola",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Scalda l'acqua (bollitore, pentolino o microonde) e versane sul cous cous la stessa quantità, con un pizzico di sale. Copri e aspetta 5 minuti.",
+      "Intanto scalda le verdure grigliate 2-3 minuti in microonde o in padella.",
+      "Sgrana il cous cous con la forchetta e aggiungi tonno scolato, ceci sciacquati, verdure e olio."
+    ],
+    "avanzi": "",
+    "attrezzi": [
+      "fornelli|microonde"
+    ]
   }
 ]

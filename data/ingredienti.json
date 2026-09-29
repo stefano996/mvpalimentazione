@@ -6,7 +6,9 @@
     "prezzo_kg": 9.5,
     "kcal_100g": 110,
     "proteine_100g": 23,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 1.2
   },
   {
     "id": "merluzzo",
@@ -15,7 +17,9 @@
     "prezzo_kg": 12,
     "kcal_100g": 82,
     "proteine_100g": 18,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 0.7
   },
   {
     "id": "tonno",
@@ -24,7 +28,9 @@
     "prezzo_kg": 14,
     "kcal_100g": 110,
     "proteine_100g": 25,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 1
   },
   {
     "id": "uova",
@@ -39,7 +45,9 @@
       "uovo",
       "uova",
       "intero"
-    ]
+    ],
+    "carboidrati_100g": 0.7,
+    "grassi_100g": 9.5
   },
   {
     "id": "yogurt",
@@ -48,7 +56,9 @@
     "prezzo_kg": 4.5,
     "kcal_100g": 59,
     "proteine_100g": 10,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 3.6,
+    "grassi_100g": 0.4
   },
   {
     "id": "parmigiano",
@@ -57,7 +67,9 @@
     "prezzo_kg": 20,
     "kcal_100g": 392,
     "proteine_100g": 33,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 28
   },
   {
     "id": "avena",
@@ -66,7 +78,9 @@
     "prezzo_kg": 3,
     "kcal_100g": 370,
     "proteine_100g": 13,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 60,
+    "grassi_100g": 7
   },
   {
     "id": "riso",
@@ -75,7 +89,9 @@
     "prezzo_kg": 2.8,
     "kcal_100g": 350,
     "proteine_100g": 7,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 78,
+    "grassi_100g": 0.6
   },
   {
     "id": "pasta",
@@ -84,7 +100,9 @@
     "prezzo_kg": 2,
     "kcal_100g": 350,
     "proteine_100g": 12,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 66,
+    "grassi_100g": 2.5
   },
   {
     "id": "ceci",
@@ -93,7 +111,9 @@
     "prezzo_kg": 2.5,
     "kcal_100g": 120,
     "proteine_100g": 7,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 18,
+    "grassi_100g": 2.5
   },
   {
     "id": "passata",
@@ -102,7 +122,9 @@
     "prezzo_kg": 1.5,
     "kcal_100g": 30,
     "proteine_100g": 1.5,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 5,
+    "grassi_100g": 0.2
   },
   {
     "id": "pane",
@@ -111,7 +133,9 @@
     "prezzo_kg": 3.5,
     "kcal_100g": 250,
     "proteine_100g": 9,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 45,
+    "grassi_100g": 3.5
   },
   {
     "id": "olio",
@@ -126,7 +150,9 @@
       "cucchiaio",
       "cucchiai",
       "ricetta"
-    ]
+    ],
+    "carboidrati_100g": 0,
+    "grassi_100g": 100
   },
   {
     "id": "banana",
@@ -140,7 +166,9 @@
       120,
       "banana",
       "banane"
-    ]
+    ],
+    "carboidrati_100g": 22,
+    "grassi_100g": 0.3
   },
   {
     "id": "zucchine",
@@ -149,7 +177,9 @@
     "prezzo_kg": 2.2,
     "kcal_100g": 17,
     "proteine_100g": 1.2,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 3,
+    "grassi_100g": 0.3
   },
   {
     "id": "spinaci",
@@ -158,7 +188,9 @@
     "prezzo_kg": 2.5,
     "kcal_100g": 23,
     "proteine_100g": 2.9,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 1.5,
+    "grassi_100g": 0.4
   },
   {
     "id": "broccoli",
@@ -167,7 +199,9 @@
     "prezzo_kg": 2.5,
     "kcal_100g": 34,
     "proteine_100g": 2.8,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 4,
+    "grassi_100g": 0.4
   },
   {
     "id": "patate",
@@ -176,7 +210,9 @@
     "prezzo_kg": 1.4,
     "kcal_100g": 77,
     "proteine_100g": 2,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 17,
+    "grassi_100g": 0.1
   },
   {
     "id": "salmone",
@@ -185,7 +221,9 @@
     "prezzo_kg": 22,
     "kcal_100g": 208,
     "proteine_100g": 20,
-    "dove": 2
+    "dove": 2,
+    "carboidrati_100g": 0,
+    "grassi_100g": 13
   },
   {
     "id": "quinoa",
@@ -194,7 +232,9 @@
     "prezzo_kg": 8,
     "kcal_100g": 368,
     "proteine_100g": 14,
-    "dove": 2
+    "dove": 2,
+    "carboidrati_100g": 64,
+    "grassi_100g": 6
   },
   {
     "id": "avocado",
@@ -208,7 +248,9 @@
       200,
       "avocado",
       "avocado"
-    ]
+    ],
+    "carboidrati_100g": 9,
+    "grassi_100g": 15
   },
   {
     "id": "feta",
@@ -217,7 +259,9 @@
     "prezzo_kg": 13,
     "kcal_100g": 264,
     "proteine_100g": 14,
-    "dove": 2
+    "dove": 2,
+    "carboidrati_100g": 4,
+    "grassi_100g": 21
   },
   {
     "id": "tofu",
@@ -226,7 +270,9 @@
     "prezzo_kg": 9,
     "kcal_100g": 145,
     "proteine_100g": 15,
-    "dove": 3
+    "dove": 3,
+    "carboidrati_100g": 2,
+    "grassi_100g": 8.5
   },
   {
     "id": "macinato",
@@ -235,7 +281,9 @@
     "prezzo_kg": 12,
     "kcal_100g": 150,
     "proteine_100g": 21,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 7
   },
   {
     "id": "tacchino",
@@ -244,7 +292,9 @@
     "prezzo_kg": 12,
     "kcal_100g": 107,
     "proteine_100g": 24,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 1.5
   },
   {
     "id": "bresaola",
@@ -253,7 +303,9 @@
     "prezzo_kg": 35,
     "kcal_100g": 151,
     "proteine_100g": 32,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 0.5,
+    "grassi_100g": 2.6
   },
   {
     "id": "lenticchie",
@@ -262,7 +314,9 @@
     "prezzo_kg": 3,
     "kcal_100g": 116,
     "proteine_100g": 9,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 17,
+    "grassi_100g": 0.5
   },
   {
     "id": "fagioli",
@@ -271,7 +325,9 @@
     "prezzo_kg": 2.5,
     "kcal_100g": 110,
     "proteine_100g": 7,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 18,
+    "grassi_100g": 0.5
   },
   {
     "id": "couscous",
@@ -280,7 +336,9 @@
     "prezzo_kg": 3.5,
     "kcal_100g": 360,
     "proteine_100g": 12,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 72,
+    "grassi_100g": 1.5
   },
   {
     "id": "farro",
@@ -289,7 +347,9 @@
     "prezzo_kg": 4,
     "kcal_100g": 340,
     "proteine_100g": 14,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 67,
+    "grassi_100g": 2.5
   },
   {
     "id": "piadina",
@@ -303,7 +363,9 @@
       110,
       "piadina",
       "piadine"
-    ]
+    ],
+    "carboidrati_100g": 50,
+    "grassi_100g": 8
   },
   {
     "id": "burro-arachidi",
@@ -312,7 +374,9 @@
     "prezzo_kg": 12,
     "kcal_100g": 588,
     "proteine_100g": 25,
-    "dove": 2
+    "dove": 2,
+    "carboidrati_100g": 16,
+    "grassi_100g": 50
   },
   {
     "id": "noci",
@@ -321,7 +385,9 @@
     "prezzo_kg": 15,
     "kcal_100g": 654,
     "proteine_100g": 15,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 14,
+    "grassi_100g": 65
   },
   {
     "id": "mozzarella",
@@ -330,7 +396,9 @@
     "prezzo_kg": 8,
     "kcal_100g": 250,
     "proteine_100g": 18,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 1,
+    "grassi_100g": 19
   },
   {
     "id": "ricotta",
@@ -339,7 +407,9 @@
     "prezzo_kg": 6,
     "kcal_100g": 146,
     "proteine_100g": 11,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 3.5,
+    "grassi_100g": 11
   },
   {
     "id": "latte",
@@ -348,7 +418,9 @@
     "prezzo_kg": 1.4,
     "kcal_100g": 46,
     "proteine_100g": 3.3,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 5,
+    "grassi_100g": 1.6
   },
   {
     "id": "piselli",
@@ -357,7 +429,9 @@
     "prezzo_kg": 3,
     "kcal_100g": 80,
     "proteine_100g": 5,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 12,
+    "grassi_100g": 0.4
   },
   {
     "id": "verdure-grigliate",
@@ -366,7 +440,9 @@
     "prezzo_kg": 5,
     "kcal_100g": 40,
     "proteine_100g": 1.5,
-    "dove": 1
+    "dove": 1,
+    "carboidrati_100g": 5,
+    "grassi_100g": 1
   },
   {
     "id": "frutti-bosco",
@@ -375,6 +451,8 @@
     "prezzo_kg": 8,
     "kcal_100g": 45,
     "proteine_100g": 1,
-    "dove": 2
+    "dove": 2,
+    "carboidrati_100g": 8,
+    "grassi_100g": 0.3
   }
 ]
