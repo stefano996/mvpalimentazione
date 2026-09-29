@@ -483,13 +483,14 @@ const IC={"star":"<path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.
 // I dati (ingredienti, ricette, parole per le esclusioni) stanno nella cartella data/: si aggiornano lì.
 const $=s=>document.querySelector(s);
 let CATI={},ING=[],I={},RIC=[],SYN={},SUG=[],SG=[],SOST={};
-const DEF={nome:"",diario:{},sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,attrezzi:null,modo:null,dieta:[],cibi:[],scelte:{},dispensa:{},presiAdd:{},stile:"tutto",flex:false,glutine:false,lattosio:"ok",indirizzi:[],attivo:null,preferiti:[],nascosti:[],spese:[],lista:[],spesaN:0,daComprare:{},cambi:{},exl:[],done:false,step:0};
+const DEF={nome:"",diario:{},sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,attrezzi:null,modo:null,dieta:[],cibi:[],scelte:{},dispensa:{},presiAdd:{},stile:"tutto",flex:false,glutine:false,lattosio:"ok",indirizzi:[],attivo:null,preferiti:[],nascosti:[],spese:[],lista:[],listaAperta:false,rimasti:[],spesaN:0,daComprare:{},cambi:{},exl:[],done:false,step:0};
 let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}catch(e){}
 if(S.casa){S.indirizzi=[{id:"casa",etichetta:"Casa",testo:S.casa.label,lat:S.casa.lat,lon:S.casa.lon,negozi:S.negozi||null}];S.attivo="casa"}
 if(S.done&&!S.kcalOk)S.kcalOk=true;
 if(S.done&&!S.modo)S.modo="suggerita";
 (S.indirizzi||[]).forEach(a=>{a.err=false});
 if(S.lista)S.lista=S.lista.filter(it=>it.id);
+if(S.lista&&S.lista.length)S.listaAperta=true;
 if(S.daComprare&&Object.keys(S.daComprare).length){S.lista=[...(S.lista||[]),...Object.keys(S.daComprare).map((id,i)=>({k:"m"+i+Date.now().toString(36),id}))];S.daComprare={}} // a ogni apertura si riprova a cercare i negozi
 if(!S.attrezzi)S.attrezzi=S.done?["fornelli","pentole","forno","microonde","friggitrice","frullatore"]:["fornelli","pentole"];
 ["casa","negozi","spesa","batch"].forEach(k=>delete S[k]);S.indirizzi.forEach(a=>delete a.err);
@@ -746,7 +747,7 @@ function render(){
  }
  const n=LS.length,pr=LS.filter(it=>it.fatto).length;
  const body=`<div class="sh"><h2>Lista della spesa</h2>${n?`<span class="note">${pr} di ${n} presi</span>`:""}</div>
- <div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+lista()+(n?`<button class="btn" data-lfine>${ic("list-checks")}Fatto</button>`:"");
+ `+(S.listaAperta?`<div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+lista()+`<button class="btn" data-lfine>${ic("list-checks")}Fatto!</button>`:`<button class="btn" data-lcrea>${ic("plus")}Crea lista</button>`);
  $("#spesa").innerHTML=HEAD+dispSez()+head+body;
  primoGiro=false;
 }
@@ -807,7 +808,8 @@ function chiudiLista(salva){if(salva){const v=parseFloat(($("#fn-e").value||"").
 function spunta(it,on){it.fatto=on;if(!it.id){save();return}const id=it.id;
  if(on){const c=I[id].conf,q=it.q||confD(id),n=c?Math.max(1,Math.ceil(q/c-.05))*c:q;it.add={n,nuovo:!(S.dispensa||{})[id]};setDisp(id,(resto(id)||0)+n)}
  else if(it.add){if(S.dispensa[id]){if(it.add.nuovo){const D={...S.dispensa};delete D[id];S.dispensa=D}else setDisp(id,(resto(id)||0)-it.add.n)}delete it.add}save()}
-function listaAdd(id,q){if(id&&(S.lista||[]).some(it=>it.id==id))return;S.lista=[...(S.lista||[]),{k:Date.now().toString(36)+Math.random().toString(36).slice(2,6),...(id?{id,q:Math.round(q||0)}:{})}];save()}
+function apriLista(){if(S.listaAperta)return;S.listaAperta=true;S.lista=[...(S.rimasti||[])];S.rimasti=[];save()}
+function listaAdd(id,q){apriLista();if(id&&(S.lista||[]).some(it=>it.id==id))return;S.lista=[...(S.lista||[]),{k:Date.now().toString(36)+Math.random().toString(36).slice(2,6),...(id?{id,q:Math.round(q||0)}:{})}];save()}
 function setSug(b,html){if(!b||b.innerHTML===html)return;const h=b.offsetHeight;b.innerHTML=html;b.style.minHeight=html?h+"px":""}
 function listaSug(q){const b=$("#lsug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}const X=prossimaSpesa();
  const l=ING.filter(i=>norm(i.nome).includes(qq)&&!(S.lista||[]).some(it=>it.id==i.id)).sort((a,b)=>((b.id in X.q)-(a.id in X.q))).slice(0,6);
@@ -835,7 +837,7 @@ function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(
  ${manca.length?`<div class="tags">${manca.slice(0,8).map(id=>`<button class="tag b" data-padd="${id}">${ic("plus")}${I[id].nome}</button>`).join("")}</div>`:""}
  ${ids.length?`<div class="disp">${vis.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
   <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div><p class="note">${s.t}</p>
-  <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}${(()=>{const on=(S.lista||[]).some(it=>it.id==id);return`<button class="tag b buy${on?" on":""}" data-pbuy="${id}" aria-pressed="${on}">${ic(on?"check":"shopping-cart")}${on?"Nella lista della spesa":"Aggiungi alla spesa"}</button>`})()}</div>${UNITA[id]?`<div class="dp-g"><button class="x" data-pu="${id}|-1" aria-label="Meno">${ic("minus")}</button><span>${unitaTxt(id)}</span><button class="x" data-pu="${id}|1" aria-label="Più">${ic("plus")}</button></div>`:""}</div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
+  <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}${(()=>{const on=S.listaAperta&&(S.lista||[]).some(it=>it.id==id);return`<button class="tag b buy${on?" on":""}" data-pbuy="${id}" aria-pressed="${on}">${ic(on?"check":"shopping-cart")}${on?"Nella lista della spesa":"Aggiungi alla spesa"}</button>`})()}</div>${UNITA[id]?`<div class="dp-g"><button class="x" data-pu="${id}|-1" aria-label="Meno">${ic("minus")}</button><span>${unitaTxt(id)}</span><button class="x" data-pu="${id}|1" aria-label="Più">${ic("plus")}</button></div>`:""}</div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
@@ -1180,12 +1182,13 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.stile){S.stile=d.stile;if(d.stile=="tutto")S.flex=false;save();profilo();render();return}
  if(d.latt){S.lattosio=d.latt;save();profilo();render();return}
  if(d.ptutti!==undefined){dispTutti=!dispTutti;render();return}
- if(d.pbuy){const i=(S.lista||[]).findIndex(it=>it.id==d.pbuy);if(i>=0){S.lista=S.lista.filter((_,x)=>x!=i);save()}else listaAdd(d.pbuy,confD(d.pbuy));render();return}
+ if(d.pbuy){const i=S.listaAperta?(S.lista||[]).findIndex(it=>it.id==d.pbuy):-1;if(i>=0){S.lista=S.lista.filter((_,x)=>x!=i);save()}else listaAdd(d.pbuy,confD(d.pbuy));render();return}
  if(d.ladd){const[id,q]=d.ladd.split("|");listaAdd(id,+q||confD(id));const i=$("#lq");if(i)i.value="";render();return}
  if(d.laddall!==undefined){const X=prossimaSpesa();Object.keys(X.q).forEach(id=>listaAdd(id,X.q[id]));render();return}
  if(d.lnew!==undefined){const t=($("#lq").value||"").trim();if(t){S.lista=[...(S.lista||[]),{k:Date.now().toString(36),nome:t[0].toUpperCase()+t.slice(1)}];save()}render();return}
  if(d.lrm){const it=(S.lista||[]).find(x=>x.k==d.lrm);if(it&&it.fatto)spunta(it,false);S.lista=S.lista.filter(x=>x.k!=d.lrm);save();render();return}
- if(d.lfine!==undefined){S.lista=(S.lista||[]).filter(it=>!it.fatto);save();render();return}
+ if(d.lfine!==undefined){S.rimasti=(S.lista||[]).filter(it=>!it.fatto).map(it=>({k:it.k,id:it.id,q:it.q}));S.lista=[];S.listaAperta=false;save();render();return}
+ if(d.lcrea!==undefined){apriLista();render();const i=$("#lq");if(i)i.focus();return}
  if(d.fsave!==undefined){chiudiLista(true);return}
  if(d.fskip!==undefined){chiudiLista(false);return}
  if(d.stutti!==undefined){storTutti=!storTutti;render();return}
@@ -1246,7 +1249,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929201529";
+const VER="20260929202040";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
