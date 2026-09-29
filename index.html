@@ -591,7 +591,7 @@ function benvenuto(){
  ["home","piano","spesa","profilo","impostazioni"].forEach(s=>$("#"+s).hidden=true);$("#intro").hidden=true;$(".tabbar").hidden=true;
  const el=$("#benvenuto");el.hidden=false;
  el.innerHTML=`<img class="bv-logo" src="icone/icona-192.png" alt="">
- <div class="bv-t"><h1>Pasto pronto</h1><p>Ciao! Sto costruendo un'app che pensa al posto tuo a cosa mangiare, come cucinarlo e cosa comprare. Siamo in fase di test: usala per qualche giorno e fammi sapere cosa ne pensi.</p><p class="firma">Stefano</p></div>
+ <div class="bv-t"><h1>Pasto pronto</h1><p>Ciao! Sto costruendo un'app che pensa al posto tuo a cosa mangiare, come cucinarlo e cosa comprare. Siamo in fase di test: usala per qualche giorno e fammi sapere cosa ne pensi.</p></div>
  <div><label for="codice">Codice di accesso</label><div class="otp" id="otp">${"<i></i>".repeat(6)}<input id="codice" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="6" aria-describedby="bv-err"></div>
  <p class="bv-err" id="bv-err" role="alert"></p><button class="btn" data-entra>Entra</button></div>
  <p class="note bv-f">I tuoi dati restano solo su questo telefono.<br>Non hai un codice? <a href="mailto:${MAIL}?subject=${encodeURIComponent("Codice per Pasto pronto")}">Scrivimi</a></p>`;
