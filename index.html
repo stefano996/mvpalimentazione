@@ -69,8 +69,11 @@ input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);borde
 // I dati (ingredienti, ricette, parole per le esclusioni) stanno nella cartella data/: si aggiornano lì.
 const $=s=>document.querySelector(s);
 let ING=[],I={},RIC=[],SYN={},SUG=[];
-const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",casa:null,negozi:[],exl:[],done:false,step:0};
+const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,indirizzi:[],attivo:null,exl:[],done:false,step:0};
 let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}catch(e){}
+if(S.casa){S.indirizzi=[{id:"casa",etichetta:"Casa",testo:S.casa.label,lat:S.casa.lat,lon:S.casa.lon,negozi:S.negozi||null}];S.attivo="casa"}
+if(S.done&&!S.kcalOk)S.kcalOk=true;
+["casa","negozi","spesa","batch"].forEach(k=>delete S[k]);S.indirizzi.forEach(a=>delete a.err);
 const save=()=>{try{localStorage.setItem("pp",JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
@@ -91,44 +94,55 @@ const LV={poco:{nome:"Poco",desc:"Il minimo indispensabile: piatti pronti in 15 
 giusto:{nome:"Il giusto",desc:"Fino a 25 minuti per piatto, ricette semplici con qualche passaggio in più. Cucini qualche volta in più e cambi piatto più spesso.",t:25,d:2,u:3,b:3},
 tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Cucini spesso e hai più varietà durante la settimana.",t:999,d:3,u:9,b:2}};
 
-// ---------- Negozi (OpenStreetMap) ----------
+// ---------- Indirizzi e negozi (OpenStreetMap) ----------
 // liv = quali ingredienti ci trovi: 1 di base, 2 da supermercato ben fornito, 3 da negozio bio/specializzato
 const TIPI={convenience:{tipo:"Alimentari",liv:[1]},supermarket:{tipo:"Supermercato",liv:[1,2]},organic:{tipo:"Negozio bio",liv:[3]},health_food:{tipo:"Negozio bio",liv:[3]}};
 const DISCOUNT=/lidl|eurospin|aldi|penny|^md\b|in.s mercato|todis|dpi[uù]|prix/i;
 const km=(a,b,c,d)=>{const r=x=>x*Math.PI/180,h=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(h))};
 const dist=k=>k<1?Math.max(100,Math.round(k*10)*100)+" m":k.toFixed(1).replace(".",",")+" km";
-const ERR="Non riesco a collegarmi alla mappa in questo momento. Puoi andare avanti e riprovare più tardi dal Profilo.";
-function reach(){if(!S.casa)return new Set([1,2]);const s=new Set([1]);S.negozi.forEach(n=>n.liv.forEach(l=>s.add(l)));return s}
-function primario(){const by=(a,b)=>a.km-b.km;return S.negozi.filter(n=>n.liv.includes(2)).sort(by)[0]||S.negozi.filter(n=>n.liv.includes(1)).sort(by)[0]||null}
-function negozioPer(dove){if(!S.casa||!S.negozi.length)return null;const p=primario();if(p&&p.liv.includes(dove))return p;return S.negozi.filter(n=>n.liv.includes(dove)).sort((a,b)=>a.km-b.km)[0]||p}
+const ERR="Non riesco a collegarmi alla mappa in questo momento. Riprova tra poco.";
+const NOM="https://nominatim.openstreetmap.org/";
+const ADDR=()=>S.indirizzi.find(a=>a.id==S.attivo)||S.indirizzi[0]||null;
+const NEG=()=>(ADDR()&&ADDR().negozi)||[];
+function reach(){const a=ADDR();if(!a||!a.negozi)return new Set([1,2]);const s=new Set([1]);a.negozi.forEach(n=>n.liv.forEach(l=>s.add(l)));return s}
+function primario(){const by=(a,b)=>a.km-b.km,N=NEG();return N.filter(n=>n.liv.includes(2)).sort(by)[0]||N.filter(n=>n.liv.includes(1)).sort(by)[0]||null}
+function negozioPer(dove){const N=NEG();if(!N.length)return null;const p=primario();if(p&&p.liv.includes(dove))return p;return N.filter(n=>n.liv.includes(dove)).sort((a,b)=>a.km-b.km)[0]||p}
 const st=m=>{const e=$("#geo-st");if(e)e.textContent=m};
-async function cercaNegozi(lat,lon,label){
- st("Cerco i negozi vicino a te…");let el=[];
- for(const r of [5000,15000]){
-  const q=`[out:json][timeout:25];nwr(around:${r},${lat},${lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
-  const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
-  if(!res.ok)throw res.status;el=(await res.json()).elements||[];if(el.length)break}
- S.casa={label,lat,lon};
- S.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
-  return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),lat:la,lon:lo,km:km(lat,lon,la,lo)}})
-  .filter(n=>n.lat!=null).sort((a,b)=>a.km-b.km).slice(0,40);
- save();const l=$("#luogo");if(l)l.innerHTML=luogoHTML();st("");const g=$("[data-go='1']");if(g&&!S.done&&S.step==3)g.textContent="Avanti";sum();render();
-}
-async function cercaIndirizzo(q){
- if(!q.trim())return st("Scrivi un indirizzo, per esempio: Via Roma 10, Monza.");
- st("Cerco l'indirizzo…");
- try{const r=await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=it&accept-language=it&q="+encodeURIComponent(q));
-  const j=await r.json();if(!j.length)return st("Indirizzo non trovato. Prova ad aggiungere il numero civico o la città.");
-  await cercaNegozi(+j[0].lat,+j[0].lon,q.trim())}catch(e){st(ERR)}}
+const cercando=new Set();let pos=null;
+async function cercaNegozi(a){
+ if(cercando.has(a.id))return;cercando.add(a.id);a.err=false;
+ try{let el=[];
+  for(const r of [5000,15000]){
+   const q=`[out:json][timeout:25];nwr(around:${r},${a.lat},${a.lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
+   const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
+   if(!res.ok)throw res.status;el=(await res.json()).elements||[];if(el.length)break}
+  a.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
+   return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),lat:la,lon:lo,km:km(a.lat,a.lon,la,lo)}})
+   .filter(n=>n.lat!=null).sort((x,y)=>x.km-y.km).slice(0,40)}
+ catch(e){a.err=true}
+ finally{cercando.delete(a.id);save();sum();render()}}
+async function salvaIndirizzo(){
+ const testo=$("#addr").value.trim(),et=$("#etq").value.trim();
+ if(!testo)return st("Scrivi un indirizzo, per esempio: Via Roma 10, Monza.");
+ let c=pos&&pos.testo==testo?pos:null;
+ if(!c){st("Cerco l'indirizzo…");
+  try{const j=await(await fetch(NOM+"search?format=jsonv2&limit=1&countrycodes=it&accept-language=it&q="+encodeURIComponent(testo))).json();c=j.length?{lat:+j[0].lat,lon:+j[0].lon}:null}catch(e){return st(ERR)}
+  if(!c)return st("Indirizzo non trovato. Prova ad aggiungere il numero civico o la città.")}
+ const a={id:Date.now().toString(36),etichetta:et||`Indirizzo ${S.indirizzi.length+1}`,testo,lat:c.lat,lon:c.lon,negozi:null};
+ S.indirizzi.push(a);S.attivo=a.id;pos=null;save();
+ $("#addr").value="";$("#etq").value="";st(`Salvato come "${a.etichetta}".`);refreshAddr();cercaNegozi(a)}
 function usaPosizione(){
  if(!navigator.geolocation)return st("Questo browser non condivide la posizione: scrivi l'indirizzo.");
  st("Recupero la tua posizione…");
- navigator.geolocation.getCurrentPosition(p=>cercaNegozi(p.coords.latitude,p.coords.longitude,"la tua posizione").catch(()=>st(ERR)),()=>st("Posizione non disponibile: scrivi l'indirizzo."),{timeout:10000})}
-function luogoHTML(){
- if(!S.casa)return"";
- if(!S.negozi.length)return`<p class="warn">Nessun negozio trovato entro 15 km da ${esc(S.casa.label)}. Ti proponiamo solo ingredienti che si trovano ovunque.</p>`;
- const p=primario();
- return`<p class="note">Negozi vicino a ${esc(S.casa.label)}:</p>`+S.negozi.slice(0,5).map(n=>`<div class="shop"><div><b>${esc(n.nome)}</b>${n===p?' <span class="tag p">Qui fai la spesa</span>':""}<br><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span></div><span>${dist(n.km)}</span></div>`).join("")}
+ navigator.geolocation.getCurrentPosition(async p=>{const lat=p.coords.latitude,lon=p.coords.longitude;let testo="La mia posizione";
+  try{const ad=(await(await fetch(`${NOM}reverse?format=jsonv2&accept-language=it&lat=${lat}&lon=${lon}`)).json()).address||{};
+   testo=[[ad.road,ad.house_number].filter(Boolean).join(" "),ad.city||ad.town||ad.village].filter(Boolean).join(", ")||testo}catch(e){}
+  pos={lat,lon,testo};$("#addr").value=testo;st("Posizione trovata: dai un nome all'indirizzo e salvalo.");$("#etq").focus()},
+  ()=>st("Posizione non disponibile: scrivi l'indirizzo."),{timeout:10000})}
+function addrHTML(){
+ if(!S.indirizzi.length)return"";const at=ADDR();
+ return`<p class="note">I tuoi indirizzi</p>`+S.indirizzi.map(a=>`<div class="shop"><div><b>${esc(a.etichetta)}</b>${a===at?' <span class="tag p">Sei qui</span>':""}<br><span>${esc(a.testo)}</span></div><div class="xr">${a===at?"":`<button class="tag b" data-use="${a.id}">Sono qui</button>`}<button class="x" data-del="${a.id}" aria-label="Elimina ${esc(a.etichetta)}">✕</button></div></div>`).join("")}
+function refreshAddr(){const l=$("#luogo");if(l)l.innerHTML=addrHTML();const g=$("[data-go='1']");if(g&&!S.done&&S.step==3)g.textContent=S.indirizzi.length?"Avanti":"Salta per ora";sum();render()}
 
 // ---------- Piano ----------
 const spend=(g,id)=>g/1000*I[id].kg;
@@ -166,15 +180,23 @@ function render(){
  const chk=chkGet();
  const riga=id=>{const q=P.tot[id],u=q>=1000?(q/1000).toFixed(1).replace(".",",")+" kg":Math.round(q/10)*10+" g";return`<div class="sp"><label><input type="checkbox" data-c="${id}" ${chk[id]?"checked":""}><span class="${chk[id]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
  const ids=Object.keys(P.tot).sort((a,b)=>I[a].rep.localeCompare(I[b].rep)||I[a].nome.localeCompare(I[b].nome));
- let body="";
- if(S.casa&&S.negozi.length){
+ const a=ADDR();let head="",body="";
+ if(!a)head=`<div class="card"><p class="note" style="margin:0">Aggiungi dove ti trovi nel Profilo: ti diremo in quale negozio fare la spesa.</p><button class="btn ghost" data-t="profilo">Aggiungi indirizzo</button></div>`;
+ else{
+  head=`<label for="dove">Fai la spesa vicino a</label><select id="dove">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta)+" · "+esc(x.testo),a.id)).join("")}</select>`;
+  if(!a.negozi){if(a.err)head+=`<p class="warn">${ERR}</p><button class="btn ghost" data-retry>Riprova</button>`;else{head+=`<p class="note">Cerco i negozi vicino a ${esc(a.etichetta)}…</p>`;setTimeout(()=>cercaNegozi(a))}}
+  else if(!a.negozi.length)head+=`<p class="warn">Nessun negozio trovato entro 15 km: ti proponiamo solo ingredienti che si trovano ovunque.</p>`;
+  else{const p=primario(),l=[p,...a.negozi.filter(n=>n!==p)].filter(Boolean).slice(0,4);
+   head+=`<h2>Puoi fare la spesa qui</h2><div class="card">`+l.map(n=>`<div class="shop"><div><b>${esc(n.nome)}</b>${n===p?' <span class="tag p">Consigliato</span>':""}<br><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span></div><span>${dist(n.km)}</span></div>`).join("")+`</div>`}
+ }
+ if(NEG().length){
   const gr=new Map();ids.forEach(id=>{const n=negozioPer(I[id].dove);if(!gr.has(n))gr.set(n,[]);gr.get(n).push(id)});
-  body=[...gr].sort((a,b)=>a[0].km-b[0].km).map(([n,l])=>`<h2>Da ${esc(n.nome)}</h2><p class="note">${n.tipo}${n.via?" · "+esc(n.via):""} · ${dist(n.km)} · <a href="https://www.google.com/maps/dir/?api=1&destination=${n.lat},${n.lon}" target="_blank" rel="noopener">Indicazioni</a></p><div class="card">${l.map(riga).join("")}</div>`).join("");
+  body=[...gr].sort((x,y)=>x[0].km-y[0].km).map(([n,l])=>`<h2>Da ${esc(n.nome)}</h2><p class="note">${n.tipo}${n.via?" · "+esc(n.via):""} · ${dist(n.km)} · <a href="https://www.google.com/maps/dir/?api=1&destination=${n.lat},${n.lon}" target="_blank" rel="noopener">Indicazioni</a></p><div class="card">${l.map(riga).join("")}</div>`).join("");
  }else{
   const gr={};ids.forEach(id=>(gr[I[id].rep]=gr[I[id].rep]||[]).push(id));
-  body=`<div class="card"><p class="note" style="margin:0">Aggiungi dove abiti nel Profilo: ti diremo in quale negozio comprare ogni cosa.</p><button class="btn ghost" data-t="profilo">Aggiungi indirizzo</button></div>`+Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
+  body=Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
  }
- $("#spesa").innerHTML=`<div class="kpi"><div><b>${eur(P.cost)}</b><span>totale stimato</span></div></div>`+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
+ $("#spesa").innerHTML=`<div class="kpi"><div><b>${eur(P.cost)}</b><span>totale stimato</span></div></div>`+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
 }
 
 // ---------- Esclusioni ----------
@@ -189,17 +211,17 @@ function refreshEx(){save();$("#chips").innerHTML=chips();$("#exq").value="";q="
 function addEx(t){t=(t||"").trim();if(!t||S.exl.some(x=>norm(x.t)==norm(t)))return;S.exl.push({t,tipo:"non-piace"});refreshEx()}
 
 // ---------- Profilo e onboarding ----------
-const TIT=["Su di te","Attività e obiettivo","Quanto vuoi stare in cucina?","Dove abiti?","Cose che non mangio"],LAST=TIT.length-1;
+const TIT=["Su di te","Attività e obiettivo","Quanto vuoi stare in cucina?","Dove ti trovi?","Cose che non mangio"],LAST=TIT.length-1;
 function sec(n){
  if(n==0)return`<p class="note">Servono per stimare quante kcal ti servono ogni giorno.</p><div class="row"><div><label for="sesso">Sesso</label><select id="sesso">${opt("m","Uomo",S.sesso)}${opt("f","Donna",S.sesso)}</select></div><div><label for="eta">Età</label><input id="eta" type="number" inputmode="numeric" value="${S.eta}"></div></div><div class="row"><div><label for="peso">Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${S.peso}"></div><div><label for="alt">Altezza (cm)</label><input id="alt" type="number" inputmode="numeric" value="${S.alt}"></div></div>`;
- if(n==1)return`<label for="att">Attività fisica</label><select id="att">${opt(1.2,"Sedentario",S.att)}${opt(1.375,"1-3 allenamenti a settimana",S.att)}${opt(1.55,"3-5 allenamenti a settimana",S.att)}${opt(1.725,"6-7 allenamenti a settimana",S.att)}</select><label for="obj">Obiettivo</label><select id="obj">${opt(.9,"Definizione (circa -10%)",S.obj)}${opt(1,"Mantenimento",S.obj)}${opt(1.1,"Massa (circa +10%)",S.obj)}</select><button class="btn ghost" data-calc>Calcola le mie kcal</button><label for="kcal">Kcal al giorno (puoi modificarle)</label><input id="kcal" type="number" inputmode="numeric" value="${S.kcal}"><p class="note">Stima indicativa (formula di Mifflin-St Jeor), non un consiglio medico.</p>`;
+ if(n==1)return`<label for="att">Attività fisica</label><select id="att">${opt(1.2,"Sedentario",S.att)}${opt(1.375,"1-3 allenamenti a settimana",S.att)}${opt(1.55,"3-5 allenamenti a settimana",S.att)}${opt(1.725,"6-7 allenamenti a settimana",S.att)}</select><label for="obj">Obiettivo</label><select id="obj">${opt(.9,"Definizione (circa -10%)",S.obj)}${opt(1,"Mantenimento",S.obj)}${opt(1.1,"Massa (circa +10%)",S.obj)}</select><button class="btn${S.kcalOk?" ghost":""}" data-calc>${S.kcalOk?"Ricalcola le kcal":"Calcola le mie kcal"}</button><p class="note" id="kerr" role="status"></p>${S.kcalOk?`<label for="kcal">Il tuo fabbisogno giornaliero (kcal)</label><input id="kcal" type="number" inputmode="numeric" value="${S.kcal}"><p class="note">È una stima (formula di Mifflin-St Jeor), non un consiglio medico. Se hai un valore diverso, ad esempio dal tuo nutrizionista, puoi modificarlo.</p>`:""}`;
  if(n==2)return`<p class="note">In base alla risposta scegliamo ricette più o meno lunghe e impegnative, e quante volte cucinare a settimana.</p><div class="lv" role="group" aria-label="Quanto vuoi stare in cucina">${Object.entries(LV).map(([k,v])=>`<button data-lv="${k}" aria-pressed="${S.cucina==k}"><b>${v.nome}</b><span>${v.desc}</span></button>`).join("")}</div>`;
- if(n==3)return`<p class="note">Cerchiamo i negozi vicino a te per dirti dove fare la spesa e proporti solo ingredienti che trovi facilmente. L'indirizzo resta salvato solo su questo dispositivo.</p><label for="addr">Indirizzo</label><div class="addr"><input id="addr" autocomplete="street-address" placeholder="Via, numero e città" value="${S.casa&&S.casa.label!="la tua posizione"?esc(S.casa.label):""}"><button class="btn" data-find>Cerca</button></div><button class="btn ghost" data-geo>Usa la mia posizione</button><p class="note" id="geo-st" role="status"></p><div id="luogo">${luogoHTML()}</div>`;
+ if(n==3)return`<p class="note">In base a dove ti trovi ti suggeriremo dove fare la spesa. Puoi salvare più indirizzi, per esempio casa e lavoro, e scegliere ogni volta dove sei. Restano salvati solo su questo dispositivo.</p><label for="addr">Indirizzo</label><input id="addr" autocomplete="street-address" placeholder="Via, numero e città"><button class="btn ghost" data-geo>Usa la mia posizione</button><label for="etq">Nome dell'indirizzo</label><input id="etq" autocomplete="off" placeholder="Es. Casa, Lavoro, Weekend"><div class="tags sug">${["Casa","Lavoro"].map(e=>`<button class="tag b" data-et="${e}">${e}</button>`).join("")}</div><button class="btn" data-save>Salva indirizzo</button><p class="note" id="geo-st" role="status"></p><div id="luogo">${addrHTML()}</div>`;
  return`<label for="exq">Scrivi un alimento o una categoria</label><div class="addr"><input id="exq" autocomplete="off" placeholder="Es. latticini, tonno, glutine"><button class="btn" data-add>Aggiungi</button></div><div class="tags sug" id="sug">${sugHTML()}</div><div id="chips">${chips()}</div><p class="note">Il piano e la spesa evitano ogni ricetta con questi ingredienti. Per le allergie controlla sempre le etichette.</p>`}
-function sum(){const e=$("#sum");if(!e)return;const p=S.casa&&primario();
- e.innerHTML=`<div class="kpi"><div><b>${S.kcal||"–"}</b><span>kcal al giorno</span></div><div><b>${(LV[S.cucina]||LV.giusto).nome}</b><span>in cucina</span></div><div><b>${p?esc(p.nome):"–"}</b><span>${p?"dove fai la spesa":"indirizzo mancante"}</span></div><div><b>${S.exl.length}</b><span>esclusioni</span></div></div>`}
+function sum(){const e=$("#sum");if(!e)return;const a=ADDR();
+ e.innerHTML=`<div class="kpi"><div><b>${S.kcal||"–"}</b><span>kcal al giorno</span></div><div><b>${(LV[S.cucina]||LV.giusto).nome}</b><span>in cucina</span></div><div><b>${a?esc(a.etichetta):"–"}</b><span>${a?"sei qui":"indirizzo mancante"}</span></div><div><b>${S.exl.length}</b><span>esclusioni</span></div></div>`}
 function profilo(){const el=$("#profilo");
- if(!S.done){const n=S.step;el.innerHTML=`<p class="note">Passo ${n+1} di ${LAST+1}</p><div class="bar"><i style="width:${(n+1)/(LAST+1)*100}%"></i></div><div class="card"><h2 style="margin-top:0">${TIT[n]}</h2>${sec(n)}</div><div class="row">${n?'<button class="btn ghost" data-go="-1">Indietro</button>':'<span></span>'}<button class="btn" data-go="1">${n==LAST?"Crea il mio piano":n==3&&!S.casa?"Salta per ora":"Avanti"}</button></div>`;return}
+ if(!S.done){const n=S.step;el.innerHTML=`<p class="note">Passo ${n+1} di ${LAST+1}</p><div class="bar"><i style="width:${(n+1)/(LAST+1)*100}%"></i></div><div class="card"><h2 style="margin-top:0">${TIT[n]}</h2>${sec(n)}</div><div class="row">${n?'<button class="btn ghost" data-go="-1">Indietro</button>':'<span></span>'}<button class="btn" data-go="1">${n==LAST?"Crea il mio piano":n==3&&!S.indirizzi.length?"Salta per ora":"Avanti"}</button></div>`;return}
  el.innerHTML=`<div id="sum"></div>`+TIT.map((t,n)=>`<div class="card"><h2 style="margin-top:0">${t}</h2>${sec(n)}</div>`).join("")+`<button class="btn ghost" data-go="restart">Rifai l'onboarding</button>`;sum()}
 function showTab(n){document.querySelectorAll("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t==n));["profilo","piano","spesa"].forEach(s=>$("#"+s).hidden=s!=n);document.querySelector("nav").hidden=!S.done;scrollTo(0,0)}
 function calc(){const{sesso,eta,peso,alt,att,obj}=S;if(!(eta&&peso&&alt))return false;S.kcal=Math.round((10*peso+6.25*alt-5*eta+(sesso=="m"?5:-161))*att*obj/10)*10;return true}
@@ -207,23 +229,28 @@ function calc(){const{sesso,eta,peso,alt,att,obj}=S;if(!(eta&&peso&&alt))return 
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.tipo!==undefined)S.exl[t.dataset.tipo].tipo=t.value;
  else if(t.dataset.c){const c=chkGet();c[t.dataset.c]=t.checked;chkSet(c)}
+ else if(t.id=="dove")S.attivo=t.value;
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
  else return;
  save();sum();render()});
 document.addEventListener("input",e=>{if(e.target.id=="exq"){q=e.target.value;$("#sug").innerHTML=sugHTML()}});
 document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
- if(e.target.id=="addr"){e.preventDefault();cercaIndirizzo(e.target.value)}});
+ if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
  if(d.t){if(!S.done&&d.t=="profilo")return;showTab(d.t)}
  else if(d.add!==undefined)addEx($("#exq").value);
  else if(d.s)addEx(d.s);
  else if(d.rm!==undefined){S.exl.splice(+d.rm,1);refreshEx()}
- else if(d.find!==undefined)cercaIndirizzo($("#addr").value);
+ else if(d.save!==undefined)salvaIndirizzo();
+ else if(d.et)$("#etq").value=d.et;
+ else if(d.use){S.attivo=d.use;save();st("");refreshAddr()}
+ else if(d.del){S.indirizzi=S.indirizzi.filter(a=>a.id!=d.del);if(S.attivo==d.del)S.attivo=S.indirizzi[0]?S.indirizzi[0].id:null;save();st("");refreshAddr()}
+ else if(d.retry!==undefined){const a=ADDR();if(a)cercaNegozi(a);render()}
  else if(d.geo!==undefined)usaPosizione();
  else if(d.lv){S.cucina=d.lv;document.querySelectorAll("[data-lv]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lv==d.lv));save();sum();render()}
- else if(d.calc!==undefined){if(calc()){save();$("#kcal").value=S.kcal;sum();render()}else alert("Inserisci età, peso e altezza.")}
- else if(d.go){if(d.go=="restart"){S.done=false;S.step=0}else{if(S.step==1&&d.go=="1")calc();S.step+=+d.go;if(S.step>LAST){S.done=true;S.step=0}}
+ else if(d.calc!==undefined){if(calc()){S.kcalOk=true;save();profilo();render();const k=$("#kcal");if(k)k.focus()}else $("#kerr").textContent=S.done?"Inserisci età, peso e altezza in \"Su di te\" per calcolare le kcal.":"Torna indietro e inserisci età, peso e altezza per calcolare le kcal."}
+ else if(d.go){if(d.go=="restart"){S.done=false;S.step=0}else{if(S.step==1&&d.go=="1"&&calc())S.kcalOk=true;S.step+=+d.go;if(S.step>LAST){S.done=true;S.step=0}}
   save();profilo();render();showTab(S.done?"piano":"profilo")}});
 
 load().then(()=>{profilo();render();showTab(S.done?"piano":"profilo")})
