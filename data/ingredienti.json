@@ -454,5 +454,39 @@
     "dove": 2,
     "carboidrati_100g": 8,
     "grassi_100g": 0.3
+  },
+  {
+    "id": "gallette-riso",
+    "nome": "Gallette di riso",
+    "reparto": "Dispensa",
+    "prezzo_kg": 9,
+    "kcal_100g": 380,
+    "proteine_100g": 8,
+    "dove": 1,
+    "carboidrati_100g": 80,
+    "grassi_100g": 3,
+    "pezzo": [
+      8,
+      "galletta di riso",
+      "gallette di riso",
+      "intero"
+    ]
+  },
+  {
+    "id": "riso-pronto",
+    "nome": "Riso pronto in busta",
+    "reparto": "Dispensa",
+    "prezzo_kg": 8,
+    "kcal_100g": 160,
+    "proteine_100g": 3,
+    "dove": 2,
+    "carboidrati_100g": 34,
+    "grassi_100g": 1.5,
+    "pezzo": [
+      250,
+      "busta di riso pronto",
+      "buste di riso pronto",
+      ""
+    ]
   }
 ]

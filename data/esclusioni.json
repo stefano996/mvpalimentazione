@@ -211,6 +211,31 @@
     ],
     "bosc": [
       "frutti-bosco"
+    ],
+    "chin": [
+      "quinoa"
+    ],
+    "kinoa": [
+      "quinoa"
+    ],
+    "cus": [
+      "couscous"
+    ],
+    "celiac": [
+      "pasta",
+      "pane",
+      "avena",
+      "couscous",
+      "farro",
+      "piadina"
+    ],
+    "celiach": [
+      "pasta",
+      "pane",
+      "avena",
+      "couscous",
+      "farro",
+      "piadina"
     ]
   },
   "suggerimenti": [
@@ -254,5 +279,76 @@
     "Arachidi",
     "Farro",
     "Cous cous"
-  ]
+  ],
+  "sostituti": {
+    "pasta": [
+      {
+        "id": "riso",
+        "min": 5,
+        "nota": "Usa il riso al posto della pasta: cuocilo come indicato sulla confezione, poi segui i passaggi come se fosse pasta."
+      },
+      {
+        "id": "patate",
+        "min": 15,
+        "nota": "Usa le patate al posto della pasta: lessale a cubetti per 15 minuti, poi segui i passaggi."
+      }
+    ],
+    "couscous": [
+      {
+        "id": "riso",
+        "min": 10,
+        "nota": "Usa il riso al posto del cous cous: cuocilo come indicato sulla confezione, poi segui i passaggi."
+      }
+    ],
+    "quinoa": [
+      {
+        "id": "riso",
+        "min": 0,
+        "nota": "Usa il riso al posto della quinoa: si cuoce allo stesso modo, in acqua bollente."
+      }
+    ],
+    "farro": [
+      {
+        "id": "riso",
+        "min": 0,
+        "nota": "Usa il riso al posto del farro: cuocilo come indicato sulla confezione, poi segui i passaggi."
+      }
+    ],
+    "pane": [
+      {
+        "id": "gallette-riso",
+        "min": 0,
+        "nota": "Servi le gallette di riso al posto del pane.",
+        "max": 40
+      }
+    ],
+    "piadina": [
+      {
+        "id": "gallette-riso",
+        "min": 0,
+        "nota": "Usa le gallette di riso al posto della piadina: metti il ripieno sopra, come dei crostini.",
+        "max": 40
+      }
+    ],
+    "tofu": [
+      {
+        "id": "ceci",
+        "min": 0,
+        "nota": "Usa i ceci già cotti al posto del tofu: scolali, sciacquali e saltali in padella come faresti con il tofu."
+      },
+      {
+        "id": "pollo",
+        "min": 5,
+        "nota": "Usa il petto di pollo a cubetti al posto del tofu: cuocilo in padella qualche minuto in più."
+      }
+    ],
+    "latte": [
+      {
+        "id": "yogurt",
+        "min": 0,
+        "nota": "Usa lo yogurt al posto del latte."
+      }
+    ]
+  },
+  "_sostituti_info": "Se un ingrediente è escluso, la ricetta resta nel piano usando il primo sostituto non escluso. 'min' = minuti di cottura in più, 'max' = grammi massimi del sostituto a porzione."
 }

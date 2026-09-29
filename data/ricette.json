@@ -470,9 +470,8 @@
     "si_conserva_giorni": 1,
     "grammi_a_porzione": {
       "yogurt": 250,
-      "frutti-bosco": 80,
-      "noci": 20,
-      "avena": 30
+      "frutti-bosco": 100,
+      "noci": 25
     },
     "utensili": [
       "Ciotola",
@@ -480,7 +479,7 @@
     ],
     "passaggi": [
       "Versa lo yogurt in una ciotola.",
-      "Aggiungi avena, frutti di bosco e noci spezzettate con le mani."
+      "Aggiungi i frutti di bosco e le noci spezzettate con le mani."
     ],
     "avanzi": "Si prepara al momento.",
     "tempo_totale_min": 2,
@@ -871,6 +870,126 @@
     "avanzi": "",
     "attrezzi": [
       "fornelli|microonde"
+    ]
+  },
+  {
+    "id": "yogurt-banana-e-burro-di-arachidi",
+    "nome": "Yogurt, banana e burro d'arachidi",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "yogurt": 200,
+      "banana": 120,
+      "burro-arachidi": 15
+    },
+    "utensili": [
+      "Ciotola",
+      "Cucchiaio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Versa lo yogurt in una ciotola.",
+      "Taglia la banana a rondelle e mettila sopra.",
+      "Aggiungi il burro d'arachidi a filo con un cucchiaio."
+    ],
+    "avanzi": "",
+    "tempo_totale_min": 3,
+    "attrezzi": []
+  },
+  {
+    "id": "insalata-di-ceci-tonno-e-avocado",
+    "nome": "Insalata di ceci, tonno e avocado",
+    "pasto": "pranzo",
+    "tempo_attivo_min": 8,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "ceci": 150,
+      "tonno": 80,
+      "avocado": 70,
+      "olio": 5
+    },
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Tagliere",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Scola e sciacqua i ceci già cotti.",
+      "Sgocciola il tonno.",
+      "Taglia l'avocado a cubetti.",
+      "Metti tutto in una ciotola, condisci con olio e sale e mescola."
+    ],
+    "avanzi": "Meglio mangiarla subito: l'avocado tende a scurirsi.",
+    "tempo_totale_min": 8,
+    "attrezzi": []
+  },
+  {
+    "id": "salmone-in-padella-e-spinaci",
+    "nome": "Salmone in padella e spinaci",
+    "pasto": "pranzo",
+    "tempo_attivo_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "salmone": 150,
+      "spinaci": 200,
+      "olio": 5
+    },
+    "utensili": [
+      "Padella",
+      "Paletta",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Scalda la padella con l'olio a fuoco medio.",
+      "Cuoci il salmone 4 minuti per lato, partendo dalla pelle.",
+      "Togli il salmone e nella stessa padella fai appassire gli spinaci per 3 minuti con un pizzico di sale.",
+      "Servi il salmone sopra gli spinaci."
+    ],
+    "avanzi": "",
+    "tempo_totale_min": 15,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ]
+  },
+  {
+    "id": "pollo-in-padella-e-verdure-grigliate",
+    "nome": "Pollo in padella e verdure grigliate",
+    "pasto": "pranzo",
+    "tempo_attivo_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pollo": 160,
+      "verdure-grigliate": 200,
+      "olio": 8
+    },
+    "utensili": [
+      "Padella",
+      "Paletta",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Taglia il petto di pollo a striscioline.",
+      "Scalda l'olio in padella e cuoci il pollo 6-7 minuti, girandolo spesso.",
+      "Aggiungi le verdure grigliate e scalda per 3 minuti.",
+      "Aggiusta di sale e pepe."
+    ],
+    "avanzi": "Si conserva in frigo in un contenitore chiuso: scaldalo in padella o al microonde.",
+    "tempo_totale_min": 15,
+    "attrezzi": [
+      "fornelli",
+      "pentole"
     ]
   }
 ]
