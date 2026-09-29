@@ -327,24 +327,32 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);b
 /* indirizzi salvati: più aria sotto "Salva indirizzo" */
 #luogo:not(:empty){margin-top:var(--s5)}
 .sost{display:flex;align-items:flex-start;gap:6px}.sost .i{width:14px;height:14px;flex:none;margin-top:2px}
+
+/* lista: meno margine laterale */
+.li{padding:var(--s3) var(--s3);text-decoration:none}
+/* onboarding: pulsanti agganciati in fondo allo schermo */
+body.onb main{min-height:100dvh;display:flex;flex-direction:column;padding-bottom:0}
+body.onb #profilo{flex:1}
+body.onb .obnav{margin-top:auto;z-index:5}
+#intro{margin-bottom:var(--s4)}
+#intro .wordmark{font-size:2.2rem}
 </style>
 </head>
 <body>
 <main>
 <section id="benvenuto" hidden></section>
-<header id="intro" hidden><div class="brand-row"><span class="logo-s" aria-hidden="true"></span><h1 class="wordmark">sazio</h1></div><p class="sub">Colazione, pranzo e cena della settimana, con la spesa già fatta.</p></header>
+<header id="intro" hidden><h1 class="wordmark">sazio</h1></header>
 <section id="home" class="page" hidden></section>
 <section id="piano" class="page" hidden></section>
 <section id="spesa" class="page" hidden></section>
 <section id="profilo" class="page"></section>
-<section id="impostazioni" class="page" hidden></section>
 <section id="dieta" class="page" hidden></section>
 </main>
 <nav class="tabbar" role="tablist" aria-label="Sezioni" hidden>
 <button role="tab" data-t="home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>Home</button>
 <button role="tab" data-t="piano"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M8 13h.01" /><path d="M12 13h.01" /><path d="M16 13h.01" /><path d="M8 17h.01" /><path d="M12 17h.01" /><path d="M16 17h.01" /></svg>Settimana</button>
 <button role="tab" data-t="spesa"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 11-1 9" /><path d="m19 11-4-7" /><path d="M2 11h20" /><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" /><path d="M4.5 15.5h15" /><path d="m5 11 4-7" /><path d="m9 11 1 9" /></svg>Spesa</button>
-<button role="tab" data-t="profilo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>Profilo</button>
+<button role="tab" data-t="profilo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>Impostazioni</button>
 </nav>
 <dialog id="sheet" aria-labelledby="sh-t"></dialog>
 <script>
@@ -598,7 +606,7 @@ function render(){
 // ---------- Home ----------
 function renderHome(P){
  const now=new Date(),data=now.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}),a=ADDR(),L=LV[S.cucina]||LV.giusto;
- let html=`<header class="ph"><div><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1></div><button class="icon-btn gear" data-t="impostazioni" aria-label="Impostazioni">${ic("settings")}</button></header>${a?`<label class="here">${ic("map-pin")}<span class="sr">Sei qui</span><select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}`;
+ let html=`<header class="ph"><div><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1></div></header>${a?`<label class="here">${ic("map-pin")}<span class="sr">Sei qui</span><select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}`;
  // html+=mappa(); // widget "Giorni in linea" spento per ora: il codice resta pronto
  if(!P){$("#home").innerHTML=html+`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Apri il profilo: togli qualche esclusione o aggiungi attrezzi in cucina.</p>`;return}
  const d=P.days[OGGI()],D=diario(),O=obiettivi();let ek=0,ep=0,ecb=0,egr=0,pk=0,delta=0,segnati=0;
@@ -653,15 +661,10 @@ function mappa(){
 
 // ---------- Impostazioni ----------
 const MAIL="stefanodonat96@gmail.com",SITO="https://stefandodonatportfolio.framer.website/";
-function impostazioni(){
- $("#impostazioni").innerHTML=`<header class="ph"><div><button class="lnk back" data-t="home">${ic("chevron-left")}Home</button><h1>Impostazioni</h1></div></header>
- <div class="sh"><h2>Suggerisci un miglioramento</h2></div>
- <section class="w stack"><p class="note">Hai un'idea o qualcosa non funziona? Scrivila qui: il messaggio arriva direttamente a chi sviluppa l'app.</p>
+// suggerimenti: si aprono in un pannello dalle Impostazioni
+const ideaHTML=()=>`<p class="note">Hai un'idea o qualcosa non funziona? Scrivila qui: il messaggio arriva direttamente a chi sviluppa l'app.</p>
  <label for="idea" class="sr">Il tuo suggerimento</label><textarea id="idea" rows="5" placeholder="Es. vorrei poter scegliere io la colazione"></textarea>
- <button class="btn" data-idea>${ic("send")}Invia suggerimento</button><p class="note" id="idea-st" role="status"></p></section>
- <div class="sh"><h2>Crediti</h2></div>
- <section class="w stack"><div class="st"><span class="avatar" aria-hidden="true">S</span><div class="st-b"><b>Stefano Donatiello</b><span>Product Designer</span></div></div>
- <a class="btn tonal" href="${SITO}" target="_blank" rel="noopener">${ic("external-link")}Visita il portfolio</a></section>`}
+ <button class="btn" data-idea>${ic("send")}Invia suggerimento</button><p class="note" id="idea-st" role="status"></p>`;
 async function inviaIdea(){
  const t=$("#idea").value.trim(),out=$("#idea-st"),b=$("[data-idea]"),mail=`mailto:${MAIL}?subject=${encodeURIComponent("Implementazioni sazio")}&body=${encodeURIComponent(t)}`;
  if(t.length<3){out.textContent="Scrivi il tuo suggerimento prima di inviarlo.";return}
@@ -683,7 +686,7 @@ const CODICI=["7c3f29de29797307c04b38ecdb8a4c54c3803b336d0c92296ab271038f49b581"
 const accessoOk=()=>{try{return CODICI.includes(localStorage.getItem("pp-accesso"))}catch(e){return false}};
 async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
 function benvenuto(){
- ["home","piano","spesa","profilo","impostazioni","dieta"].forEach(s=>$("#"+s).hidden=true);$("#intro").hidden=true;$(".tabbar").hidden=true;
+ ["home","piano","spesa","profilo","dieta"].forEach(s=>$("#"+s).hidden=true);$("#intro").hidden=true;$(".tabbar").hidden=true;
  const el=$("#benvenuto");el.hidden=false;
  el.innerHTML=`<span class="bv-logo" aria-hidden="true">${LOGO}</span>
  <div class="bv-t"><h1 class="wordmark">sazio</h1><p>Ciao! Sto costruendo un'app che pensa al posto tuo a cosa mangiare, come cucinarlo e cosa comprare. Siamo in fase di test: usala per qualche giorno e fammi sapere cosa ne pensi.</p></div>
@@ -699,7 +702,7 @@ async function entra(){
  if(!CODICI.includes(k)){void box.offsetWidth;box.classList.add("err");err.textContent="Codice non valido. Controlla il messaggio con cui ti ho invitato.";return}
  try{localStorage.setItem("pp-accesso",k)}catch(e){}
  $("#benvenuto").hidden=true;$("#benvenuto").innerHTML="";avvia()}
-function avvia(){impostazioni();profilo();render();showTab(S.done?"home":"profilo")}
+function avvia(){profilo();render();showTab(S.done?"home":"profilo")}
 
 // ---------- La mia dieta (piano inserito dall'utente, con alternative) ----------
 // S.dieta[giorno][pasto] = [ {items:[{id,g}]} , ... ]  (più opzioni = alternative del nutrizionista)
@@ -823,19 +826,20 @@ function profilo(){const el=$("#profilo");$("#profilo").classList.toggle("prof",
  if(!S.done){const ks=PASSI(),LAST=ks.length-1,n=Math.min(S.step,LAST),k=ks[n];S.step=n;el.innerHTML=`<p class="note">Passo ${n+1} di ${LAST+1}</p><div class="steps-bar" aria-hidden="true">${ks.map((_,i)=>`<i class="${i<=n?"on":""}"></i>`).join("")}</div><div class="card"><h2>${STEP[k]}</h2>${sec(k)}</div><div class="row obnav">${n?'<button class="btn ghost" data-go="-1">Indietro</button>':'<span></span>'}<button class="btn" data-go="1">${n==LAST?(S.modo=="mia"?"Inserisci la dieta":"Crea il mio piano"):k=="luogo"&&!S.indirizzi.length?"Salta per ora":"Avanti"}</button></div>`;return}
  const r=(k,i,t,v)=>`<button class="li" data-sez="${k}"><span class="li-ic">${ic(i)}</span><span class="li-b"><b>${t}</b>${v?`<span>${v}</span>`:""}</span>${ic("chevron-right","li-ch")}</button>`,a=ADDR(),mia=S.modo=="mia";
  const OBJ={0.9:"Definizione",1:"Mantenimento",1.1:"Massa"},nA=(S.attrezzi||[]).length;
- el.innerHTML=`<header class="ph"><div><h1>Profilo</h1></div><span class="avatar" aria-hidden="true">${esc((S.nome||"?")[0].toUpperCase())}</span></header>
+ el.innerHTML=`<header class="ph"><div><h1>Impostazioni</h1></div></header>
  <div class="sh"><h2>Su di te</h2></div><div class="list">${r("te","user-round","Dati personali",[S.nome&&esc(S.nome),S.eta&&S.eta+" anni",S.peso&&S.peso+" kg",S.alt&&S.alt+" cm"].filter(Boolean).join(" · "))}${r("att","dumbbell","Attività e obiettivo",`${S.kcal} kcal al giorno · ${OBJ[S.obj]||""}`)}</div>
  <div class="sh"><h2>Il tuo piano</h2></div><div class="list">${r("modo",mia?"clipboard-list":"sparkles","Come vuoi mangiare",MODI[S.modo]?MODI[S.modo][0]:"")}${mia?`<button class="li" data-t="dieta"><span class="li-ic">${ic("pencil")}</span><span class="li-b"><b>La tua dieta</b><span>${dietaVuota()?"Da inserire":"Pasti, grammi e alternative"}</span></span>${ic("chevron-right","li-ch")}</button>`:r("cucina","clock","Tempo in cucina",(LV[S.cucina]||LV.giusto).nome)+r("attrezzi","cooking-pot","Cosa hai in cucina",nA?ATT.filter(x=>(S.attrezzi||[]).includes(x[0])).map(x=>x[1]).join(", "):"Niente selezionato")+r("escl","ban","Cose che non mangio",S.exl.length?S.exl.map(x=>esc(x.t)).join(", "):"Nessuna esclusione")}</div>
  <div class="sh"><h2>Spesa</h2></div><div class="list">${r("luogo","map-pin","I tuoi indirizzi",a?esc(a.etichetta)+" · "+esc(a.testo):"Nessun indirizzo salvato")}</div>
+ <div class="sh"><h2>sazio</h2></div><div class="list">${r("idea","send","Suggerisci un miglioramento","Arriva a chi sviluppa l'app")}<a class="li" href="${SITO}" target="_blank" rel="noopener"><span class="li-ic">${ic("user-round")}</span><span class="li-b"><b>Stefano Donatiello</b><span>Product Designer · portfolio</span></span>${ic("external-link","li-ch")}</a></div>
  <div class="list list-end"><button class="li" data-go="restart"><span class="li-ic">${ic("rotate-ccw")}</span><span class="li-b"><b>Rifai l'onboarding</b><span>Rispondi di nuovo a tutte le domande</span></span></button></div>
  <p class="note center">${ic("shield-check")} I tuoi dati restano solo su questo telefono.</p>`;
- if(profSez&&$("#sheet").open)apriSez(profSez,true)}
+ if(profSez&&profSez!="idea"&&$("#sheet").open)apriSez(profSez,true)}
 // una sezione del profilo si modifica in un pannello dal basso
 let profSez=null;
 function apriSez(k,keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=k;
- dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Profilo</small><h2 id="sh-t">${STEP[k]}</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez sez-${k}">${sec(k)}</div><button class="btn sez-ok" data-close>Fatto</button>`;
+ dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Impostazioni</small><h2 id="sh-t">${k=="idea"?"Suggerisci un miglioramento":STEP[k]}</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez sez-${k}">${k=="idea"?ideaHTML():sec(k)}</div>${k=="idea"?"":`<button class="btn sez-ok" data-close>Fatto</button>`}`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0}else dlg.scrollTop=y}
-function showTab(n){document.querySelectorAll(".tabbar button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t==n));["home","piano","spesa","profilo","impostazioni","dieta"].forEach(s=>$("#"+s).hidden=s!=n);if(n=="dieta")dietaPage();$(".tabbar").hidden=!S.done;$("#intro").hidden=true;scrollTo(0,0)}
+function showTab(n){document.querySelectorAll(".tabbar button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t==n));["home","piano","spesa","profilo","dieta"].forEach(s=>$("#"+s).hidden=s!=n);if(n=="dieta")dietaPage();$(".tabbar").hidden=!S.done;$("#intro").hidden=S.done||n!="profilo";document.body.classList.toggle("onb",!S.done&&n=="profilo");scrollTo(0,0)}
 function calc(){const{sesso,eta,peso,alt,att,obj}=S;if(!(eta&&peso&&alt))return false;S.kcal=Math.round((10*peso+6.25*alt-5*eta+(sesso=="m"?5:-161))*att*obj/10)*10;return true}
 
 document.addEventListener("change",e=>{const t=e.target;
