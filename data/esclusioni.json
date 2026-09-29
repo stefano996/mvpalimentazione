@@ -1,0 +1,162 @@
+{
+  "parole": {
+    "pollo": [
+      "pollo"
+    ],
+    "carne": [
+      "pollo"
+    ],
+    "merluzz": [
+      "merluzzo"
+    ],
+    "tonn": [
+      "tonno"
+    ],
+    "pesce": [
+      "merluzzo",
+      "tonno",
+      "salmone"
+    ],
+    "salmon": [
+      "salmone"
+    ],
+    "uov": [
+      "uova"
+    ],
+    "yogurt": [
+      "yogurt"
+    ],
+    "latticin": [
+      "yogurt",
+      "parmigiano",
+      "feta"
+    ],
+    "lattosio": [
+      "yogurt",
+      "parmigiano",
+      "feta"
+    ],
+    "formagg": [
+      "parmigiano",
+      "feta"
+    ],
+    "parmigian": [
+      "parmigiano"
+    ],
+    "grana": [
+      "parmigiano"
+    ],
+    "feta": [
+      "feta"
+    ],
+    "aven": [
+      "avena"
+    ],
+    "ris": [
+      "riso"
+    ],
+    "past": [
+      "pasta"
+    ],
+    "glutine": [
+      "pasta",
+      "pane",
+      "avena"
+    ],
+    "cereal": [
+      "pasta",
+      "pane",
+      "avena",
+      "riso",
+      "quinoa"
+    ],
+    "frumento": [
+      "pasta",
+      "pane"
+    ],
+    "grano": [
+      "pasta",
+      "pane"
+    ],
+    "quinoa": [
+      "quinoa"
+    ],
+    "cec": [
+      "ceci"
+    ],
+    "legum": [
+      "ceci"
+    ],
+    "soia": [
+      "tofu"
+    ],
+    "tofu": [
+      "tofu"
+    ],
+    "passata": [
+      "passata"
+    ],
+    "pomodor": [
+      "passata"
+    ],
+    "pane": [
+      "pane"
+    ],
+    "olio": [
+      "olio"
+    ],
+    "banan": [
+      "banana"
+    ],
+    "avocad": [
+      "avocado"
+    ],
+    "zucchin": [
+      "zucchine"
+    ],
+    "spinac": [
+      "spinaci"
+    ],
+    "broccol": [
+      "broccoli"
+    ],
+    "patat": [
+      "patate"
+    ],
+    "verdur": [
+      "zucchine",
+      "spinaci",
+      "broccoli"
+    ]
+  },
+  "suggerimenti": [
+    "Carne",
+    "Pesce",
+    "Latticini",
+    "Uova",
+    "Glutine",
+    "Legumi",
+    "Pollo",
+    "Tonno",
+    "Salmone",
+    "Merluzzo",
+    "Banana",
+    "Avocado",
+    "Zucchine",
+    "Spinaci",
+    "Broccoli",
+    "Patate",
+    "Riso",
+    "Pasta",
+    "Pane",
+    "Avena",
+    "Quinoa",
+    "Yogurt",
+    "Parmigiano",
+    "Feta",
+    "Ceci",
+    "Tofu",
+    "Soia",
+    "Pomodoro"
+  ]
+}

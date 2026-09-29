@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pasto pronto</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F5F6F1;--ink:#17231D;--mute:#5F6B64;--card:#FFFFFF;--line:#DDE1D8;--leaf:#2C6B4C;--leaf-t:#E1EEE6;--sun:#F0C24B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}}
+:root[data-theme="dark"]{--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "DM Sans",system-ui,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+main{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",sans-serif;margin:0;line-height:1.15}
+h1{font-size:2rem;font-weight:800}h2{font-size:1.25rem;font-weight:800;margin:24px 0 6px}h3{font-size:1rem;font-weight:600}
+a{color:var(--leaf);font-weight:700}
+.sub{color:var(--mute);margin:4px 0 16px}
+nav{display:flex;gap:6px;background:var(--line);padding:4px;border-radius:12px;margin-bottom:16px}
+nav button{flex:1;border:0;background:none;color:var(--mute);font:600 15px "DM Sans",sans-serif;padding:10px;border-radius:9px;cursor:pointer}
+nav button[aria-selected=true]{background:var(--card);color:var(--ink)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.kpi div{flex:1;min-width:130px;background:var(--leaf);color:#fff;border-radius:14px;padding:12px 14px}
+.kpi div:not(:first-child){background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.kpi b{display:block;font:800 1.35rem "Bricolage Grotesque",sans-serif}.kpi span{font-size:.85rem;opacity:.85}
+.day,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.day header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.day header span{color:var(--mute);font-size:.85rem}
+.meal{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.meal small{color:var(--mute);font-weight:500}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.tag{font-size:.78rem;padding:2px 8px;border-radius:99px;background:var(--leaf-t);color:var(--ink)}
+.tag.p{background:var(--sun);color:#17231D}
+.tag.b{border:1px solid var(--line);background:var(--bg);cursor:pointer;font:500 .85rem "DM Sans",sans-serif;padding:5px 11px}
+label{display:block;font-size:.85rem;color:var(--mute);margin:10px 0 4px}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{width:100%;margin-top:14px;border:0;border-radius:12px;background:var(--leaf);color:#fff;font:700 16px "DM Sans",sans-serif;padding:13px;cursor:pointer}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}
+.addr{display:flex;gap:8px}.addr .btn{width:auto;margin:0;padding:0 16px}
+.bar{height:6px;background:var(--line);border-radius:9px;margin:6px 0 14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--leaf)}
+.lv{display:grid;gap:10px;margin-top:6px}
+.lv button{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit}
+.lv button b{display:block;font:800 1.05rem "Bricolage Grotesque",sans-serif;margin-bottom:2px}
+.lv button span{color:var(--mute);font-size:.9rem}
+.lv button[aria-pressed=true]{border:2px solid var(--leaf);background:var(--leaf-t);padding:11px 13px}
+.sug{margin:10px 0}
+.ex{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.ex select{width:auto;padding:7px}.xr{display:flex;gap:4px;align-items:center}
+.x{border:0;background:none;color:var(--mute);font-size:1rem;cursor:pointer;padding:8px}
+.shop{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.shop span{color:var(--mute);font-size:.9rem}
+.sp{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.sp label{display:flex;gap:10px;align-items:center;margin:0;color:var(--ink);font-size:1rem}
+.sp input{width:auto}.sp .done{text-decoration:line-through;color:var(--mute)}.sp>span{white-space:nowrap}
+.note{color:var(--mute);font-size:.85rem}.warn{background:var(--sun);color:#17231D;border-radius:12px;padding:12px}
+</style>
+</head>
+<body>
+<main>
+<h1>Pasto pronto</h1>
+<p class="sub">Colazione, pranzo e cena della settimana, con la spesa già fatta.</p>
+<nav role="tablist" hidden><button data-t="profilo" aria-selected="true">Profilo</button><button data-t="piano" aria-selected="false">Piano</button><button data-t="spesa" aria-selected="false">Spesa</button></nav>
+<section id="profilo"></section>
+<section id="piano" hidden></section>
+<section id="spesa" hidden></section>
+</main>
+<script>
+// I dati (ingredienti, ricette, parole per le esclusioni) stanno nella cartella data/: si aggiornano lì.
+const $=s=>document.querySelector(s);
+let ING=[],I={},RIC=[],SYN={},SUG=[];
+const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",casa:null,negozi:[],exl:[],done:false,step:0};
+let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}catch(e){}
+const save=()=>{try{localStorage.setItem("pp",JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+const eur=n=>n.toLocaleString("it-IT",{style:"currency",currency:"EUR"});
+const opt=(v,t,c)=>`<option value="${v}" ${c==v?"selected":""}>${t}</option>`;
+
+async function load(){
+ const [ing,ric,ex]=await Promise.all(["ingredienti","ricette","esclusioni"].map(f=>fetch(`data/${f}.json`).then(r=>{if(!r.ok)throw r.status;return r.json()})));
+ ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,dove:i.dove||1}));
+ I=Object.fromEntries(ING.map(i=>[i.id,i]));
+ RIC=ric.map(r=>({n:r.nome,p:r.pasto=="colazione"?"c":"p",tempo:r.tempo_attivo_min,diff:r.difficolta,ut:r.pentole,cons:r.si_conserva_giorni,ing:r.grammi_a_porzione}))
+  .filter(r=>Object.keys(r.ing).every(id=>I[id]||console.warn(`Ricetta "${r.n}": ingrediente "${id}" non trovato in ingredienti.json`)));
+ SYN=ex.parole;SUG=ex.suggerimenti;
+}
+
+// ---------- Quanto vuoi stare in cucina ----------
+const LV={poco:{nome:"Poco",desc:"Il minimo indispensabile: piatti pronti in 15 minuti, una o due pentole, nessuna tecnica. Cucini poche volte a settimana e mangi lo stesso piatto per più giorni.",t:15,d:1,u:2,b:4},
+giusto:{nome:"Il giusto",desc:"Fino a 25 minuti per piatto, ricette semplici con qualche passaggio in più. Cucini qualche volta in più e cambi piatto più spesso.",t:25,d:2,u:3,b:3},
+tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Cucini spesso e hai più varietà durante la settimana.",t:999,d:3,u:9,b:2}};
+
+// ---------- Negozi (OpenStreetMap) ----------
+// liv = quali ingredienti ci trovi: 1 di base, 2 da supermercato ben fornito, 3 da negozio bio/specializzato
+const TIPI={convenience:{tipo:"Alimentari",liv:[1]},supermarket:{tipo:"Supermercato",liv:[1,2]},organic:{tipo:"Negozio bio",liv:[3]},health_food:{tipo:"Negozio bio",liv:[3]}};
+const DISCOUNT=/lidl|eurospin|aldi|penny|^md\b|in.s mercato|todis|dpi[uù]|prix/i;
+const km=(a,b,c,d)=>{const r=x=>x*Math.PI/180,h=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+const dist=k=>k<1?Math.max(100,Math.round(k*10)*100)+" m":k.toFixed(1).replace(".",",")+" km";
+const ERR="Non riesco a collegarmi alla mappa in questo momento. Puoi andare avanti e riprovare più tardi dal Profilo.";
+function reach(){if(!S.casa)return new Set([1,2]);const s=new Set([1]);S.negozi.forEach(n=>n.liv.forEach(l=>s.add(l)));return s}
+function primario(){const by=(a,b)=>a.km-b.km;return S.negozi.filter(n=>n.liv.includes(2)).sort(by)[0]||S.negozi.filter(n=>n.liv.includes(1)).sort(by)[0]||null}
+function negozioPer(dove){if(!S.casa||!S.negozi.length)return null;const p=primario();if(p&&p.liv.includes(dove))return p;return S.negozi.filter(n=>n.liv.includes(dove)).sort((a,b)=>a.km-b.km)[0]||p}
+const st=m=>{const e=$("#geo-st");if(e)e.textContent=m};
+async function cercaNegozi(lat,lon,label){
+ st("Cerco i negozi vicino a te…");let el=[];
+ for(const r of [5000,15000]){
+  const q=`[out:json][timeout:25];nwr(around:${r},${lat},${lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
+  const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
+  if(!res.ok)throw res.status;el=(await res.json()).elements||[];if(el.length)break}
+ S.casa={label,lat,lon};
+ S.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
+  return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),lat:la,lon:lo,km:km(lat,lon,la,lo)}})
+  .filter(n=>n.lat!=null).sort((a,b)=>a.km-b.km).slice(0,40);
+ save();const l=$("#luogo");if(l)l.innerHTML=luogoHTML();st("");const g=$("[data-go='1']");if(g&&!S.done&&S.step==3)g.textContent="Avanti";sum();render();
+}
+async function cercaIndirizzo(q){
+ if(!q.trim())return st("Scrivi un indirizzo, per esempio: Via Roma 10, Monza.");
+ st("Cerco l'indirizzo…");
+ try{const r=await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=it&accept-language=it&q="+encodeURIComponent(q));
+  const j=await r.json();if(!j.length)return st("Indirizzo non trovato. Prova ad aggiungere il numero civico o la città.");
+  await cercaNegozi(+j[0].lat,+j[0].lon,q.trim())}catch(e){st(ERR)}}
+function usaPosizione(){
+ if(!navigator.geolocation)return st("Questo browser non condivide la posizione: scrivi l'indirizzo.");
+ st("Recupero la tua posizione…");
+ navigator.geolocation.getCurrentPosition(p=>cercaNegozi(p.coords.latitude,p.coords.longitude,"la tua posizione").catch(()=>st(ERR)),()=>st("Posizione non disponibile: scrivi l'indirizzo."),{timeout:10000})}
+function luogoHTML(){
+ if(!S.casa)return"";
+ if(!S.negozi.length)return`<p class="warn">Nessun negozio trovato entro 15 km da ${esc(S.casa.label)}. Ti proponiamo solo ingredienti che si trovano ovunque.</p>`;
+ const p=primario();
+ return`<p class="note">Negozi vicino a ${esc(S.casa.label)}:</p>`+S.negozi.slice(0,5).map(n=>`<div class="shop"><div><b>${esc(n.nome)}</b>${n===p?' <span class="tag p">Qui fai la spesa</span>':""}<br><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span></div><span>${dist(n.km)}</span></div>`).join("")}
+
+// ---------- Piano ----------
+const spend=(g,id)=>g/1000*I[id].kg;
+function stat(r,m=1){let k=0,p=0,c=0;for(const id in r.ing){const g=r.ing[id]*m;k+=g*I[id].kcal/100;p+=g*I[id].prot/100;c+=spend(g,id)}return{k,p,c}}
+function score(r){const s=stat(r);return .5*Math.min(r.tempo/30,1)+.3*(1-Math.min(s.p/s.k*100/9,1))+.2*Math.min(s.c/4,1)}
+function plan(){
+ const L=LV[S.cucina]||LV.giusto,ex=EX(),rc=reach();
+ const ok=RIC.filter(r=>Object.keys(r.ing).every(i=>!ex.has(i)&&rc.has(I[i].dove)));
+ const bf=ok.filter(r=>r.p=="c"&&r.tempo<=L.t).sort((a,b)=>score(a)-score(b)).slice(0,2);
+ const mains=ok.filter(r=>r.p=="p"&&r.tempo<=L.t&&r.diff<=L.d&&r.ut<=L.u&&r.cons>=2).sort((a,b)=>score(a)-score(b));
+ if(!mains.length)return null;
+ const slots=[];let s=0,minuti=0;
+ while(slots.length<14){const r=mains[s%mains.length],n=Math.min(L.b,r.cons);minuti+=r.tempo;for(let j=0;j<n&&slots.length<14;j++)slots.push({r,s,first:j==0});s++}
+ const days=[],tot={};
+ for(let d=0;d<7;d++){
+  const ms=[bf.length?{r:bf[d%bf.length]}:null,slots[2*d],slots[2*d+1]];
+  const raw=ms.reduce((a,x)=>a+(x?stat(x.r).k:0),0),m=Math.min(1.5,Math.max(.7,S.kcal/raw));
+  let k=0,p=0,c=0;
+  ms.forEach(x=>{if(!x)return;const t=stat(x.r,m);k+=t.k;p+=t.p;c+=t.c;for(const id in x.r.ing)tot[id]=(tot[id]||0)+x.r.ing[id]*m});
+  days.push({ms,k,p,c,m});
+ }
+ days.forEach(d=>d.ms[0]&&(minuti+=d.ms[0].r.tempo));
+ return{days,tot,minuti,sess:s,cost:Object.entries(tot).reduce((a,[id,g])=>a+spend(g,id),0)}
+}
+const GG=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"],PN=["Colazione","Pranzo","Cena"];
+function chkGet(){try{return JSON.parse(sessionStorage.getItem("pp-c")||"{}")}catch(e){return{}}}
+function chkSet(c){try{sessionStorage.setItem("pp-c",JSON.stringify(c))}catch(e){}}
+function render(){
+ const P=plan();
+ $("#piano").innerHTML=!P?`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Nel Profilo togli qualche esclusione o cambia la risposta a "Quanto vuoi stare in cucina?".</p>`:
+ `<div class="kpi"><div><b>${Math.round(P.minuti/6)/10} h</b><span>in cucina a settimana</span></div><div><b>${P.sess}</b><span>volte ai fornelli a settimana</span></div><div><b>${eur(P.cost)}</b><span>spesa settimanale</span></div></div>`+
+ P.days.map((d,i)=>`<article class="day"><header><h3>${GG[i]}</h3><span>${Math.round(d.k)} kcal · ${Math.round(d.p)} g proteine · ${eur(d.c)}</span></header>`+
+ d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m);return`<div class="meal"><small>${PN[j]}</small><div>${x.r.n}<div class="tags"><span class="tag">${x.r.tempo} min attivi</span><span class="tag">${Math.round(t.k)} kcal</span><span class="tag">${Math.round(t.p)} g prot.</span><span class="tag">${eur(t.c)}</span>${x.s===undefined?"":x.first?'<span class="tag p">da cucinare</span>':'<span class="tag">già pronto</span>'}</div></div></div>`}).join("")+`</article>`).join("");
+ if(!P){$("#spesa").innerHTML="";return}
+ const chk=chkGet();
+ const riga=id=>{const q=P.tot[id],u=q>=1000?(q/1000).toFixed(1).replace(".",",")+" kg":Math.round(q/10)*10+" g";return`<div class="sp"><label><input type="checkbox" data-c="${id}" ${chk[id]?"checked":""}><span class="${chk[id]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
+ const ids=Object.keys(P.tot).sort((a,b)=>I[a].rep.localeCompare(I[b].rep)||I[a].nome.localeCompare(I[b].nome));
+ let body="";
+ if(S.casa&&S.negozi.length){
+  const gr=new Map();ids.forEach(id=>{const n=negozioPer(I[id].dove);if(!gr.has(n))gr.set(n,[]);gr.get(n).push(id)});
+  body=[...gr].sort((a,b)=>a[0].km-b[0].km).map(([n,l])=>`<h2>Da ${esc(n.nome)}</h2><p class="note">${n.tipo}${n.via?" · "+esc(n.via):""} · ${dist(n.km)} · <a href="https://www.google.com/maps/dir/?api=1&destination=${n.lat},${n.lon}" target="_blank" rel="noopener">Indicazioni</a></p><div class="card">${l.map(riga).join("")}</div>`).join("");
+ }else{
+  const gr={};ids.forEach(id=>(gr[I[id].rep]=gr[I[id].rep]||[]).push(id));
+  body=`<div class="card"><p class="note" style="margin:0">Aggiungi dove abiti nel Profilo: ti diremo in quale negozio comprare ogni cosa.</p><button class="btn ghost" data-t="profilo">Aggiungi indirizzo</button></div>`+Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
+ }
+ $("#spesa").innerHTML=`<div class="kpi"><div><b>${eur(P.cost)}</b><span>totale stimato</span></div></div>`+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
+}
+
+// ---------- Esclusioni ----------
+const resolve=t=>{const ids=new Set();norm(t).split(/[^a-z]+/).filter(Boolean).forEach(tk=>Object.keys(SYN).forEach(k=>{if(tk.startsWith(k))SYN[k].forEach(i=>I[i]&&ids.add(i))}));return[...ids]};
+const EX=()=>new Set(S.exl.flatMap(x=>resolve(x.t)));
+let q="";
+function sugHTML(){const qq=norm(q),have=S.exl.map(x=>norm(x.t));
+ return SUG.filter(s=>!have.includes(norm(s))&&(!qq||norm(s).includes(qq))).slice(0,qq?8:10).map(s=>`<button class="tag b" data-s="${esc(s)}">${esc(s)}</button>`).join("")||(q?`<span class="note">Premi Aggiungi per inserire "${esc(q)}"</span>`:"")}
+function chips(){return S.exl.map((x,i)=>{const ids=resolve(x.t);
+ return`<div class="ex"><div><b>${esc(x.t)}</b><div class="note">${ids.length?"Esclude: "+ids.map(d=>I[d].nome.toLowerCase()).join(", "):"Non riconosciuto: per ora non cambia il piano"}</div></div><div class="xr"><select data-tipo="${i}" aria-label="Tipo">${opt("non-piace","Non mi piace",x.tipo)}${opt("intolleranza","Intolleranza",x.tipo)}${opt("allergia","Allergia",x.tipo)}</select><button class="x" data-rm="${i}" aria-label="Rimuovi">✕</button></div></div>`}).join("")}
+function refreshEx(){save();$("#chips").innerHTML=chips();$("#exq").value="";q="";$("#sug").innerHTML=sugHTML();sum();render()}
+function addEx(t){t=(t||"").trim();if(!t||S.exl.some(x=>norm(x.t)==norm(t)))return;S.exl.push({t,tipo:"non-piace"});refreshEx()}
+
+// ---------- Profilo e onboarding ----------
+const TIT=["Su di te","Attività e obiettivo","Quanto vuoi stare in cucina?","Dove abiti?","Cose che non mangio"],LAST=TIT.length-1;
+function sec(n){
+ if(n==0)return`<p class="note">Servono per stimare quante kcal ti servono ogni giorno.</p><div class="row"><div><label for="sesso">Sesso</label><select id="sesso">${opt("m","Uomo",S.sesso)}${opt("f","Donna",S.sesso)}</select></div><div><label for="eta">Età</label><input id="eta" type="number" inputmode="numeric" value="${S.eta}"></div></div><div class="row"><div><label for="peso">Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${S.peso}"></div><div><label for="alt">Altezza (cm)</label><input id="alt" type="number" inputmode="numeric" value="${S.alt}"></div></div>`;
+ if(n==1)return`<label for="att">Attività fisica</label><select id="att">${opt(1.2,"Sedentario",S.att)}${opt(1.375,"1-3 allenamenti a settimana",S.att)}${opt(1.55,"3-5 allenamenti a settimana",S.att)}${opt(1.725,"6-7 allenamenti a settimana",S.att)}</select><label for="obj">Obiettivo</label><select id="obj">${opt(.9,"Definizione (circa -10%)",S.obj)}${opt(1,"Mantenimento",S.obj)}${opt(1.1,"Massa (circa +10%)",S.obj)}</select><button class="btn ghost" data-calc>Calcola le mie kcal</button><label for="kcal">Kcal al giorno (puoi modificarle)</label><input id="kcal" type="number" inputmode="numeric" value="${S.kcal}"><p class="note">Stima indicativa (formula di Mifflin-St Jeor), non un consiglio medico.</p>`;
+ if(n==2)return`<p class="note">In base alla risposta scegliamo ricette più o meno lunghe e impegnative, e quante volte cucinare a settimana.</p><div class="lv" role="group" aria-label="Quanto vuoi stare in cucina">${Object.entries(LV).map(([k,v])=>`<button data-lv="${k}" aria-pressed="${S.cucina==k}"><b>${v.nome}</b><span>${v.desc}</span></button>`).join("")}</div>`;
+ if(n==3)return`<p class="note">Cerchiamo i negozi vicino a te per dirti dove fare la spesa e proporti solo ingredienti che trovi facilmente. L'indirizzo resta salvato solo su questo dispositivo.</p><label for="addr">Indirizzo</label><div class="addr"><input id="addr" autocomplete="street-address" placeholder="Via, numero e città" value="${S.casa&&S.casa.label!="la tua posizione"?esc(S.casa.label):""}"><button class="btn" data-find>Cerca</button></div><button class="btn ghost" data-geo>Usa la mia posizione</button><p class="note" id="geo-st" role="status"></p><div id="luogo">${luogoHTML()}</div>`;
+ return`<label for="exq">Scrivi un alimento o una categoria</label><div class="addr"><input id="exq" autocomplete="off" placeholder="Es. latticini, tonno, glutine"><button class="btn" data-add>Aggiungi</button></div><div class="tags sug" id="sug">${sugHTML()}</div><div id="chips">${chips()}</div><p class="note">Il piano e la spesa evitano ogni ricetta con questi ingredienti. Per le allergie controlla sempre le etichette.</p>`}
+function sum(){const e=$("#sum");if(!e)return;const p=S.casa&&primario();
+ e.innerHTML=`<div class="kpi"><div><b>${S.kcal||"–"}</b><span>kcal al giorno</span></div><div><b>${(LV[S.cucina]||LV.giusto).nome}</b><span>in cucina</span></div><div><b>${p?esc(p.nome):"–"}</b><span>${p?"dove fai la spesa":"indirizzo mancante"}</span></div><div><b>${S.exl.length}</b><span>esclusioni</span></div></div>`}
+function profilo(){const el=$("#profilo");
+ if(!S.done){const n=S.step;el.innerHTML=`<p class="note">Passo ${n+1} di ${LAST+1}</p><div class="bar"><i style="width:${(n+1)/(LAST+1)*100}%"></i></div><div class="card"><h2 style="margin-top:0">${TIT[n]}</h2>${sec(n)}</div><div class="row">${n?'<button class="btn ghost" data-go="-1">Indietro</button>':'<span></span>'}<button class="btn" data-go="1">${n==LAST?"Crea il mio piano":n==3&&!S.casa?"Salta per ora":"Avanti"}</button></div>`;return}
+ el.innerHTML=`<div id="sum"></div>`+TIT.map((t,n)=>`<div class="card"><h2 style="margin-top:0">${t}</h2>${sec(n)}</div>`).join("")+`<button class="btn ghost" data-go="restart">Rifai l'onboarding</button>`;sum()}
+function showTab(n){document.querySelectorAll("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t==n));["profilo","piano","spesa"].forEach(s=>$("#"+s).hidden=s!=n);document.querySelector("nav").hidden=!S.done;scrollTo(0,0)}
+function calc(){const{sesso,eta,peso,alt,att,obj}=S;if(!(eta&&peso&&alt))return false;S.kcal=Math.round((10*peso+6.25*alt-5*eta+(sesso=="m"?5:-161))*att*obj/10)*10;return true}
+
+document.addEventListener("change",e=>{const t=e.target;
+ if(t.dataset.tipo!==undefined)S.exl[t.dataset.tipo].tipo=t.value;
+ else if(t.dataset.c){const c=chkGet();c[t.dataset.c]=t.checked;chkSet(c)}
+ else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
+ else return;
+ save();sum();render()});
+document.addEventListener("input",e=>{if(e.target.id=="exq"){q=e.target.value;$("#sug").innerHTML=sugHTML()}});
+document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
+ if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
+ if(e.target.id=="addr"){e.preventDefault();cercaIndirizzo(e.target.value)}});
+document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+ if(d.t){if(!S.done&&d.t=="profilo")return;showTab(d.t)}
+ else if(d.add!==undefined)addEx($("#exq").value);
+ else if(d.s)addEx(d.s);
+ else if(d.rm!==undefined){S.exl.splice(+d.rm,1);refreshEx()}
+ else if(d.find!==undefined)cercaIndirizzo($("#addr").value);
+ else if(d.geo!==undefined)usaPosizione();
+ else if(d.lv){S.cucina=d.lv;document.querySelectorAll("[data-lv]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lv==d.lv));save();sum();render()}
+ else if(d.calc!==undefined){if(calc()){save();$("#kcal").value=S.kcal;sum();render()}else alert("Inserisci età, peso e altezza.")}
+ else if(d.go){if(d.go=="restart"){S.done=false;S.step=0}else{if(S.step==1&&d.go=="1")calc();S.step+=+d.go;if(S.step>LAST){S.done=true;S.step=0}}
+  save();profilo();render();showTab(S.done?"piano":"profilo")}});
+
+load().then(()=>{profilo();render();showTab(S.done?"piano":"profilo")})
+ .catch(()=>{$("#profilo").innerHTML=`<p class="warn">Non riesco a leggere ricette e ingredienti dalla cartella "data". Controlla che i file siano stati caricati insieme a index.html.</p>`});
+</script>
+</body>
+</html>

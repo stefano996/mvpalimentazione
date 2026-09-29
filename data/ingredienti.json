@@ -1,0 +1,209 @@
+[
+  {
+    "id": "pollo",
+    "nome": "Petto di pollo",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 9.5,
+    "kcal_100g": 110,
+    "proteine_100g": 23,
+    "dove": 1
+  },
+  {
+    "id": "merluzzo",
+    "nome": "Merluzzo surgelato",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 12,
+    "kcal_100g": 82,
+    "proteine_100g": 18,
+    "dove": 1
+  },
+  {
+    "id": "tonno",
+    "nome": "Tonno al naturale",
+    "reparto": "Dispensa",
+    "prezzo_kg": 14,
+    "kcal_100g": 110,
+    "proteine_100g": 25,
+    "dove": 1
+  },
+  {
+    "id": "uova",
+    "nome": "Uova",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 5,
+    "kcal_100g": 143,
+    "proteine_100g": 12.5,
+    "dove": 1
+  },
+  {
+    "id": "yogurt",
+    "nome": "Yogurt greco 0%",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 4.5,
+    "kcal_100g": 59,
+    "proteine_100g": 10,
+    "dove": 1
+  },
+  {
+    "id": "parmigiano",
+    "nome": "Parmigiano",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 20,
+    "kcal_100g": 392,
+    "proteine_100g": 33,
+    "dove": 1
+  },
+  {
+    "id": "avena",
+    "nome": "Fiocchi d'avena",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3,
+    "kcal_100g": 370,
+    "proteine_100g": 13,
+    "dove": 1
+  },
+  {
+    "id": "riso",
+    "nome": "Riso",
+    "reparto": "Dispensa",
+    "prezzo_kg": 2.8,
+    "kcal_100g": 350,
+    "proteine_100g": 7,
+    "dove": 1
+  },
+  {
+    "id": "pasta",
+    "nome": "Pasta integrale",
+    "reparto": "Dispensa",
+    "prezzo_kg": 2,
+    "kcal_100g": 350,
+    "proteine_100g": 12,
+    "dove": 1
+  },
+  {
+    "id": "ceci",
+    "nome": "Ceci cotti",
+    "reparto": "Dispensa",
+    "prezzo_kg": 2.5,
+    "kcal_100g": 120,
+    "proteine_100g": 7,
+    "dove": 1
+  },
+  {
+    "id": "passata",
+    "nome": "Passata di pomodoro",
+    "reparto": "Dispensa",
+    "prezzo_kg": 1.5,
+    "kcal_100g": 30,
+    "proteine_100g": 1.5,
+    "dove": 1
+  },
+  {
+    "id": "pane",
+    "nome": "Pane integrale",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3.5,
+    "kcal_100g": 250,
+    "proteine_100g": 9,
+    "dove": 1
+  },
+  {
+    "id": "olio",
+    "nome": "Olio extravergine",
+    "reparto": "Dispensa",
+    "prezzo_kg": 9,
+    "kcal_100g": 884,
+    "proteine_100g": 0,
+    "dove": 1
+  },
+  {
+    "id": "banana",
+    "nome": "Banane",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2.2,
+    "kcal_100g": 89,
+    "proteine_100g": 1.1,
+    "dove": 1
+  },
+  {
+    "id": "zucchine",
+    "nome": "Zucchine",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2.2,
+    "kcal_100g": 17,
+    "proteine_100g": 1.2,
+    "dove": 1
+  },
+  {
+    "id": "spinaci",
+    "nome": "Spinaci surgelati",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2.5,
+    "kcal_100g": 23,
+    "proteine_100g": 2.9,
+    "dove": 1
+  },
+  {
+    "id": "broccoli",
+    "nome": "Broccoli surgelati",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2.5,
+    "kcal_100g": 34,
+    "proteine_100g": 2.8,
+    "dove": 1
+  },
+  {
+    "id": "patate",
+    "nome": "Patate",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 1.4,
+    "kcal_100g": 77,
+    "proteine_100g": 2,
+    "dove": 1
+  },
+  {
+    "id": "salmone",
+    "nome": "Salmone fresco",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 22,
+    "kcal_100g": 208,
+    "proteine_100g": 20,
+    "dove": 2
+  },
+  {
+    "id": "quinoa",
+    "nome": "Quinoa",
+    "reparto": "Dispensa",
+    "prezzo_kg": 8,
+    "kcal_100g": 368,
+    "proteine_100g": 14,
+    "dove": 2
+  },
+  {
+    "id": "avocado",
+    "nome": "Avocado",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 6,
+    "kcal_100g": 160,
+    "proteine_100g": 2,
+    "dove": 2
+  },
+  {
+    "id": "feta",
+    "nome": "Feta",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 13,
+    "kcal_100g": 264,
+    "proteine_100g": 14,
+    "dove": 2
+  },
+  {
+    "id": "tofu",
+    "nome": "Tofu",
+    "reparto": "Frigo bio e specialità",
+    "prezzo_kg": 9,
+    "kcal_100g": 145,
+    "proteine_100g": 15,
+    "dove": 3
+  }
+]

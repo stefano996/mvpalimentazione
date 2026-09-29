@@ -1,0 +1,183 @@
+[
+  {
+    "id": "yogurt-avena-e-banana",
+    "nome": "Yogurt, avena e banana",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "yogurt": 200,
+      "avena": 40,
+      "banana": 100
+    }
+  },
+  {
+    "id": "uova-strapazzate-e-pane",
+    "nome": "Uova strapazzate e pane",
+    "pasto": "colazione",
+    "tempo_attivo_min": 8,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 120,
+      "pane": 60,
+      "olio": 5
+    }
+  },
+  {
+    "id": "riso-pollo-e-zucchine",
+    "nome": "Riso, pollo e zucchine",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 4,
+    "grammi_a_porzione": {
+      "riso": 80,
+      "pollo": 150,
+      "zucchine": 200,
+      "olio": 8
+    }
+  },
+  {
+    "id": "pollo-al-forno-patate-e-broccoli",
+    "nome": "Pollo al forno, patate e broccoli",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "pollo": 180,
+      "patate": 250,
+      "broccoli": 150,
+      "olio": 8
+    }
+  },
+  {
+    "id": "pasta-al-tonno-e-pomodoro",
+    "nome": "Pasta al tonno e pomodoro",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "pasta": 90,
+      "tonno": 60,
+      "passata": 100,
+      "olio": 5
+    }
+  },
+  {
+    "id": "pasta-e-ceci",
+    "nome": "Pasta e ceci",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 4,
+    "grammi_a_porzione": {
+      "pasta": 80,
+      "ceci": 200,
+      "passata": 80,
+      "olio": 6,
+      "parmigiano": 10
+    }
+  },
+  {
+    "id": "insalata-di-riso-tonno-e-ceci",
+    "nome": "Insalata di riso, tonno e ceci",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "riso": 70,
+      "tonno": 60,
+      "ceci": 100,
+      "olio": 8
+    }
+  },
+  {
+    "id": "frittata-di-zucchine-e-pane",
+    "nome": "Frittata di zucchine e pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "uova": 180,
+      "zucchine": 150,
+      "pane": 60,
+      "parmigiano": 10,
+      "olio": 5
+    }
+  },
+  {
+    "id": "quinoa-salmone-e-avocado",
+    "nome": "Quinoa, salmone e avocado",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "quinoa": 80,
+      "salmone": 150,
+      "avocado": 70,
+      "olio": 5
+    }
+  },
+  {
+    "id": "insalata-di-quinoa-ceci-e-feta",
+    "nome": "Insalata di quinoa, ceci e feta",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "quinoa": 70,
+      "ceci": 150,
+      "feta": 50,
+      "zucchine": 100,
+      "olio": 8
+    }
+  },
+  {
+    "id": "tofu-saltato-con-riso-e-broccoli",
+    "nome": "Tofu saltato con riso e broccoli",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "tofu": 150,
+      "riso": 80,
+      "broccoli": 150,
+      "olio": 8
+    }
+  },
+  {
+    "id": "merluzzo-spinaci-e-riso",
+    "nome": "Merluzzo, spinaci e riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "merluzzo": 200,
+      "spinaci": 150,
+      "riso": 70,
+      "olio": 8
+    }
+  }
+]
