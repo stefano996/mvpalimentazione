@@ -375,7 +375,7 @@ const eur=n=>n.toLocaleString("it-IT",{style:"currency",currency:"EUR"});
 const opt=(v,t,c)=>`<option value="${v}" ${c==v?"selected":""}>${t}</option>`;
 
 async function load(){
- const [ing,ric,ex,sg]=await Promise.all(["ingredienti","ricette","esclusioni","sgarri"].map(f=>fetch(`data/${f}.json`).then(r=>{if(!r.ok)throw r.status;return r.json()})));
+ const [ing,ric,ex,sg]=await Promise.all(["ingredienti","ricette","esclusioni","sgarri"].map(f=>fetch(`data/${f}.json`,{cache:"no-cache"}).then(r=>{if(!r.ok)throw r.status;return r.json()})));
  ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,cb:i.carboidrati_100g||0,gr:i.grassi_100g||0,dove:i.dove||1,pz:i.pezzo}));
  I=Object.fromEntries(ING.map(i=>[i.id,i]));
  RIC=ric.map(r=>({id:r.id,tt:r.tempo_totale_min||r.tempo_attivo_min,att:r.attrezzi||[],frig:r.in_friggitrice||"",utensili:r.utensili||[],passi:r.passaggi||[],avanzi:r.avanzi||"",n:r.nome,p:r.pasto=="colazione"?"c":"p",tempo:r.tempo_attivo_min,diff:r.difficolta,ut:r.pentole,cons:r.si_conserva_giorni,ing:r.grammi_a_porzione}))
@@ -913,6 +913,10 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();if(profSez){profSez=null;if(S.done)profilo()}});
+// aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
+const VER="2026-09-29-1750";
+fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER="([^"]+)"/);
+ if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{});
 load().then(()=>accessoOk()?avvia():benvenuto())
  .catch(()=>{$("#profilo").innerHTML=`<p class="warn">Non riesco a leggere ricette e ingredienti dalla cartella "data". Controlla che i file siano stati caricati insieme a index.html.</p>`});
 </script>
