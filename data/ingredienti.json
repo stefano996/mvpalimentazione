@@ -33,7 +33,12 @@
     "prezzo_kg": 5,
     "kcal_100g": 143,
     "proteine_100g": 12.5,
-    "dove": 1
+    "dove": 1,
+    "pezzo": [
+      60,
+      "uovo",
+      "uova"
+    ]
   },
   {
     "id": "yogurt",
@@ -114,7 +119,13 @@
     "prezzo_kg": 9,
     "kcal_100g": 884,
     "proteine_100g": 0,
-    "dove": 1
+    "dove": 1,
+    "pezzo": [
+      10,
+      "cucchiaio",
+      "cucchiai",
+      "ricetta"
+    ]
   },
   {
     "id": "banana",
@@ -123,7 +134,12 @@
     "prezzo_kg": 2.2,
     "kcal_100g": 89,
     "proteine_100g": 1.1,
-    "dove": 1
+    "dove": 1,
+    "pezzo": [
+      120,
+      "banana",
+      "banane"
+    ]
   },
   {
     "id": "zucchine",
@@ -186,7 +202,12 @@
     "prezzo_kg": 6,
     "kcal_100g": 160,
     "proteine_100g": 2,
-    "dove": 2
+    "dove": 2,
+    "pezzo": [
+      200,
+      "avocado",
+      "avocado"
+    ]
   },
   {
     "id": "feta",
