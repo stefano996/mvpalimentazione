@@ -7855,5 +7855,716 @@
       "Copri le fette con la salsa e servi con le patate e il pane. È ancora più buono dopo qualche ora in frigo."
     ],
     "avanzi": "Si conserva 3 giorni in frigo, coperto: si mangia freddo."
+  },
+  {
+    "id": "yogurt-soia-frutti-di-bosco-e-arachidi",
+    "nome": "Yogurt di soia, frutti di bosco e burro d'arachidi",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "yogurt-soia": 250,
+      "frutti-bosco": 100,
+      "burro-arachidi": 20,
+      "chia": 10
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Ciotola",
+      "Cucchiaio"
+    ],
+    "passaggi": [
+      "Versa lo yogurt di soia in una ciotola.",
+      "Aggiungi i frutti di bosco e i semi di chia.",
+      "Completa con il burro d'arachidi a filo."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "porridge-soia-banana-e-noci",
+    "nome": "Porridge con latte di soia, banana e noci",
+    "pasto": "colazione",
+    "tempo_attivo_min": 6,
+    "tempo_totale_min": 6,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "avena": 60,
+      "latte-soia": 250,
+      "banana": 100,
+      "noci": 10,
+      "cannella": 0.5
+    },
+    "attrezzi": [
+      "fornelli|microonde"
+    ],
+    "utensili": [
+      "Pentolino o ciotola per microonde",
+      "Cucchiaio"
+    ],
+    "passaggi": [
+      "Metti avena e latte di soia nel pentolino (o in una ciotola per microonde).",
+      "Cuoci 4 minuti mescolando (o 2 minuti al microonde, mescolando a metà).",
+      "Aggiungi banana a rondelle, noci e cannella."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "gallette-arachidi-e-banana",
+    "nome": "Gallette con burro d'arachidi e banana",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "gallette-riso": 30,
+      "burro-arachidi": 25,
+      "banana": 120,
+      "latte-soia": 200
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Coltello",
+      "Bicchiere"
+    ],
+    "passaggi": [
+      "Spalma il burro d'arachidi sulle gallette.",
+      "Aggiungi la banana a fettine sopra.",
+      "Accompagna con un bicchiere di latte di soia."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "frullato-soia-frutti-di-bosco-e-chia",
+    "nome": "Frullato di soia, frutti di bosco e chia",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "latte-soia": 300,
+      "frutti-bosco": 120,
+      "chia": 15,
+      "banana": 60
+    },
+    "attrezzi": [
+      "frullatore"
+    ],
+    "utensili": [
+      "Frullatore",
+      "Bicchiere"
+    ],
+    "passaggi": [
+      "Metti tutto nel frullatore.",
+      "Frulla per 40 secondi e bevi subito."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "tofu-strapazzato-pomodorini-e-gallette",
+    "nome": "Tofu strapazzato con pomodorini e gallette",
+    "pasto": "colazione",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 8,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "tofu": 150,
+      "pomodorini": 100,
+      "gallette-riso": 25,
+      "olio": 5,
+      "sale": 1,
+      "curry": 1
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Sbriciola il tofu con la forchetta.",
+      "Scaldalo in padella con l'olio, sale e un pizzico di curry per 4 minuti.",
+      "Aggiungi i pomodorini a metà per 1 minuto.",
+      "Servi con le gallette."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pasta-di-lenticchie-pomodorini-e-basilico",
+    "nome": "Pasta di lenticchie con pomodorini e basilico",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pasta-legumi": 100,
+      "pomodorini": 200,
+      "olio": 10,
+      "basilico": 2,
+      "aglio": 3,
+      "sale": 4
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Cuoci la pasta di lenticchie in acqua salata (di solito 6-8 minuti).",
+      "Intanto scalda in padella olio e aglio, aggiungi i pomodorini a metà e cuoci 5 minuti.",
+      "Scola la pasta, saltala in padella e completa con il basilico."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "riso-ceci-e-spinaci-al-curry",
+    "nome": "Riso con ceci e spinaci al curry",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "riso-pronto": 200,
+      "ceci": 150,
+      "spinaci": 150,
+      "curry": 2,
+      "olio": 8,
+      "sale": 1.5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Scalda l'olio in padella con il curry per 30 secondi.",
+      "Aggiungi spinaci e ceci scolati e cuoci 6 minuti.",
+      "Unisci il riso pronto e scalda tutto 3 minuti, con un pizzico di sale."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "insalata-fagioli-mais-e-avocado",
+    "nome": "Insalata di fagioli, mais e avocado",
+    "pasto": "principale",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 8,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "fagioli": 180,
+      "mais": 80,
+      "avocado": 60,
+      "pomodorini": 150,
+      "gallette-riso": 20,
+      "olio": 5,
+      "limone": 10,
+      "sale": 1
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Scola e sciacqua fagioli e mais.",
+      "Taglia avocado e pomodorini a pezzetti.",
+      "Condisci tutto con olio, limone e sale.",
+      "Accompagna con le gallette."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "tofu-saltato-broccoli-e-riso",
+    "nome": "Tofu saltato con broccoli e riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "tofu": 180,
+      "broccoli": 200,
+      "riso-pronto": 200,
+      "olio": 8,
+      "aglio": 3,
+      "sale": 1.5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella con coperchio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci i broccoli in padella con un goccio d'acqua e coperchio per 6 minuti.",
+      "Aggiungi olio, aglio e il tofu a cubetti e rosola 5 minuti.",
+      "Unisci il riso pronto per 2 minuti e sala."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "lenticchie-in-umido-con-polenta",
+    "nome": "Lenticchie in umido con polenta",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "lenticchie": 220,
+      "passata": 150,
+      "polenta": 70,
+      "olio": 8,
+      "cipolla": 30,
+      "sale": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Tegame",
+      "Pentola",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Rosola la cipolla tritata con l'olio per 2 minuti.",
+      "Aggiungi lenticchie e passata, sala e cuoci 10 minuti.",
+      "Intanto cuoci la polenta istantanea in acqua salata.",
+      "Servi la polenta con le lenticchie sopra."
+    ],
+    "avanzi": "Le lenticchie si conservano 3 giorni."
+  },
+  {
+    "id": "quinoa-ceci-e-verdure-grigliate",
+    "nome": "Quinoa con ceci e verdure grigliate",
+    "pasto": "principale",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "quinoa": 70,
+      "ceci": 150,
+      "verdure-grigliate": 150,
+      "olio": 8,
+      "limone": 10,
+      "sale": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Colino",
+      "Padella"
+    ],
+    "passaggi": [
+      "Sciacqua la quinoa e cuocila in acqua salata per 15 minuti.",
+      "Intanto scalda le verdure grigliate in padella con i ceci scolati.",
+      "Scola la quinoa e condisci tutto con olio e limone."
+    ],
+    "avanzi": "Buona anche fredda: 2 giorni in frigo."
+  },
+  {
+    "id": "patate-dolci-fagioli-e-mais-al-microonde",
+    "nome": "Patate dolci con fagioli e mais al microonde",
+    "pasto": "principale",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "patate-dolci": 300,
+      "fagioli": 150,
+      "mais": 60,
+      "olio": 8,
+      "paprika": 1,
+      "sale": 1
+    },
+    "attrezzi": [
+      "microonde"
+    ],
+    "utensili": [
+      "Ciotola per microonde",
+      "Coltello",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Taglia le patate dolci a cubetti e cuocile al microonde con 2 cucchiai d'acqua, coperte, per 8-9 minuti.",
+      "Aggiungi fagioli e mais scolati e scalda 1 minuto.",
+      "Condisci con olio, paprika e sale."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "zuppa-veloce-ceci-e-pomodoro",
+    "nome": "Zuppa veloce di ceci e pomodoro",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "ceci": 220,
+      "passata": 200,
+      "olio": 8,
+      "rosmarino": 0.5,
+      "aglio": 3,
+      "gallette-riso": 25,
+      "sale": 1.5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Scalda olio, aglio e rosmarino nella pentola per 1 minuto.",
+      "Aggiungi ceci, passata e un bicchiere d'acqua, sala e cuoci 10 minuti.",
+      "Schiaccia qualche cece con la forchetta per renderla cremosa.",
+      "Servi con le gallette sbriciolate sopra."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "hummus-con-verdure-e-gallette",
+    "nome": "Hummus con verdure crude e gallette",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "ceci": 200,
+      "olio": 12,
+      "limone": 15,
+      "aglio": 2,
+      "carote": 100,
+      "cetrioli": 100,
+      "gallette-riso": 25,
+      "sale": 1
+    },
+    "attrezzi": [
+      "frullatore"
+    ],
+    "utensili": [
+      "Frullatore",
+      "Coltello",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Frulla i ceci scolati con olio, limone, aglio, sale e 2 cucchiai d'acqua fino a una crema.",
+      "Taglia carote e cetrioli a bastoncini.",
+      "Intingi le verdure e le gallette nell'hummus."
+    ],
+    "avanzi": "L'hummus si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "burrito-bowl-vegano",
+    "nome": "Burrito bowl vegano",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "riso-pronto": 180,
+      "fagioli": 150,
+      "mais": 60,
+      "pomodorini": 100,
+      "avocado": 50,
+      "cumino": 1,
+      "limone": 10,
+      "sale": 1
+    },
+    "attrezzi": [
+      "fornelli|microonde"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Scalda il riso pronto 2 minuti al microonde o in padella.",
+      "Scalda i fagioli scolati con il cumino e un pizzico di sale.",
+      "Componi la ciotola con riso, fagioli, mais, pomodorini e avocado a cubetti, e un goccio di limone."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "tofu-alla-paprika-e-patate",
+    "nome": "Tofu alla paprika con patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "tofu": 180,
+      "patate": 250,
+      "paprika": 2,
+      "olio": 8,
+      "insalata": 60,
+      "sale": 1.5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "microonde"
+    ],
+    "utensili": [
+      "Padella",
+      "Ciotola per microonde",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci le patate a cubetti al microonde con un goccio d'acqua, coperte, per 8 minuti.",
+      "Taglia il tofu a cubetti e rosolalo in padella con l'olio e la paprika per 5 minuti.",
+      "Aggiungi le patate, sala e salta tutto 2 minuti.",
+      "Servi con l'insalata."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "polenta-ceci-e-funghi",
+    "nome": "Polenta con ceci e funghi",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "polenta": 70,
+      "ceci": 150,
+      "funghi": 150,
+      "olio": 8,
+      "prezzemolo": 1,
+      "aglio": 3,
+      "sale": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Cuoci i funghi a fettine in padella con olio e aglio per 6 minuti.",
+      "Aggiungi i ceci scolati, sala e cuoci 3 minuti con il prezzemolo.",
+      "Intanto cuoci la polenta istantanea in acqua salata.",
+      "Servi la polenta con ceci e funghi sopra."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "insalata-lenticchie-patate-e-fagiolini",
+    "nome": "Insalata di lenticchie, patate e fagiolini",
+    "pasto": "principale",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "lenticchie": 200,
+      "patate": 200,
+      "fagiolini": 150,
+      "olio": 8,
+      "aceto": 5,
+      "sale": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Scolapasta",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Lessa le patate a cubetti in acqua salata per 15 minuti; negli ultimi 6 aggiungi i fagiolini.",
+      "Scola e lascia intiepidire.",
+      "Aggiungi le lenticchie sciacquate e condisci con olio, aceto e sale."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "curry-veloce-lenticchie-e-cocco",
+    "nome": "Curry veloce di lenticchie e cocco",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "lenticchie": 200,
+      "latte-cocco": 60,
+      "spinaci": 100,
+      "riso-pronto": 150,
+      "curry": 2,
+      "olio": 5,
+      "sale": 1.5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Tegame",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Scalda l'olio con il curry per 30 secondi.",
+      "Aggiungi lenticchie, spinaci e latte di cocco e cuoci 8 minuti.",
+      "Scalda il riso pronto e servilo con il curry."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "noodles-di-riso-tofu-e-verdure",
+    "nome": "Noodles di riso con tofu e verdure",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "noodles": 70,
+      "tofu": 150,
+      "verdure-grigliate": 150,
+      "olio": 6,
+      "aglio": 3,
+      "limone": 10,
+      "sale": 1
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella larga",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Metti i noodles in acqua bollente per il tempo indicato (di solito 3-4 minuti) e scolali.",
+      "Rosola il tofu a cubetti con olio e aglio per 4 minuti.",
+      "Aggiungi verdure e noodles e salta 2 minuti.",
+      "Completa con un goccio di limone."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "piselli-patate-e-tofu-in-padella",
+    "nome": "Piselli, patate e tofu in padella",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "piselli": 200,
+      "patate": 200,
+      "tofu": 120,
+      "olio": 8,
+      "cipolla": 30,
+      "sale": 2
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella con coperchio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Rosola la cipolla con l'olio per 2 minuti.",
+      "Aggiungi patate a cubetti piccoli, piselli e mezzo bicchiere d'acqua: copri e cuoci 12 minuti.",
+      "Aggiungi il tofu a cubetti e cuoci altri 4 minuti scoperto. Sala."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "pasta-di-legumi-broccoli-e-pomodorini",
+    "nome": "Pasta di legumi con broccoli e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pasta-legumi": 100,
+      "broccoli": 200,
+      "pomodorini": 100,
+      "olio": 10,
+      "aglio": 3,
+      "sale": 4
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Cuoci pasta di legumi e broccoli insieme in acqua salata per il tempo della pasta.",
+      "Intanto scalda in padella olio, aglio e pomodorini a metà per 4 minuti.",
+      "Scola e salta tutto in padella per 1 minuto."
+    ],
+    "avanzi": ""
   }
 ]

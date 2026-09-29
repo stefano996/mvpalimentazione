@@ -510,6 +510,12 @@
     "Uova",
     "Glutine",
     "Legumi",
+    "Carne rossa",
+    "Salumi",
+    "Piccante",
+    "Crostacei",
+    "Verdura",
+    "Frutta",
     "Pollo",
     "Tonno",
     "Salmone",
@@ -609,6 +615,11 @@
     ],
     "latte": [
       {
+        "id": "latte-soia",
+        "min": 0,
+        "nota": "Usa la bevanda di soia al posto del latte."
+      },
+      {
         "id": "yogurt",
         "min": 0,
         "nota": "Usa lo yogurt al posto del latte."
@@ -670,6 +681,11 @@
         "id": "yogurt",
         "min": 0,
         "nota": "Usa lo yogurt greco al posto dei fiocchi di latte."
+      },
+      {
+        "id": "yogurt-soia",
+        "min": 0,
+        "nota": "Usa lo yogurt di soia al posto dei fiocchi di latte."
       }
     ],
     "salmone-affumicato": [
@@ -750,6 +766,12 @@
         "min": 0,
         "max": 150,
         "nota": "Senza proteine in polvere: aggiungi yogurt greco."
+      },
+      {
+        "id": "yogurt-soia",
+        "min": 0,
+        "max": 150,
+        "nota": "Senza proteine in polvere: aggiungi yogurt di soia."
       },
       {
         "id": "",
@@ -920,6 +942,12 @@
     ],
     "limone": [
       {
+        "id": "aceto",
+        "min": 0,
+        "max": 5,
+        "nota": "Usa un goccio di aceto al posto del limone."
+      },
+      {
         "id": "",
         "nota": "Senza limone."
       }
@@ -928,6 +956,19 @@
       {
         "id": "",
         "nota": "Senza dado."
+      }
+    ],
+    "yogurt": [
+      {
+        "id": "yogurt-soia",
+        "min": 0,
+        "nota": "Usa lo yogurt di soia al posto dello yogurt greco."
+      }
+    ],
+    "parmigiano": [
+      {
+        "id": "",
+        "nota": "Senza parmigiano: aggiungi un pizzico di sale in più."
       }
     ]
   },

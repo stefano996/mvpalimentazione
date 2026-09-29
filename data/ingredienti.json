@@ -8,7 +8,11 @@
     "proteine_100g": 23,
     "dove": 1,
     "carboidrati_100g": 0,
-    "grassi_100g": 1.2
+    "grassi_100g": 1.2,
+    "categorie": [
+      "carne",
+      "carne bianca"
+    ]
   },
   {
     "id": "merluzzo",
@@ -20,7 +24,10 @@
     "dove": 1,
     "carboidrati_100g": 0,
     "grassi_100g": 0.7,
-    "confezione": 400
+    "confezione": 400,
+    "categorie": [
+      "pesce"
+    ]
   },
   {
     "id": "tonno",
@@ -32,7 +39,10 @@
     "dove": 1,
     "carboidrati_100g": 0,
     "grassi_100g": 1,
-    "confezione": 240
+    "confezione": 240,
+    "categorie": [
+      "pesce"
+    ]
   },
   {
     "id": "uova",
@@ -49,7 +59,10 @@
       "intero"
     ],
     "carboidrati_100g": 0.7,
-    "grassi_100g": 9.5
+    "grassi_100g": 9.5,
+    "categorie": [
+      "uova"
+    ]
   },
   {
     "id": "yogurt",
@@ -60,7 +73,11 @@
     "proteine_100g": 10,
     "dove": 1,
     "carboidrati_100g": 3.6,
-    "grassi_100g": 0.4
+    "grassi_100g": 0.4,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "parmigiano",
@@ -72,7 +89,10 @@
     "dove": 1,
     "carboidrati_100g": 0,
     "grassi_100g": 28,
-    "confezione": 300
+    "confezione": 300,
+    "categorie": [
+      "latticini"
+    ]
   },
   {
     "id": "avena",
@@ -84,7 +104,11 @@
     "dove": 1,
     "carboidrati_100g": 60,
     "grassi_100g": 7,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "riso",
@@ -96,7 +120,10 @@
     "dove": 1,
     "carboidrati_100g": 78,
     "grassi_100g": 0.6,
-    "confezione": 1000
+    "confezione": 1000,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "pasta",
@@ -108,7 +135,11 @@
     "dove": 1,
     "carboidrati_100g": 66,
     "grassi_100g": 2.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "ceci",
@@ -120,7 +151,10 @@
     "dove": 1,
     "carboidrati_100g": 18,
     "grassi_100g": 2.5,
-    "confezione": 240
+    "confezione": 240,
+    "categorie": [
+      "legumi"
+    ]
   },
   {
     "id": "passata",
@@ -132,7 +166,10 @@
     "dove": 1,
     "carboidrati_100g": 5,
     "grassi_100g": 0.2,
-    "confezione": 700
+    "confezione": 700,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "pane",
@@ -144,7 +181,11 @@
     "dove": 1,
     "carboidrati_100g": 45,
     "grassi_100g": 3.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "olio",
@@ -179,7 +220,10 @@
       "banane"
     ],
     "carboidrati_100g": 22,
-    "grassi_100g": 0.3
+    "grassi_100g": 0.3,
+    "categorie": [
+      "frutta"
+    ]
   },
   {
     "id": "zucchine",
@@ -190,7 +234,10 @@
     "proteine_100g": 1.2,
     "dove": 1,
     "carboidrati_100g": 3,
-    "grassi_100g": 0.3
+    "grassi_100g": 0.3,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "spinaci",
@@ -202,7 +249,10 @@
     "dove": 1,
     "carboidrati_100g": 1.5,
     "grassi_100g": 0.4,
-    "confezione": 450
+    "confezione": 450,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "broccoli",
@@ -214,7 +264,10 @@
     "dove": 1,
     "carboidrati_100g": 4,
     "grassi_100g": 0.4,
-    "confezione": 450
+    "confezione": 450,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "patate",
@@ -225,7 +278,10 @@
     "proteine_100g": 2,
     "dove": 1,
     "carboidrati_100g": 17,
-    "grassi_100g": 0.1
+    "grassi_100g": 0.1,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "salmone",
@@ -236,7 +292,10 @@
     "proteine_100g": 20,
     "dove": 2,
     "carboidrati_100g": 0,
-    "grassi_100g": 13
+    "grassi_100g": 13,
+    "categorie": [
+      "pesce"
+    ]
   },
   {
     "id": "quinoa",
@@ -248,7 +307,10 @@
     "dove": 2,
     "carboidrati_100g": 64,
     "grassi_100g": 6,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "avocado",
@@ -264,7 +326,10 @@
       "avocado"
     ],
     "carboidrati_100g": 9,
-    "grassi_100g": 15
+    "grassi_100g": 15,
+    "categorie": [
+      "frutta"
+    ]
   },
   {
     "id": "feta",
@@ -275,7 +340,11 @@
     "proteine_100g": 14,
     "dove": 2,
     "carboidrati_100g": 4,
-    "grassi_100g": 21
+    "grassi_100g": 21,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "tofu",
@@ -286,7 +355,11 @@
     "proteine_100g": 15,
     "dove": 3,
     "carboidrati_100g": 2,
-    "grassi_100g": 8.5
+    "grassi_100g": 8.5,
+    "categorie": [
+      "legumi",
+      "soia"
+    ]
   },
   {
     "id": "macinato",
@@ -297,7 +370,11 @@
     "proteine_100g": 21,
     "dove": 1,
     "carboidrati_100g": 0,
-    "grassi_100g": 7
+    "grassi_100g": 7,
+    "categorie": [
+      "carne",
+      "carne rossa"
+    ]
   },
   {
     "id": "tacchino",
@@ -308,7 +385,11 @@
     "proteine_100g": 24,
     "dove": 1,
     "carboidrati_100g": 0,
-    "grassi_100g": 1.5
+    "grassi_100g": 1.5,
+    "categorie": [
+      "carne",
+      "carne bianca"
+    ]
   },
   {
     "id": "bresaola",
@@ -319,7 +400,12 @@
     "proteine_100g": 32,
     "dove": 1,
     "carboidrati_100g": 0.5,
-    "grassi_100g": 2.6
+    "grassi_100g": 2.6,
+    "categorie": [
+      "carne",
+      "carne rossa",
+      "salumi"
+    ]
   },
   {
     "id": "lenticchie",
@@ -331,7 +417,10 @@
     "dove": 1,
     "carboidrati_100g": 17,
     "grassi_100g": 0.5,
-    "confezione": 240
+    "confezione": 240,
+    "categorie": [
+      "legumi"
+    ]
   },
   {
     "id": "fagioli",
@@ -343,7 +432,10 @@
     "dove": 1,
     "carboidrati_100g": 18,
     "grassi_100g": 0.5,
-    "confezione": 240
+    "confezione": 240,
+    "categorie": [
+      "legumi"
+    ]
   },
   {
     "id": "couscous",
@@ -355,7 +447,11 @@
     "dove": 1,
     "carboidrati_100g": 72,
     "grassi_100g": 1.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "farro",
@@ -367,7 +463,11 @@
     "dove": 1,
     "carboidrati_100g": 67,
     "grassi_100g": 2.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "piadina",
@@ -384,7 +484,11 @@
     ],
     "carboidrati_100g": 50,
     "grassi_100g": 8,
-    "confezione": 330
+    "confezione": 330,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "burro-arachidi",
@@ -396,7 +500,10 @@
     "dove": 2,
     "carboidrati_100g": 16,
     "grassi_100g": 50,
-    "confezione": 350
+    "confezione": 350,
+    "categorie": [
+      "frutta secca"
+    ]
   },
   {
     "id": "noci",
@@ -408,7 +515,10 @@
     "dove": 1,
     "carboidrati_100g": 14,
     "grassi_100g": 65,
-    "confezione": 200
+    "confezione": 200,
+    "categorie": [
+      "frutta secca"
+    ]
   },
   {
     "id": "mozzarella",
@@ -419,7 +529,11 @@
     "proteine_100g": 18,
     "dove": 1,
     "carboidrati_100g": 1,
-    "grassi_100g": 19
+    "grassi_100g": 19,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "ricotta",
@@ -430,7 +544,11 @@
     "proteine_100g": 11,
     "dove": 1,
     "carboidrati_100g": 3.5,
-    "grassi_100g": 11
+    "grassi_100g": 11,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "latte",
@@ -441,7 +559,11 @@
     "proteine_100g": 3.3,
     "dove": 1,
     "carboidrati_100g": 5,
-    "grassi_100g": 1.6
+    "grassi_100g": 1.6,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "piselli",
@@ -453,7 +575,10 @@
     "dove": 1,
     "carboidrati_100g": 12,
     "grassi_100g": 0.4,
-    "confezione": 450
+    "confezione": 450,
+    "categorie": [
+      "legumi"
+    ]
   },
   {
     "id": "verdure-grigliate",
@@ -465,7 +590,10 @@
     "dove": 1,
     "carboidrati_100g": 5,
     "grassi_100g": 1,
-    "confezione": 450
+    "confezione": 450,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "frutti-bosco",
@@ -477,7 +605,10 @@
     "dove": 2,
     "carboidrati_100g": 8,
     "grassi_100g": 0.3,
-    "confezione": 300
+    "confezione": 300,
+    "categorie": [
+      "frutta"
+    ]
   },
   {
     "id": "gallette-riso",
@@ -495,7 +626,10 @@
       "gallette di riso",
       "intero"
     ],
-    "confezione": 130
+    "confezione": 130,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "riso-pronto",
@@ -513,7 +647,10 @@
       "buste di riso pronto",
       ""
     ],
-    "confezione": 250
+    "confezione": 250,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "gamberetti",
@@ -525,7 +662,11 @@
     "dove": 1,
     "carboidrati_100g": 0.5,
     "grassi_100g": 0.8,
-    "confezione": 300
+    "confezione": 300,
+    "categorie": [
+      "pesce",
+      "crostacei"
+    ]
   },
   {
     "id": "salmone-affumicato",
@@ -537,7 +678,10 @@
     "dove": 1,
     "carboidrati_100g": 0,
     "grassi_100g": 9,
-    "confezione": 100
+    "confezione": 100,
+    "categorie": [
+      "pesce"
+    ]
   },
   {
     "id": "sgombro",
@@ -549,7 +693,10 @@
     "dove": 1,
     "carboidrati_100g": 0,
     "grassi_100g": 11,
-    "confezione": 125
+    "confezione": 125,
+    "categorie": [
+      "pesce"
+    ]
   },
   {
     "id": "manzo",
@@ -560,7 +707,11 @@
     "proteine_100g": 22,
     "dove": 1,
     "carboidrati_100g": 0,
-    "grassi_100g": 4.5
+    "grassi_100g": 4.5,
+    "categorie": [
+      "carne",
+      "carne rossa"
+    ]
   },
   {
     "id": "prosciutto-cotto",
@@ -571,7 +722,11 @@
     "proteine_100g": 20,
     "dove": 1,
     "carboidrati_100g": 0.5,
-    "grassi_100g": 5.5
+    "grassi_100g": 5.5,
+    "categorie": [
+      "carne",
+      "salumi"
+    ]
   },
   {
     "id": "fiocchi-latte",
@@ -582,7 +737,11 @@
     "proteine_100g": 12,
     "dove": 1,
     "carboidrati_100g": 3,
-    "grassi_100g": 4.5
+    "grassi_100g": 4.5,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "albume",
@@ -593,7 +752,10 @@
     "proteine_100g": 11,
     "dove": 1,
     "carboidrati_100g": 0.7,
-    "grassi_100g": 0.2
+    "grassi_100g": 0.2,
+    "categorie": [
+      "uova"
+    ]
   },
   {
     "id": "patate-dolci",
@@ -604,7 +766,10 @@
     "proteine_100g": 1.6,
     "dove": 2,
     "carboidrati_100g": 20,
-    "grassi_100g": 0.1
+    "grassi_100g": 0.1,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "polenta",
@@ -616,7 +781,10 @@
     "dove": 1,
     "carboidrati_100g": 79,
     "grassi_100g": 1.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "mais",
@@ -628,7 +796,10 @@
     "dove": 1,
     "carboidrati_100g": 16,
     "grassi_100g": 1.2,
-    "confezione": 300
+    "confezione": 300,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "pomodorini",
@@ -639,7 +810,10 @@
     "proteine_100g": 1,
     "dove": 1,
     "carboidrati_100g": 3,
-    "grassi_100g": 0.2
+    "grassi_100g": 0.2,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "insalata",
@@ -650,7 +824,10 @@
     "proteine_100g": 1.4,
     "dove": 1,
     "carboidrati_100g": 2,
-    "grassi_100g": 0.2
+    "grassi_100g": 0.2,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "peperoni",
@@ -661,7 +838,10 @@
     "proteine_100g": 1,
     "dove": 1,
     "carboidrati_100g": 5,
-    "grassi_100g": 0.3
+    "grassi_100g": 0.3,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "carote",
@@ -672,7 +852,10 @@
     "proteine_100g": 0.9,
     "dove": 1,
     "carboidrati_100g": 7.6,
-    "grassi_100g": 0.2
+    "grassi_100g": 0.2,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "funghi",
@@ -683,7 +866,10 @@
     "proteine_100g": 3,
     "dove": 1,
     "carboidrati_100g": 1,
-    "grassi_100g": 0.3
+    "grassi_100g": 0.3,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "fagiolini",
@@ -695,7 +881,10 @@
     "dove": 1,
     "carboidrati_100g": 4,
     "grassi_100g": 0.2,
-    "confezione": 450
+    "confezione": 450,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "cetrioli",
@@ -706,7 +895,10 @@
     "proteine_100g": 0.7,
     "dove": 1,
     "carboidrati_100g": 2,
-    "grassi_100g": 0.1
+    "grassi_100g": 0.1,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "minestrone",
@@ -718,7 +910,10 @@
     "dove": 1,
     "carboidrati_100g": 6,
     "grassi_100g": 0.4,
-    "confezione": 1000
+    "confezione": 1000,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "mela",
@@ -734,6 +929,9 @@
       180,
       "mela",
       "mele"
+    ],
+    "categorie": [
+      "frutta"
     ]
   },
   {
@@ -746,7 +944,10 @@
     "dove": 1,
     "carboidrati_100g": 82,
     "grassi_100g": 0,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "miele"
+    ]
   },
   {
     "id": "fette-biscottate",
@@ -764,7 +965,11 @@
       "fette biscottate",
       "intero"
     ],
-    "confezione": 315
+    "confezione": 315,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "pesto",
@@ -776,7 +981,12 @@
     "dove": 1,
     "carboidrati_100g": 6,
     "grassi_100g": 45,
-    "confezione": 190
+    "confezione": 190,
+    "categorie": [
+      "latticini",
+      "lattosio",
+      "frutta secca"
+    ]
   },
   {
     "id": "salsa-soia",
@@ -788,7 +998,11 @@
     "dove": 1,
     "carboidrati_100g": 5,
     "grassi_100g": 0.1,
-    "confezione": 150
+    "confezione": 150,
+    "categorie": [
+      "glutine",
+      "soia"
+    ]
   },
   {
     "id": "gnocchi",
@@ -800,7 +1014,10 @@
     "dove": 1,
     "carboidrati_100g": 32,
     "grassi_100g": 0.5,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine"
+    ]
   },
   {
     "id": "sale",
@@ -891,7 +1108,10 @@
     "carboidrati_100g": 25,
     "grassi_100g": 14,
     "confezione": 40,
-    "base": true
+    "base": true,
+    "categorie": [
+      "piccante"
+    ]
   },
   {
     "id": "paprika",
@@ -904,7 +1124,10 @@
     "carboidrati_100g": 20,
     "grassi_100g": 13,
     "confezione": 40,
-    "base": true
+    "base": true,
+    "categorie": [
+      "piccante"
+    ]
   },
   {
     "id": "cannella",
@@ -979,6 +1202,9 @@
       100,
       "limone",
       "limoni"
+    ],
+    "categorie": [
+      "frutta"
     ]
   },
   {
@@ -995,6 +1221,9 @@
       100,
       "cipolla",
       "cipolle"
+    ],
+    "categorie": [
+      "verdura"
     ]
   },
   {
@@ -1014,7 +1243,10 @@
       "intero"
     ],
     "confezione": 50,
-    "base": true
+    "base": true,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "caffe",
@@ -1057,7 +1289,11 @@
     "carboidrati_100g": 1.5,
     "grassi_100g": 1.9,
     "dove": 1,
-    "confezione": 1000
+    "confezione": 1000,
+    "categorie": [
+      "legumi",
+      "soia"
+    ]
   },
   {
     "id": "yogurt-soia",
@@ -1068,7 +1304,11 @@
     "proteine_100g": 4.0,
     "carboidrati_100g": 2.2,
     "grassi_100g": 2.3,
-    "dove": 2
+    "dove": 2,
+    "categorie": [
+      "legumi",
+      "soia"
+    ]
   },
   {
     "id": "pangrattato",
@@ -1080,7 +1320,10 @@
     "carboidrati_100g": 72,
     "grassi_100g": 3.0,
     "dove": 1,
-    "confezione": 400
+    "confezione": 400,
+    "categorie": [
+      "glutine"
+    ]
   },
   {
     "id": "zucca",
@@ -1091,7 +1334,10 @@
     "proteine_100g": 1.1,
     "carboidrati_100g": 3.5,
     "grassi_100g": 0.1,
-    "dove": 1
+    "dove": 1,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "cavolfiore",
@@ -1107,6 +1353,9 @@
       600,
       "cavolfiore",
       "cavolfiori"
+    ],
+    "categorie": [
+      "verdura"
     ]
   },
   {
@@ -1123,6 +1372,9 @@
       300,
       "melanzana",
       "melanzane"
+    ],
+    "categorie": [
+      "verdura"
     ]
   },
   {
@@ -1159,7 +1411,11 @@
     "carboidrati_100g": 8,
     "grassi_100g": 5,
     "dove": 2,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "latticini",
+      "lattosio"
+    ]
   },
   {
     "id": "tortilla",
@@ -1177,6 +1433,10 @@
       "tortilla",
       "tortillas",
       "intero"
+    ],
+    "categorie": [
+      "glutine",
+      "cereali"
     ]
   },
   {
@@ -1189,7 +1449,11 @@
     "carboidrati_100g": 70.5,
     "grassi_100g": 1.4,
     "dove": 1,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "glutine",
+      "cereali"
+    ]
   },
   {
     "id": "rucola",
@@ -1200,7 +1464,10 @@
     "proteine_100g": 2.6,
     "carboidrati_100g": 3.9,
     "grassi_100g": 0.3,
-    "dove": 1
+    "dove": 1,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "olive",
@@ -1212,7 +1479,10 @@
     "carboidrati_100g": 1.0,
     "grassi_100g": 15,
     "dove": 1,
-    "confezione": 150
+    "confezione": 150,
+    "categorie": [
+      "verdura"
+    ]
   },
   {
     "id": "farina-ceci",
@@ -1224,7 +1494,10 @@
     "carboidrati_100g": 55,
     "grassi_100g": 6.5,
     "dove": 2,
-    "confezione": 500
+    "confezione": 500,
+    "categorie": [
+      "legumi"
+    ]
   },
   {
     "id": "cumino",
@@ -1250,7 +1523,10 @@
     "grassi_100g": 14,
     "dove": 1,
     "confezione": 30,
-    "base": true
+    "base": true,
+    "categorie": [
+      "piccante"
+    ]
   },
   {
     "id": "chia",
@@ -1273,7 +1549,11 @@
     "proteine_100g": 20,
     "carboidrati_100g": 0,
     "grassi_100g": 5.5,
-    "dove": 1
+    "dove": 1,
+    "categorie": [
+      "carne",
+      "carne bianca"
+    ]
   },
   {
     "id": "noodles",
@@ -1285,7 +1565,10 @@
     "carboidrati_100g": 80,
     "grassi_100g": 1,
     "dove": 2,
-    "confezione": 250
+    "confezione": 250,
+    "categorie": [
+      "cereali"
+    ]
   },
   {
     "id": "pasta-legumi",
@@ -1297,6 +1580,9 @@
     "carboidrati_100g": 50,
     "grassi_100g": 2.5,
     "dove": 2,
-    "confezione": 250
+    "confezione": 250,
+    "categorie": [
+      "legumi"
+    ]
   }
 ]
