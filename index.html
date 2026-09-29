@@ -46,6 +46,9 @@ a{color:var(--leaf);font-weight:700}
 .hm small{display:block;color:var(--mute);font-size:.78rem;font-weight:500}.hm b{display:block;font-weight:700;line-height:1.3}.hm .meta{display:block;color:var(--mute);font-size:.85rem}.hm .tag{flex:none}
 .shopw{background:var(--leaf-t);border-radius:14px;padding:12px 14px}.shopw b{display:block;font:800 1.15rem "Bricolage Grotesque",sans-serif}.shopw span{display:block;font-size:.85rem;color:var(--mute)}
 .day.today{border:2px solid var(--leaf)}
+.extra{display:block;font-size:.85rem;color:var(--mute);margin-top:2px}.ing small{display:block}
+.seg.wk{margin-bottom:12px}.seg.wk button{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;line-height:1.2;padding:4px 2px}
+.seg.wk b{font-size:.85rem}.seg.wk span{font-size:.75rem;font-weight:500}.seg.wk .now b::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--leaf);margin-left:4px;vertical-align:middle}
 .hm{display:block}.hm-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .hm.ok b,.hm.sgd b{color:var(--mute)}.hm.sgd>.hm-top b{text-decoration:line-through}
 .sg{display:block;margin-top:4px;font-size:.9rem;font-weight:700;color:var(--ink)}
@@ -156,10 +159,10 @@ async function load(){
 }
 
 // ---------- Quanto vuoi stare in cucina ----------
-// t = minuti massimi, d = difficoltà massima, u = pentole massime, b = porzioni cucinate insieme (e tenute in frigo), spese = spese a settimana
+// t = minuti massimi, d = difficoltà massima, u = pentole massime, spese = spese a settimana (b non più usato)
 const LV={poco:{nome:"Poco",desc:"Il minimo indispensabile: piatti pronti in 15 minuti, una o due pentole, nessuna tecnica. Pensato anche per chi ha il frigo piccolo e poco spazio: due spese piccole a settimana invece di una grande.",t:15,d:1,u:2,b:3,spese:2},
 giusto:{nome:"Il giusto",desc:"Fino a 25 minuti per piatto, ricette semplici con qualche passaggio in più. Una spesa a settimana e più varietà nei piatti.",t:25,d:2,u:3,b:3,spese:1},
-tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Cucini spesso, hai tanta varietà e fai una spesa grande a settimana.",t:999,d:3,u:9,b:2,spese:1}};
+tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Tanta varietà e una spesa grande a settimana.",t:999,d:3,u:9,b:2,spese:1}};
 const GGc=["lun","mar","mer","gio","ven","sab","dom"];
 
 // ---------- Indirizzi e negozi (OpenStreetMap) ----------
@@ -236,65 +239,84 @@ function qta(id,g,spesa){const z=I[id].pz;
  if(z&&!(spesa&&z[3]=="ricetta")){let r=Math.max(.5,Math.round(g/z[0]*2)/2);const t=r==.5?"½":r%1?Math.floor(r)+" e ½":r;return`${t} ${r<=1?z[1]:z[2]}`}
  return g>=1000?(g/1000).toFixed(1).replace(".",",")+" kg":(g<50?Math.max(5,Math.round(g/5)*5):Math.round(g/10)*10)+" g"}
 function stat(r,m=1){let k=0,p=0,c=0;for(const id in r.ing){const g=r.ing[id]*m;k+=g*I[id].kcal/100;p+=g*I[id].prot/100;c+=spend(g,id)}return{k,p,c}}
-// tempo per porzione (un piatto cucinato per 3 giorni "costa" un terzo), poi proteine per kcal, poi costo
-function score(r,b=1){const s=stat(r);return .5*Math.min(r.tempo/Math.min(b,r.cons)/15,1)+.3*(1-Math.min(s.p/s.k*100/9,1))+.2*Math.min(s.c/4,1)}
-function plan(){
+function statG(g){let k=0,p=0,c=0;for(const id in g){k+=g[id]*I[id].kcal/100;p+=g[id]*I[id].prot/100;c+=spend(g[id],id)}return{k,p,c}}
+// prima il tempo, poi le proteine per kcal, poi il costo
+function score(r){const s=stat(r);return .5*Math.min(r.tempo/30,1)+.3*(1-Math.min(s.p/s.k*100/9,1))+.2*Math.min(s.c/4,1)}
+
+// ---------- Settimane e mesi ----------
+const MESI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+const lun=(d=new Date())=>{const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-(x.getDay()+6)%7);return x};
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const wkKey=m=>m.getFullYear()+"-"+(m.getMonth()+1)+"-"+m.getDate();
+function settimaneDelMese(y,m){const out=[],fine=new Date(y,m+1,0);let w=lun(new Date(y,m,1));while(w<=fine){out.push(w);w=addD(w,7)}return out}
+let PC={};const planW=m=>{const k=wkKey(m);return k in PC?PC[k]:(PC[k]=plan(m))};
+
+// ---------- Piano ----------
+// quota di kcal per pasto: colazione 25%, pranzo e cena 37,5% ciascuno
+const QUOTA=[.25,.375,.375],EXTRA=[["banana","noci"],["pane","piadina"],["pane","piadina"]],EXMAX={banana:150,noci:30,pane:120,piadina:110};
+function plan(mon=lun()){
  const L=LV[S.cucina]||LV.giusto,ex=EX(),rc=reach();
  const ok=RIC.filter(r=>Object.keys(r.ing).every(i=>!ex.has(i)&&rc.has(I[i].dove)));
  const bf=ok.filter(r=>r.p=="c"&&r.tempo<=L.t).sort((a,b)=>score(a)-score(b)).slice(0,3);
- const mains=ok.filter(r=>r.p=="p"&&r.tempo<=L.t&&r.diff<=L.d&&r.ut<=L.u).sort((a,b)=>score(a,L.b)-score(b,L.b));
+ const mains=ok.filter(r=>r.p=="p"&&r.tempo<=L.t&&r.diff<=L.d&&r.ut<=L.u).sort((a,b)=>score(a)-score(b));
  if(!mains.length)return null;
- // due binari separati, pranzi e cene: ognuno ha le sue preparazioni e nello stesso giorno i piatti sono sempre diversi
- const tr=[Array(7).fill(null),Array(7).fill(null)],pt=[0,0];let s=0,rot=0,minuti=0;
+ // ogni settimana parte da un punto diverso, così i menu cambiano di settimana in settimana
+ const seed=Math.round(mon.getTime()/6048e5);let rot=(seed*5)%mains.length;const bo=bf.length?seed%bf.length:0;
  const pick=no=>{for(let k=0;k<mains.length;k++){const r=mains[(rot+k)%mains.length];if(!no(r)){rot=(rot+k+1)%mains.length;return r}}return null};
- while(pt[0]<7||pt[1]<7){
-  const t=pt[0]<=pt[1]?0:1,o=1-t,d0=pt[t],prev=d0>0?tr[t][d0-1].r:null;
-  const clash=(r,n)=>{for(let j=0;j<n&&d0+j<7;j++){const y=tr[o][d0+j];if(y&&y.r===r)return true}return false};
-  const r=pick(r=>r===prev||clash(r,Math.min(L.b,r.cons)))||pick(r=>clash(r,1))||mains[rot++%mains.length];
-  const n=Math.min(L.b,r.cons,7-d0);
-  for(let j=0;j<n;j++)tr[t][d0+j]={r,s,first:j==0,n};
-  minuti+=r.tempo;s++;pt[t]+=n}
- const days=[],tot={},need=Array.from({length:7},()=>({})),cookDay={};
+ // pranzo e cena sempre diversi nello stesso giorno, e mai lo stesso piatto del giorno prima
+ const tr=[[],[]];
+ for(let d=0;d<7;d++)for(let t=0;t<2;t++){const o=t?tr[0][d]:null,y=d?[tr[0][d-1],tr[1][d-1]]:[];
+  tr[t][d]=pick(r=>r===o||y.includes(r))||pick(r=>r===o)||mains[rot++%mains.length]}
+ const T=QUOTA.map(f=>f*S.kcal),days=[],tot={},need=[];
  for(let d=0;d<7;d++){
-  const ms=[bf.length?{r:bf[d%bf.length]}:null,tr[0][d],tr[1][d]];
-  const raw=ms.reduce((a,x)=>a+(x?stat(x.r).k:0),0),m=Math.min(1.5,Math.max(.7,S.kcal/raw));
-  let k=0,p=0,c=0;
-  ms.forEach(x=>{if(!x)return;const t=stat(x.r,m);k+=t.k;p+=t.p;c+=t.c;
-   if(x.s!==undefined&&x.first)cookDay[x.s]=d;const nd=need[x.s===undefined?d:cookDay[x.s]];
-   for(const id in x.r.ing){const g=x.r.ing[id]*m;tot[id]=(tot[id]||0)+g;nd[id]=(nd[id]||0)+g}});
-  days.push({ms,k,p,c,m});
- }
- days.forEach(d=>d.ms[0]&&(minuti+=d.ms[0].r.tempo));
+  const rs=[bf.length?bf[(d+bo)%bf.length]:null,tr[0][d],tr[1][d]];
+  // porzioni adattate alla quota di kcal; se non basta si aggiunge pane (o frutta e noci a colazione)
+  const ms=rs.map((r,j)=>{if(!r)return null;const raw=stat(r).k,m=Math.min(1.8,Math.max(.6,T[j]/raw)),g={};for(const id in r.ing)g[id]=r.ing[id]*m;
+   let extra=null;const gap=T[j]-raw*m;
+   if(gap>40){const id=EXTRA[j].find(i=>I[i]&&!ex.has(i)&&rc.has(I[i].dove));if(id){const add=Math.min(EXMAX[id],gap/I[id].kcal*100);g[id]=(g[id]||0)+add;extra={id,g:add}}}
+   const x={r,m,g,extra};x.st=statG(g);return x});
+  let k=0,p=0,c=0;need[d]={};
+  ms.forEach(x=>{if(!x)return;k+=x.st.k;p+=x.st.p;c+=x.st.c;for(const id in x.g){tot[id]=(tot[id]||0)+x.g[id];need[d][id]=(need[d][id]||0)+x.g[id]}});
+  days.push({ms,k,p,c})}
  const costo=o=>Object.entries(o).reduce((a,[id,g])=>a+spend(g,id),0);
  const trips=(L.spese==2?[[0,1,2,3],[4,5,6]]:[[0,1,2,3,4,5,6]]).map(gg=>{const t={};gg.forEach(d=>{for(const id in need[d])t[id]=(t[id]||0)+need[d][id]});
   return{gg,tot:t,cost:costo(t),nome:L.spese==2?`Spesa per ${GGc[gg[0]]}–${GGc[gg[gg.length-1]]}`:"Spesa della settimana"}});
- return{days,tot,trips,cookDay,minuti,sess:new Set(Object.values(cookDay)).size,cost:costo(tot)}
+ return{days,tot,trips,monday:mon,cost:costo(tot)}
 }
 const GG=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"],PN=["Colazione","Pranzo","Cena"];
 const chkGet=()=>S.presi||{},chkSet=c=>{S.presi=c};
-const lunedi=()=>{const d=new Date();d.setDate(d.getDate()-(d.getDay()+6)%7);return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
-if(S.presiWk!=lunedi()){S.presi={};S.presiWk=lunedi();save()}
-const presiIn=(P,ti)=>Object.keys(P.trips[ti].tot).filter(id=>chkGet()[ti+":"+id]).length;
+if(S.presiWk){S.presi={};delete S.presiWk}
+const ck=(P,ti,id)=>wkKey(P.monday)+":"+ti+":"+id;
+const presiIn=(P,ti)=>Object.keys(P.trips[ti].tot).filter(id=>chkGet()[ck(P,ti,id)]).length;
 function prossima(P){const o=OGGI();let i=P.trips.findIndex(t=>t.gg.includes(o));if(i<0)i=0;
  if(presiIn(P,i)==Object.keys(P.trips[i].tot).length&&i<P.trips.length-1)i++;return i}
-let trip=null,PL=null;
+let trip=null,selWk=null,PL=null;
 const OGGI=()=>(new Date().getDay()+6)%7;
 const dayKey=()=>{const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
 function diario(){const k=dayKey();if(!S.diario[k]){S.diario[k]={};const ks=Object.keys(S.diario);if(ks.length>14)ks.slice(0,ks.length-14).forEach(x=>delete S.diario[x])}return S.diario[k]}
 const sgTot=it=>it.reduce((a,o)=>({k:a.k+o.kcal*o.q,p:a.p+(o.prot||0)*o.q}),{k:0,p:0});
 const mezzi=q=>q==.5?"½":q%1?Math.floor(q)+" e ½":String(q);
 const CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const extraTxt=x=>x.extra?`<span class="extra">+ ${qta(x.extra.id,x.extra.g)} di ${I[x.extra.id].nome.toLowerCase()} per arrivare alle tue kcal</span>`:"";
+const range=m=>{const e=addD(m,6);return m.getMonth()==e.getMonth()?`${m.getDate()}–${e.getDate()} ${MESI[e.getMonth()]}`:`${m.getDate()} ${MESI[m.getMonth()].slice(0,3)} – ${e.getDate()} ${MESI[e.getMonth()].slice(0,3)}`};
+
 function render(){
- const P=plan();PL=P;
- const TOP=`<header class="ph"><h1>La tua settimana</h1></header>`;
+ PC={};const P=planW(lun());PL=P;const now=new Date(),y=now.getFullYear(),mo=now.getMonth();
+ // settimana
+ let mens=0;if(P)for(let i=1;i<=new Date(y,mo+1,0).getDate();i++){const dd=new Date(y,mo,i);mens+=planW(lun(dd)).days[(dd.getDay()+6)%7].c}
+ const TOP=`<header class="ph"><p class="note">${P?range(P.monday):""}</p><h1>La tua settimana</h1></header>`;
  $("#piano").innerHTML=TOP+(!P?`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Nel Profilo togli qualche esclusione o cambia la risposta a "Quanto vuoi stare in cucina?".</p>`:(
- `<div class="kpi"><div><b>${Math.round(P.minuti/6)/10} h</b><span>in cucina a settimana</span></div><div><b>${P.sess}</b><span>volte ai fornelli a settimana</span></div><div><b>${eur(P.cost)}</b><span>spesa settimanale</span></div></div>`+
+ `<div class="kpi"><div><b>${eur(P.cost)}</b><span>spesa stimata di questa settimana</span></div><div><b>${eur(mens)}</b><span>totale stimato di ${MESI[mo]}</span></div></div>`+
  P.days.map((d,i)=>`<article class="day${i==OGGI()?" today":""}"><header><h3>${GG[i]}${i==OGGI()?' <span class="tag p">Oggi</span>':""}</h3><span>${Math.round(d.k)} kcal · ${Math.round(d.p)} g proteine · ${eur(d.c)}</span></header>`+
- d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m);return`<div class="meal"><small>${PN[j]}</small><div>${x.r.n}<div class="tags"><span class="tag">${x.r.tempo} min attivi</span><span class="tag">${Math.round(t.k)} kcal</span><span class="tag">${Math.round(t.p)} g prot.</span><span class="tag">${eur(t.c)}</span>${x.s===undefined?"":x.first?'<span class="tag p">da cucinare</span>':'<span class="tag">già pronto</span>'}</div><button class="how" data-ric="${i}-${j}">${j&&!x.first?"Come si scalda":"Come si cucina"}</button></div></div>`}).join("")+`</article>`).join("")));
+ d.ms.map((x,j)=>x?`<div class="meal"><small>${PN[j]}</small><div>${x.r.n}${extraTxt(x)}<div class="tags"><span class="tag">${Math.round(x.st.k)} kcal</span><span class="tag">${Math.round(x.st.p)} g prot.</span><span class="tag">${eur(x.st.c)}</span></div><button class="how" data-ric="${i}-${j}">Come si cucina</button></div></div>`:"").join("")+`</article>`).join("")));
  renderHome(P);
- if(!P){$("#spesa").innerHTML=`<header class="ph"><h1>Spesa</h1></header>`;return}
- const chk=chkGet(),ti=trip!=null&&trip<P.trips.length?trip:prossima(P),T=P.trips[ti];
- const riga=id=>{const q=T.tot[id],k=ti+":"+id,u=qta(id,q,true);return`<div class="sp"><label><input type="checkbox" data-c="${k}" ${chk[k]?"checked":""}><span class="${chk[k]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
+ // spesa
+ const W=settimaneDelMese(y,mo),cur=wkKey(lun()),has=k=>W.some(w=>wkKey(w)==k);
+ const sel=selWk&&has(selWk)?selWk:has(cur)?cur:wkKey(W[0]),PS=planW(W.find(w=>wkKey(w)==sel));
+ const HEAD=`<header class="ph"><p class="note">Spesa</p><h1>${MESI[mo][0].toUpperCase()+MESI[mo].slice(1)} ${y}</h1></header><div class="seg wk" role="tablist" aria-label="Settimane del mese">${W.map((w,i)=>{const e=addD(w,6),k=wkKey(w);return`<button role="tab" data-wk="${k}" aria-selected="${k==sel}" class="${k==cur?"now":""}" aria-label="Settimana ${i+1}, ${range(w)}${k==cur?", questa settimana":""}"><b>Sett. ${i+1}</b><span>${w.getDate()}–${e.getDate()}</span></button>`}).join("")}</div>`;
+ if(!PS){$("#spesa").innerHTML=HEAD;return}
+ const chk=chkGet(),ti=trip!=null&&trip<PS.trips.length?trip:sel==cur?prossima(PS):0,T=PS.trips[ti];
+ const riga=id=>{const q=T.tot[id],k=ck(PS,ti,id),u=qta(id,q,true);return`<div class="sp"><label><input type="checkbox" data-c="${k}" ${chk[k]?"checked":""}><span class="${chk[k]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
  const ids=Object.keys(T.tot).sort((a,b)=>I[a].rep.localeCompare(I[b].rep)||I[a].nome.localeCompare(I[b].nome));
  const a=ADDR();let head="",body="";
  if(!a)head=`<div class="card"><p class="note" style="margin:0">Aggiungi dove ti trovi nel Profilo: ti diremo in quale negozio fare la spesa.</p><button class="btn ghost" data-t="profilo">Aggiungi indirizzo</button></div>`;
@@ -312,8 +334,8 @@ function render(){
   const gr={};ids.forEach(id=>(gr[I[id].rep]=gr[I[id].rep]||[]).push(id));
   body=Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
  }
- const seg=P.trips.length>1?`<div class="seg" role="tablist" aria-label="Quale spesa">${P.trips.map((t,i)=>`<button role="tab" data-trip="${i}" aria-selected="${i==ti}">${t.nome.replace("Spesa per ","")}</button>`).join("")}</div><p class="note">Due spese piccole a settimana, così non riempi il frigo.</p>`:"";
- $("#spesa").innerHTML=`<header class="ph"><h1>Spesa</h1></header>`+seg+`<div class="kpi"><div><b>${eur(T.cost)}</b><span>${P.trips.length>1?"totale di questa spesa":"totale stimato"}</span></div><div><b>${presiIn(P,ti)} di ${ids.length}</b><span>prodotti presi</span></div></div>`+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
+ const seg=PS.trips.length>1?`<div class="seg" role="tablist" aria-label="Quale spesa">${PS.trips.map((t,i)=>`<button role="tab" data-trip="${i}" aria-selected="${i==ti}">${t.nome.replace("Spesa per ","")}</button>`).join("")}</div><p class="note">Due spese piccole a settimana, così non riempi il frigo.</p>`:"";
+ $("#spesa").innerHTML=HEAD+seg+`<div class="kpi"><div><b>${eur(T.cost)}</b><span>${PS.trips.length>1?"totale di questa spesa":"totale della settimana"}</span></div><div><b>${presiIn(PS,ti)} di ${ids.length}</b><span>prodotti presi</span></div></div>`+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
 }
 
 // ---------- Home ----------
@@ -322,19 +344,16 @@ function renderHome(P){
  let html=`<header class="ph"><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1>${a?`<label class="here">Sei qui<select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}</header>`;
  html+=`<section class="w" aria-labelledby="w-profilo"><div class="w-h"><h2 id="w-profilo">Profilo</h2><button class="lnk" data-t="profilo">Modifica</button></div><div class="stats"><div><b>${S.kcal}</b><span>kcal al giorno</span></div><div><b>${(LV[S.cucina]||LV.giusto).nome}</b><span>in cucina</span></div><div><b>${S.exl.length}</b><span>${S.exl.length==1?"esclusione":"esclusioni"}</span></div></div></section>`;
  if(!P){$("#home").innerHTML=html+`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Tocca Modifica nel Profilo e togli qualche esclusione.</p>`;return}
- const d=P.days[OGGI()],cuc=d.ms.reduce((t,x,j)=>t+(x&&(j==0||x.first)?x.r.tempo:0),0);
- const D=diario();let ek=0,ep=0,pk=0,delta=0,segnati=0;
- d.ms.forEach((x,j)=>{if(!x)return;const t=stat(x.r,d.m),e=D[j];pk+=t.k;
+ const d=P.days[OGGI()],D=diario();let ek=0,ep=0,pk=0,delta=0,segnati=0;
+ d.ms.forEach((x,j)=>{if(!x)return;const t=x.st,e=D[j];pk+=t.k;
   if(e&&e.s=="ok"){ek+=t.k;ep+=t.p;segnati++}
   if(e&&e.s=="sg"){const g=sgTot(e.items);ek+=g.k;ep+=g.p;delta+=g.k-t.k;segnati++}});
  html+=`<section class="w" aria-labelledby="w-pasti"><div class="w-h"><h2 id="w-pasti">I pasti di oggi</h2><button class="lnk" data-t="piano">Settimana</button></div><div class="prog"><span><b>${Math.round(ek)}</b> di ${S.kcal} kcal mangiate</span><span>${Math.round(ep)} g proteine</span></div><div class="bar"><i style="width:${Math.min(100,ek/S.kcal*100)}%"></i></div>
  <p class="note" style="margin:-6px 0 4px">${segnati?`${segnati} di 3 pasti segnati · `:"Segna i pasti man mano che li mangi · "}piano di oggi ${Math.round(pk)} kcal${Math.round(delta)?` · sgarri ${delta>0?"+":"−"}${Math.abs(Math.round(delta))} kcal`:""}</p>`+
-  d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m),e=D[j],ok=e&&e.s=="ok",sg=e&&e.s=="sg";
-   const tag=ok||sg||j==0?"":x.first?'<span class="tag p">Da cucinare</span>':'<span class="tag">Già pronto</span>';
+  d.ms.map((x,j)=>{if(!x)return"";const t=x.st,e=D[j],ok=e&&e.s=="ok",sg=e&&e.s=="sg";
    const sgt=sg?`<span class="sg">Sgarro: ${e.items.map(o=>esc(o.nome)).join(", ")} · ${Math.round(sgTot(e.items).k)} kcal</span>`:"";
-   return`<div class="hm${ok?" ok":""}${sg?" sgd":""}"><div class="hm-top"><div><small>${PN[j]}</small><b>${x.r.n}</b><span class="meta">${x.r.tempo} min · ${Math.round(t.k)} kcal · ${Math.round(t.p)} g prot.</span>${sgt}</div>${tag}</div>
-   <div class="hm-act"><button class="chk" data-eat="${j}" aria-pressed="${!!ok}">${CHECK}${ok?"Mangiato":"L'ho mangiato"}</button><button class="chip2" data-sg="${j}">${sg?"Modifica sgarro":"Sgarro"}</button>${ok||sg?"":`<button class="how" data-ric="${OGGI()}-${j}">${j&&!x.first?"Come si scalda":"Come si cucina"}</button>`}</div></div>`}).join("")+
-  `<p class="note" style="margin-bottom:0">Oggi in cucina: circa ${cuc} minuti.</p></section>`;
+   return`<div class="hm${ok?" ok":""}${sg?" sgd":""}"><div class="hm-top"><div><small>${PN[j]}</small><b>${x.r.n}</b>${sg?"":extraTxt(x)}<span class="meta">${Math.round(t.k)} kcal · ${Math.round(t.p)} g proteine</span>${sgt}</div></div>
+   <div class="hm-act"><button class="chk" data-eat="${j}" aria-pressed="${!!ok}">${CHECK}${ok?"Mangiato":"L'ho mangiato"}</button><button class="chip2" data-sg="${j}">${sg?"Modifica sgarro":"Sgarro"}</button>${ok||sg?"":`<button class="how" data-ric="${OGGI()}-${j}">Come si cucina</button>`}</div></div>`}).join("")+`</section>`;
  const ti=prossima(P),T=P.trips[ti],ids=Object.keys(T.tot),presi=presiIn(P,ti);let sh="";
  if(!a)sh=`<p class="note" style="margin-top:0">Aggiungi dove ti trovi e ti diciamo dove conviene fare la spesa.</p>`;
  else if(!a.negozi)sh=`<p class="note" style="margin-top:0">${a.err?ERR:`Cerco i negozi vicino a ${esc(a.etichetta)}…`}</p>`;
@@ -349,24 +368,21 @@ function renderHome(P){
 // ---------- Scheda ricetta ----------
 const DIFF=["","Facile","Media","Impegnativa"];
 function apriRicetta(key){
- if(!PL)return;const[di,j]=key.split("-").map(Number),d=PL.days[di],x=d.ms[j];if(!x)return;
- const r=x.r,n=x.n||1,pronto=x.s!==undefined&&!x.first,cd=pronto?PL.cookDay[x.s]:null;
+ if(!PL)return;const[di,j]=key.split("-").map(Number),x=PL.days[di].ms[j];if(!x)return;const r=x.r;
  const dlg=$("#sheet");
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">${GG[di]} · ${PN[j]}</small><h2 id="sh-t">${r.n}</h2></div><button class="x" data-close aria-label="Chiudi">✕</button></header>
- <div class="tags"><span class="tag">${r.tempo} min attivi</span><span class="tag">${DIFF[r.diff]||""}</span><span class="tag">${r.ut==0?"Niente da cuocere":r.ut==1?"1 pentola o teglia":r.ut+" pentole o teglie"}</span></div>
- ${pronto?`<p class="warn">Già pronto: l'hai cucinato ${GG[cd].toLowerCase()}. ${esc(r.avanzi)}</p>`:""}
- <h3>${pronto?"Ingredienti della porzione":n>1?`Ingredienti per ${n} porzioni`:"Ingredienti"}</h3>
- <ul class="ing">${Object.entries(r.ing).map(([id,g])=>`<li><span>${I[id].nome}</span><span>${qta(id,g*d.m*(pronto?1:n))}</span></li>`).join("")}</ul>
- ${!pronto&&n>1?`<p class="note">Ne mangi una adesso, ${n==2?"l'altra va":`le altre ${n-1} vanno`} in frigo in contenitori chiusi: ${n==2?"si conserva":"si conservano"} fino a ${r.cons} giorni. ${esc(r.avanzi)}</p>`:""}
- <h3>${pronto?"Come l'hai preparato":"Passaggi"}</h3><ol class="steps">${r.passi.map(s=>`<li>${esc(s)}</li>`).join("")||"<li>Procedimento in arrivo.</li>"}</ol>
+ <div class="tags"><span class="tag">${Math.round(x.st.k)} kcal</span><span class="tag">${Math.round(x.st.p)} g proteine</span><span class="tag">${DIFF[r.diff]||""}</span><span class="tag">${r.ut==0?"Niente da cuocere":r.ut==1?"1 pentola o teglia":r.ut+" pentole o teglie"}</span></div>
+ <h3>Ingredienti</h3>
+ <ul class="ing">${Object.entries(r.ing).map(([id,g])=>`<li><span>${I[id].nome}</span><span>${qta(id,g*x.m)}</span></li>`).join("")}${x.extra?`<li><span>${I[x.extra.id].nome} in più<small class="note">per arrivare alle tue kcal</small></span><span>${qta(x.extra.id,x.extra.g)}</span></li>`:""}</ul>
+ <h3>Passaggi</h3><ol class="steps">${r.passi.map(s=>`<li>${esc(s)}</li>`).join("")||"<li>Procedimento in arrivo.</li>"}</ol>
  ${r.utensili.length?`<h3>Ti serve</h3><p class="note">${r.utensili.map(esc).join(" · ")}</p>`:""}`;
  dlg.showModal();document.body.style.overflow="hidden";dlg.scrollTop=0}
 
 // ---------- Sgarro ----------
 let sgTmp=null;
 function apriSgarro(j){
- if(!PL)return;const d=PL.days[OGGI()],x=d.ms[j];if(!x)return;const prev=diario()[j];
- sgTmp={j,pk:stat(x.r,d.m).k,items:prev&&prev.s=="sg"?prev.items.map(o=>({...o})):[]};
+ if(!PL)return;const x=PL.days[OGGI()].ms[j];if(!x)return;const prev=diario()[j];
+ sgTmp={j,pk:x.st.k,items:prev&&prev.s=="sg"?prev.items.map(o=>({...o})):[]};
  const dlg=$("#sheet");
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Oggi · ${PN[j]}</small><h2 id="sh-t">Cos'hai mangiato?</h2></div><button class="x" data-close aria-label="Chiudi">✕</button></header>
  <p class="note">Al posto di ${x.r.n.toLowerCase()} (${Math.round(sgTmp.pk)} kcal). Scegli dai suggerimenti o scrivi tu: facciamo un conto veloce delle calorie.</p>
@@ -404,7 +420,7 @@ const TIT=["Su di te","Attività e obiettivo","Quanto vuoi stare in cucina?","Do
 function sec(n){
  if(n==0)return`<label for="nome" style="margin-top:0">Come ti chiami?</label><input id="nome" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" value="${esc(S.nome)}"><p class="note">Età, peso e altezza servono per stimare quante kcal ti servono ogni giorno.</p><div class="row"><div><label for="sesso">Sesso</label><select id="sesso">${opt("m","Uomo",S.sesso)}${opt("f","Donna",S.sesso)}</select></div><div><label for="eta">Età</label><input id="eta" type="number" inputmode="numeric" value="${S.eta}"></div></div><div class="row"><div><label for="peso">Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${S.peso}"></div><div><label for="alt">Altezza (cm)</label><input id="alt" type="number" inputmode="numeric" value="${S.alt}"></div></div>`;
  if(n==1)return`<label for="att">Attività fisica</label><select id="att">${opt(1.2,"Sedentario",S.att)}${opt(1.375,"1-3 allenamenti a settimana",S.att)}${opt(1.55,"3-5 allenamenti a settimana",S.att)}${opt(1.725,"6-7 allenamenti a settimana",S.att)}</select><label for="obj">Obiettivo</label><select id="obj">${opt(.9,"Definizione (circa -10%)",S.obj)}${opt(1,"Mantenimento",S.obj)}${opt(1.1,"Massa (circa +10%)",S.obj)}</select><button class="btn${S.kcalOk?" ghost":""}" data-calc>${S.kcalOk?"Ricalcola le kcal":"Calcola le mie kcal"}</button><p class="note" id="kerr" role="status"></p>${S.kcalOk?`<label for="kcal">Il tuo fabbisogno giornaliero (kcal)</label><input id="kcal" type="number" inputmode="numeric" value="${S.kcal}"><p class="note">È una stima (formula di Mifflin-St Jeor), non un consiglio medico. Se hai un valore diverso, ad esempio dal tuo nutrizionista, puoi modificarlo.</p>`:""}`;
- if(n==2)return`<p class="note">In base alla risposta scegliamo ricette più o meno lunghe e impegnative, e quante volte cucinare a settimana.</p><div class="lv" role="group" aria-label="Quanto vuoi stare in cucina">${Object.entries(LV).map(([k,v])=>`<button data-lv="${k}" aria-pressed="${S.cucina==k}"><b>${v.nome}</b><span>${v.desc}</span></button>`).join("")}</div>`;
+ if(n==2)return`<p class="note">In base alla risposta scegliamo ricette più o meno lunghe e impegnative, e come organizzare la spesa.</p><div class="lv" role="group" aria-label="Quanto vuoi stare in cucina">${Object.entries(LV).map(([k,v])=>`<button data-lv="${k}" aria-pressed="${S.cucina==k}"><b>${v.nome}</b><span>${v.desc}</span></button>`).join("")}</div>`;
  if(n==3)return`<p class="note">In base a dove ti trovi ti suggeriremo dove fare la spesa. Puoi salvare più indirizzi, per esempio casa e lavoro, e scegliere ogni volta dove sei. Restano salvati solo su questo dispositivo.</p><label for="addr">Indirizzo</label><input id="addr" autocomplete="street-address" placeholder="Via, numero e città"><button class="btn ghost" data-geo>Usa la mia posizione</button><label for="etq">Nome dell'indirizzo</label><input id="etq" autocomplete="off" placeholder="Es. Casa, Lavoro, Weekend"><div class="tags sug">${["Casa","Lavoro"].map(e=>`<button class="tag b" data-et="${e}">${e}</button>`).join("")}</div><button class="btn" data-save>Salva indirizzo</button><p class="note" id="geo-st" role="status"></p><div id="luogo">${addrHTML()}</div>`;
  return`<label for="exq">Scrivi un alimento o una categoria</label><div class="addr"><input id="exq" autocomplete="off" placeholder="Es. latticini, tonno, glutine"><button class="btn" data-add>Aggiungi</button></div><div class="tags sug" id="sug">${sugHTML()}</div><div id="chips">${chips()}</div><p class="note">Il piano e la spesa evitano ogni ricetta con questi ingredienti. Per le allergie controlla sempre le etichette.</p>`}
 function sum(){const e=$("#sum");if(!e)return;const a=ADDR();
@@ -442,8 +458,9 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.sgdel!==undefined){delete diario()[sgTmp.j];save();$("#sheet").close();render();return}
  if(d.fav){const i=S.preferiti.indexOf(d.fav);i<0?S.preferiti.push(d.fav):S.preferiti.splice(i,1);save();render();return}
  if(d.close!==undefined){$("#sheet").close();return}
- if(d.trip!==undefined){trip=+d.trip;render();if(d.t)showTab(d.t)}
- else if(d.t){if(!S.done&&d.t=="profilo")return;if(d.t=="spesa")trip=null,render();showTab(d.t)}
+ if(d.wk){selWk=d.wk;trip=null;render()}
+ else if(d.trip!==undefined){trip=+d.trip;if(d.t)selWk=null;render();if(d.t)showTab(d.t)}
+ else if(d.t){if(!S.done&&d.t=="profilo")return;if(d.t=="spesa")trip=null,selWk=null,render();showTab(d.t)}
  else if(d.add!==undefined)addEx($("#exq").value);
  else if(d.s)addEx(d.s);
  else if(d.rm!==undefined){S.exl.splice(+d.rm,1);refreshEx()}

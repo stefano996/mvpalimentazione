@@ -71,16 +71,14 @@
       "Padella",
       "Tagliere",
       "Coltello",
-      "Scolapasta",
-      "Contenitori per il frigo"
+      "Scolapasta"
     ],
     "passaggi": [
       "Porta a bollore l'acqua salata e cuoci il riso per il tempo scritto sulla confezione.",
       "Intanto taglia il pollo a cubetti e le zucchine a rondelle.",
       "Scalda l'olio in padella e rosola il pollo 6-7 minuti a fuoco medio, finché è dorato.",
       "Aggiungi le zucchine, sala e cuoci altri 8 minuti mescolando ogni tanto.",
-      "Scola il riso e uniscilo a pollo e zucchine.",
-      "Dividi in porzioni: una la mangi, le altre vanno in frigo nei contenitori."
+      "Scola il riso e uniscilo a pollo e zucchine."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -102,8 +100,7 @@
       "Teglia",
       "Carta forno",
       "Tagliere",
-      "Coltello",
-      "Contenitori per il frigo"
+      "Coltello"
     ],
     "passaggi": [
       "Accendi il forno a 200 °C.",
@@ -111,8 +108,7 @@
       "Metti in teglia con carta forno patate, broccoli ancora surgelati e petti di pollo.",
       "Condisci con olio, sale e, se ti piace, rosmarino. Mescola con le mani.",
       "Inforna per 30-35 minuti, girando tutto a metà cottura.",
-      "Controlla che il pollo sia cotto: tagliato al centro non deve essere rosa.",
-      "Dividi in porzioni e metti in frigo quelle per i giorni successivi."
+      "Controlla che il pollo sia cotto: tagliato al centro non deve essere rosa."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -133,16 +129,14 @@
     "utensili": [
       "Pentola",
       "Padella",
-      "Scolapasta",
-      "Contenitori per il frigo"
+      "Scolapasta"
     ],
     "passaggi": [
       "Metti a bollire l'acqua salata per la pasta.",
       "Scalda l'olio in padella, aggiungi la passata e un pizzico di sale e cuoci 10 minuti a fuoco basso.",
       "Cuoci la pasta per il tempo scritto sulla confezione.",
       "Scola il tonno e aggiungilo al sugo negli ultimi 2 minuti.",
-      "Scola la pasta al dente e mescolala nel sugo.",
-      "Dividi in porzioni e metti in frigo le altre."
+      "Scola la pasta al dente e mescolala nel sugo."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -164,16 +158,14 @@
     "utensili": [
       "Pentola",
       "Cucchiaio di legno",
-      "Frullatore a immersione (facoltativo)",
-      "Contenitori per il frigo"
+      "Frullatore a immersione (facoltativo)"
     ],
     "passaggi": [
       "Scalda l'olio in pentola, aggiungi la passata e i ceci scolati e cuoci 5 minuti.",
       "Aggiungi acqua calda, circa il doppio del volume della pasta, sala e porta a bollore.",
       "Se la vuoi cremosa, frulla metà dei ceci direttamente in pentola.",
       "Butta la pasta nella pentola e cuocila mescolando spesso. Aggiungi acqua calda se si asciuga troppo.",
-      "Spegni, aggiungi il parmigiano e un filo d'olio.",
-      "Dividi in porzioni: in frigo si addensa, quando la scaldi aggiungi un po' d'acqua."
+      "Spegni, aggiungi il parmigiano e un filo d'olio."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -194,15 +186,13 @@
     "utensili": [
       "Pentola",
       "Scolapasta",
-      "Ciotola grande",
-      "Contenitori per il frigo"
+      "Ciotola grande"
     ],
     "passaggi": [
       "Cuoci il riso in acqua salata.",
       "Scolalo e passalo sotto l'acqua fredda per fermare la cottura.",
       "In una ciotola grande unisci riso, tonno scolato e ceci sciacquati.",
-      "Condisci con olio e sale e mescola.",
-      "Dividi in contenitori e metti in frigo."
+      "Condisci con olio e sale e mescola."
     ],
     "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
   },
@@ -234,7 +224,7 @@
       "Versa le uova sulle zucchine, abbassa il fuoco e copri.",
       "Cuoci 8-10 minuti, finché la superficie è quasi soda.",
       "Gira la frittata aiutandoti con il coperchio o con un piatto e cuoci altri 2 minuti.",
-      "Tagliala a spicchi e servila con il pane. La porzione avanzata va in frigo."
+      "Tagliala a spicchi e servila con il pane."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -288,15 +278,14 @@
       "Colino a maglie fini",
       "Ciotola grande",
       "Tagliere",
-      "Coltello",
-      "Contenitori per il frigo"
+      "Coltello"
     ],
     "passaggi": [
       "Sciacqua la quinoa nel colino e cuocila in acqua salata per 12-15 minuti.",
       "Scolala e lasciala raffreddare.",
       "Taglia le zucchine a cubetti piccoli: puoi lasciarle crude o scottarle 2 minuti in padella.",
       "Unisci quinoa, ceci sciacquati, zucchine e feta sbriciolata.",
-      "Condisci con olio e sale e dividi nei contenitori."
+      "Condisci con olio e sale e mescola."
     ],
     "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
   },
@@ -319,15 +308,14 @@
       "Padella",
       "Tagliere",
       "Coltello",
-      "Carta da cucina",
-      "Contenitori per il frigo"
+      "Carta da cucina"
     ],
     "passaggi": [
       "Cuoci il riso in acqua salata.",
       "Tampona il tofu con la carta da cucina per asciugarlo e taglialo a cubetti.",
       "Rosola il tofu in padella con l'olio per 6-8 minuti, finché è dorato su più lati.",
       "Aggiungi i broccoli ancora surgelati con un goccio d'acqua e cuoci 6-7 minuti. Se ti piace, aggiungi un cucchiaio di salsa di soia.",
-      "Unisci il riso e dividi in porzioni."
+      "Unisci il riso e servi."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -348,15 +336,14 @@
     "utensili": [
       "Pentola",
       "Padella con coperchio",
-      "Scolapasta",
-      "Contenitori per il frigo"
+      "Scolapasta"
     ],
     "passaggi": [
       "Cuoci il riso in acqua salata.",
       "In padella con l'olio cuoci gli spinaci surgelati per 6-8 minuti con un pizzico di sale.",
       "Sposta gli spinaci ai lati e metti al centro il merluzzo, anche ancora surgelato.",
       "Copri e cuoci 8-10 minuti, finché il pesce si sfalda con la forchetta.",
-      "Servi con il riso. La porzione avanzata va in frigo e si mangia entro il giorno dopo."
+      "Servi con il riso."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -452,15 +439,14 @@
     "utensili": [
       "Pentola",
       "Padella capiente",
-      "Scolapasta",
-      "Contenitori per il frigo"
+      "Scolapasta"
     ],
     "passaggi": [
       "Metti a cuocere il riso in acqua salata.",
       "In padella scalda l'olio e rosola il macinato 5 minuti, sgranandolo con il cucchiaio.",
       "Aggiungi passata, fagioli scolati, sale e, se ti piace, paprika o peperoncino.",
       "Cuoci 10-15 minuti a fuoco basso, mescolando ogni tanto.",
-      "Scola il riso e dividi riso e chili nei contenitori."
+      "Scola il riso e servilo con il chili."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -482,15 +468,14 @@
     },
     "utensili": [
       "Padella capiente con coperchio",
-      "Ciotola",
-      "Contenitori per il frigo"
+      "Ciotola"
     ],
     "passaggi": [
       "In una ciotola impasta macinato, uovo, parmigiano e un pizzico di sale.",
       "Forma delle polpette grandi come una noce, con le mani bagnate.",
       "Scalda l'olio in padella, aggiungi la passata e appoggia dentro le polpette.",
       "Copri e cuoci 15 minuti a fuoco basso, girandole a metà.",
-      "Servi con il pane. Le porzioni avanzate vanno in frigo con il loro sugo."
+      "Servi con il pane."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -511,8 +496,7 @@
     },
     "utensili": [
       "Pentola",
-      "Cucchiaio di legno",
-      "Contenitori per il frigo"
+      "Cucchiaio di legno"
     ],
     "passaggi": [
       "In pentola scalda l'olio con la passata per 3 minuti.",
@@ -540,8 +524,7 @@
       "Ciotola",
       "Padella",
       "Tagliere",
-      "Coltello",
-      "Contenitori per il frigo"
+      "Coltello"
     ],
     "passaggi": [
       "Metti il cous cous in una ciotola, copri con la stessa quantità di acqua bollente salata e lascialo riposare 5 minuti coperto.",
@@ -569,8 +552,7 @@
       "Pentola",
       "Padella",
       "Tagliere",
-      "Coltello",
-      "Contenitori per il frigo"
+      "Coltello"
     ],
     "passaggi": [
       "Cuoci il farro in acqua salata per il tempo della confezione (di solito 20-25 minuti).",
@@ -623,8 +605,7 @@
     "utensili": [
       "Pentola",
       "Padella",
-      "Scolapasta",
-      "Contenitori per il frigo"
+      "Scolapasta"
     ],
     "passaggi": [
       "Metti a bollire l'acqua salata e cuoci la pasta.",
@@ -652,14 +633,13 @@
       "Teglia",
       "Carta forno",
       "Tagliere",
-      "Coltello",
-      "Contenitori per il frigo"
+      "Coltello"
     ],
     "passaggi": [
       "Accendi il forno a 200 °C.",
       "Taglia le patate a cubetti e mettile in teglia con carta forno, olio e sale. Inforna per 15 minuti.",
       "Aggiungi il tacchino a pezzi e le verdure grigliate surgelate, mescola e inforna altri 15-20 minuti.",
-      "Controlla che il tacchino sia cotto e dividi nelle porzioni."
+      "Controlla che il tacchino sia cotto e servi."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
   },
@@ -681,14 +661,13 @@
     "utensili": [
       "Pentola",
       "Scolapasta",
-      "Ciotola grande",
-      "Contenitori per il frigo"
+      "Ciotola grande"
     ],
     "passaggi": [
       "Cuoci il farro in acqua salata, scolalo e passalo sotto l'acqua fredda.",
       "Scongela le verdure grigliate in microonde o in padella 3 minuti e lasciale raffreddare.",
       "Unisci farro, tonno scolato, verdure e mozzarella a cubetti.",
-      "Condisci con olio e sale e dividi nei contenitori."
+      "Condisci con olio e sale e mescola."
     ],
     "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
   }
