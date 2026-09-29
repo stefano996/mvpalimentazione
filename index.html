@@ -457,6 +457,7 @@ h1.ciao small{display:block;font-size:.6em;font-weight:700;color:var(--mute);lin
 .stor-r .x{width:32px;height:32px}
 .mc-act{flex-wrap:wrap}
 .sugg{display:inline-flex;color:var(--brand);margin-left:6px;vertical-align:middle}.sugg .i{width:16px;height:16px}
+body.kb .tabbar{display:none}
 </style>
 </head>
 <body>
@@ -807,9 +808,10 @@ function spunta(it,on){it.fatto=on;if(!it.id){save();return}const id=it.id;
  if(on){const c=I[id].conf,q=it.q||confD(id),n=c?Math.max(1,Math.ceil(q/c-.05))*c:q;it.add={n,nuovo:!(S.dispensa||{})[id]};setDisp(id,(resto(id)||0)+n)}
  else if(it.add){if(S.dispensa[id]){if(it.add.nuovo){const D={...S.dispensa};delete D[id];S.dispensa=D}else setDisp(id,(resto(id)||0)-it.add.n)}delete it.add}save()}
 function listaAdd(id,q){if(id&&(S.lista||[]).some(it=>it.id==id))return;S.lista=[...(S.lista||[]),{k:Date.now().toString(36)+Math.random().toString(36).slice(2,6),...(id?{id,q:Math.round(q||0)}:{})}];save()}
-function listaSug(q){const b=$("#lsug");if(!b)return;const qq=norm(q);if(!qq){b.innerHTML="";return}const X=prossimaSpesa();
+function setSug(b,html){if(!b||b.innerHTML===html)return;const h=b.offsetHeight;b.innerHTML=html;b.style.minHeight=html?h+"px":""}
+function listaSug(q){const b=$("#lsug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}const X=prossimaSpesa();
  const l=ING.filter(i=>norm(i.nome).includes(qq)&&!(S.lista||[]).some(it=>it.id==i.id)).sort((a,b)=>((b.id in X.q)-(a.id in X.q))).slice(0,6);
- b.innerHTML=l.map(i=>`<button class="tag b" data-ladd="${i.id}|${Math.round(X.q[i.id]||0)}">${ic(i.id in X.q?"sparkles":"plus")}${esc(i.nome)}</button>`).join("")}
+ setSug(b,l.map(i=>`<button class="tag b" data-ladd="${i.id}|${Math.round(X.q[i.id]||0)}">${ic(i.id in X.q?"sparkles":"plus")}${esc(i.nome)}</button>`).join(""))}
 let spAdd=false;
 // segnare un prodotto come preso lo mette in dispensa (confezioni intere); togliere la spunta lo toglie
 function presoInDispensa(k,on,q){const id=k.split(":").pop();if(!I[id])return;S.presiAdd=S.presiAdd||{};
@@ -837,8 +839,8 @@ function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
-function dispSug(q){const b=$("#psug");if(!b)return;const qq=norm(q);if(!qq){b.innerHTML="";return}
- b.innerHTML=ING.filter(i=>!(S.dispensa||{})[i.id]&&norm(i.nome).includes(qq)).slice(0,6).map(i=>`<button class="tag b" data-padd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`).join("")||`<span class="note">Nessun prodotto con questo nome.</span>`}
+function dispSug(q){const b=$("#psug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}
+ setSug(b,ING.filter(i=>!(S.dispensa||{})[i.id]&&norm(i.nome).includes(qq)).slice(0,6).map(i=>`<button class="tag b" data-padd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`).join("")||`<span class="note">Nessun prodotto con questo nome.</span>`)}
 
 // ---------- Home ----------
 function renderHome(P){
@@ -980,9 +982,9 @@ function dietaPage(){
   if(ops.some(o=>o.items.length))html+=`<button class="btn ghost" data-dalt="${j}">${ic("plus")}Aggiungi un'alternativa per ${PN[j].toLowerCase()}</button>`});
  html+=`<button class="btn tonal" data-dcopy>Copia ${GG[d].toLowerCase()} su tutti i giorni vuoti</button><p class="note" id="dcopy-st" role="status"></p>`;
  el.innerHTML=html}
-function dSug(key,q){const box=$("#dsug-"+key);if(!box)return;const qq=norm(q);if(!qq){box.innerHTML="";return}
+function dSug(key,q){const box=$("#dsug-"+key);if(!box)return;const qq=norm(q);if(!qq){setSug(box,"");return}
  const tutti=[...ING,...(S.cibi||[])].filter(f=>norm(f.nome).includes(qq)).slice(0,6);
- box.innerHTML=tutti.map(f=>`<button class="tag b" data-dadd="${key}|${f.id}">${esc(f.nome)}</button>`).join("")+(tutti.some(f=>norm(f.nome)==qq)?"":`<button class="tag b" data-dnew="${key}">${ic("plus")} Aggiungi "${esc(q.trim())}"</button>`)}
+ setSug(box,tutti.map(f=>`<button class="tag b" data-dadd="${key}|${f.id}">${esc(f.nome)}</button>`).join("")+(tutti.some(f=>norm(f.nome)==qq)?"":`<button class="tag b" data-dnew="${key}">${ic("plus")} Aggiungi "${esc(q.trim())}"</button>`))}
 function dAdd(key,id){const[j,i]=key.split("-").map(Number),o=opzioni(dDay,j)[i];o.items.push({id,g:100});save();dietaPage();render();
  const k=o.items.length-1,inp=$(`#dg-${j}-${i}-${k}`);if(inp){inp.focus();inp.select()}}
 function dTot(j,i){const o=opzioni(dDay,j)[i],g={};o.items.forEach(it=>{if(I[it.id])g[it.id]=(g[it.id]||0)+(+it.g||0)});const s=statG(g),e=$(`#dtot-${j}-${i}`);if(e)e.innerHTML=`<b>${Math.round(s.k)} kcal</b>${macro(s)}`}
@@ -1143,7 +1145,8 @@ document.addEventListener("change",e=>{const t=e.target;
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
  else return;
  save();sum();render()});
-document.addEventListener("focusin",e=>{if(e.target.id=="codice")otpBox()});
+document.addEventListener("focusin",e=>{if(e.target.id=="codice")otpBox();const t=e.target;if(t.matches("input:not([type=checkbox]),textarea"))document.body.classList.add("kb")});
+document.addEventListener("focusout",e=>{const t=e.target;if(t.matches("input:not([type=checkbox]),textarea")){document.body.classList.remove("kb");document.querySelectorAll(".sug").forEach(b=>b.style.minHeight="")}});
 document.addEventListener("focusout",e=>{if(e.target.id=="codice")otpBox()});
 document.addEventListener("input",e=>{const t=e.target;
  if(t.dataset.dq){dSug(t.dataset.dq,t.value);return}
@@ -1243,7 +1246,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929200817";
+const VER="20260929201529";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
