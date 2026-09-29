@@ -366,6 +366,7 @@ let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}ca
 if(S.casa){S.indirizzi=[{id:"casa",etichetta:"Casa",testo:S.casa.label,lat:S.casa.lat,lon:S.casa.lon,negozi:S.negozi||null}];S.attivo="casa"}
 if(S.done&&!S.kcalOk)S.kcalOk=true;
 if(S.done&&!S.modo)S.modo="suggerita";
+(S.indirizzi||[]).forEach(a=>{a.err=false}); // a ogni apertura si riprova a cercare i negozi
 if(!S.attrezzi)S.attrezzi=S.done?["fornelli","pentole","forno","microonde","friggitrice","frullatore"]:["fornelli","pentole"];
 ["casa","negozi","spesa","batch"].forEach(k=>delete S[k]);S.indirizzi.forEach(a=>delete a.err);
 const save=()=>{try{localStorage.setItem("pp",JSON.stringify(S))}catch(e){}};
@@ -380,6 +381,7 @@ async function load(){
  I=Object.fromEntries(ING.map(i=>[i.id,i]));
  RIC=ric.map(r=>({id:r.id,tt:r.tempo_totale_min||r.tempo_attivo_min,att:r.attrezzi||[],frig:r.in_friggitrice||"",utensili:r.utensili||[],passi:r.passaggi||[],avanzi:r.avanzi||"",n:r.nome,p:r.pasto=="colazione"?"c":"p",tempo:r.tempo_attivo_min,diff:r.difficolta,ut:r.pentole,cons:r.si_conserva_giorni,ing:r.grammi_a_porzione}))
   .filter(r=>Object.keys(r.ing).every(id=>I[id]||console.warn(`Ricetta "${r.n}": ingrediente "${id}" non trovato in ingredienti.json`)));
+ RIC.forEach(r=>r.cat=cat(r));
  SYN=ex.parole;SUG=ex.suggerimenti;SOST=ex.sostituti||{};SG=sg;
 }
 
@@ -423,13 +425,20 @@ async function arricchisci(a){
  a.ok=true;arricchendo.delete(a.id);save();render()}
 const st=m=>{const e=$("#geo-st");if(e)e.textContent=m};
 const cercando=new Set();let pos=null;
+// la mappa dei negozi (OpenStreetMap) a volte è sovraccarica: proviamo più server, ognuno con un tempo massimo
+const OVP=["https://overpass-api.de/api/interpreter","https://overpass.private.coffee/api/interpreter","https://overpass.kumi.systems/api/interpreter","https://maps.mail.ru/osm/tools/overpass/api/interpreter"];
+async function overpass(q){let last;
+ for(const u of OVP){const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
+  try{const r=await fetch(u,{method:"POST",signal:c.signal,headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
+   if(!r.ok)throw r.status;const j=await r.json();if(j.remark&&/runtime error|timed out/i.test(j.remark)&&!(j.elements||[]).length)throw j.remark;return j.elements||[]}
+  catch(e){last=e}finally{clearTimeout(t)}}
+ throw last}
 async function cercaNegozi(a){
  if(cercando.has(a.id))return;cercando.add(a.id);a.err=false;
  try{let el=[];
   for(const r of [5000,15000]){
-   const q=`[out:json][timeout:25];nwr(around:${r},${a.lat},${a.lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
-   const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
-   if(!res.ok)throw res.status;el=(await res.json()).elements||[];if(el.length)break}
+   const q=`[out:json][timeout:20];nwr(around:${r},${a.lat},${a.lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
+   el=await overpass(q);if(el.length)break}
   a.ok=false;a.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
    return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),citta:t["addr:city"]||"",lat:la,lon:lo,km:km(a.lat,a.lon,la,lo)}})
    .filter(n=>n.lat!=null).sort((x,y)=>x.km-y.km).slice(0,40)}
@@ -478,34 +487,52 @@ let PC={};const planW=m=>{const k=wkKey(m);return k in PC?PC[k]:(PC[k]=plan(m))}
 
 // ---------- Piano ----------
 // quota di kcal per pasto: colazione 25%, pranzo e cena 37,5% ciascuno
-const FISSI=new Set(["olio","parmigiano","burro-arachidi","noci","gallette-riso"]),QUOTA=[.25,.375,.375],EXTRA=[["banana","noci"],["pane","piadina","riso-pronto","gallette-riso"],["pane","piadina","riso-pronto","gallette-riso"]],EXMAX={banana:150,noci:30,pane:120,piadina:110,"riso-pronto":250,"gallette-riso":32};
+const FISSI=new Set(["olio","parmigiano","burro-arachidi","noci","gallette-riso","miele","pesto","salsa-soia"]),QUOTA=[.25,.375,.375],EXTRA=[["banana","noci"],["pane","piadina","riso-pronto","gallette-riso"],["pane","piadina","riso-pronto","gallette-riso"]],EXMAX={banana:150,noci:30,pane:120,piadina:110,"riso-pronto":250,"gallette-riso":32};
+// tipo di proteina principale di una ricetta (serve per variare nella settimana)
+const CATP={pesce:["merluzzo","tonno","salmone","gamberetti","salmone-affumicato","sgombro"],rossa:["macinato","manzo"],salumi:["bresaola","prosciutto-cotto"],bianca:["pollo","tacchino"],legumi:["ceci","lenticchie","fagioli","tofu","piselli"],uova:["uova","albume"],formaggi:["mozzarella","ricotta","feta","fiocchi-latte","parmigiano"]};
+const QMAX={pesce:4,bianca:4,rossa:2,salumi:2,legumi:4,uova:3,formaggi:3,altro:3};
+function cat(r){let best="altro",bp=0;for(const c in CATP){let p=0;CATP[c].forEach(i=>{if(r.ing[i]&&I[i])p+=r.ing[i]*I[i].prot/100});if(p>bp){bp=p;best=c}}return best}
+const hs=t=>{let h=2166136261;for(const ch of String(t)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 function adatta(r,ex,rc){let ing=r.ing,tt=r.tt,sost=[];
  for(const id in r.ing){if(!ex.has(id)&&rc.has(I[id].dove))continue;
-  const c=(SOST[id]||[]).find(o=>I[o.id]&&!ex.has(o.id)&&rc.has(I[o.id].dove));if(!c)return null;
-  if(ing===r.ing)ing={...r.ing};const g=Math.min(c.max||1e9,Math.round(ing[id]*I[id].kcal/I[c.id].kcal));delete ing[id];ing[c.id]=(ing[c.id]||0)+g;tt+=c.min||0;sost.push({da:id,a:c.id,nota:c.nota||""})}
- return sost.length?{...r,ing,tt,sost}:r}
+  const c=(SOST[id]||[]).find(o=>o.id===""||I[o.id]&&!ex.has(o.id)&&rc.has(I[o.id].dove));if(!c)return null;
+  if(ing===r.ing)ing={...r.ing};const g=c.id?Math.min(c.max||1e9,Math.round(ing[id]*I[id].kcal/I[c.id].kcal)):0;delete ing[id];if(c.id)ing[c.id]=(ing[c.id]||0)+g;tt+=c.min||0;sost.push({da:id,a:c.id,nota:c.nota||""})}
+ if(!sost.length)return r;const v={...r,ing,tt,sost};v.cat=cat(v);return v}
 function plan(mon=lun()){
  if(S.modo=="mia")return planMia(mon);
  const L=LV[S.cucina]||LV.giusto,ex=EX(),rc=reach();
  const at=new Set(S.attrezzi||ATT.map(a=>a[0])),okAtt=r=>r.att.every(a=>a.split("|").some(x=>at.has(x)));
  // se un ingrediente è escluso, la ricetta resta usando un sostituto (es. riso al posto della pasta)
  const ok=RIC.map(r=>adatta(r,ex,rc)).filter(r=>r&&okAtt(r));
- const entro=(r,l)=>r.tempo<=l.t&&r.tt<=l.tt&&r.diff<=l.d&&r.ut<=l.u,ord=a=>a.sort((a,b)=>score(a)-score(b));
+ const entro=(r,l)=>r.tempo<=l.t&&r.tt<=l.tt&&r.diff<=l.d&&r.ut<=l.u;
  // con tante esclusioni restano poche ricette veloci: allarghiamo un po' i limiti invece di non dare nessun piano
- let largo=false;const scegli=(p,min)=>{for(const l of [L,LV.giusto,LV.tanto]){const a=ord(ok.filter(r=>r.p==p&&(p=="c"?r.tempo<=l.t&&r.tt<=l.tt:entro(r,l))));if(a.length>=min||l===LV.tanto){if(l!==L&&a.length)largo=true;return a}}};
- const bfAll=scegli("c",1),bf=bfAll.slice(0,3);
+ let largo=false;const scegli=(p,min)=>{for(const l of [L,LV.giusto,LV.tanto]){const a=ok.filter(r=>r.p==p&&(p=="c"?r.tempo<=l.t&&r.tt<=l.tt:entro(r,l)));if(a.length>=min||l===LV.tanto){if(l!==L&&a.length)largo=true;return a}}};
+ const bfAll=scegli("c",1);
  const lim=LIM(),usaLim=r=>Object.keys(r.ing).some(i=>lim.has(i)),troppo=r=>usaLim(r)&&nLim>=MAXLIM;let nLim=0;
- const mains=scegli("p",4);
+ const mains=scegli("p",8);
  if(!mains.length)return null;
- // ogni settimana parte da un punto diverso, così i menu cambiano di settimana in settimana
- const seed=Math.round(mon.getTime()/6048e5);let rot=(seed*5)%mains.length;const bo=bf.length?seed%bf.length:0;
- const pick=no=>{for(let k=0;k<mains.length;k++){const r=mains[(rot+k)%mains.length];if(!no(r)){rot=(rot+k+1)%mains.length;return r}}return null};
- // pranzo e cena sempre diversi nello stesso giorno, e mai lo stesso piatto del giorno prima
- // colazioni: prima quelle in rotazione, poi le altre; gli alimenti "a leggera intolleranza" al massimo MAXLIM volte a settimana
- const bfs=[];for(let d=0;d<7;d++){if(!bf.length){bfs.push(null);continue}const ord=[bf[(d+bo)%bf.length],...bfAll.filter(r=>r!==bf[(d+bo)%bf.length])];const r=ord.find(r=>!troppo(r))||ord[0];if(usaLim(r))nLim++;bfs.push(r)}
- const tr=[[],[]];
- for(let d=0;d<7;d++)for(let t=0;t<2;t++){const o=t?tr[0][d]:null,y=d?[tr[0][d-1],tr[1][d-1]]:[];
-  const r=pick(r=>r===o||y.includes(r)||troppo(r))||pick(r=>r===o||troppo(r))||pick(r=>troppo(r))||pick(r=>r===o)||mains[rot++%mains.length];if(usaLim(r))nLim++;tr[t][d]=r}
+ // varietà: le ricette stanno in un "giro" mescolato sempre uguale; ogni settimana si riparte da dove ci si era fermati,
+ // così si vedono tutte prima di ripeterne una
+ const gall=r=>(r.sost||[]).some(o=>o.a=="gallette-riso");
+ const w=Math.round(mon.getTime()/6048e5),giro=a=>[...a].sort((x,y)=>hs(x.id)-hs(y.id));
+ const bfOk=bfAll.filter(r=>!gall(r)),B=giro(bfOk.length>=5?bfOk:bfAll),bfs=[];let bi=B.length?(w*7)%B.length:0;
+ for(let d=0;d<7;d++){if(!B.length){bfs.push(null);continue}let r=null;
+  for(let k=0;k<B.length;k++){const c=B[(bi+k)%B.length];if(!troppo(c)){r=c;bi=(bi+k+1)%B.length;break}}
+  if(!r){r=B[bi%B.length];bi++}if(usaLim(r))nLim++;bfs.push(r)}
+ // pranzi e cene: 14 piatti diversi, con un tetto per tipo di proteina (linee guida CREA: pesce, legumi, carne bianca, poca carne rossa…)
+ // chi ha più tempo in cucina riceve più piatti elaborati, chi ne ha poco solo quelli veloci
+ const M=giro(mains),n=M.length,start=(w*14)%n,cnt={},sc=[];let nG=0;
+ const pref=S.cucina=="tanto"?r=>r.tt>=25||r.diff>=2:S.cucina=="giusto"?r=>r.tt>20||r.diff>=2:null,quota=S.cucina=="tanto"?8:5;
+ const prendi=(f,max,stretto)=>{for(let k=0;k<n&&sc.length<max;k++){const r=M[(start+k)%n];
+  if(sc.includes(r)||troppo(r)||(f&&!f(r))||(stretto&&((cnt[r.cat]||0)>=(QMAX[r.cat]||3)||gall(r)&&nG>=2)))continue;sc.push(r);cnt[r.cat]=(cnt[r.cat]||0)+1;if(gall(r))nG++;if(usaLim(r))nLim++}};
+ if(pref)prendi(pref,quota,true);prendi(null,14,true);prendi(null,14,false);
+ // ordine casuale ma fisso nella settimana, poi pochi piatti = si ripetono, mai nello stesso giorno o nel giorno prima
+ const seq=[...sc].sort((x,y)=>hs(x.id+w)-hs(y.id+w));
+ for(let i=seq.length;i<14;i++){const vicini=seq.slice(Math.max(0,i-3));const r=M.find(r=>!vicini.includes(r)&&!troppo(r))||M.find(r=>!vicini.includes(r))||M[i%n];if(usaLim(r))nLim++;seq.push(r)}
+ // pranzo e cena dello stesso giorno con proteine diverse, se possibile
+ for(let d=0;d<7;d++){const a=seq[2*d],b=seq[2*d+1];if(a.cat!=b.cat)continue;
+  for(let j=2*d+2;j<14;j++){const c=seq[j],dj=j>>1,altro=seq[j%2?j-1:j+1];if(c.cat!=a.cat&&b.cat!=altro.cat&&c!==seq[2*d-1]&&c!==seq[2*d-2]){seq[2*d+1]=c;seq[j]=b;break}}}
+ const tr=[[],[]];for(let d=0;d<7;d++){tr[0][d]=seq[2*d];tr[1][d]=seq[2*d+1]}
  const T=QUOTA.map(f=>f*S.kcal),days=[],tot={},need=[];
  for(let d=0;d<7;d++){
   const rs=[bfs[d],tr[0][d],tr[1][d]];
@@ -521,7 +548,7 @@ function plan(mon=lun()){
  const costo=o=>Object.entries(o).reduce((a,[id,g])=>a+spend(g,id),0);
  const trips=(L.spese==2?[[0,1,2,3],[4,5,6]]:[[0,1,2,3,4,5,6]]).map(gg=>{const t={};gg.forEach(d=>{for(const id in need[d])t[id]=(t[id]||0)+need[d][id]});
   return{gg,tot:t,cost:costo(t),nome:L.spese==2?`Spesa per ${GGc[gg[0]]}–${GGc[gg[gg.length-1]]}`:"Spesa della settimana"}});
- return{days,tot,trips,monday:mon,cost:costo(tot),pochi:mains.length<4,largo}
+ return{days,tot,trips,monday:mon,cost:costo(tot),pochi:mains.length<6,largo}
 }
 const GG=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"],PN=["Colazione","Pranzo","Cena"];
 const chkGet=()=>S.presi||{},chkSet=c=>{S.presi=c};
@@ -552,7 +579,7 @@ function ring(v,max){const r=52,C=+(2*Math.PI*r).toFixed(1),p=Math.min(1,max?v/m
 function mealCard(x,di,j,home){
  const e=home?diario()[j]:null,ok=e&&e.s=="ok",sg=e&&e.s=="sg",g=sg?sgTot(e.items):null;
  return`<article class="mc ${MEALT[j]}${ok?" is-ok":""}${sg?" is-sg":""}"><div class="mc-row"><span class="mc-ic">${ic(MEALIC[j])}</span>
- <div class="mc-b"><small>${PN[j]}</small><h3>${x.r.n}</h3>${!sg&&x.r.sost?`<span class="extra sost">${ic("info")}Con ${x.r.sost.map(o=>I[o.a].nome.toLowerCase()+" invece di "+I[o.da].nome.toLowerCase()).join(", ")}</span>`:""}${sg?"":extraTxt(x)}<p class="mc-m" title="P proteine · C carboidrati · G grassi"><b>${Math.round(x.st.k)} kcal</b>${macro(x.st)}</p>${x.alts&&x.alts.length>1&&!sg?`<div class="alts" role="group" aria-label="Alternative">${x.alts.map((i,n)=>`<button class="tag b${i==x.idx?" on":""}" data-alt="${di}-${j}-${i}" aria-pressed="${i==x.idx}">Opzione ${n+1}</button>`).join("")}</div>`:""}
+ <div class="mc-b"><small>${PN[j]}</small><h3>${x.r.n}</h3>${!sg&&x.r.sost?`<span class="extra sost">${ic("info")}${(t=>t[0].toUpperCase()+t.slice(1))(x.r.sost.map(o=>o.a?"con "+I[o.a].nome.toLowerCase()+" invece di "+I[o.da].nome.toLowerCase():"senza "+I[o.da].nome.toLowerCase()).join(", "))}</span>`:""}${sg?"":extraTxt(x)}<p class="mc-m" title="P proteine · C carboidrati · G grassi"><b>${Math.round(x.st.k)} kcal</b>${macro(x.st)}</p>${x.alts&&x.alts.length>1&&!sg?`<div class="alts" role="group" aria-label="Alternative">${x.alts.map((i,n)=>`<button class="tag b${i==x.idx?" on":""}" data-alt="${di}-${j}-${i}" aria-pressed="${i==x.idx}">Opzione ${n+1}</button>`).join("")}</div>`:""}
  ${sg?`<p class="mc-sg">${ic("pizza")}<span>Sgarro: ${e.items.map(o=>esc(o.nome)).join(", ")} · ${Math.round(g.k)} kcal</span></p>`:""}</div>
  ${home?`<button class="tick" data-eat="${j}" aria-pressed="${!!ok}" aria-label="${ok?"Mangiato: tocca per annullare":"Segna "+PN[j].toLowerCase()+" come mangiato"}">${ic("check")}</button>`:""}</div>
  <div class="mc-act">${ok||sg?"":`<button class="pill tonal" data-ric="${di}-${j}">${x.mia?ic("utensils")+"Vedi alimenti":ic("chef-hat")+"Come si cucina"}</button>`}${home&&!ok?`<button class="pill coral" data-sg="${j}">${ic("pizza")}${sg?"Modifica sgarro":"Sgarro"}</button>`:""}</div></article>`}
@@ -792,7 +819,7 @@ function sgAddTesto(){const q=$("#sgq").value.trim();if(!q)return;const f=SG.fin
 // ---------- Esclusioni ----------
 function lev(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i]);for(let j=1;j<=n;j++)d[0][j]=j;
  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[m][n]}
-const resolve=t=>{const ids=new Set();norm(t).split(/[^a-z]+/).filter(Boolean).forEach(tk=>Object.keys(SYN).forEach(k=>{if(tk.startsWith(k))SYN[k].forEach(i=>I[i]&&ids.add(i))}));
+const resolve=t=>{const ids=new Set();let tn=norm(t);Object.keys(SYN).filter(k=>k.includes(" ")).sort((a,b)=>b.length-a.length).forEach(k=>{if(tn.includes(k)){SYN[k].forEach(i=>I[i]&&ids.add(i));tn=tn.replace(k," ")}});tn.split(/[^a-z]+/).filter(Boolean).forEach(tk=>Object.keys(SYN).forEach(k=>{if(tk.startsWith(k))SYN[k].forEach(i=>I[i]&&ids.add(i))}));
  // parola non trovata: prova a riconoscerla anche se scritta un po' diversa (es. "chinoa", "cus cus")
  if(!ids.size){const w=norm(t).replace(/[^a-z]/g,"");if(w.length>=4){const max=w.length>=6?2:1;
   [...Object.keys(SYN).filter(k=>k.length>=4).map(k=>[k,SYN[k]]),...ING.map(i=>[norm(i.nome).replace(/[^a-z]/g,""),[i.id]])].forEach(([k,v])=>{if(lev(w,k)<=max||lev(w,k.slice(0,w.length))<=Math.min(1,max))v.forEach(i=>I[i]&&ids.add(i))})}}
@@ -914,9 +941,11 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="2026-09-29-1750";
-fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER="([^"]+)"/);
- if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{});
+const VER="20260929160349";
+// l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
+function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
+ if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
+nuovaVersione();document.addEventListener("visibilitychange",()=>{if(document.visibilityState=="visible")nuovaVersione()});
 load().then(()=>accessoOk()?avvia():benvenuto())
  .catch(()=>{$("#profilo").innerHTML=`<p class="warn">Non riesco a leggere ricette e ingredienti dalla cartella "data". Controlla che i file siano stati caricati insieme a index.html.</p>`});
 </script>

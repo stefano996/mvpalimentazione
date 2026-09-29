@@ -7,7 +7,9 @@
       "pollo",
       "macinato",
       "tacchino",
-      "bresaola"
+      "bresaola",
+      "manzo",
+      "prosciutto-cotto"
     ],
     "merluzz": [
       "merluzzo"
@@ -18,13 +20,18 @@
     "pesce": [
       "merluzzo",
       "tonno",
-      "salmone"
+      "salmone",
+      "gamberetti",
+      "salmone-affumicato",
+      "sgombro"
     ],
     "salmon": [
-      "salmone"
+      "salmone",
+      "salmone-affumicato"
     ],
     "uov": [
-      "uova"
+      "uova",
+      "albume"
     ],
     "yogurt": [
       "yogurt"
@@ -35,7 +42,9 @@
       "feta",
       "mozzarella",
       "ricotta",
-      "latte"
+      "latte",
+      "fiocchi-latte",
+      "pesto"
     ],
     "lattosio": [
       "yogurt",
@@ -43,13 +52,16 @@
       "feta",
       "mozzarella",
       "ricotta",
-      "latte"
+      "latte",
+      "fiocchi-latte",
+      "pesto"
     ],
     "formagg": [
       "parmigiano",
       "feta",
       "mozzarella",
-      "ricotta"
+      "ricotta",
+      "fiocchi-latte"
     ],
     "parmigian": [
       "parmigiano"
@@ -75,7 +87,10 @@
       "avena",
       "couscous",
       "farro",
-      "piadina"
+      "piadina",
+      "fette-biscottate",
+      "gnocchi",
+      "salsa-soia"
     ],
     "cereal": [
       "pasta",
@@ -84,19 +99,28 @@
       "riso",
       "quinoa",
       "couscous",
-      "farro"
+      "farro",
+      "polenta",
+      "fette-biscottate",
+      "mais"
     ],
     "frumento": [
       "pasta",
       "pane",
       "couscous",
-      "piadina"
+      "piadina",
+      "fette-biscottate",
+      "gnocchi",
+      "salsa-soia"
     ],
     "grano": [
       "pasta",
       "pane",
       "couscous",
-      "piadina"
+      "piadina",
+      "fette-biscottate",
+      "gnocchi",
+      "salsa-soia"
     ],
     "quinoa": [
       "quinoa"
@@ -111,7 +135,8 @@
       "piselli"
     ],
     "soia": [
-      "tofu"
+      "tofu",
+      "salsa-soia"
     ],
     "tofu": [
       "tofu"
@@ -120,7 +145,8 @@
       "passata"
     ],
     "pomodor": [
-      "passata"
+      "passata",
+      "pomodorini"
     ],
     "pane": [
       "pane"
@@ -144,18 +170,29 @@
       "broccoli"
     ],
     "patat": [
-      "patate"
+      "patate",
+      "patate-dolci",
+      "gnocchi"
     ],
     "verdur": [
       "zucchine",
       "spinaci",
       "broccoli",
       "piselli",
-      "verdure-grigliate"
+      "verdure-grigliate",
+      "pomodorini",
+      "insalata",
+      "peperoni",
+      "carote",
+      "funghi",
+      "fagiolini",
+      "cetrioli",
+      "minestrone"
     ],
     "manzo": [
       "macinato",
-      "bresaola"
+      "bresaola",
+      "manzo"
     ],
     "macinat": [
       "macinato"
@@ -167,10 +204,12 @@
       "bresaola"
     ],
     "salum": [
-      "bresaola"
+      "bresaola",
+      "prosciutto-cotto"
     ],
     "affettat": [
-      "bresaola"
+      "bresaola",
+      "prosciutto-cotto"
     ],
     "lenticch": [
       "lenticchie"
@@ -227,7 +266,10 @@
       "avena",
       "couscous",
       "farro",
-      "piadina"
+      "piadina",
+      "fette-biscottate",
+      "gnocchi",
+      "salsa-soia"
     ],
     "celiach": [
       "pasta",
@@ -235,7 +277,115 @@
       "avena",
       "couscous",
       "farro",
-      "piadina"
+      "piadina",
+      "fette-biscottate",
+      "gnocchi",
+      "salsa-soia"
+    ],
+    "gamber": [
+      "gamberetti"
+    ],
+    "crostace": [
+      "gamberetti"
+    ],
+    "frutti di mare": [
+      "gamberetti"
+    ],
+    "sgombr": [
+      "sgombro"
+    ],
+    "affumicat": [
+      "salmone-affumicato"
+    ],
+    "prosciutt": [
+      "prosciutto-cotto"
+    ],
+    "maial": [
+      "prosciutto-cotto"
+    ],
+    "carne rossa": [
+      "manzo",
+      "macinato"
+    ],
+    "straccett": [
+      "manzo"
+    ],
+    "fiocchi di latte": [
+      "fiocchi-latte"
+    ],
+    "album": [
+      "albume"
+    ],
+    "polent": [
+      "polenta"
+    ],
+    "mais": [
+      "mais",
+      "polenta"
+    ],
+    "insalat": [
+      "insalata"
+    ],
+    "lattug": [
+      "insalata"
+    ],
+    "peperon": [
+      "peperoni"
+    ],
+    "carot": [
+      "carote"
+    ],
+    "fungh": [
+      "funghi"
+    ],
+    "champignon": [
+      "funghi"
+    ],
+    "fagiolin": [
+      "fagiolini"
+    ],
+    "cetriol": [
+      "cetrioli"
+    ],
+    "minestron": [
+      "minestrone"
+    ],
+    "mela": [
+      "mela"
+    ],
+    "mele": [
+      "mela"
+    ],
+    "miel": [
+      "miele"
+    ],
+    "fette biscottate": [
+      "fette-biscottate"
+    ],
+    "biscott": [
+      "fette-biscottate"
+    ],
+    "pesto": [
+      "pesto"
+    ],
+    "gnocch": [
+      "gnocchi"
+    ],
+    "frutta secca": [
+      "noci",
+      "pesto"
+    ],
+    "nichel": [
+      "pomodorini",
+      "passata",
+      "spinaci",
+      "funghi"
+    ],
+    "frutta": [
+      "banana",
+      "mela",
+      "frutti-bosco",
+      "avocado"
     ]
   },
   "suggerimenti": [
@@ -347,6 +497,109 @@
         "id": "yogurt",
         "min": 0,
         "nota": "Usa lo yogurt al posto del latte."
+      },
+      {
+        "id": "",
+        "nota": "Senza latte: usa acqua o una bevanda vegetale."
+      }
+    ],
+    "fette-biscottate": [
+      {
+        "id": "gallette-riso",
+        "min": 0,
+        "max": 30,
+        "nota": "Usa le gallette di riso al posto delle fette biscottate."
+      }
+    ],
+    "gnocchi": [
+      {
+        "id": "patate",
+        "min": 10,
+        "nota": "Usa le patate al posto degli gnocchi: lessale a cubetti per 12 minuti, poi condiscile allo stesso modo."
+      }
+    ],
+    "salsa-soia": [
+      {
+        "id": "",
+        "nota": "Senza salsa di soia: usa un pizzico di sale in più e, se ti piace, succo di limone."
+      }
+    ],
+    "pesto": [
+      {
+        "id": "olio",
+        "min": 0,
+        "max": 10,
+        "nota": "Al posto del pesto condisci con olio, basilico e un pizzico di sale."
+      }
+    ],
+    "miele": [
+      {
+        "id": "",
+        "nota": "Puoi farne a meno o usare un po' di frutta frullata al posto del miele."
+      }
+    ],
+    "albume": [
+      {
+        "id": "uova",
+        "min": 0,
+        "nota": "Usa uova intere al posto dell'albume."
+      }
+    ],
+    "fiocchi-latte": [
+      {
+        "id": "ricotta",
+        "min": 0,
+        "nota": "Usa la ricotta al posto dei fiocchi di latte."
+      },
+      {
+        "id": "yogurt",
+        "min": 0,
+        "nota": "Usa lo yogurt greco al posto dei fiocchi di latte."
+      }
+    ],
+    "salmone-affumicato": [
+      {
+        "id": "tonno",
+        "min": 0,
+        "nota": "Usa il tonno al naturale al posto del salmone affumicato."
+      }
+    ],
+    "gamberetti": [
+      {
+        "id": "merluzzo",
+        "min": 3,
+        "nota": "Usa il merluzzo a cubetti al posto dei gamberetti: cuocilo un paio di minuti in più."
+      },
+      {
+        "id": "pollo",
+        "min": 4,
+        "nota": "Usa il pollo a cubetti al posto dei gamberetti: cuocilo qualche minuto in più."
+      }
+    ],
+    "prosciutto-cotto": [
+      {
+        "id": "tacchino",
+        "min": 0,
+        "nota": "Usa fesa di tacchino a fette al posto del prosciutto cotto."
+      }
+    ],
+    "mais": [
+      {
+        "id": "ceci",
+        "min": 0,
+        "nota": "Usa i ceci al posto del mais."
+      }
+    ],
+    "polenta": [
+      {
+        "id": "riso-pronto",
+        "min": 0,
+        "nota": "Usa il riso pronto al posto della polenta."
+      },
+      {
+        "id": "patate",
+        "min": 10,
+        "nota": "Usa le patate lesse al posto della polenta."
       }
     ]
   },

@@ -488,5 +488,280 @@
       "buste di riso pronto",
       ""
     ]
+  },
+  {
+    "id": "gamberetti",
+    "nome": "Gamberetti surgelati",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 15,
+    "kcal_100g": 71,
+    "proteine_100g": 15,
+    "dove": 1,
+    "carboidrati_100g": 0.5,
+    "grassi_100g": 0.8
+  },
+  {
+    "id": "salmone-affumicato",
+    "nome": "Salmone affumicato",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 32,
+    "kcal_100g": 180,
+    "proteine_100g": 25,
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 9
+  },
+  {
+    "id": "sgombro",
+    "nome": "Sgombro al naturale in scatola",
+    "reparto": "Dispensa",
+    "prezzo_kg": 16,
+    "kcal_100g": 180,
+    "proteine_100g": 19,
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 11
+  },
+  {
+    "id": "manzo",
+    "nome": "Straccetti di manzo",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 18,
+    "kcal_100g": 130,
+    "proteine_100g": 22,
+    "dove": 1,
+    "carboidrati_100g": 0,
+    "grassi_100g": 4.5
+  },
+  {
+    "id": "prosciutto-cotto",
+    "nome": "Prosciutto cotto",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 16,
+    "kcal_100g": 135,
+    "proteine_100g": 20,
+    "dove": 1,
+    "carboidrati_100g": 0.5,
+    "grassi_100g": 5.5
+  },
+  {
+    "id": "fiocchi-latte",
+    "nome": "Fiocchi di latte",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 9,
+    "kcal_100g": 100,
+    "proteine_100g": 12,
+    "dove": 1,
+    "carboidrati_100g": 3,
+    "grassi_100g": 4.5
+  },
+  {
+    "id": "albume",
+    "nome": "Albume in brick",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 6,
+    "kcal_100g": 48,
+    "proteine_100g": 11,
+    "dove": 1,
+    "carboidrati_100g": 0.7,
+    "grassi_100g": 0.2
+  },
+  {
+    "id": "patate-dolci",
+    "nome": "Patate dolci",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3,
+    "kcal_100g": 86,
+    "proteine_100g": 1.6,
+    "dove": 2,
+    "carboidrati_100g": 20,
+    "grassi_100g": 0.1
+  },
+  {
+    "id": "polenta",
+    "nome": "Polenta istantanea",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3,
+    "kcal_100g": 360,
+    "proteine_100g": 8,
+    "dove": 1,
+    "carboidrati_100g": 79,
+    "grassi_100g": 1.5
+  },
+  {
+    "id": "mais",
+    "nome": "Mais in scatola",
+    "reparto": "Dispensa",
+    "prezzo_kg": 5,
+    "kcal_100g": 90,
+    "proteine_100g": 3,
+    "dove": 1,
+    "carboidrati_100g": 16,
+    "grassi_100g": 1.2
+  },
+  {
+    "id": "pomodorini",
+    "nome": "Pomodorini",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3.5,
+    "kcal_100g": 20,
+    "proteine_100g": 1,
+    "dove": 1,
+    "carboidrati_100g": 3,
+    "grassi_100g": 0.2
+  },
+  {
+    "id": "insalata",
+    "nome": "Insalata in busta",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 8,
+    "kcal_100g": 17,
+    "proteine_100g": 1.4,
+    "dove": 1,
+    "carboidrati_100g": 2,
+    "grassi_100g": 0.2
+  },
+  {
+    "id": "peperoni",
+    "nome": "Peperoni",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3,
+    "kcal_100g": 26,
+    "proteine_100g": 1,
+    "dove": 1,
+    "carboidrati_100g": 5,
+    "grassi_100g": 0.3
+  },
+  {
+    "id": "carote",
+    "nome": "Carote",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 1.5,
+    "kcal_100g": 35,
+    "proteine_100g": 0.9,
+    "dove": 1,
+    "carboidrati_100g": 7.6,
+    "grassi_100g": 0.2
+  },
+  {
+    "id": "funghi",
+    "nome": "Funghi champignon",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 6,
+    "kcal_100g": 22,
+    "proteine_100g": 3,
+    "dove": 1,
+    "carboidrati_100g": 1,
+    "grassi_100g": 0.3
+  },
+  {
+    "id": "fagiolini",
+    "nome": "Fagiolini surgelati",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3,
+    "kcal_100g": 31,
+    "proteine_100g": 1.8,
+    "dove": 1,
+    "carboidrati_100g": 4,
+    "grassi_100g": 0.2
+  },
+  {
+    "id": "cetrioli",
+    "nome": "Cetrioli",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2,
+    "kcal_100g": 14,
+    "proteine_100g": 0.7,
+    "dove": 1,
+    "carboidrati_100g": 2,
+    "grassi_100g": 0.1
+  },
+  {
+    "id": "minestrone",
+    "nome": "Minestrone surgelato",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3.5,
+    "kcal_100g": 40,
+    "proteine_100g": 2,
+    "dove": 1,
+    "carboidrati_100g": 6,
+    "grassi_100g": 0.4
+  },
+  {
+    "id": "mela",
+    "nome": "Mele",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 2.2,
+    "kcal_100g": 52,
+    "proteine_100g": 0.3,
+    "dove": 1,
+    "carboidrati_100g": 12,
+    "grassi_100g": 0.2,
+    "pezzo": [
+      180,
+      "mela",
+      "mele"
+    ]
+  },
+  {
+    "id": "miele",
+    "nome": "Miele",
+    "reparto": "Dispensa",
+    "prezzo_kg": 10,
+    "kcal_100g": 304,
+    "proteine_100g": 0.3,
+    "dove": 1,
+    "carboidrati_100g": 82,
+    "grassi_100g": 0
+  },
+  {
+    "id": "fette-biscottate",
+    "nome": "Fette biscottate integrali",
+    "reparto": "Dispensa",
+    "prezzo_kg": 5,
+    "kcal_100g": 400,
+    "proteine_100g": 12,
+    "dove": 1,
+    "carboidrati_100g": 70,
+    "grassi_100g": 7,
+    "pezzo": [
+      10,
+      "fetta biscottata",
+      "fette biscottate",
+      "intero"
+    ]
+  },
+  {
+    "id": "pesto",
+    "nome": "Pesto alla genovese",
+    "reparto": "Dispensa",
+    "prezzo_kg": 20,
+    "kcal_100g": 450,
+    "proteine_100g": 5,
+    "dove": 1,
+    "carboidrati_100g": 6,
+    "grassi_100g": 45
+  },
+  {
+    "id": "salsa-soia",
+    "nome": "Salsa di soia",
+    "reparto": "Dispensa",
+    "prezzo_kg": 8,
+    "kcal_100g": 60,
+    "proteine_100g": 8,
+    "dove": 1,
+    "carboidrati_100g": 5,
+    "grassi_100g": 0.1
+  },
+  {
+    "id": "gnocchi",
+    "nome": "Gnocchi di patate",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3,
+    "kcal_100g": 150,
+    "proteine_100g": 4,
+    "dove": 1,
+    "carboidrati_100g": 32,
+    "grassi_100g": 0.5
   }
 ]

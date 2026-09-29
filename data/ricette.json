@@ -991,5 +991,2052 @@
       "fornelli",
       "pentole"
     ]
+  },
+  {
+    "id": "fette-biscottate-ricotta-e-miele",
+    "nome": "Fette biscottate, ricotta e miele",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "fette-biscottate": 30,
+      "ricotta": 100,
+      "miele": 10
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Piatto",
+      "Coltello da burro"
+    ],
+    "passaggi": [
+      "Spalma la ricotta sulle fette biscottate.",
+      "Aggiungi un filo di miele sopra."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "toast-prosciutto-cotto-e-uovo",
+    "nome": "Toast con prosciutto cotto e uovo",
+    "pasto": "colazione",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 8,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 70,
+      "prosciutto-cotto": 40,
+      "uova": 60,
+      "olio": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Paletta"
+    ],
+    "passaggi": [
+      "Scalda la padella con qualche goccia d'olio.",
+      "Tosta il pane 1 minuto per lato e tienilo da parte.",
+      "Cuoci l'uovo all'occhio di bue per 3 minuti, con un pizzico di sale.",
+      "Metti il prosciutto sul pane e l'uovo sopra."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pancake-proteici-banana-e-avena",
+    "nome": "Pancake proteici con banana e avena",
+    "pasto": "colazione",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "avena": 50,
+      "albume": 150,
+      "banana": 100,
+      "miele": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Forchetta",
+      "Padella antiaderente",
+      "Paletta"
+    ],
+    "passaggi": [
+      "Schiaccia metà banana con la forchetta in una ciotola.",
+      "Aggiungi avena e albume e mescola fino a un impasto liscio.",
+      "Scalda la padella antiaderente a fuoco medio, senza olio.",
+      "Versa un cucchiaio di impasto alla volta e cuoci 2 minuti per lato.",
+      "Servi con il resto della banana a fettine e il miele."
+    ],
+    "avanzi": "Si conservano in frigo 2 giorni: scaldali 30 secondi al microonde."
+  },
+  {
+    "id": "overnight-oats-yogurt-e-mela",
+    "nome": "Overnight oats con yogurt e mela",
+    "pasto": "colazione",
+    "tempo_attivo_min": 4,
+    "tempo_totale_min": 4,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "avena": 50,
+      "yogurt": 170,
+      "mela": 150
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Barattolo o ciotola con coperchio",
+      "Cucchiaio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "La sera prima: mescola avena e yogurt in un barattolo e chiudilo in frigo.",
+      "Al mattino taglia la mela a cubetti e aggiungila sopra.",
+      "Se ti piace, una spolverata di cannella."
+    ],
+    "avanzi": "Pronto in frigo fino a 2 giorni: puoi prepararne due barattoli insieme."
+  },
+  {
+    "id": "fiocchi-di-latte-mela-e-noci",
+    "nome": "Fiocchi di latte, mela e noci",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "fiocchi-latte": 200,
+      "mela": 150,
+      "noci": 15
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Cucchiaio"
+    ],
+    "passaggi": [
+      "Versa i fiocchi di latte in una ciotola.",
+      "Taglia la mela a cubetti e aggiungila.",
+      "Spezzetta le noci con le mani e mettile sopra."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "frittata-di-albumi-spinaci-e-pane",
+    "nome": "Frittata di albumi e spinaci con pane",
+    "pasto": "colazione",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "albume": 200,
+      "spinaci": 100,
+      "pane": 50,
+      "olio": 3
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella antiaderente",
+      "Paletta",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Scalda gli spinaci in padella per 3 minuti con un pizzico di sale.",
+      "Versa sopra l'albume e cuoci a fuoco medio con coperchio per 4 minuti.",
+      "Piega la frittata a metà e servila con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "frullato-proteico-banana-e-arachidi",
+    "nome": "Frullato proteico banana e arachidi",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "latte": 250,
+      "yogurt": 150,
+      "banana": 100,
+      "burro-arachidi": 10
+    },
+    "attrezzi": [
+      "frullatore"
+    ],
+    "utensili": [
+      "Frullatore",
+      "Bicchiere"
+    ],
+    "passaggi": [
+      "Metti nel frullatore latte, yogurt, banana a pezzi e burro d'arachidi.",
+      "Frulla per 30 secondi e bevi subito."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pane-avocado-e-uovo",
+    "nome": "Pane, avocado e uovo",
+    "pasto": "colazione",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 70,
+      "avocado": 60,
+      "uova": 60
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentolino",
+      "Coltello",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Cuoci l'uovo in acqua bollente per 7 minuti, poi passalo sotto l'acqua fredda.",
+      "Intanto tosta il pane e schiaccia l'avocado con la forchetta, con sale e limone.",
+      "Spalma l'avocado sul pane e aggiungi l'uovo sbucciato a fette."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pane-salmone-affumicato-e-fiocchi-di-latte",
+    "nome": "Pane, salmone affumicato e fiocchi di latte",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "tempo_totale_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 60,
+      "salmone-affumicato": 50,
+      "fiocchi-latte": 100
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Piatto",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Spalma i fiocchi di latte sul pane.",
+      "Aggiungi il salmone affumicato sopra e un po' di pepe."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "riso-gamberetti-e-zucchine",
+    "nome": "Riso con gamberetti e zucchine",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "riso": 80,
+      "gamberetti": 150,
+      "zucchine": 200,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello",
+      "Tagliere",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Cuoci il riso in acqua salata come indicato sulla confezione.",
+      "Intanto taglia le zucchine a cubetti e saltale in padella con l'olio per 6 minuti.",
+      "Aggiungi i gamberetti ancora surgelati e cuoci altri 4 minuti.",
+      "Scola il riso e mescolalo con gamberetti e zucchine."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo: ottimo anche freddo."
+  },
+  {
+    "id": "pasta-gamberetti-e-pomodorini",
+    "nome": "Pasta con gamberetti e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pasta": 85,
+      "gamberetti": 120,
+      "pomodorini": 150,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Metti a bollire l'acqua salata e cuoci la pasta.",
+      "Taglia i pomodorini a metà e cuocili in padella con l'olio per 4 minuti.",
+      "Aggiungi i gamberetti e cuoci altri 4 minuti.",
+      "Scola la pasta e saltala in padella per 1 minuto."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "poke-bowl-salmone-affumicato",
+    "nome": "Poke bowl con salmone affumicato",
+    "pasto": "principale",
+    "tempo_attivo_min": 8,
+    "tempo_totale_min": 8,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "riso-pronto": 200,
+      "salmone-affumicato": 80,
+      "avocado": 50,
+      "cetrioli": 100,
+      "mais": 50
+    },
+    "attrezzi": [
+      "fornelli|microonde"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Scalda il riso pronto 2 minuti al microonde o in padella.",
+      "Taglia a cubetti cetriolo e avocado; sgocciola il mais.",
+      "Metti il riso nella ciotola e disponi sopra salmone, avocado, cetriolo e mais.",
+      "Se ti piace, aggiungi un filo di salsa di soia."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "insalata-di-patate-sgombro-e-fagiolini",
+    "nome": "Insalata di patate, sgombro e fagiolini",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 25,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "patate": 250,
+      "sgombro": 100,
+      "fagiolini": 150,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Coltello",
+      "Scolapasta",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Taglia le patate a cubetti e lessale in acqua salata per 15 minuti.",
+      "Negli ultimi 6 minuti aggiungi nella stessa pentola i fagiolini surgelati.",
+      "Scola tutto e lascia intiepidire.",
+      "Aggiungi lo sgombro sgocciolato, olio, sale e mescola."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "merluzzo-al-forno-patate-e-pomodorini",
+    "nome": "Merluzzo al forno con patate e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 35,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "merluzzo": 200,
+      "patate": 250,
+      "pomodorini": 100,
+      "olio": 8
+    },
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Teglia",
+      "Carta forno",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C.",
+      "Taglia le patate a spicchi sottili e mettile in teglia con metà olio e sale: cuoci 15 minuti.",
+      "Aggiungi il merluzzo e i pomodorini tagliati a metà, con il resto dell'olio.",
+      "Cuoci altri 15 minuti."
+    ],
+    "avanzi": "Scaldalo in padella con un goccio d'acqua.",
+    "in_friggitrice": "In friggitrice ad aria: patate a 190 °C per 12 minuti, poi aggiungi merluzzo e pomodorini e cuoci 10 minuti a 180 °C."
+  },
+  {
+    "id": "salmone-al-forno-e-patate-dolci",
+    "nome": "Salmone al forno con patate dolci",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 35,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "salmone": 150,
+      "patate-dolci": 250,
+      "broccoli": 150,
+      "olio": 5
+    },
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Teglia",
+      "Carta forno",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C.",
+      "Taglia le patate dolci a cubetti e infornale con olio e sale per 15 minuti.",
+      "Aggiungi salmone e broccoli ancora surgelati.",
+      "Cuoci altri 15 minuti."
+    ],
+    "avanzi": "Si conserva 2 giorni: scaldalo al microonde.",
+    "in_friggitrice": "In friggitrice ad aria: patate dolci 12 minuti a 190 °C, poi salmone e broccoli per 10 minuti a 180 °C."
+  },
+  {
+    "id": "insalata-tonno-fagioli-e-pomodorini",
+    "nome": "Insalata di tonno, fagioli e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 6,
+    "tempo_totale_min": 6,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "tonno": 80,
+      "fagioli": 150,
+      "pomodorini": 150,
+      "insalata": 50,
+      "olio": 8
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Scola e sciacqua i fagioli.",
+      "Taglia i pomodorini a metà.",
+      "Metti tutto in una ciotola con insalata e tonno sgocciolato.",
+      "Condisci con olio, sale e, se ti piace, cipolla a fettine."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "cous-cous-gamberetti-e-verdure",
+    "nome": "Cous cous con gamberetti e verdure",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "couscous": 80,
+      "gamberetti": 150,
+      "verdure-grigliate": 150,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Padella",
+      "Bollitore o pentolino"
+    ],
+    "passaggi": [
+      "Metti il cous cous in una ciotola, copri con la stessa quantità di acqua bollente salata e lascia riposare 5 minuti con un piatto sopra.",
+      "Intanto salta in padella gamberetti e verdure grigliate con l'olio per 6 minuti.",
+      "Sgrana il cous cous con la forchetta e unisci tutto."
+    ],
+    "avanzi": "Buono anche freddo: si conserva 2 giorni."
+  },
+  {
+    "id": "pane-sgombro-e-pomodorini",
+    "nome": "Pane, sgombro e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 5,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 80,
+      "sgombro": 100,
+      "pomodorini": 150,
+      "insalata": 50,
+      "olio": 5
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Piatto",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Taglia i pomodorini a metà e condiscili con olio e sale.",
+      "Metti sul piatto insalata, sgombro sgocciolato e pomodorini.",
+      "Accompagna con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "risotto-zucchine-e-gamberetti",
+    "nome": "Risotto zucchine e gamberetti",
+    "pasto": "principale",
+    "tempo_attivo_min": 25,
+    "tempo_totale_min": 25,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "riso": 85,
+      "gamberetti": 150,
+      "zucchine": 150,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola larga",
+      "Mestolo",
+      "Cucchiaio di legno",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Scalda mezzo litro d'acqua salata (o brodo vegetale).",
+      "In una pentola larga fai rosolare le zucchine a cubetti con l'olio per 3 minuti.",
+      "Aggiungi il riso e tostalo 1 minuto.",
+      "Aggiungi un mestolo d'acqua calda alla volta, mescolando, per 16 minuti.",
+      "Negli ultimi 5 minuti unisci i gamberetti. Spegni e lascia riposare 1 minuto."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "polpette-di-merluzzo-e-patate",
+    "nome": "Polpette di merluzzo e patate al forno",
+    "pasto": "principale",
+    "tempo_attivo_min": 25,
+    "tempo_totale_min": 50,
+    "difficolta": 3,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "merluzzo": 200,
+      "patate": 200,
+      "uova": 30,
+      "parmigiano": 10,
+      "olio": 5,
+      "insalata": 80
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Pentola",
+      "Ciotola",
+      "Schiacciapatate o forchetta",
+      "Teglia",
+      "Carta forno"
+    ],
+    "passaggi": [
+      "Lessa le patate a pezzi per 15 minuti; negli ultimi 8 minuti aggiungi il merluzzo.",
+      "Scola, schiaccia tutto in una ciotola e unisci uovo, parmigiano, sale e pepe.",
+      "Forma delle polpette e mettile in teglia con carta forno e un filo d'olio.",
+      "Cuoci a 200 °C per 20 minuti, girandole a metà.",
+      "Servi con l'insalata."
+    ],
+    "avanzi": "Si conservano 2 giorni in frigo.",
+    "in_friggitrice": "In friggitrice ad aria: 12 minuti a 190 °C, girandole a metà."
+  },
+  {
+    "id": "pollo-al-curry-con-riso",
+    "nome": "Pollo al curry con riso e peperoni",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 25,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pollo": 160,
+      "riso": 80,
+      "peperoni": 150,
+      "yogurt": 60,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Cuoci il riso in acqua salata.",
+      "Taglia pollo e peperoni a striscioline.",
+      "In padella con l'olio cuoci i peperoni 5 minuti, poi il pollo per altri 7 minuti.",
+      "Aggiungi un cucchiaino di curry e lo yogurt, mescola e spegni.",
+      "Servi con il riso."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "piadina-pollo-insalata-e-yogurt",
+    "nome": "Piadina con pollo, insalata e salsa allo yogurt",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "piadina": 110,
+      "pollo": 130,
+      "insalata": 50,
+      "pomodorini": 80,
+      "yogurt": 50
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Coltello",
+      "Ciotolina"
+    ],
+    "passaggi": [
+      "Taglia il pollo a striscioline e cuocilo in padella 6-7 minuti con sale.",
+      "Mescola lo yogurt con sale, pepe e limone.",
+      "Scalda la piadina 1 minuto in padella.",
+      "Farcisci con pollo, insalata, pomodorini e salsa, poi arrotola."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pollo-e-patate-al-microonde",
+    "nome": "Pollo in padella con patate al microonde",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pollo": 170,
+      "patate": 250,
+      "insalata": 80,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "microonde"
+    ],
+    "utensili": [
+      "Padella",
+      "Ciotola per microonde",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Taglia le patate a cubetti, mettile in una ciotola con 2 cucchiai d'acqua, coperte, e cuocile al microonde per 8 minuti.",
+      "Intanto cuoci il pollo a fette in padella con l'olio, 4 minuti per lato.",
+      "Aggiungi le patate nella padella per 2 minuti, con sale e rosmarino.",
+      "Servi con l'insalata."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "tacchino-ai-funghi-con-polenta",
+    "nome": "Tacchino ai funghi con polenta",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "tacchino": 160,
+      "funghi": 150,
+      "polenta": 70,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Frusta o cucchiaio",
+      "Padella",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci i funghi a fettine in padella con l'olio per 5 minuti.",
+      "Aggiungi il tacchino a straccetti e cuoci 5 minuti con sale e prezzemolo.",
+      "Intanto porta a bollore l'acqua salata, versa la polenta istantanea mescolando e cuoci per il tempo indicato (di solito 5 minuti).",
+      "Servi la polenta con tacchino e funghi sopra."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pollo-e-peperoni-in-padella",
+    "nome": "Pollo e peperoni in padella con pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 25,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pollo": 170,
+      "peperoni": 200,
+      "pane": 70,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella con coperchio",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Taglia i peperoni a strisce e cuocili in padella con l'olio e coperchio per 10 minuti.",
+      "Aggiungi il pollo a cubetti e cuoci altri 8 minuti.",
+      "Sala e servi con il pane."
+    ],
+    "avanzi": "Si conserva 2 giorni: ancora più buono il giorno dopo."
+  },
+  {
+    "id": "pollo-alla-cacciatora",
+    "nome": "Pollo alla cacciatora con patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 45,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "pollo": 180,
+      "passata": 150,
+      "patate": 200,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Tegame con coperchio",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Rosola il pollo a pezzi nel tegame con l'olio per 5 minuti.",
+      "Aggiungi le patate a cubetti, la passata, sale, rosmarino e un bicchiere d'acqua.",
+      "Copri e cuoci a fuoco basso per 35 minuti, mescolando ogni tanto."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "pollo-teriyaki-riso-e-broccoli",
+    "nome": "Pollo teriyaki con riso e broccoli",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 25,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pollo": 160,
+      "riso": 80,
+      "broccoli": 150,
+      "salsa-soia": 15,
+      "miele": 8,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello",
+      "Ciotolina"
+    ],
+    "passaggi": [
+      "Cuoci il riso; negli ultimi 5 minuti aggiungi i broccoli nella stessa pentola.",
+      "Mescola salsa di soia e miele in una ciotolina.",
+      "Cuoci il pollo a cubetti in padella con l'olio per 7 minuti.",
+      "Versa la salsa e lascia caramellare 1 minuto.",
+      "Servi con riso e broccoli scolati."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "insalatona-pollo-mais-e-pomodorini",
+    "nome": "Insalatona con pollo, mais e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pollo": 150,
+      "insalata": 80,
+      "mais": 60,
+      "pomodorini": 150,
+      "pane": 60,
+      "olio": 10
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Ciotola grande",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci il pollo a fette in padella, 4 minuti per lato, con sale.",
+      "Taglialo a strisce.",
+      "In una ciotola metti insalata, mais sgocciolato, pomodorini a metà e pollo.",
+      "Condisci con olio e sale. Accompagna con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "tacchino-panato-al-forno-e-patate",
+    "nome": "Tacchino panato al forno con patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 40,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "tacchino": 170,
+      "pane": 25,
+      "uova": 30,
+      "patate": 250,
+      "olio": 8
+    },
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Teglia",
+      "Carta forno",
+      "Due piatti fondi",
+      "Grattugia o frullatore"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C e taglia le patate a spicchi: infornale con metà olio per 10 minuti.",
+      "Grattugia il pane secco (o frullalo) per fare il pangrattato.",
+      "Passa le fette di tacchino nell'uovo sbattuto e poi nel pangrattato.",
+      "Mettile in teglia con le patate e il resto dell'olio.",
+      "Cuoci 20 minuti, girando a metà."
+    ],
+    "avanzi": "Si conserva 2 giorni: scaldalo in forno o in padella.",
+    "in_friggitrice": "In friggitrice ad aria: patate 10 minuti a 190 °C, poi aggiungi il tacchino e cuoci 10 minuti."
+  },
+  {
+    "id": "spiedini-di-pollo-e-cous-cous",
+    "nome": "Spiedini di pollo e verdure con cous cous",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 30,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pollo": 160,
+      "peperoni": 100,
+      "zucchine": 100,
+      "couscous": 70,
+      "olio": 8
+    },
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Stecchini di legno",
+      "Teglia",
+      "Ciotola",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Accendi il forno a 220 °C (funzione grill se c'è).",
+      "Taglia pollo, peperoni e zucchine a cubetti e infilali negli stecchini, alternandoli.",
+      "Condisci con olio, sale e origano e cuoci 15 minuti, girando a metà.",
+      "Intanto copri il cous cous con la stessa quantità d'acqua bollente salata e lascia riposare 5 minuti.",
+      "Servi gli spiedini sul cous cous."
+    ],
+    "avanzi": "",
+    "in_friggitrice": "In friggitrice ad aria: 12 minuti a 200 °C, girandoli a metà."
+  },
+  {
+    "id": "straccetti-di-manzo-e-insalata",
+    "nome": "Straccetti di manzo con insalata e pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "manzo": 150,
+      "insalata": 80,
+      "pomodorini": 100,
+      "pane": 70,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Ciotola",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Scalda bene la padella con l'olio.",
+      "Cuoci gli straccetti a fuoco alto per 2-3 minuti, girandoli, con sale e pepe.",
+      "Mettili sopra insalata e pomodorini a metà.",
+      "Accompagna con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "burger-di-manzo-e-patate",
+    "nome": "Burger di manzo con patate al forno",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "macinato": 150,
+      "pane": 80,
+      "insalata": 40,
+      "pomodorini": 60,
+      "patate": 200,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Padella",
+      "Teglia",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Taglia le patate a spicchi e cuocile in forno a 200 °C con olio e sale per 25 minuti.",
+      "Forma un hamburger con il macinato, sale e pepe.",
+      "Cuocilo in padella ben calda 4 minuti per lato.",
+      "Componi il panino con insalata e pomodorini e servi con le patate."
+    ],
+    "avanzi": "",
+    "in_friggitrice": "In friggitrice ad aria: patate 15 minuti a 190 °C."
+  },
+  {
+    "id": "manzo-e-broccoli-con-riso",
+    "nome": "Manzo e broccoli alla soia con riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 25,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "manzo": 150,
+      "broccoli": 200,
+      "riso": 80,
+      "salsa-soia": 15,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci il riso in acqua salata.",
+      "Cuoci i broccoli in padella con un po' d'acqua e coperchio per 6 minuti.",
+      "Aggiungi il manzo a straccetti e l'olio, alza la fiamma e cuoci 3 minuti.",
+      "Versa la salsa di soia, mescola e servi con il riso."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pasta-al-ragu-veloce",
+    "nome": "Pasta al ragù veloce",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "pasta": 85,
+      "macinato": 100,
+      "passata": 150,
+      "carote": 50,
+      "olio": 5,
+      "parmigiano": 10
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Tegame",
+      "Grattugia",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Grattugia la carota e falla rosolare nel tegame con l'olio per 3 minuti.",
+      "Aggiungi il macinato e sgranalo con il cucchiaio per 5 minuti.",
+      "Versa la passata, sala e cuoci a fuoco basso per 15 minuti.",
+      "Intanto cuoci la pasta, scolala e condiscila con ragù e parmigiano."
+    ],
+    "avanzi": "Il ragù si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "peperoni-ripieni-carne-e-riso",
+    "nome": "Peperoni ripieni di carne e riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 25,
+    "tempo_totale_min": 55,
+    "difficolta": 3,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "peperoni": 250,
+      "macinato": 120,
+      "riso": 50,
+      "passata": 80,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno"
+    ],
+    "utensili": [
+      "Pentola",
+      "Ciotola",
+      "Teglia",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci il riso per metà del tempo indicato e scolalo.",
+      "Taglia i peperoni a metà e togli i semi.",
+      "In una ciotola mescola riso, macinato, passata, parmigiano, sale e pepe.",
+      "Riempi i peperoni, mettili in teglia con un filo d'olio.",
+      "Cuoci in forno a 190 °C per 35 minuti."
+    ],
+    "avanzi": "Si conservano 3 giorni: ottimi scaldati."
+  },
+  {
+    "id": "panino-prosciutto-e-fiocchi-di-latte",
+    "nome": "Panino con prosciutto cotto e fiocchi di latte",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 5,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 90,
+      "prosciutto-cotto": 70,
+      "fiocchi-latte": 100,
+      "insalata": 40,
+      "pomodorini": 80
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Taglia il pane a metà e spalma i fiocchi di latte.",
+      "Aggiungi prosciutto, insalata e pomodorini a fette."
+    ],
+    "avanzi": "Da portare al lavoro: si conserva mezza giornata in frigo."
+  },
+  {
+    "id": "bresaola-grana-e-patate",
+    "nome": "Bresaola, grana e patate al microonde",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "bresaola": 80,
+      "insalata": 60,
+      "parmigiano": 15,
+      "patate": 250,
+      "olio": 8
+    },
+    "attrezzi": [
+      "microonde"
+    ],
+    "utensili": [
+      "Ciotola per microonde",
+      "Coltello",
+      "Pelapatate"
+    ],
+    "passaggi": [
+      "Taglia le patate a cubetti e cuocile al microonde con 2 cucchiai d'acqua, coperte, per 8-10 minuti.",
+      "Condiscile con olio, sale e rosmarino.",
+      "Servi con bresaola, insalata e scaglie di grana."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pasta-e-lenticchie",
+    "nome": "Pasta e lenticchie",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "pasta": 70,
+      "lenticchie": 200,
+      "passata": 80,
+      "carote": 50,
+      "olio": 6,
+      "parmigiano": 10
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Grattugia",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Grattugia la carota e falla rosolare in pentola con l'olio per 2 minuti.",
+      "Aggiungi lenticchie, passata e mezzo litro d'acqua salata e porta a bollore.",
+      "Butta la pasta direttamente nella pentola e cuocila mescolando, aggiungendo acqua se serve.",
+      "Servi con il parmigiano."
+    ],
+    "avanzi": "Si conserva 3 giorni: aggiungi un goccio d'acqua quando la scaldi."
+  },
+  {
+    "id": "bowl-ceci-patate-dolci-e-spinaci",
+    "nome": "Bowl di ceci, patate dolci e spinaci",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "ceci": 150,
+      "patate-dolci": 200,
+      "spinaci": 100,
+      "feta": 30,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Teglia",
+      "Padella",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Taglia le patate dolci a cubetti e cuocile in forno a 200 °C con metà olio per 25 minuti.",
+      "Negli ultimi 10 minuti aggiungi in teglia i ceci scolati.",
+      "Intanto scalda gli spinaci in padella con un pizzico di sale.",
+      "Metti tutto in una ciotola con la feta sbriciolata e il resto dell'olio."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo.",
+    "in_friggitrice": "In friggitrice ad aria: patate dolci 12 minuti a 190 °C, poi aggiungi i ceci per altri 6 minuti."
+  },
+  {
+    "id": "minestrone-fagioli-e-pane",
+    "nome": "Minestrone con fagioli e pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "minestrone": 300,
+      "fagioli": 150,
+      "pane": 60,
+      "olio": 8,
+      "parmigiano": 10
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Metti in pentola il minestrone surgelato con un bicchiere d'acqua e un pizzico di sale.",
+      "Porta a bollore e cuoci per il tempo indicato (circa 15 minuti).",
+      "Aggiungi i fagioli scolati negli ultimi 5 minuti.",
+      "Servi con olio a crudo, parmigiano e pane."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "burger-di-lenticchie-al-forno",
+    "nome": "Burger di lenticchie al forno con insalata",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "tempo_totale_min": 35,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "lenticchie": 200,
+      "pane": 40,
+      "uova": 30,
+      "parmigiano": 10,
+      "insalata": 60,
+      "patate": 150,
+      "olio": 6
+    },
+    "attrezzi": [
+      "frullatore",
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Frullatore",
+      "Teglia",
+      "Carta forno",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C; taglia le patate a spicchi e infornale con metà olio.",
+      "Frulla le lenticchie scolate con metà del pane, l'uovo, il parmigiano e un pizzico di sale.",
+      "Forma 2-3 burger e passali nel resto del pane sbriciolato.",
+      "Cuocili in teglia con le patate per 20 minuti, girandoli a metà.",
+      "Servi con l'insalata."
+    ],
+    "avanzi": "Si conservano 2 giorni in frigo.",
+    "in_friggitrice": "In friggitrice ad aria: 12 minuti a 190 °C, girandoli a metà."
+  },
+  {
+    "id": "curry-di-ceci-e-spinaci-con-riso",
+    "nome": "Curry di ceci e spinaci con riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 25,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "ceci": 180,
+      "spinaci": 150,
+      "passata": 100,
+      "riso": 70,
+      "yogurt": 50,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Tegame",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Cuoci il riso in acqua salata.",
+      "Nel tegame scalda l'olio con un cucchiaino di curry per 30 secondi.",
+      "Aggiungi ceci scolati, spinaci e passata e cuoci 12 minuti.",
+      "Spegni, aggiungi lo yogurt e servi con il riso."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "insalata-lenticchie-feta-e-cetrioli",
+    "nome": "Insalata di lenticchie, feta e cetrioli",
+    "pasto": "principale",
+    "tempo_attivo_min": 7,
+    "tempo_totale_min": 7,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "lenticchie": 200,
+      "feta": 50,
+      "pomodorini": 150,
+      "cetrioli": 100,
+      "pane": 50,
+      "olio": 8
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Scola e sciacqua le lenticchie.",
+      "Taglia cetriolo e pomodorini a pezzetti.",
+      "Unisci tutto in una ciotola con la feta sbriciolata.",
+      "Condisci con olio, sale e origano. Accompagna con il pane."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "pasta-e-piselli-con-prosciutto",
+    "nome": "Pasta e piselli con prosciutto cotto",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pasta": 80,
+      "piselli": 150,
+      "prosciutto-cotto": 50,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci la pasta in acqua salata.",
+      "In padella cuoci i piselli con l'olio e un po' d'acqua per 8 minuti.",
+      "Aggiungi il prosciutto a listarelle per 1 minuto.",
+      "Scola la pasta, uniscila ai piselli e completa con il parmigiano."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "uova-in-purgatorio-con-fagioli",
+    "nome": "Uova in purgatorio con fagioli e pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 180,
+      "passata": 200,
+      "fagioli": 100,
+      "pane": 60,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella con coperchio",
+      "Cucchiaio"
+    ],
+    "passaggi": [
+      "In padella scalda la passata con olio, sale e i fagioli scolati per 5 minuti.",
+      "Fai 3 incavi con il cucchiaio e rompi dentro le uova.",
+      "Copri e cuoci 5-6 minuti a fuoco medio.",
+      "Servi con il pane per fare la scarpetta."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "frittata-al-forno-verdure-e-patate",
+    "nome": "Frittata al forno con verdure e patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 35,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "uova": 180,
+      "verdure-grigliate": 150,
+      "patate": 200,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "microonde",
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Teglia piccola",
+      "Carta forno",
+      "Frusta o forchetta"
+    ],
+    "passaggi": [
+      "Accendi il forno a 190 °C.",
+      "Taglia le patate a fettine sottili e cuocile 5 minuti al microonde con un goccio d'acqua.",
+      "Sbatti le uova con parmigiano e sale, aggiungi patate e verdure.",
+      "Versa in teglia con carta forno e un filo d'olio e cuoci 20-25 minuti."
+    ],
+    "avanzi": "Si conserva 2 giorni: buona anche fredda.",
+    "in_friggitrice": "In friggitrice ad aria: in una teglietta, 15 minuti a 170 °C."
+  },
+  {
+    "id": "omelette-prosciutto-e-funghi",
+    "nome": "Omelette con prosciutto e funghi",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 120,
+      "albume": 100,
+      "funghi": 100,
+      "prosciutto-cotto": 40,
+      "pane": 60,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella antiaderente",
+      "Ciotola",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Cuoci i funghi a fettine in padella con l'olio per 4 minuti e tienili da parte.",
+      "Sbatti uova e albume con un pizzico di sale e versali in padella.",
+      "Cuoci a fuoco medio 3 minuti, poi metti funghi e prosciutto su metà.",
+      "Chiudi a mezzaluna e servi con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "uova-sode-patate-e-fagiolini",
+    "nome": "Uova sode, patate e fagiolini",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 25,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 180,
+      "patate": 250,
+      "fagiolini": 150,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Scolapasta",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Metti in pentola le patate a cubetti e le uova, copri d'acqua e porta a bollore.",
+      "Dopo 9 minuti togli le uova e aggiungi i fagiolini; cuoci altri 6 minuti.",
+      "Scola, sguscia le uova e tagliale a spicchi.",
+      "Condisci tutto con olio, sale e, se ti piace, aceto."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "gnocchi-pomodoro-e-mozzarella",
+    "nome": "Gnocchi al pomodoro e mozzarella",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "gnocchi": 250,
+      "passata": 120,
+      "mozzarella": 80,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Schiumarola o scolapasta"
+    ],
+    "passaggi": [
+      "Scalda la passata in padella con olio, sale e basilico per 5 minuti.",
+      "Cuoci gli gnocchi in acqua salata: sono pronti quando salgono a galla.",
+      "Scolali nella padella con il sugo.",
+      "Aggiungi la mozzarella a cubetti e mescola finché fila."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "pizza-veloce-di-piadina",
+    "nome": "Pizza veloce di piadina",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "piadina": 110,
+      "passata": 80,
+      "mozzarella": 100,
+      "prosciutto-cotto": 40,
+      "insalata": 50
+    },
+    "attrezzi": [
+      "forno|friggitrice"
+    ],
+    "utensili": [
+      "Teglia",
+      "Carta forno"
+    ],
+    "passaggi": [
+      "Accendi il forno a 220 °C.",
+      "Stendi sulla piadina la passata con sale e origano.",
+      "Aggiungi mozzarella a pezzetti e prosciutto.",
+      "Cuoci 8-10 minuti e servi con l'insalata a parte."
+    ],
+    "avanzi": "",
+    "in_friggitrice": "In friggitrice ad aria: 6 minuti a 190 °C."
+  },
+  {
+    "id": "pasta-al-pesto-fagiolini-e-patate",
+    "nome": "Pasta al pesto con fagiolini e patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 20,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pasta": 80,
+      "pesto": 20,
+      "fagiolini": 100,
+      "patate": 100,
+      "fiocchi-latte": 80
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Scolapasta",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Metti a bollire l'acqua salata con le patate a cubetti piccoli.",
+      "Dopo 5 minuti aggiungi pasta e fagiolini e cuoci per il tempo della pasta.",
+      "Scola tenendo un po' d'acqua di cottura.",
+      "Condisci con pesto, un cucchiaio d'acqua di cottura e i fiocchi di latte sopra."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "frittata-spinaci-e-ricotta",
+    "nome": "Frittata di spinaci e ricotta con pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 150,
+      "spinaci": 150,
+      "ricotta": 50,
+      "pane": 60,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella antiaderente con coperchio",
+      "Ciotola",
+      "Forchetta"
+    ],
+    "passaggi": [
+      "Scalda gli spinaci in padella con l'olio per 3 minuti.",
+      "Sbatti le uova con la ricotta e un pizzico di sale.",
+      "Versa sulle verdure, copri e cuoci a fuoco medio-basso per 6 minuti.",
+      "Servi con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "cous-cous-ceci-feta-e-pomodorini",
+    "nome": "Cous cous con ceci, feta e pomodorini",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 10,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "couscous": 70,
+      "ceci": 150,
+      "feta": 40,
+      "pomodorini": 100,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli|microonde"
+    ],
+    "utensili": [
+      "Ciotola",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Copri il cous cous con la stessa quantità d'acqua bollente salata e lascia riposare 5 minuti.",
+      "Intanto scola i ceci e taglia i pomodorini a metà.",
+      "Sgrana il cous cous e unisci ceci, pomodorini e feta sbriciolata.",
+      "Condisci con olio e origano."
+    ],
+    "avanzi": "Buono anche freddo: si conserva 2 giorni."
+  },
+  {
+    "id": "polenta-fagioli-e-pomodoro",
+    "nome": "Polenta con fagioli al pomodoro",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "polenta": 70,
+      "fagioli": 150,
+      "passata": 150,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Tegame",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Scalda in un tegame la passata con olio, sale e i fagioli scolati per 8 minuti.",
+      "Intanto porta a bollore l'acqua salata e versa la polenta mescolando: cuoci per il tempo indicato.",
+      "Servi la polenta con i fagioli sopra e il parmigiano."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "riso-saltato-piselli-e-uova",
+    "nome": "Riso saltato con piselli e uova",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "riso-pronto": 200,
+      "piselli": 150,
+      "uova": 120,
+      "salsa-soia": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella larga",
+      "Cucchiaio di legno"
+    ],
+    "passaggi": [
+      "Cuoci i piselli in padella con l'olio e un goccio d'acqua per 5 minuti.",
+      "Aggiungi le uova sbattute e strapazzale per 1 minuto.",
+      "Unisci il riso pronto e la salsa di soia e salta tutto per 3 minuti."
+    ],
+    "avanzi": "Si conserva 1 giorno in frigo."
+  },
+  {
+    "id": "zuppa-di-lenticchie-e-patate",
+    "nome": "Zuppa di lenticchie e patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "lenticchie": 200,
+      "patate": 150,
+      "carote": 60,
+      "passata": 60,
+      "olio": 8,
+      "pane": 50
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Coltello",
+      "Pelapatate"
+    ],
+    "passaggi": [
+      "Taglia patate e carote a cubetti e rosolale in pentola con l'olio per 3 minuti.",
+      "Aggiungi lenticchie, passata e mezzo litro d'acqua salata.",
+      "Cuoci a fuoco medio per 20 minuti, finché le patate sono morbide.",
+      "Servi con il pane tostato."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "tofu-alla-piastra-verdure-e-riso",
+    "nome": "Tofu alla piastra con verdure e riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 12,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "tofu": 150,
+      "verdure-grigliate": 150,
+      "riso-pronto": 200,
+      "salsa-soia": 10,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Padella",
+      "Coltello",
+      "Tagliere"
+    ],
+    "passaggi": [
+      "Taglia il tofu a fette e asciugalo con carta da cucina.",
+      "Cuoci il tofu in padella con l'olio, 3 minuti per lato, finché è dorato.",
+      "Aggiungi verdure grigliate e riso pronto e scalda 3 minuti.",
+      "Completa con la salsa di soia."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "caprese-con-fagioli-e-pane",
+    "nome": "Caprese con fagioli e pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "tempo_totale_min": 5,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "mozzarella": 125,
+      "pomodorini": 200,
+      "fagioli": 100,
+      "pane": 70,
+      "olio": 8
+    },
+    "attrezzi": [],
+    "utensili": [
+      "Piatto",
+      "Coltello",
+      "Scolapasta"
+    ],
+    "passaggi": [
+      "Taglia mozzarella e pomodorini.",
+      "Aggiungi i fagioli scolati.",
+      "Condisci con olio, sale, origano o basilico e servi con il pane."
+    ],
+    "avanzi": ""
+  },
+  {
+    "id": "gnocchi-al-forno-ricotta-e-spinaci",
+    "nome": "Gnocchi al forno con ricotta e spinaci",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "gnocchi": 250,
+      "ricotta": 80,
+      "spinaci": 150,
+      "parmigiano": 10,
+      "mozzarella": 50
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno"
+    ],
+    "utensili": [
+      "Pentola",
+      "Ciotola",
+      "Teglia"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C.",
+      "Cuoci gli gnocchi in acqua salata e scolali quando salgono a galla.",
+      "Mescolali con ricotta, spinaci scongelati, sale e metà parmigiano.",
+      "Metti in teglia con mozzarella e parmigiano sopra e gratina 12 minuti."
+    ],
+    "avanzi": "Si conserva 2 giorni in frigo."
+  },
+  {
+    "id": "lasagna-di-zucchine",
+    "nome": "Lasagna di zucchine",
+    "pasto": "principale",
+    "tempo_attivo_min": 25,
+    "tempo_totale_min": 55,
+    "difficolta": 2,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "zucchine": 300,
+      "ricotta": 100,
+      "mozzarella": 80,
+      "passata": 150,
+      "parmigiano": 15,
+      "olio": 5
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "forno"
+    ],
+    "utensili": [
+      "Padella o piastra",
+      "Teglia",
+      "Coltello",
+      "Ciotola"
+    ],
+    "passaggi": [
+      "Taglia le zucchine a fette sottili nel senso della lunghezza e grigliale in padella 2 minuti per lato.",
+      "Mescola la ricotta con sale e pepe.",
+      "In teglia alterna strati di passata, zucchine, ricotta e mozzarella a pezzetti.",
+      "Finisci con passata e parmigiano.",
+      "Cuoci in forno a 190 °C per 30 minuti e lascia riposare 5 minuti."
+    ],
+    "avanzi": "Si conserva 3 giorni: ancora più buona il giorno dopo."
+  },
+  {
+    "id": "vellutata-di-piselli-con-uovo",
+    "nome": "Vellutata di piselli con uovo e crostini",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 25,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "piselli": 200,
+      "patate": 100,
+      "uova": 60,
+      "pane": 50,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "frullatore"
+    ],
+    "utensili": [
+      "Pentola",
+      "Frullatore a immersione",
+      "Pentolino"
+    ],
+    "passaggi": [
+      "Cuoci piselli e patate a cubetti in pentola con acqua salata a filo per 15 minuti.",
+      "Intanto cuoci l'uovo per 7 minuti e tosta il pane a cubetti.",
+      "Frulla le verdure con l'olio fino a una crema.",
+      "Servi con l'uovo a spicchi e i crostini."
+    ],
+    "avanzi": "La vellutata si conserva 3 giorni."
+  },
+  {
+    "id": "chili-sin-carne-con-riso",
+    "nome": "Chili sin carne con riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "tempo_totale_min": 30,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "fagioli": 200,
+      "mais": 60,
+      "passata": 150,
+      "peperoni": 100,
+      "riso": 70,
+      "olio": 6
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole"
+    ],
+    "utensili": [
+      "Pentola",
+      "Tegame",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci il riso in acqua salata.",
+      "Nel tegame rosola i peperoni a cubetti con l'olio per 5 minuti.",
+      "Aggiungi fagioli, mais, passata, sale e paprika e cuoci 15 minuti.",
+      "Servi con il riso."
+    ],
+    "avanzi": "Si conserva 3 giorni in frigo."
+  },
+  {
+    "id": "uova-strapazzate-funghi-e-patate",
+    "nome": "Uova strapazzate con funghi e patate",
+    "pasto": "principale",
+    "tempo_attivo_min": 12,
+    "tempo_totale_min": 18,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "uova": 150,
+      "funghi": 150,
+      "patate": 200,
+      "olio": 8
+    },
+    "attrezzi": [
+      "fornelli",
+      "pentole",
+      "microonde"
+    ],
+    "utensili": [
+      "Padella",
+      "Ciotola per microonde",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Cuoci le patate a cubetti al microonde con un goccio d'acqua, coperte, per 8 minuti.",
+      "Intanto cuoci i funghi a fettine in padella con l'olio per 5 minuti.",
+      "Aggiungi le patate e poi le uova sbattute con sale: mescola per 2 minuti."
+    ],
+    "avanzi": ""
   }
 ]
