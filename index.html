@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-title" content="Pasto pronto">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icone/icona-180.png">
 <link rel="icon" href="icone/icona-192.png">
@@ -247,10 +248,23 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);b
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 .w .sh,.ph+.sh{margin-top:0}
+/* schermata di benvenuto con codice di accesso */
+#benvenuto{min-height:calc(100dvh - 2*var(--s4) - env(safe-area-inset-top,0));display:flex;flex-direction:column;justify-content:center;gap:var(--s5);padding:var(--s5) 0}
+.bv-logo{width:88px;height:88px;border-radius:24px;box-shadow:var(--sh-float)}
+.bv-t h1{font-size:2.3rem}.bv-t p{color:var(--mute);margin:var(--s3) 0 0;font-size:1.02rem;line-height:1.55}
+.bv-t .firma{color:var(--ink);font-weight:600}
+.otp{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s2)}
+.otp i{display:grid;place-items:center;aspect-ratio:.85;border-radius:var(--r-md);background:var(--surface-2);font:800 1.6rem "Bricolage Grotesque",sans-serif;font-style:normal;box-shadow:inset 0 0 0 1.5px transparent;transition:box-shadow .15s}
+.otp i.on{box-shadow:inset 0 0 0 2px var(--brand)}.otp.err i{box-shadow:inset 0 0 0 2px var(--coral)}
+.otp.err{animation:no .35s}@keyframes no{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.otp input{position:absolute;inset:0;opacity:0;font-size:16px;color:transparent;caret-color:transparent;letter-spacing:40px}
+.bv-err{color:var(--coral);min-height:1.4em;margin:var(--s2) 0 0}
+.bv-f{text-align:center}
 </style>
 </head>
 <body>
 <main>
+<section id="benvenuto" hidden></section>
 <header id="intro" hidden><h1>Pasto pronto</h1><p class="sub">Colazione, pranzo e cena della settimana, con la spesa già fatta.</p></header>
 <section id="home" class="page" hidden></section>
 <section id="piano" class="page" hidden></section>
@@ -568,6 +582,30 @@ async function inviaIdea(){
  catch(e){out.innerHTML=`Non riesco a inviarlo in questo momento. <a href="mailto:${MAIL}?subject=${encodeURIComponent("Implementazioni Pasto pronto")}&body=${encodeURIComponent(t)}">Invialo con la tua app di posta</a>.`}
  finally{b.disabled=false}}
 
+// ---------- Accesso con codice (test tra amici) ----------
+// Nel sito c'è solo l'impronta SHA-256 del codice, non il codice. Per cambiarlo: sostituisci l'impronta (e chi era dentro dovrà inserire il nuovo).
+const CODICI=["7c3f29de29797307c04b38ecdb8a4c54c3803b336d0c92296ab271038f49b581"];
+const accessoOk=()=>{try{return CODICI.includes(localStorage.getItem("pp-accesso"))}catch(e){return false}};
+async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function benvenuto(){
+ ["home","piano","spesa","profilo","impostazioni"].forEach(s=>$("#"+s).hidden=true);$("#intro").hidden=true;$(".tabbar").hidden=true;
+ const el=$("#benvenuto");el.hidden=false;
+ el.innerHTML=`<img class="bv-logo" src="icone/icona-192.png" alt="">
+ <div class="bv-t"><h1>Pasto pronto</h1><p>Ciao! Sto costruendo un'app che pensa al posto tuo a cosa mangiare, come cucinarlo e cosa comprare. Siamo in fase di test: usala per qualche giorno e fammi sapere cosa ne pensi.</p><p class="firma">Stefano</p></div>
+ <div><label for="codice">Codice di accesso</label><div class="otp" id="otp">${"<i></i>".repeat(6)}<input id="codice" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="6" aria-describedby="bv-err"></div>
+ <p class="bv-err" id="bv-err" role="alert"></p><button class="btn" data-entra>Entra</button></div>
+ <p class="note bv-f">I tuoi dati restano solo su questo telefono.<br>Non hai un codice? <a href="mailto:${MAIL}?subject=${encodeURIComponent("Codice per Pasto pronto")}">Scrivimi</a></p>`;
+ otpBox()}
+function otpBox(){const v=$("#codice").value;document.querySelectorAll("#otp i").forEach((b,i)=>{b.textContent=v[i]||"";b.classList.toggle("on",i==Math.min(v.length,5)&&document.activeElement==$("#codice"))})}
+async function entra(){
+ const inp=$("#codice"),v=inp.value.trim(),err=$("#bv-err"),box=$("#otp");box.classList.remove("err");
+ if(v.length<6){err.textContent="Il codice ha 6 cifre.";return}
+ const k=await sha(v);
+ if(!CODICI.includes(k)){void box.offsetWidth;box.classList.add("err");err.textContent="Codice non valido. Controlla il messaggio con cui ti ho invitato.";return}
+ try{localStorage.setItem("pp-accesso",k)}catch(e){}
+ $("#benvenuto").hidden=true;$("#benvenuto").innerHTML="";avvia()}
+function avvia(){impostazioni();profilo();render();showTab(S.done?"home":"profilo")}
+
 // ---------- Scheda ricetta ----------
 const DIFF=["","Facile","Media","Impegnativa"];
 function apriRicetta(key){
@@ -642,10 +680,14 @@ document.addEventListener("change",e=>{const t=e.target;
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
  else return;
  save();sum();render()});
-document.addEventListener("input",e=>{const t=e.target;if(t.id=="exq"){q=t.value;$("#sug").innerHTML=sugHTML()}
+document.addEventListener("focusin",e=>{if(e.target.id=="codice")otpBox()});
+document.addEventListener("focusout",e=>{if(e.target.id=="codice")otpBox()});
+document.addEventListener("input",e=>{const t=e.target;
+ if(t.id=="codice"){t.value=t.value.replace(/\D/g,"").slice(0,6);$("#bv-err").textContent="";$("#otp").classList.remove("err");otpBox();if(t.value.length==6)entra();return}if(t.id=="exq"){q=t.value;$("#sug").innerHTML=sugHTML()}
  if(t.id=="sgq")sgSug(t.value);
  if(t.dataset.sgk!==undefined){sgTmp.items[+t.dataset.sgk].kcal=+t.value||0;sgTotale()}});
 document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
+ if(e.target.id=="codice"){e.preventDefault();entra()}
  if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
  if(e.target.id=="sgq"){e.preventDefault();sgAddTesto()}
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
@@ -660,6 +702,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
   diario()[sgTmp.j]={s:"sg",items:sgTmp.items};save();$("#sheet").close();render();return}
  if(d.sgdel!==undefined){delete diario()[sgTmp.j];save();$("#sheet").close();render();return}
  if(d.idea!==undefined){inviaIdea();return}
+ if(d.entra!==undefined){entra();return}
  if(d.fav){const i=S.preferiti.indexOf(d.fav);i<0?S.preferiti.push(d.fav):S.preferiti.splice(i,1);save();render();return}
  if(d.close!==undefined){$("#sheet").close();return}
  if(d.day!==undefined){selDay=+d.day;render()}
@@ -682,7 +725,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",sblocca);
-load().then(()=>{impostazioni();profilo();render();showTab(S.done?"home":"profilo")})
+load().then(()=>accessoOk()?avvia():benvenuto())
  .catch(()=>{$("#profilo").innerHTML=`<p class="warn">Non riesco a leggere ricette e ingredienti dalla cartella "data". Controlla che i file siano stati caricati insieme a index.html.</p>`});
 </script>
 </body>
