@@ -4,7 +4,10 @@
       "pollo"
     ],
     "carne": [
-      "pollo"
+      "pollo",
+      "macinato",
+      "tacchino",
+      "bresaola"
     ],
     "merluzz": [
       "merluzzo"
@@ -29,16 +32,24 @@
     "latticin": [
       "yogurt",
       "parmigiano",
-      "feta"
+      "feta",
+      "mozzarella",
+      "ricotta",
+      "latte"
     ],
     "lattosio": [
       "yogurt",
       "parmigiano",
-      "feta"
+      "feta",
+      "mozzarella",
+      "ricotta",
+      "latte"
     ],
     "formagg": [
       "parmigiano",
-      "feta"
+      "feta",
+      "mozzarella",
+      "ricotta"
     ],
     "parmigian": [
       "parmigiano"
@@ -61,22 +72,31 @@
     "glutine": [
       "pasta",
       "pane",
-      "avena"
+      "avena",
+      "couscous",
+      "farro",
+      "piadina"
     ],
     "cereal": [
       "pasta",
       "pane",
       "avena",
       "riso",
-      "quinoa"
+      "quinoa",
+      "couscous",
+      "farro"
     ],
     "frumento": [
       "pasta",
-      "pane"
+      "pane",
+      "couscous",
+      "piadina"
     ],
     "grano": [
       "pasta",
-      "pane"
+      "pane",
+      "couscous",
+      "piadina"
     ],
     "quinoa": [
       "quinoa"
@@ -85,7 +105,10 @@
       "ceci"
     ],
     "legum": [
-      "ceci"
+      "ceci",
+      "lenticchie",
+      "fagioli",
+      "piselli"
     ],
     "soia": [
       "tofu"
@@ -126,7 +149,68 @@
     "verdur": [
       "zucchine",
       "spinaci",
-      "broccoli"
+      "broccoli",
+      "piselli",
+      "verdure-grigliate"
+    ],
+    "manzo": [
+      "macinato",
+      "bresaola"
+    ],
+    "macinat": [
+      "macinato"
+    ],
+    "tacchin": [
+      "tacchino"
+    ],
+    "bresaol": [
+      "bresaola"
+    ],
+    "salum": [
+      "bresaola"
+    ],
+    "affettat": [
+      "bresaola"
+    ],
+    "lenticch": [
+      "lenticchie"
+    ],
+    "fagiol": [
+      "fagioli"
+    ],
+    "pisell": [
+      "piselli"
+    ],
+    "cous": [
+      "couscous"
+    ],
+    "farro": [
+      "farro"
+    ],
+    "piadin": [
+      "piadina"
+    ],
+    "mozzarell": [
+      "mozzarella"
+    ],
+    "ricott": [
+      "ricotta"
+    ],
+    "latte": [
+      "latte"
+    ],
+    "arachid": [
+      "burro-arachidi"
+    ],
+    "secc": [
+      "noci",
+      "burro-arachidi"
+    ],
+    "noc": [
+      "noci"
+    ],
+    "bosc": [
+      "frutti-bosco"
     ]
   },
   "suggerimenti": [
@@ -157,6 +241,18 @@
     "Ceci",
     "Tofu",
     "Soia",
-    "Pomodoro"
+    "Pomodoro",
+    "Manzo",
+    "Tacchino",
+    "Lenticchie",
+    "Fagioli",
+    "Piselli",
+    "Mozzarella",
+    "Ricotta",
+    "Latte",
+    "Frutta secca",
+    "Arachidi",
+    "Farro",
+    "Cous cous"
   ]
 }

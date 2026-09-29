@@ -226,5 +226,154 @@
     "kcal_100g": 145,
     "proteine_100g": 15,
     "dove": 3
+  },
+  {
+    "id": "macinato",
+    "nome": "Macinato di manzo magro",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 12,
+    "kcal_100g": 150,
+    "proteine_100g": 21,
+    "dove": 1
+  },
+  {
+    "id": "tacchino",
+    "nome": "Fesa di tacchino",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 12,
+    "kcal_100g": 107,
+    "proteine_100g": 24,
+    "dove": 1
+  },
+  {
+    "id": "bresaola",
+    "nome": "Bresaola",
+    "reparto": "Carne e pesce",
+    "prezzo_kg": 35,
+    "kcal_100g": 151,
+    "proteine_100g": 32,
+    "dove": 1
+  },
+  {
+    "id": "lenticchie",
+    "nome": "Lenticchie cotte",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3,
+    "kcal_100g": 116,
+    "proteine_100g": 9,
+    "dove": 1
+  },
+  {
+    "id": "fagioli",
+    "nome": "Fagioli cotti",
+    "reparto": "Dispensa",
+    "prezzo_kg": 2.5,
+    "kcal_100g": 110,
+    "proteine_100g": 7,
+    "dove": 1
+  },
+  {
+    "id": "couscous",
+    "nome": "Cous cous",
+    "reparto": "Dispensa",
+    "prezzo_kg": 3.5,
+    "kcal_100g": 360,
+    "proteine_100g": 12,
+    "dove": 1
+  },
+  {
+    "id": "farro",
+    "nome": "Farro",
+    "reparto": "Dispensa",
+    "prezzo_kg": 4,
+    "kcal_100g": 340,
+    "proteine_100g": 14,
+    "dove": 1
+  },
+  {
+    "id": "piadina",
+    "nome": "Piadina",
+    "reparto": "Dispensa",
+    "prezzo_kg": 7,
+    "kcal_100g": 300,
+    "proteine_100g": 8,
+    "dove": 1,
+    "pezzo": [
+      110,
+      "piadina",
+      "piadine"
+    ]
+  },
+  {
+    "id": "burro-arachidi",
+    "nome": "Burro d'arachidi",
+    "reparto": "Dispensa",
+    "prezzo_kg": 12,
+    "kcal_100g": 588,
+    "proteine_100g": 25,
+    "dove": 2
+  },
+  {
+    "id": "noci",
+    "nome": "Noci sgusciate",
+    "reparto": "Dispensa",
+    "prezzo_kg": 15,
+    "kcal_100g": 654,
+    "proteine_100g": 15,
+    "dove": 1
+  },
+  {
+    "id": "mozzarella",
+    "nome": "Mozzarella",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 8,
+    "kcal_100g": 250,
+    "proteine_100g": 18,
+    "dove": 1
+  },
+  {
+    "id": "ricotta",
+    "nome": "Ricotta",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 6,
+    "kcal_100g": 146,
+    "proteine_100g": 11,
+    "dove": 1
+  },
+  {
+    "id": "latte",
+    "nome": "Latte parzialmente scremato",
+    "reparto": "Latticini e uova",
+    "prezzo_kg": 1.4,
+    "kcal_100g": 46,
+    "proteine_100g": 3.3,
+    "dove": 1
+  },
+  {
+    "id": "piselli",
+    "nome": "Piselli surgelati",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 3,
+    "kcal_100g": 80,
+    "proteine_100g": 5,
+    "dove": 1
+  },
+  {
+    "id": "verdure-grigliate",
+    "nome": "Verdure grigliate surgelate",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 5,
+    "kcal_100g": 40,
+    "proteine_100g": 1.5,
+    "dove": 1
+  },
+  {
+    "id": "frutti-bosco",
+    "nome": "Frutti di bosco surgelati",
+    "reparto": "Frutta e verdura",
+    "prezzo_kg": 8,
+    "kcal_100g": 45,
+    "proteine_100g": 1,
+    "dove": 2
   }
 ]

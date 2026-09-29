@@ -359,5 +359,337 @@
       "Servi con il riso. La porzione avanzata va in frigo e si mangia entro il giorno dopo."
     ],
     "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "porridge-latte-arachidi-e-banana",
+    "nome": "Porridge con burro d'arachidi e banana",
+    "pasto": "colazione",
+    "tempo_attivo_min": 5,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "latte": 250,
+      "avena": 60,
+      "burro-arachidi": 15,
+      "banana": 60
+    },
+    "utensili": [
+      "Pentolino",
+      "Cucchiaio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Versa latte e avena in un pentolino.",
+      "Cuoci a fuoco medio mescolando per 3-4 minuti, finché si addensa.",
+      "Versa in una ciotola, aggiungi il burro d'arachidi e la banana a rondelle."
+    ],
+    "avanzi": "Si prepara al momento."
+  },
+  {
+    "id": "pane-ricotta-e-frutti-di-bosco",
+    "nome": "Pane, ricotta e frutti di bosco",
+    "pasto": "colazione",
+    "tempo_attivo_min": 3,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pane": 80,
+      "ricotta": 120,
+      "frutti-bosco": 80
+    },
+    "utensili": [
+      "Piatto",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Tira fuori i frutti di bosco dal freezer la sera prima, oppure scongelali 1 minuto in microonde.",
+      "Tosta il pane se ti piace.",
+      "Spalma la ricotta sul pane e aggiungi i frutti di bosco sopra o a parte."
+    ],
+    "avanzi": "Si prepara al momento."
+  },
+  {
+    "id": "yogurt-frutti-di-bosco-e-noci",
+    "nome": "Yogurt, frutti di bosco e noci",
+    "pasto": "colazione",
+    "tempo_attivo_min": 2,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "yogurt": 250,
+      "frutti-bosco": 80,
+      "noci": 20,
+      "avena": 30
+    },
+    "utensili": [
+      "Ciotola",
+      "Cucchiaio"
+    ],
+    "passaggi": [
+      "Versa lo yogurt in una ciotola.",
+      "Aggiungi avena, frutti di bosco e noci spezzettate con le mani."
+    ],
+    "avanzi": "Si prepara al momento."
+  },
+  {
+    "id": "chili-di-manzo-e-fagioli-con-riso",
+    "nome": "Chili di manzo e fagioli con riso",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 4,
+    "grammi_a_porzione": {
+      "macinato": 150,
+      "fagioli": 150,
+      "passata": 150,
+      "riso": 70,
+      "olio": 5
+    },
+    "utensili": [
+      "Pentola",
+      "Padella capiente",
+      "Scolapasta",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Metti a cuocere il riso in acqua salata.",
+      "In padella scalda l'olio e rosola il macinato 5 minuti, sgranandolo con il cucchiaio.",
+      "Aggiungi passata, fagioli scolati, sale e, se ti piace, paprika o peperoncino.",
+      "Cuoci 10-15 minuti a fuoco basso, mescolando ogni tanto.",
+      "Scola il riso e dividi riso e chili nei contenitori."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "polpette-al-sugo-con-pane",
+    "nome": "Polpette al sugo con pane",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 2,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "macinato": 180,
+      "uova": 30,
+      "parmigiano": 10,
+      "passata": 150,
+      "pane": 60,
+      "olio": 5
+    },
+    "utensili": [
+      "Padella capiente con coperchio",
+      "Ciotola",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "In una ciotola impasta macinato, uovo, parmigiano e un pizzico di sale.",
+      "Forma delle polpette grandi come una noce, con le mani bagnate.",
+      "Scalda l'olio in padella, aggiungi la passata e appoggia dentro le polpette.",
+      "Copri e cuoci 15 minuti a fuoco basso, girandole a metà.",
+      "Servi con il pane. Le porzioni avanzate vanno in frigo con il loro sugo."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "lenticchie-e-riso",
+    "nome": "Lenticchie e riso al pomodoro",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 4,
+    "grammi_a_porzione": {
+      "lenticchie": 250,
+      "riso": 80,
+      "passata": 80,
+      "olio": 8,
+      "parmigiano": 10
+    },
+    "utensili": [
+      "Pentola",
+      "Cucchiaio di legno",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "In pentola scalda l'olio con la passata per 3 minuti.",
+      "Aggiungi le lenticchie scolate e 2 bicchieri d'acqua calda, sala e porta a bollore.",
+      "Butta il riso direttamente nella pentola e cuoci per il tempo della confezione, mescolando e aggiungendo acqua se serve.",
+      "Spegni e aggiungi il parmigiano."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "cous-cous-pollo-e-verdure",
+    "nome": "Cous cous con pollo e verdure grigliate",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "couscous": 80,
+      "pollo": 150,
+      "verdure-grigliate": 150,
+      "olio": 8
+    },
+    "utensili": [
+      "Ciotola",
+      "Padella",
+      "Tagliere",
+      "Coltello",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Metti il cous cous in una ciotola, copri con la stessa quantità di acqua bollente salata e lascialo riposare 5 minuti coperto.",
+      "Intanto taglia il pollo a cubetti e rosolalo in padella con l'olio per 6-7 minuti.",
+      "Aggiungi le verdure grigliate e scalda 3-4 minuti.",
+      "Sgrana il cous cous con la forchetta e uniscilo a pollo e verdure."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "farro-tacchino-e-piselli",
+    "nome": "Farro, tacchino e piselli",
+    "pasto": "principale",
+    "tempo_attivo_min": 20,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 4,
+    "grammi_a_porzione": {
+      "farro": 80,
+      "tacchino": 150,
+      "piselli": 150,
+      "olio": 8
+    },
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Tagliere",
+      "Coltello",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Cuoci il farro in acqua salata per il tempo della confezione (di solito 20-25 minuti).",
+      "Taglia il tacchino a straccetti e rosolalo in padella con l'olio per 5 minuti.",
+      "Aggiungi i piselli surgelati con un goccio d'acqua e cuoci 8 minuti.",
+      "Scola il farro e uniscilo al tacchino e piselli."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "piadina-bresaola-e-mozzarella",
+    "nome": "Piadina bresaola e mozzarella",
+    "pasto": "principale",
+    "tempo_attivo_min": 5,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "piadina": 110,
+      "bresaola": 70,
+      "mozzarella": 80
+    },
+    "utensili": [
+      "Padella",
+      "Tagliere",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Scalda la piadina in padella 1 minuto per lato.",
+      "Farciscila con bresaola e mozzarella a fette.",
+      "Chiudila a metà e scaldala ancora 1 minuto per far sciogliere un po' la mozzarella."
+    ],
+    "avanzi": "Si prepara al momento."
+  },
+  {
+    "id": "pasta-ricotta-e-spinaci",
+    "nome": "Pasta ricotta e spinaci",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 2,
+    "si_conserva_giorni": 2,
+    "grammi_a_porzione": {
+      "pasta": 90,
+      "ricotta": 100,
+      "spinaci": 150,
+      "parmigiano": 10,
+      "olio": 5
+    },
+    "utensili": [
+      "Pentola",
+      "Padella",
+      "Scolapasta",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Metti a bollire l'acqua salata e cuoci la pasta.",
+      "In padella cuoci gli spinaci surgelati con l'olio e un pizzico di sale per 6-8 minuti.",
+      "Spegni e aggiungi ricotta e parmigiano, con un mestolo di acqua della pasta per renderla cremosa.",
+      "Scola la pasta e mescolala nel condimento."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "tacchino-patate-e-verdure-al-forno",
+    "nome": "Tacchino, patate e verdure al forno",
+    "pasto": "principale",
+    "tempo_attivo_min": 10,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "tacchino": 180,
+      "patate": 250,
+      "verdure-grigliate": 150,
+      "olio": 8
+    },
+    "utensili": [
+      "Teglia",
+      "Carta forno",
+      "Tagliere",
+      "Coltello",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Accendi il forno a 200 °C.",
+      "Taglia le patate a cubetti e mettile in teglia con carta forno, olio e sale. Inforna per 15 minuti.",
+      "Aggiungi il tacchino a pezzi e le verdure grigliate surgelate, mescola e inforna altri 15-20 minuti.",
+      "Controlla che il tacchino sia cotto e dividi nelle porzioni."
+    ],
+    "avanzi": "Scaldalo 2 minuti in microonde o in padella con un goccio d'acqua."
+  },
+  {
+    "id": "insalata-di-farro-tonno-e-mozzarella",
+    "nome": "Insalata di farro, tonno e mozzarella",
+    "pasto": "principale",
+    "tempo_attivo_min": 15,
+    "difficolta": 1,
+    "pentole": 1,
+    "si_conserva_giorni": 3,
+    "grammi_a_porzione": {
+      "farro": 70,
+      "tonno": 80,
+      "mozzarella": 60,
+      "verdure-grigliate": 100,
+      "olio": 8
+    },
+    "utensili": [
+      "Pentola",
+      "Scolapasta",
+      "Ciotola grande",
+      "Contenitori per il frigo"
+    ],
+    "passaggi": [
+      "Cuoci il farro in acqua salata, scolalo e passalo sotto l'acqua fredda.",
+      "Scongela le verdure grigliate in microonde o in padella 3 minuti e lasciale raffreddare.",
+      "Unisci farro, tonno scolato, verdure e mozzarella a cubetti.",
+      "Condisci con olio e sale e dividi nei contenitori."
+    ],
+    "avanzi": "Si mangia freddo: tiralo fuori dal frigo 10 minuti prima."
   }
 ]

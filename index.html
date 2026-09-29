@@ -16,9 +16,9 @@
 <link rel="icon" href="icone/icona-192.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
-:root{--on-leaf:#fff;--bg:#F5F6F1;--ink:#17231D;--mute:#5F6B64;--card:#FFFFFF;--line:#DDE1D8;--leaf:#2C6B4C;--leaf-t:#E1EEE6;--sun:#F0C24B}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--on-leaf:#0E1A13;--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}}
-:root[data-theme="dark"]{--on-leaf:#0E1A13;--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}
+:root{--heart:#D2453D;--on-leaf:#fff;--bg:#F5F6F1;--ink:#17231D;--mute:#5F6B64;--card:#FFFFFF;--line:#DDE1D8;--leaf:#2C6B4C;--leaf-t:#E1EEE6;--sun:#F0C24B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--heart:#F0706A;--on-leaf:#0E1A13;--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}}
+:root[data-theme="dark"]{--heart:#F0706A;--on-leaf:#0E1A13;--bg:#121A16;--ink:#E9EEEA;--mute:#93A19A;--card:#1A2520;--line:#2B3831;--leaf:#6FBF95;--leaf-t:#20342A;--sun:#E6B93F}
 *{box-sizing:border-box}[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "DM Sans",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0);-webkit-tap-highlight-color:transparent}
@@ -46,6 +46,12 @@ a{color:var(--leaf);font-weight:700}
 .hm small{display:block;color:var(--mute);font-size:.78rem;font-weight:500}.hm b{display:block;font-weight:700;line-height:1.3}.hm .meta{display:block;color:var(--mute);font-size:.85rem}.hm .tag{flex:none}
 .shopw{background:var(--leaf-t);border-radius:14px;padding:12px 14px}.shopw b{display:block;font:800 1.15rem "Bricolage Grotesque",sans-serif}.shopw span{display:block;font-size:.85rem;color:var(--mute)}
 .day.today{border:2px solid var(--leaf)}
+.shop-n{min-width:0}.shop-t{display:flex;align-items:center;gap:2px}.shop-n .tag{display:inline-block;margin-top:4px}
+.shop-r{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:none}.shop-r a{font-size:.9rem;padding:6px 0}
+.shopw a{display:inline-block;margin-top:6px;font-size:.95rem;padding:4px 0}
+.fav{border:0;background:none;padding:0;min-width:40px;min-height:40px;display:grid;place-items:center;cursor:pointer;color:var(--mute);margin:-8px 0}
+.fav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+.fav[aria-pressed=true]{color:var(--heart)}.fav[aria-pressed=true] svg{fill:currentColor}
 .how{display:block;border:0;background:none;color:var(--leaf);font:700 .9rem "DM Sans",sans-serif;padding:4px 0 0;min-height:36px;cursor:pointer;text-align:left}
 #sheet{width:100%;max-width:640px;max-height:88dvh;margin:auto auto 0;border:0;border-radius:22px 22px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0));background:var(--card);color:var(--ink);overflow:auto;overscroll-behavior:contain}
 #sheet::backdrop{background:rgba(0,0,0,.45)}
@@ -117,7 +123,7 @@ input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);borde
 // I dati (ingredienti, ricette, parole per le esclusioni) stanno nella cartella data/: si aggiornano lì.
 const $=s=>document.querySelector(s);
 let ING=[],I={},RIC=[],SYN={},SUG=[];
-const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,indirizzi:[],attivo:null,exl:[],done:false,step:0};
+const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,indirizzi:[],attivo:null,preferiti:[],exl:[],done:false,step:0};
 let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}catch(e){}
 if(S.casa){S.indirizzi=[{id:"casa",etichetta:"Casa",testo:S.casa.label,lat:S.casa.lat,lon:S.casa.lon,negozi:S.negozi||null}];S.attivo="casa"}
 if(S.done&&!S.kcalOk)S.kcalOk=true;
@@ -155,8 +161,26 @@ const NOM="https://nominatim.openstreetmap.org/";
 const ADDR=()=>S.indirizzi.find(a=>a.id==S.attivo)||S.indirizzi[0]||null;
 const NEG=()=>(ADDR()&&ADDR().negozi)||[];
 function reach(){const a=ADDR();if(!a||!a.negozi)return new Set([1,2]);const s=new Set([1]);a.negozi.forEach(n=>n.liv.forEach(l=>s.add(l)));return s}
-function primario(){const by=(a,b)=>a.km-b.km,N=NEG();return N.filter(n=>n.liv.includes(2)).sort(by)[0]||N.filter(n=>n.liv.includes(1)).sort(by)[0]||null}
-function negozioPer(dove){const N=NEG();if(!N.length)return null;const p=primario();if(p&&p.liv.includes(dove))return p;return N.filter(n=>n.liv.includes(dove)).sort((a,b)=>a.km-b.km)[0]||p}
+const nk=n=>n.nome+"|"+(+n.lat).toFixed(4)+","+(+n.lon).toFixed(4);
+const isFav=n=>S.preferiti.includes(nk(n));
+// il negozio principale: il preferito più vicino, altrimenti il supermercato più vicino
+function primario(){const by=(a,b)=>a.km-b.km,N=NEG(),base=N.filter(n=>n.liv.includes(1)||n.liv.includes(2));
+ return base.filter(isFav).sort(by)[0]||N.filter(n=>n.liv.includes(2)).sort(by)[0]||base.sort(by)[0]||null}
+function negozioPer(dove){const N=NEG();if(!N.length)return null;const p=primario();if(p&&p.liv.includes(dove))return p;
+ return N.filter(n=>n.liv.includes(dove)).sort((a,b)=>isFav(b)-isFav(a)||a.km-b.km)[0]||p}
+function mapsUrl(n){const a=ADDR(),dest=[n.nome,n.via,n.citta||(a&&a.citta)].filter(Boolean).join(", ");
+ return"https://www.google.com/maps/dir/?api=1"+(a?"&origin="+encodeURIComponent(a.testo):"")+"&destination="+encodeURIComponent(dest)+"&travelmode="+(n.km<1.5?"walking":"driving")}
+const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg>';
+const favBtn=n=>`<button class="fav" data-fav="${esc(nk(n))}" aria-pressed="${isFav(n)}" aria-label="${isFav(n)?"Togli dai preferiti":"Aggiungi ai preferiti"}: ${esc(n.nome)}">${HEART}</button>`;
+// completa via e città dei negozi che OpenStreetMap non ha, una richiesta al secondo
+const arricchendo=new Set();
+async function arricchisci(a){
+ if(!a.negozi||a.ok||arricchendo.has(a.id))return;arricchendo.add(a.id);
+ for(const n of a.negozi.slice(0,8)){if(n.via&&n.citta)continue;
+  try{const ad=(await(await fetch(`${NOM}reverse?format=jsonv2&zoom=18&accept-language=it&lat=${n.lat}&lon=${n.lon}`)).json()).address||{};
+   if(!n.via)n.via=[ad.road,ad.house_number].filter(Boolean).join(" ");if(!n.citta)n.citta=ad.city||ad.town||ad.village||""}catch(e){}
+  await new Promise(r=>setTimeout(r,1100))}
+ a.ok=true;arricchendo.delete(a.id);save();render()}
 const st=m=>{const e=$("#geo-st");if(e)e.textContent=m};
 const cercando=new Set();let pos=null;
 async function cercaNegozi(a){
@@ -166,19 +190,19 @@ async function cercaNegozi(a){
    const q=`[out:json][timeout:25];nwr(around:${r},${a.lat},${a.lon})[shop~"^(supermarket|convenience|organic|health_food)$"];out center;`;
    const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"data="+encodeURIComponent(q)});
    if(!res.ok)throw res.status;el=(await res.json()).elements||[];if(el.length)break}
-  a.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
-   return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),lat:la,lon:lo,km:km(a.lat,a.lon,la,lo)}})
+  a.ok=false;a.negozi=el.map(e=>{const t=e.tags||{},T=TIPI[t.shop]||TIPI.convenience,la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,nome=t.brand||t.name||T.tipo;
+   return{nome,tipo:t.shop=="supermarket"&&DISCOUNT.test(nome)?"Discount":T.tipo,liv:T.liv,via:[t["addr:street"],t["addr:housenumber"]].filter(Boolean).join(" "),citta:t["addr:city"]||"",lat:la,lon:lo,km:km(a.lat,a.lon,la,lo)}})
    .filter(n=>n.lat!=null).sort((x,y)=>x.km-y.km).slice(0,40)}
  catch(e){a.err=true}
- finally{cercando.delete(a.id);save();sum();render()}}
+ finally{cercando.delete(a.id);save();sum();render();arricchisci(a)}}
 async function salvaIndirizzo(){
  const testo=$("#addr").value.trim(),et=$("#etq").value.trim();
  if(!testo)return st("Scrivi un indirizzo, per esempio: Via Roma 10, Monza.");
  let c=pos&&pos.testo==testo?pos:null;
  if(!c){st("Cerco l'indirizzo…");
-  try{const j=await(await fetch(NOM+"search?format=jsonv2&limit=1&countrycodes=it&accept-language=it&q="+encodeURIComponent(testo))).json();c=j.length?{lat:+j[0].lat,lon:+j[0].lon}:null}catch(e){return st(ERR)}
+  try{const j=await(await fetch(NOM+"search?format=jsonv2&limit=1&addressdetails=1&countrycodes=it&accept-language=it&q="+encodeURIComponent(testo))).json();const ad=j.length&&j[0].address||{};c=j.length?{lat:+j[0].lat,lon:+j[0].lon,citta:ad.city||ad.town||ad.village||""}:null}catch(e){return st(ERR)}
   if(!c)return st("Indirizzo non trovato. Prova ad aggiungere il numero civico o la città.")}
- const a={id:Date.now().toString(36),etichetta:et||`Indirizzo ${S.indirizzi.length+1}`,testo,lat:c.lat,lon:c.lon,negozi:null};
+ const a={id:Date.now().toString(36),etichetta:et||`Indirizzo ${S.indirizzi.length+1}`,testo,citta:c.citta||"",lat:c.lat,lon:c.lon,negozi:null};
  S.indirizzi.push(a);S.attivo=a.id;pos=null;save();
  $("#addr").value="";$("#etq").value="";st(`Salvato come "${a.etichetta}".`);refreshAddr();cercaNegozi(a)}
 function usaPosizione(){
@@ -186,8 +210,8 @@ function usaPosizione(){
  st("Recupero la tua posizione…");
  navigator.geolocation.getCurrentPosition(async p=>{const lat=p.coords.latitude,lon=p.coords.longitude;let testo="La mia posizione";
   try{const ad=(await(await fetch(`${NOM}reverse?format=jsonv2&accept-language=it&lat=${lat}&lon=${lon}`)).json()).address||{};
-   testo=[[ad.road,ad.house_number].filter(Boolean).join(" "),ad.city||ad.town||ad.village].filter(Boolean).join(", ")||testo}catch(e){}
-  pos={lat,lon,testo};$("#addr").value=testo;st("Posizione trovata: dai un nome all'indirizzo e salvalo.");$("#etq").focus()},
+   testo=[[ad.road,ad.house_number].filter(Boolean).join(" "),ad.city||ad.town||ad.village].filter(Boolean).join(", ")||testo;var citta=ad.city||ad.town||ad.village||""}catch(e){}
+  pos={lat,lon,testo,citta};$("#addr").value=testo;st("Posizione trovata: dai un nome all'indirizzo e salvalo.");$("#etq").focus()},
   ()=>st("Posizione non disponibile: scrivi l'indirizzo."),{timeout:10000})}
 function addrHTML(){
  if(!S.indirizzi.length)return"";const at=ADDR();
@@ -200,19 +224,27 @@ function qta(id,g,spesa){const z=I[id].pz;
  if(z&&!(spesa&&z[3]=="ricetta")){let r=Math.max(.5,Math.round(g/z[0]*2)/2);const t=r==.5?"½":r%1?Math.floor(r)+" e ½":r;return`${t} ${r<=1?z[1]:z[2]}`}
  return g>=1000?(g/1000).toFixed(1).replace(".",",")+" kg":(g<50?Math.max(5,Math.round(g/5)*5):Math.round(g/10)*10)+" g"}
 function stat(r,m=1){let k=0,p=0,c=0;for(const id in r.ing){const g=r.ing[id]*m;k+=g*I[id].kcal/100;p+=g*I[id].prot/100;c+=spend(g,id)}return{k,p,c}}
-function score(r){const s=stat(r);return .5*Math.min(r.tempo/30,1)+.3*(1-Math.min(s.p/s.k*100/9,1))+.2*Math.min(s.c/4,1)}
+// tempo per porzione (un piatto cucinato per 3 giorni "costa" un terzo), poi proteine per kcal, poi costo
+function score(r,b=1){const s=stat(r);return .5*Math.min(r.tempo/Math.min(b,r.cons)/15,1)+.3*(1-Math.min(s.p/s.k*100/9,1))+.2*Math.min(s.c/4,1)}
 function plan(){
  const L=LV[S.cucina]||LV.giusto,ex=EX(),rc=reach();
  const ok=RIC.filter(r=>Object.keys(r.ing).every(i=>!ex.has(i)&&rc.has(I[i].dove)));
- const bf=ok.filter(r=>r.p=="c"&&r.tempo<=L.t).sort((a,b)=>score(a)-score(b)).slice(0,2);
- const mains=ok.filter(r=>r.p=="p"&&r.tempo<=L.t&&r.diff<=L.d&&r.ut<=L.u&&r.cons>=2).sort((a,b)=>score(a)-score(b));
+ const bf=ok.filter(r=>r.p=="c"&&r.tempo<=L.t).sort((a,b)=>score(a)-score(b)).slice(0,3);
+ const mains=ok.filter(r=>r.p=="p"&&r.tempo<=L.t&&r.diff<=L.d&&r.ut<=L.u).sort((a,b)=>score(a,L.b)-score(b,L.b));
  if(!mains.length)return null;
- const slots=[];let s=0,minuti=0;
- while(slots.length<14){const r=mains[s%mains.length],n=Math.min(L.b,r.cons);minuti+=r.tempo;for(let j=0;j<n&&slots.length<14;j++)slots.push({r,s,first:j==0});s++}
- const cnt={};slots.forEach(x=>cnt[x.s]=(cnt[x.s]||0)+1);slots.forEach(x=>x.n=cnt[x.s]);
+ // due binari separati, pranzi e cene: ognuno ha le sue preparazioni e nello stesso giorno i piatti sono sempre diversi
+ const tr=[Array(7).fill(null),Array(7).fill(null)],pt=[0,0];let s=0,rot=0,minuti=0;
+ const pick=no=>{for(let k=0;k<mains.length;k++){const r=mains[(rot+k)%mains.length];if(!no(r)){rot=(rot+k+1)%mains.length;return r}}return null};
+ while(pt[0]<7||pt[1]<7){
+  const t=pt[0]<=pt[1]?0:1,o=1-t,d0=pt[t],prev=d0>0?tr[t][d0-1].r:null;
+  const clash=(r,n)=>{for(let j=0;j<n&&d0+j<7;j++){const y=tr[o][d0+j];if(y&&y.r===r)return true}return false};
+  const r=pick(r=>r===prev||clash(r,Math.min(L.b,r.cons)))||pick(r=>clash(r,1))||mains[rot++%mains.length];
+  const n=Math.min(L.b,r.cons,7-d0);
+  for(let j=0;j<n;j++)tr[t][d0+j]={r,s,first:j==0,n};
+  minuti+=r.tempo;s++;pt[t]+=n}
  const days=[],tot={},need=Array.from({length:7},()=>({})),cookDay={};
  for(let d=0;d<7;d++){
-  const ms=[bf.length?{r:bf[d%bf.length]}:null,slots[2*d],slots[2*d+1]];
+  const ms=[bf.length?{r:bf[d%bf.length]}:null,tr[0][d],tr[1][d]];
   const raw=ms.reduce((a,x)=>a+(x?stat(x.r).k:0),0),m=Math.min(1.5,Math.max(.7,S.kcal/raw));
   let k=0,p=0,c=0;
   ms.forEach(x=>{if(!x)return;const t=stat(x.r,m);k+=t.k;p+=t.p;c+=t.c;
@@ -224,7 +256,7 @@ function plan(){
  const costo=o=>Object.entries(o).reduce((a,[id,g])=>a+spend(g,id),0);
  const trips=(L.spese==2?[[0,1,2,3],[4,5,6]]:[[0,1,2,3,4,5,6]]).map(gg=>{const t={};gg.forEach(d=>{for(const id in need[d])t[id]=(t[id]||0)+need[d][id]});
   return{gg,tot:t,cost:costo(t),nome:L.spese==2?`Spesa per ${GGc[gg[0]]}–${GGc[gg[gg.length-1]]}`:"Spesa della settimana"}});
- return{days,tot,trips,cookDay,minuti,sess:s,cost:costo(tot)}
+ return{days,tot,trips,cookDay,minuti,sess:new Set(Object.values(cookDay)).size,cost:costo(tot)}
 }
 const GG=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"],PN=["Colazione","Pranzo","Cena"];
 const chkGet=()=>S.presi||{},chkSet=c=>{S.presi=c};
@@ -253,12 +285,12 @@ function render(){
   head=`<label for="dove-sp">Fai la spesa vicino a</label><select id="dove-sp" data-dove>${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta)+" · "+esc(x.testo),a.id)).join("")}</select>`;
   if(!a.negozi){if(a.err)head+=`<p class="warn">${ERR}</p><button class="btn ghost" data-retry>Riprova</button>`;else{head+=`<p class="note">Cerco i negozi vicino a ${esc(a.etichetta)}…</p>`;setTimeout(()=>cercaNegozi(a))}}
   else if(!a.negozi.length)head+=`<p class="warn">Nessun negozio trovato entro 15 km: ti proponiamo solo ingredienti che si trovano ovunque.</p>`;
-  else{const p=primario(),l=[p,...a.negozi.filter(n=>n!==p)].filter(Boolean).slice(0,4);
-   head+=`<h2>Puoi fare la spesa qui</h2><div class="card">`+l.map(n=>`<div class="shop"><div><b>${esc(n.nome)}</b>${n===p?' <span class="tag p">Consigliato</span>':""}<br><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span></div><span>${dist(n.km)}</span></div>`).join("")+`</div>`}
+  else{const p=primario(),l=[p,...a.negozi.filter(n=>n!==p&&isFav(n)),...a.negozi.filter(n=>n!==p&&!isFav(n))].filter(Boolean).slice(0,6);setTimeout(()=>arricchisci(a));
+   head+=`<h2>Puoi fare la spesa qui</h2><div class="card">`+l.map(n=>`<div class="shop"><div class="shop-n"><div class="shop-t"><b>${esc(n.nome)}</b>${favBtn(n)}</div><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span>${n===p?'<span class="tag p">Consigliato</span>':""}</div><div class="shop-r"><span>${dist(n.km)}</span><a href="${mapsUrl(n)}" target="_blank" rel="noopener">Indicazioni</a></div></div>`).join("")+`</div><p class="note">Tocca il cuore per salvare i tuoi supermercati preferiti: li suggeriamo per primi.</p>`}
  }
  if(NEG().length){
   const gr=new Map();ids.forEach(id=>{const n=negozioPer(I[id].dove);if(!gr.has(n))gr.set(n,[]);gr.get(n).push(id)});
-  body=[...gr].sort((x,y)=>x[0].km-y[0].km).map(([n,l])=>`<h2>Da ${esc(n.nome)}</h2><p class="note">${n.tipo}${n.via?" · "+esc(n.via):""} · ${dist(n.km)} · <a href="https://www.google.com/maps/dir/?api=1&destination=${n.lat},${n.lon}" target="_blank" rel="noopener">Indicazioni</a></p><div class="card">${l.map(riga).join("")}</div>`).join("");
+  body=[...gr].sort((x,y)=>(x[0]===primario()?-1:y[0]===primario()?1:x[0].km-y[0].km)).map(([n,l])=>`<h2>Da ${esc(n.nome)}</h2><p class="note">${n.tipo}${n.via?" · "+esc(n.via):""} · ${dist(n.km)} · <a href="${mapsUrl(n)}" target="_blank" rel="noopener">Indicazioni</a></p><div class="card">${l.map(riga).join("")}</div>`).join("");
  }else{
   const gr={};ids.forEach(id=>(gr[I[id].rep]=gr[I[id].rep]||[]).push(id));
   body=Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
@@ -284,7 +316,7 @@ function renderHome(P){
  else{const p=primario();
   if(!p)sh=`<p class="note" style="margin-top:0">Nessun supermercato trovato vicino a ${esc(a.etichetta)}.</p>`;
   else{const altri=new Map();ids.forEach(id=>{const n=negozioPer(I[id].dove);if(n&&n!==p)altri.set(n,(altri.get(n)||0)+1)});
-   sh=`<div class="shopw"><b>${esc(p.nome)}</b><span>${p.tipo} · ${dist(p.km)} da ${esc(a.etichetta)}</span>${[...altri].map(([n,c])=>`<span>Più ${esc(n.nome)} per ${c} ${c==1?"prodotto":"prodotti"}</span>`).join("")}</div>`}}
+   sh=`<div class="shopw"><div class="shop-t"><b>${esc(p.nome)}</b>${favBtn(p)}</div><span>${p.tipo} · ${dist(p.km)} da ${esc(a.etichetta)}${p.via?" · "+esc(p.via):""}</span><a href="${mapsUrl(p)}" target="_blank" rel="noopener">Indicazioni</a>${[...altri].map(([n,c])=>`<span>Più ${esc(n.nome)} per ${c} ${c==1?"prodotto":"prodotti"}</span>`).join("")}</div>`}}
  html+=`<section class="w" aria-labelledby="w-spesa"><div class="w-h"><h2 id="w-spesa">Prossima spesa</h2>${a?"":'<button class="lnk" data-t="profilo">Aggiungi</button>'}</div>${P.trips.length>1?`<p class="note" style="margin-top:-6px">${T.nome.replace("Spesa per ","Per ")} · ${ti+1} di ${P.trips.length} questa settimana</p>`:""}${sh}<div class="stats2"><div><b>${eur(T.cost)}</b><span>totale stimato</span></div><div><b>${presi} di ${ids.length}</b><span>prodotti presi</span></div></div><div class="bar"><i style="width:${ids.length?presi/ids.length*100:0}%"></i></div><button class="btn" data-t="spesa" data-trip="${ti}">Apri la lista della spesa</button></section>`;
  $("#home").innerHTML=html;
 }
@@ -345,6 +377,7 @@ document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
  if(d.ric){apriRicetta(d.ric);return}
+ if(d.fav){const i=S.preferiti.indexOf(d.fav);i<0?S.preferiti.push(d.fav):S.preferiti.splice(i,1);save();render();return}
  if(d.close!==undefined){$("#sheet").close();return}
  if(d.trip!==undefined){trip=+d.trip;render();if(d.t)showTab(d.t)}
  else if(d.t){if(!S.done&&d.t=="profilo")return;if(d.t=="spesa")trip=null,render();showTab(d.t)}
