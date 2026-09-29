@@ -1,7 +1,8 @@
 {
   "parole": {
     "pollo": [
-      "pollo"
+      "pollo",
+      "macinato-pollo"
     ],
     "carne": [
       "pollo",
@@ -9,7 +10,8 @@
       "tacchino",
       "bresaola",
       "manzo",
-      "prosciutto-cotto"
+      "prosciutto-cotto",
+      "macinato-pollo"
     ],
     "merluzz": [
       "merluzzo"
@@ -44,7 +46,8 @@
       "ricotta",
       "latte",
       "fiocchi-latte",
-      "pesto"
+      "pesto",
+      "proteine"
     ],
     "lattosio": [
       "yogurt",
@@ -54,7 +57,8 @@
       "ricotta",
       "latte",
       "fiocchi-latte",
-      "pesto"
+      "pesto",
+      "proteine"
     ],
     "formagg": [
       "parmigiano",
@@ -90,7 +94,10 @@
       "piadina",
       "fette-biscottate",
       "gnocchi",
-      "salsa-soia"
+      "salsa-soia",
+      "pangrattato",
+      "tortilla",
+      "orzo"
     ],
     "cereal": [
       "pasta",
@@ -102,7 +109,8 @@
       "farro",
       "polenta",
       "fette-biscottate",
-      "mais"
+      "mais",
+      "orzo"
     ],
     "frumento": [
       "pasta",
@@ -111,7 +119,10 @@
       "piadina",
       "fette-biscottate",
       "gnocchi",
-      "salsa-soia"
+      "salsa-soia",
+      "pangrattato",
+      "tortilla",
+      "orzo"
     ],
     "grano": [
       "pasta",
@@ -120,23 +131,31 @@
       "piadina",
       "fette-biscottate",
       "gnocchi",
-      "salsa-soia"
+      "salsa-soia",
+      "pangrattato",
+      "tortilla",
+      "orzo"
     ],
     "quinoa": [
       "quinoa"
     ],
     "cec": [
-      "ceci"
+      "ceci",
+      "farina-ceci"
     ],
     "legum": [
       "ceci",
       "lenticchie",
       "fagioli",
-      "piselli"
+      "piselli",
+      "pasta-legumi",
+      "farina-ceci"
     ],
     "soia": [
       "tofu",
-      "salsa-soia"
+      "salsa-soia",
+      "latte-soia",
+      "yogurt-soia"
     ],
     "tofu": [
       "tofu"
@@ -187,7 +206,11 @@
       "funghi",
       "fagiolini",
       "cetrioli",
-      "minestrone"
+      "minestrone",
+      "zucca",
+      "cavolfiore",
+      "melanzane",
+      "rucola"
     ],
     "manzo": [
       "macinato",
@@ -195,10 +218,12 @@
       "manzo"
     ],
     "macinat": [
-      "macinato"
+      "macinato",
+      "macinato-pollo"
     ],
     "tacchin": [
-      "tacchino"
+      "tacchino",
+      "macinato-pollo"
     ],
     "bresaol": [
       "bresaola"
@@ -269,7 +294,10 @@
       "piadina",
       "fette-biscottate",
       "gnocchi",
-      "salsa-soia"
+      "salsa-soia",
+      "pangrattato",
+      "tortilla",
+      "orzo"
     ],
     "celiach": [
       "pasta",
@@ -280,7 +308,10 @@
       "piadina",
       "fette-biscottate",
       "gnocchi",
-      "salsa-soia"
+      "salsa-soia",
+      "pangrattato",
+      "tortilla",
+      "orzo"
     ],
     "gamber": [
       "gamberetti"
@@ -379,13 +410,97 @@
       "pomodorini",
       "passata",
       "spinaci",
-      "funghi"
+      "funghi",
+      "cacao"
     ],
     "frutta": [
       "banana",
       "mela",
       "frutti-bosco",
       "avocado"
+    ],
+    "orzo": [
+      "orzo"
+    ],
+    "whey": [
+      "proteine"
+    ],
+    "proteine in polvere": [
+      "proteine"
+    ],
+    "integrator": [
+      "proteine"
+    ],
+    "melanzan": [
+      "melanzane"
+    ],
+    "zucca": [
+      "zucca"
+    ],
+    "cavolfior": [
+      "cavolfiore"
+    ],
+    "cavol": [
+      "cavolfiore"
+    ],
+    "cocco": [
+      "latte-cocco"
+    ],
+    "cacao": [
+      "cacao"
+    ],
+    "cioccolat": [
+      "cacao"
+    ],
+    "rucol": [
+      "rucola"
+    ],
+    "oliv": [
+      "olive"
+    ],
+    "chia": [
+      "chia"
+    ],
+    "semi": [
+      "chia"
+    ],
+    "piccant": [
+      "peperoncino"
+    ],
+    "peperoncin": [
+      "peperoncino"
+    ],
+    "cumino": [
+      "cumino"
+    ],
+    "tortill": [
+      "tortilla"
+    ],
+    "pangrattat": [
+      "pangrattato"
+    ],
+    "noodle": [
+      "noodles"
+    ],
+    "spezi": [
+      "curry",
+      "paprika",
+      "cannella",
+      "cumino",
+      "peperoncino",
+      "pepe"
+    ],
+    "sale": [
+      "sale"
+    ],
+    "zuccher": [
+      "zucchero"
+    ],
+    "aglio": [
+      "aglio"
+    ],
+    "cipoll": [
+      "cipolla"
     ]
   },
   "suggerimenti": [
@@ -600,6 +715,219 @@
         "id": "patate",
         "min": 10,
         "nota": "Usa le patate lesse al posto della polenta."
+      }
+    ],
+    "pangrattato": [
+      {
+        "id": "gallette-riso",
+        "min": 0,
+        "nota": "Usa gallette di riso sbriciolate al posto del pangrattato."
+      }
+    ],
+    "tortilla": [
+      {
+        "id": "piadina",
+        "min": 0,
+        "nota": "Usa la piadina al posto della tortilla."
+      },
+      {
+        "id": "gallette-riso",
+        "min": 0,
+        "max": 40,
+        "nota": "Usa le gallette di riso al posto della tortilla."
+      }
+    ],
+    "orzo": [
+      {
+        "id": "riso",
+        "min": 0,
+        "nota": "Usa il riso al posto dell'orzo."
+      }
+    ],
+    "proteine": [
+      {
+        "id": "yogurt",
+        "min": 0,
+        "max": 150,
+        "nota": "Senza proteine in polvere: aggiungi yogurt greco."
+      },
+      {
+        "id": "",
+        "nota": "Puoi fare a meno delle proteine in polvere."
+      }
+    ],
+    "yogurt-soia": [
+      {
+        "id": "yogurt",
+        "min": 0,
+        "nota": "Usa lo yogurt greco al posto di quello di soia."
+      }
+    ],
+    "latte-soia": [
+      {
+        "id": "latte",
+        "min": 0,
+        "nota": "Usa il latte al posto della bevanda di soia."
+      },
+      {
+        "id": "",
+        "nota": "Usa acqua al posto della bevanda di soia."
+      }
+    ],
+    "latte-cocco": [
+      {
+        "id": "yogurt",
+        "min": 0,
+        "nota": "Usa lo yogurt al posto del latte di cocco, aggiungendolo a fuoco spento."
+      }
+    ],
+    "noodles": [
+      {
+        "id": "riso-pronto",
+        "min": 0,
+        "nota": "Usa il riso pronto al posto dei noodles."
+      }
+    ],
+    "pasta-legumi": [
+      {
+        "id": "pasta",
+        "min": 0,
+        "nota": "Usa la pasta normale al posto di quella di legumi."
+      }
+    ],
+    "cacao": [
+      {
+        "id": "",
+        "nota": "Senza cacao: la ricetta va bene lo stesso."
+      }
+    ],
+    "peperoncino": [
+      {
+        "id": "",
+        "nota": "Senza peperoncino."
+      }
+    ],
+    "cumino": [
+      {
+        "id": "",
+        "nota": "Senza cumino."
+      }
+    ],
+    "chia": [
+      {
+        "id": "avena",
+        "min": 0,
+        "nota": "Usa i fiocchi d'avena al posto dei semi di chia."
+      }
+    ],
+    "olive": [
+      {
+        "id": "",
+        "nota": "Senza olive."
+      }
+    ],
+    "rucola": [
+      {
+        "id": "insalata",
+        "min": 0,
+        "nota": "Usa l'insalata al posto della rucola."
+      }
+    ],
+    "macinato-pollo": [
+      {
+        "id": "macinato",
+        "min": 0,
+        "nota": "Usa il macinato di manzo al posto di quello di pollo."
+      }
+    ],
+    "sale": [
+      {
+        "id": "",
+        "nota": "Senza sale."
+      }
+    ],
+    "pepe": [
+      {
+        "id": "",
+        "nota": "Senza pepe."
+      }
+    ],
+    "origano": [
+      {
+        "id": "",
+        "nota": "Senza origano."
+      }
+    ],
+    "rosmarino": [
+      {
+        "id": "",
+        "nota": "Senza rosmarino."
+      }
+    ],
+    "basilico": [
+      {
+        "id": "",
+        "nota": "Senza basilico."
+      }
+    ],
+    "prezzemolo": [
+      {
+        "id": "",
+        "nota": "Senza prezzemolo."
+      }
+    ],
+    "curry": [
+      {
+        "id": "",
+        "nota": "Senza curry."
+      }
+    ],
+    "paprika": [
+      {
+        "id": "",
+        "nota": "Senza paprika."
+      }
+    ],
+    "cannella": [
+      {
+        "id": "",
+        "nota": "Senza cannella."
+      }
+    ],
+    "zucchero": [
+      {
+        "id": "",
+        "nota": "Senza zucchero."
+      }
+    ],
+    "aceto": [
+      {
+        "id": "",
+        "nota": "Senza aceto."
+      }
+    ],
+    "aglio": [
+      {
+        "id": "",
+        "nota": "Senza aglio."
+      }
+    ],
+    "cipolla": [
+      {
+        "id": "",
+        "nota": "Senza cipolla."
+      }
+    ],
+    "limone": [
+      {
+        "id": "",
+        "nota": "Senza limone."
+      }
+    ],
+    "dado": [
+      {
+        "id": "",
+        "nota": "Senza dado."
       }
     ]
   },
