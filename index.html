@@ -495,7 +495,7 @@ function render(){
 function renderHome(P){
  const now=new Date(),data=now.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}),a=ADDR(),L=LV[S.cucina]||LV.giusto;
  let html=`<header class="ph"><div><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1></div><button class="avatar" data-t="profilo" aria-label="Apri il profilo">${esc((S.nome||"?")[0].toUpperCase())}</button></header>${a?`<label class="here">${ic("map-pin")}<span class="sr">Sei qui</span><select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}`;
- html+=mappa();
+ // html+=mappa(); // widget "Giorni in linea" spento per ora: il codice resta pronto
  if(!P){$("#home").innerHTML=html+`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Apri il profilo e togli qualche esclusione.</p>`;return}
  const d=P.days[OGGI()],D=diario();let ek=0,ep=0,pk=0,delta=0,segnati=0;
  d.ms.forEach((x,j)=>{if(!x)return;const t=x.st,e=D[j];pk+=t.k;
@@ -561,7 +561,9 @@ async function inviaIdea(){
  b.disabled=true;out.textContent="Invio in corso…";
  try{const r=await fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
    body:JSON.stringify({_subject:"Implementazioni Pasto pronto",_template:"box",Suggerimento:t,Da:S.nome||"Utente senza nome"})});
-  const j=await r.json().catch(()=>({}));if(!r.ok||String(j.success)=="false")throw 0;
+  const j=await r.json().catch(()=>({}));
+  // FormSubmit risponde 200 anche quando non invia: conta solo success "true"
+  if(String(j.success)!="true"){if(/activat/i.test(j.message||"")){out.textContent="L'invio dei suggerimenti non è ancora attivo: il proprietario dell'app deve confermare l'email di attivazione ricevuta da FormSubmit. Poi riprova.";return}throw 0}
   $("#idea").value="";out.textContent="Grazie! Il suggerimento è stato inviato."}
  catch(e){out.innerHTML=`Non riesco a inviarlo in questo momento. <a href="mailto:${MAIL}?subject=${encodeURIComponent("Implementazioni Pasto pronto")}&body=${encodeURIComponent(t)}">Invialo con la tua app di posta</a>.`}
  finally{b.disabled=false}}
