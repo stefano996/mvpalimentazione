@@ -402,6 +402,15 @@ h1.ciao small{display:block;font-size:.6em;font-weight:700;color:var(--mute);lin
 .lat .tag.b.on{background:var(--brand);color:var(--on-brand)}
 .lat .note{margin:var(--s2) 0 0}
 .sw .sw-t>b{color:var(--ink);font-weight:700;font-size:.98rem}.sw .sw-t>span{color:var(--mute);font-weight:500;font-size:.84rem}
+
+.h-ic{display:flex;align-items:center;gap:var(--s2)}
+.h-ic .li-ic{width:32px;height:32px}
+.h-ic .li-ic .i{width:18px;height:18px}
+.dp-a{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 calc(-1*var(--s3));padding:0 var(--s3)}
+.dp-a::-webkit-scrollbar{display:none}
+.dp-a .tag.b{flex:none}
+.dp-g{display:flex;align-items:center;gap:var(--s2);font-size:.88rem;color:var(--ink)}
+.dp-g .x{width:32px;height:32px;background:var(--surface)}
 </style>
 </head>
 <body>
@@ -717,7 +726,7 @@ function resto(id,al){const e=(S.dispensa||{})[id];if(!e)return null;let q=e.q,d
  while(d<fine&&n<200){q-=usoGiorno(id,d)+f;d=addD(d,1);n++}return Math.max(0,q)}
 function giorniRimasti(id){let q=resto(id);if(q==null)return null;let d=oggi0();const f=fisso(id);
  for(let n=0;n<60;n++){q-=usoGiorno(id,d)+f;if(q<0)return n;d=addD(d,1)}return 60}
-function setDisp(id,q){const e=(S.dispensa||{})[id];S.dispensa={...(S.dispensa||{}),[id]:{q:Math.max(0,q),t:dIso(oggi0()),...(e&&e.g!=null?{g:e.g}:{})}};save()}
+function setDisp(id,q){const e=(S.dispensa||{})[id];S.dispensa={...(S.dispensa||{}),[id]:{q:Math.max(0,q),t:dIso(oggi0()),...(e&&e.g!=null?{g:e.g}:{}),...(e&&e.m?{m:1}:{})}};save()}
 // cosa comprare davvero in una spesa: tolto quello che c'è in dispensa, più quello che in dispensa sta per finire
 function spesaTrip(P,ti){const T=P.trips[ti],d0=addD(P.monday,T.gg[0]),d1=addD(P.monday,T.gg[T.gg.length-1]+1),D=S.dispensa||{},c=chkGet(),x={q:{},gia:[],base:[],fin:[],cost:0};
  for(const id in T.tot){const need=T.tot[id];
@@ -730,11 +739,13 @@ function presoInDispensa(k,on,q){const id=k.split(":").pop();if(!I[id]||!I[id].c
  if(on){const n=Math.max(1,Math.ceil(q/I[id].conf-.05))*I[id].conf;S.presiAdd[k]={n,nuovo:!(S.dispensa||{})[id]};setDisp(id,(resto(id)||0)+n)}
  else if(S.presiAdd[k]){const a=S.presiAdd[k];if(S.dispensa[id]){if(a.nuovo){const D={...S.dispensa};delete D[id];S.dispensa=D}else setDisp(id,(resto(id)||0)-a.n)}delete S.presiAdd[k];save()}}
 function statoDisp(id){const r=resto(id),gr=giorniRimasti(id),c=I[id].conf||1000;
- return{r,gr,p:Math.min(1,r/c),basso:r<=0||gr<7,t:r<=0?"Finito: lo trovi nella spesa":gr>=60?`Circa ${fmtQ(id,r)} · basta per più di 2 mesi`:`Circa ${fmtQ(id,r)} · finisce ${gr==0?"oggi":gr==1?"domani":"tra circa "+gr+" giorni"}`}}
+ return{r,gr,p:Math.min(1,r/c),basso:r<=0||gr<7,t:r<=0?"Finito: lo trovi nella spesa":gr>=60?"Basta per più di 2 mesi":`Finisce ${gr==0?"oggi":gr==1?"domani":"tra circa "+gr+" giorni"}`}}
+const UNITA={caffe:[7,"tazzina","tazzine"],acqua:[500,"mezzo litro","mezzi litri"],zucchero:[5,"cucchiaino","cucchiaini"]};
+const unitaTxt=id=>{const u=UNITA[id],n=Math.round(fisso(id)/u[0]);return id=="acqua"?`${(n/2).toString().replace(".",",")} l al giorno`:`${n} ${n==1?u[1]:u[2]} al giorno`};
 const BASI=["sale","pepe","olio","zucchero","aceto","origano","rosmarino","aglio","dado","caffe","acqua"];
 let dispTutti=false;
 function dispSez(){const n=Object.keys(S.dispensa||{}).filter(id=>I[id]).length,bassi=Object.keys(S.dispensa||{}).filter(id=>I[id]&&statoDisp(id).basso).length;
- return`<div class="sh"><h2>Dispensa</h2>${n?`<span class="note">${n} ${n==1?"prodotto":"prodotti"}${bassi?` · ${bassi} ${bassi==1?"sta":"stanno"} per finire`:""}</span>`:""}</div><section class="w stack disp-w" id="disp-b">${dispHTML()}</section>`}
+ return`<div class="sh"><h2 class="h-ic"><span class="li-ic">${ic("package")}</span>Dispensa</h2></div><section class="w stack disp-w" id="disp-b">${dispHTML()}</section>`}
 function dispRiga(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]),bassi=ids.filter(id=>statoDisp(id).basso).length;
  return`<div class="list"><button class="li" data-disp><span class="li-ic">${ic("package")}</span><span class="li-b"><b>Dispensa</b><span>${ids.length?`${ids.length} ${ids.length==1?"prodotto":"prodotti"}${bassi?` · ${bassi} ${bassi==1?"sta":"stanno"} per finire`:" · tutto a posto"}`:"Segna cosa hai già in casa"}</span></span>${bassi?`<span class="li-dot" aria-hidden="true"></span>`:""}${ic("chevron-right","li-ch")}</button></div>`}
 function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(id=>[id,statoDisp(id)]).sort((a,b)=>a[1].gr-b[1].gr||I[a[0]].nome.localeCompare(I[b[0]].nome));
@@ -745,7 +756,7 @@ function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(
  ${manca.length?`<div class="tags">${manca.slice(0,8).map(id=>`<button class="tag b" data-padd="${id}">${ic("plus")}${I[id].nome}</button>`).join("")}</div>`:""}
  ${ids.length?`<div class="disp">${vis.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
   <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div><p class="note">${s.t}</p>
-  <div class="dp-a" role="group" aria-label="Quanto ne hai"><button class="tag b" data-pset="${id}|1">Pieno</button><button class="tag b" data-pset="${id}|.5">Metà</button><button class="tag b" data-pset="${id}|0">Finito</button>${I[id].giorno||fisso(id)?`<label class="dp-g"><input type="number" inputmode="numeric" data-pg="${id}" value="${fisso(id)}" aria-label="Quanto ne usi al giorno"><span>${LIQ.has(id)?"ml":"g"} al giorno</span></label>`:""}</div></div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
+  <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}</div>${UNITA[id]?`<div class="dp-g"><button class="x" data-pu="${id}|-1" aria-label="Meno">${ic("minus")}</button><span>${unitaTxt(id)}</span><button class="x" data-pu="${id}|1" aria-label="Più">${ic("plus")}</button></div>`:""}</div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
@@ -1036,7 +1047,8 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.latt){S.lattosio=d.latt;save();profilo();render();return}
  if(d.ptutti!==undefined){dispTutti=!dispTutti;render();return}
  if(d.padd){setDisp(d.padd,I[d.padd].conf||1000);render();return}
- if(d.pset){const[id,f]=d.pset.split("|");setDisp(id,(I[id].conf||1000)*+f);render();return}
+ if(d.pset){const[id,f]=d.pset.split("|");setDisp(id,(I[id].conf||1000)*+f);S.dispensa[id].m=+f<1;save();render();return}
+ if(d.pu){const[id,v]=d.pu.split("|"),u=UNITA[id][0],r=resto(id);S.dispensa[id]={...S.dispensa[id],q:r,t:dIso(oggi0()),g:Math.max(0,fisso(id)+ +v*u)};save();render();return}
  if(d.pdel){const D={...S.dispensa};delete D[d.pdel];S.dispensa=D;save();render();return}
  if(d.sez){if(!S.done)return;if($("#profilo").hidden)showTab("profilo");apriSez(d.sez);return}
  if(d.modo){S.modo=d.modo;save();profilo();render();return}
@@ -1085,7 +1097,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929171108";
+const VER="20260929171752";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
