@@ -1,0 +1,254 @@
+[
+  {
+    "nome": "Pizza margherita",
+    "porzione": "1 pizza",
+    "kcal": 800,
+    "proteine": 32
+  },
+  {
+    "nome": "Pizza con salame o diavola",
+    "porzione": "1 pizza",
+    "kcal": 950,
+    "proteine": 40
+  },
+  {
+    "nome": "Pizza quattro formaggi",
+    "porzione": "1 pizza",
+    "kcal": 1000,
+    "proteine": 42
+  },
+  {
+    "nome": "Trancio di pizza",
+    "porzione": "1 trancio",
+    "kcal": 300,
+    "proteine": 12
+  },
+  {
+    "nome": "Focaccia",
+    "porzione": "1 pezzo",
+    "kcal": 350,
+    "proteine": 8
+  },
+  {
+    "nome": "Panino con prosciutto e formaggio",
+    "porzione": "1 panino",
+    "kcal": 450,
+    "proteine": 22
+  },
+  {
+    "nome": "Kebab",
+    "porzione": "1 panino o piadina",
+    "kcal": 750,
+    "proteine": 35
+  },
+  {
+    "nome": "Hamburger",
+    "porzione": "1 panino",
+    "kcal": 550,
+    "proteine": 28
+  },
+  {
+    "nome": "Menu fast food",
+    "porzione": "panino, patatine e bibita",
+    "kcal": 1100,
+    "proteine": 30
+  },
+  {
+    "nome": "Patatine fritte",
+    "porzione": "porzione media",
+    "kcal": 350,
+    "proteine": 4
+  },
+  {
+    "nome": "Hot dog",
+    "porzione": "1 panino",
+    "kcal": 400,
+    "proteine": 13
+  },
+  {
+    "nome": "Sushi",
+    "porzione": "12 pezzi",
+    "kcal": 550,
+    "proteine": 22
+  },
+  {
+    "nome": "Sushi all you can eat",
+    "porzione": "circa 25 pezzi",
+    "kcal": 1100,
+    "proteine": 45
+  },
+  {
+    "nome": "Poke bowl",
+    "porzione": "1 bowl",
+    "kcal": 650,
+    "proteine": 30
+  },
+  {
+    "nome": "Ramen",
+    "porzione": "1 ciotola",
+    "kcal": 600,
+    "proteine": 25
+  },
+  {
+    "nome": "Pasta alla carbonara",
+    "porzione": "piatto al ristorante",
+    "kcal": 800,
+    "proteine": 30
+  },
+  {
+    "nome": "Pasta al ragù",
+    "porzione": "1 piatto",
+    "kcal": 700,
+    "proteine": 28
+  },
+  {
+    "nome": "Lasagna",
+    "porzione": "1 porzione",
+    "kcal": 650,
+    "proteine": 30
+  },
+  {
+    "nome": "Risotto",
+    "porzione": "1 piatto",
+    "kcal": 600,
+    "proteine": 14
+  },
+  {
+    "nome": "Gnocchi al pomodoro",
+    "porzione": "1 piatto",
+    "kcal": 550,
+    "proteine": 12
+  },
+  {
+    "nome": "Cotoletta con patatine",
+    "porzione": "1 piatto",
+    "kcal": 900,
+    "proteine": 40
+  },
+  {
+    "nome": "Bistecca con contorno",
+    "porzione": "1 piatto",
+    "kcal": 700,
+    "proteine": 55
+  },
+  {
+    "nome": "Insalatona",
+    "porzione": "1 ciotola",
+    "kcal": 450,
+    "proteine": 20
+  },
+  {
+    "nome": "Tramezzino",
+    "porzione": "1 pezzo",
+    "kcal": 300,
+    "proteine": 10
+  },
+  {
+    "nome": "Toast prosciutto e formaggio",
+    "porzione": "1 toast",
+    "kcal": 350,
+    "proteine": 18
+  },
+  {
+    "nome": "Piadina crudo e squacquerone",
+    "porzione": "1 piadina",
+    "kcal": 650,
+    "proteine": 28
+  },
+  {
+    "nome": "Arancino",
+    "porzione": "1 pezzo",
+    "kcal": 450,
+    "proteine": 12
+  },
+  {
+    "nome": "Cornetto o brioche",
+    "porzione": "1 pezzo",
+    "kcal": 300,
+    "proteine": 5
+  },
+  {
+    "nome": "Cappuccino",
+    "porzione": "1 tazza",
+    "kcal": 90,
+    "proteine": 5
+  },
+  {
+    "nome": "Biscotti",
+    "porzione": "5 biscotti",
+    "kcal": 250,
+    "proteine": 3
+  },
+  {
+    "nome": "Gelato",
+    "porzione": "coppetta 2 gusti",
+    "kcal": 250,
+    "proteine": 4
+  },
+  {
+    "nome": "Tiramisù",
+    "porzione": "1 porzione",
+    "kcal": 450,
+    "proteine": 8
+  },
+  {
+    "nome": "Fetta di torta",
+    "porzione": "1 fetta",
+    "kcal": 400,
+    "proteine": 5
+  },
+  {
+    "nome": "Cioccolato",
+    "porzione": "mezza tavoletta (50 g)",
+    "kcal": 270,
+    "proteine": 3
+  },
+  {
+    "nome": "Patatine in busta",
+    "porzione": "1 busta (50 g)",
+    "kcal": 270,
+    "proteine": 3
+  },
+  {
+    "nome": "Birra media",
+    "porzione": "0,4 litri",
+    "kcal": 170,
+    "proteine": 2
+  },
+  {
+    "nome": "Vino",
+    "porzione": "1 bicchiere",
+    "kcal": 120,
+    "proteine": 0
+  },
+  {
+    "nome": "Spritz",
+    "porzione": "1 bicchiere",
+    "kcal": 180,
+    "proteine": 0
+  },
+  {
+    "nome": "Cocktail",
+    "porzione": "1 bicchiere",
+    "kcal": 250,
+    "proteine": 0
+  },
+  {
+    "nome": "Bibita zuccherata",
+    "porzione": "1 lattina",
+    "kcal": 140,
+    "proteine": 0
+  },
+  {
+    "nome": "Aperitivo con stuzzichini",
+    "porzione": "1 aperitivo",
+    "kcal": 500,
+    "proteine": 10
+  },
+  {
+    "nome": "Non ho mangiato",
+    "porzione": "pasto saltato",
+    "kcal": 0,
+    "proteine": 0
+  }
+]

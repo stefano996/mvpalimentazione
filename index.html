@@ -46,6 +46,18 @@ a{color:var(--leaf);font-weight:700}
 .hm small{display:block;color:var(--mute);font-size:.78rem;font-weight:500}.hm b{display:block;font-weight:700;line-height:1.3}.hm .meta{display:block;color:var(--mute);font-size:.85rem}.hm .tag{flex:none}
 .shopw{background:var(--leaf-t);border-radius:14px;padding:12px 14px}.shopw b{display:block;font:800 1.15rem "Bricolage Grotesque",sans-serif}.shopw span{display:block;font-size:.85rem;color:var(--mute)}
 .day.today{border:2px solid var(--leaf)}
+.hm{display:block}.hm-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hm.ok b,.hm.sgd b{color:var(--mute)}.hm.sgd>.hm-top b{text-decoration:line-through}
+.sg{display:block;margin-top:4px;font-size:.9rem;font-weight:700;color:var(--ink)}
+.hm-act{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}.hm-act .how{padding:0 4px;min-height:40px}
+.chk,.chip2{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 .9rem "DM Sans",sans-serif;cursor:pointer}
+.chk svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.chk[aria-pressed=true]{background:var(--leaf);border-color:var(--leaf);color:var(--on-leaf)}
+.sgi{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.sgi-n{min-width:0}.sgi-n b{display:block}.sgi-n .note{display:block;margin:0}
+.sgi input{width:110px;margin-top:6px;padding:8px}
+.stepper{display:flex;align-items:center;gap:4px;flex:none}.stepper span{min-width:34px;text-align:center;font-weight:700}
+.stepper button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:700 1.2rem "DM Sans",sans-serif;cursor:pointer}
+.sgt{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-top:12px;border-top:2px solid var(--ink)}.sgt b{font:800 1.4rem "Bricolage Grotesque",sans-serif}
 .shop-n{min-width:0}.shop-t{display:flex;align-items:center;gap:2px}.shop-n .tag{display:inline-block;margin-top:4px}
 .shop-r{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:none}.shop-r a{font-size:.9rem;padding:6px 0}
 .shopw a{display:inline-block;margin-top:6px;font-size:.95rem;padding:4px 0}
@@ -122,8 +134,8 @@ input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);borde
 <script>
 // I dati (ingredienti, ricette, parole per le esclusioni) stanno nella cartella data/: si aggiornano lì.
 const $=s=>document.querySelector(s);
-let ING=[],I={},RIC=[],SYN={},SUG=[];
-const DEF={sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,indirizzi:[],attivo:null,preferiti:[],exl:[],done:false,step:0};
+let ING=[],I={},RIC=[],SYN={},SUG=[],SG=[];
+const DEF={nome:"",diario:{},sesso:"m",eta:"",peso:"",alt:"",att:1.55,obj:1,kcal:2300,cucina:"giusto",kcalOk:false,indirizzi:[],attivo:null,preferiti:[],exl:[],done:false,step:0};
 let S={...DEF};try{S={...DEF,...JSON.parse(localStorage.getItem("pp")||"{}")}}catch(e){}
 if(S.casa){S.indirizzi=[{id:"casa",etichetta:"Casa",testo:S.casa.label,lat:S.casa.lat,lon:S.casa.lon,negozi:S.negozi||null}];S.attivo="casa"}
 if(S.done&&!S.kcalOk)S.kcalOk=true;
@@ -135,12 +147,12 @@ const eur=n=>n.toLocaleString("it-IT",{style:"currency",currency:"EUR"});
 const opt=(v,t,c)=>`<option value="${v}" ${c==v?"selected":""}>${t}</option>`;
 
 async function load(){
- const [ing,ric,ex]=await Promise.all(["ingredienti","ricette","esclusioni"].map(f=>fetch(`data/${f}.json`).then(r=>{if(!r.ok)throw r.status;return r.json()})));
+ const [ing,ric,ex,sg]=await Promise.all(["ingredienti","ricette","esclusioni","sgarri"].map(f=>fetch(`data/${f}.json`).then(r=>{if(!r.ok)throw r.status;return r.json()})));
  ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,dove:i.dove||1,pz:i.pezzo}));
  I=Object.fromEntries(ING.map(i=>[i.id,i]));
  RIC=ric.map(r=>({id:r.id,utensili:r.utensili||[],passi:r.passaggi||[],avanzi:r.avanzi||"",n:r.nome,p:r.pasto=="colazione"?"c":"p",tempo:r.tempo_attivo_min,diff:r.difficolta,ut:r.pentole,cons:r.si_conserva_giorni,ing:r.grammi_a_porzione}))
   .filter(r=>Object.keys(r.ing).every(id=>I[id]||console.warn(`Ricetta "${r.n}": ingrediente "${id}" non trovato in ingredienti.json`)));
- SYN=ex.parole;SUG=ex.suggerimenti;
+ SYN=ex.parole;SUG=ex.suggerimenti;SG=sg;
 }
 
 // ---------- Quanto vuoi stare in cucina ----------
@@ -267,6 +279,11 @@ function prossima(P){const o=OGGI();let i=P.trips.findIndex(t=>t.gg.includes(o))
  if(presiIn(P,i)==Object.keys(P.trips[i].tot).length&&i<P.trips.length-1)i++;return i}
 let trip=null,PL=null;
 const OGGI=()=>(new Date().getDay()+6)%7;
+const dayKey=()=>{const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
+function diario(){const k=dayKey();if(!S.diario[k]){S.diario[k]={};const ks=Object.keys(S.diario);if(ks.length>14)ks.slice(0,ks.length-14).forEach(x=>delete S.diario[x])}return S.diario[k]}
+const sgTot=it=>it.reduce((a,o)=>({k:a.k+o.kcal*o.q,p:a.p+(o.prot||0)*o.q}),{k:0,p:0});
+const mezzi=q=>q==.5?"½":q%1?Math.floor(q)+" e ½":String(q);
+const CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 function render(){
  const P=plan();PL=P;
  const TOP=`<header class="ph"><h1>La tua settimana</h1></header>`;
@@ -301,14 +318,22 @@ function render(){
 
 // ---------- Home ----------
 function renderHome(P){
- const now=new Date(),hr=now.getHours(),data=now.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}),a=ADDR();
- let html=`<header class="ph"><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>${hr<12?"Buongiorno":hr<18?"Buon pomeriggio":"Buonasera"}</h1>${a?`<label class="here">Sei qui<select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}</header>`;
+ const now=new Date(),data=now.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}),a=ADDR();
+ let html=`<header class="ph"><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1>${a?`<label class="here">Sei qui<select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}</header>`;
  html+=`<section class="w" aria-labelledby="w-profilo"><div class="w-h"><h2 id="w-profilo">Profilo</h2><button class="lnk" data-t="profilo">Modifica</button></div><div class="stats"><div><b>${S.kcal}</b><span>kcal al giorno</span></div><div><b>${(LV[S.cucina]||LV.giusto).nome}</b><span>in cucina</span></div><div><b>${S.exl.length}</b><span>${S.exl.length==1?"esclusione":"esclusioni"}</span></div></div></section>`;
  if(!P){$("#home").innerHTML=html+`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Tocca Modifica nel Profilo e togli qualche esclusione.</p>`;return}
  const d=P.days[OGGI()],cuc=d.ms.reduce((t,x,j)=>t+(x&&(j==0||x.first)?x.r.tempo:0),0);
- html+=`<section class="w" aria-labelledby="w-pasti"><div class="w-h"><h2 id="w-pasti">I pasti di oggi</h2><button class="lnk" data-t="piano">Settimana</button></div><div class="prog"><span><b>${Math.round(d.k)}</b> di ${S.kcal} kcal</span><span>${Math.round(d.p)} g proteine</span></div><div class="bar"><i style="width:${Math.min(100,d.k/S.kcal*100)}%"></i></div>`+
-  d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m),tag=j==0?"":x.first?'<span class="tag p">Da cucinare</span>':'<span class="tag">Già pronto</span>';
-   return`<div class="hm"><div><small>${PN[j]}</small><b>${x.r.n}</b><span class="meta">${x.r.tempo} min · ${Math.round(t.k)} kcal · ${Math.round(t.p)} g prot.</span><button class="how" data-ric="${OGGI()}-${j}">${j&&!x.first?"Come si scalda":"Come si cucina"}</button></div>${tag}</div>`}).join("")+
+ const D=diario();let ek=0,ep=0,pk=0,delta=0,segnati=0;
+ d.ms.forEach((x,j)=>{if(!x)return;const t=stat(x.r,d.m),e=D[j];pk+=t.k;
+  if(e&&e.s=="ok"){ek+=t.k;ep+=t.p;segnati++}
+  if(e&&e.s=="sg"){const g=sgTot(e.items);ek+=g.k;ep+=g.p;delta+=g.k-t.k;segnati++}});
+ html+=`<section class="w" aria-labelledby="w-pasti"><div class="w-h"><h2 id="w-pasti">I pasti di oggi</h2><button class="lnk" data-t="piano">Settimana</button></div><div class="prog"><span><b>${Math.round(ek)}</b> di ${S.kcal} kcal mangiate</span><span>${Math.round(ep)} g proteine</span></div><div class="bar"><i style="width:${Math.min(100,ek/S.kcal*100)}%"></i></div>
+ <p class="note" style="margin:-6px 0 4px">${segnati?`${segnati} di 3 pasti segnati · `:"Segna i pasti man mano che li mangi · "}piano di oggi ${Math.round(pk)} kcal${Math.round(delta)?` · sgarri ${delta>0?"+":"−"}${Math.abs(Math.round(delta))} kcal`:""}</p>`+
+  d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m),e=D[j],ok=e&&e.s=="ok",sg=e&&e.s=="sg";
+   const tag=ok||sg||j==0?"":x.first?'<span class="tag p">Da cucinare</span>':'<span class="tag">Già pronto</span>';
+   const sgt=sg?`<span class="sg">Sgarro: ${e.items.map(o=>esc(o.nome)).join(", ")} · ${Math.round(sgTot(e.items).k)} kcal</span>`:"";
+   return`<div class="hm${ok?" ok":""}${sg?" sgd":""}"><div class="hm-top"><div><small>${PN[j]}</small><b>${x.r.n}</b><span class="meta">${x.r.tempo} min · ${Math.round(t.k)} kcal · ${Math.round(t.p)} g prot.</span>${sgt}</div>${tag}</div>
+   <div class="hm-act"><button class="chk" data-eat="${j}" aria-pressed="${!!ok}">${CHECK}${ok?"Mangiato":"L'ho mangiato"}</button><button class="chip2" data-sg="${j}">${sg?"Modifica sgarro":"Sgarro"}</button>${ok||sg?"":`<button class="how" data-ric="${OGGI()}-${j}">${j&&!x.first?"Come si scalda":"Come si cucina"}</button>`}</div></div>`}).join("")+
   `<p class="note" style="margin-bottom:0">Oggi in cucina: circa ${cuc} minuti.</p></section>`;
  const ti=prossima(P),T=P.trips[ti],ids=Object.keys(T.tot),presi=presiIn(P,ti);let sh="";
  if(!a)sh=`<p class="note" style="margin-top:0">Aggiungi dove ti trovi e ti diciamo dove conviene fare la spesa.</p>`;
@@ -337,6 +362,32 @@ function apriRicetta(key){
  ${r.utensili.length?`<h3>Ti serve</h3><p class="note">${r.utensili.map(esc).join(" · ")}</p>`:""}`;
  dlg.showModal();document.body.style.overflow="hidden";dlg.scrollTop=0}
 
+// ---------- Sgarro ----------
+let sgTmp=null;
+function apriSgarro(j){
+ if(!PL)return;const d=PL.days[OGGI()],x=d.ms[j];if(!x)return;const prev=diario()[j];
+ sgTmp={j,pk:stat(x.r,d.m).k,items:prev&&prev.s=="sg"?prev.items.map(o=>({...o})):[]};
+ const dlg=$("#sheet");
+ dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Oggi · ${PN[j]}</small><h2 id="sh-t">Cos'hai mangiato?</h2></div><button class="x" data-close aria-label="Chiudi">✕</button></header>
+ <p class="note">Al posto di ${x.r.n.toLowerCase()} (${Math.round(sgTmp.pk)} kcal). Scegli dai suggerimenti o scrivi tu: facciamo un conto veloce delle calorie.</p>
+ <label for="sgq">Cerca un cibo</label><div class="addr"><input id="sgq" autocomplete="off" enterkeyhint="done" placeholder="Es. pizza, sushi, birra"><button class="btn" data-sgadd>Aggiungi</button></div>
+ <div class="tags sug" id="sg-sug"></div><div id="sg-list"></div><div id="sg-tot"></div><p class="note" id="sg-err" role="status"></p>
+ <button class="btn" data-sgsave>Salva</button>${prev&&prev.s=="sg"?'<button class="btn ghost" data-sgdel>Togli lo sgarro</button>':""}`;
+ sgSug("");sgList();dlg.showModal();document.body.style.overflow="hidden";dlg.scrollTop=0}
+const SG_TOP=["Pizza margherita","Sushi","Hamburger","Kebab","Pasta alla carbonara","Poke bowl","Panino con prosciutto e formaggio","Gelato","Birra media","Non ho mangiato"];
+function sgSug(q){const qq=norm(q),have=sgTmp.items.map(o=>o.nome),all=SG.map((o,i)=>[o,i]);
+ $("#sg-sug").innerHTML=(qq?all.filter(([o])=>norm(o.nome).includes(qq)):SG_TOP.map(n=>all.find(([o])=>o.nome==n)).filter(Boolean)).filter(([o])=>!have.includes(o.nome)).slice(0,10)
+  .map(([o,i])=>`<button class="tag b" data-sgi="${i}">${esc(o.nome)}</button>`).join("")||(q?`<span class="note">Non lo trovo: premi Aggiungi e inserisci le kcal a mano.</span>`:"")}
+function sgList(){
+ $("#sg-list").innerHTML=sgTmp.items.map((o,i)=>`<div class="sgi"><div class="sgi-n"><b>${esc(o.nome)}</b><span class="note">${o.custom?"kcal per porzione":esc(o.porzione)}</span>${o.custom?`<input type="number" inputmode="numeric" data-sgk="${i}" aria-label="kcal di ${esc(o.nome)}" placeholder="kcal" value="${o.kcal||""}">`:""}</div>
+  <div class="stepper"><button data-sgq="${i}" data-dq="-0.5" aria-label="Meno">−</button><span>${mezzi(o.q)}</span><button data-sgq="${i}" data-dq="0.5" aria-label="Più">+</button></div></div>`).join("");
+ sgTotale()}
+function sgTotale(){const t=sgTmp.items.length?sgTot(sgTmp.items).k:0,df=Math.round(t-sgTmp.pk);
+ $("#sg-tot").innerHTML=sgTmp.items.length?`<div class="sgt"><span>Totale stimato</span><b>${Math.round(t)} kcal</b></div><p class="note">${df?`${df>0?"+":"−"}${Math.abs(df)} kcal rispetto al piatto previsto. `:""}È una stima indicativa.</p>`:""}
+function sgAdd(o){if(sgTmp.items.some(x=>x.nome==o.nome))return;sgTmp.items.push({...o,q:1});$("#sgq").value="";sgSug("");sgList();$("#sg-err").textContent=""}
+function sgAddTesto(){const q=$("#sgq").value.trim();if(!q)return;const f=SG.find(o=>norm(o.nome)==norm(q));
+ sgAdd(f?{nome:f.nome,porzione:f.porzione,kcal:f.kcal,prot:f.proteine}:{nome:q[0].toUpperCase()+q.slice(1),porzione:"",kcal:0,prot:0,custom:true})}
+
 // ---------- Esclusioni ----------
 const resolve=t=>{const ids=new Set();norm(t).split(/[^a-z]+/).filter(Boolean).forEach(tk=>Object.keys(SYN).forEach(k=>{if(tk.startsWith(k))SYN[k].forEach(i=>I[i]&&ids.add(i))}));return[...ids]};
 const EX=()=>new Set(S.exl.flatMap(x=>resolve(x.t)));
@@ -351,7 +402,7 @@ function addEx(t){t=(t||"").trim();if(!t||S.exl.some(x=>norm(x.t)==norm(t)))retu
 // ---------- Profilo e onboarding ----------
 const TIT=["Su di te","Attività e obiettivo","Quanto vuoi stare in cucina?","Dove ti trovi?","Cose che non mangio"],LAST=TIT.length-1;
 function sec(n){
- if(n==0)return`<p class="note">Servono per stimare quante kcal ti servono ogni giorno.</p><div class="row"><div><label for="sesso">Sesso</label><select id="sesso">${opt("m","Uomo",S.sesso)}${opt("f","Donna",S.sesso)}</select></div><div><label for="eta">Età</label><input id="eta" type="number" inputmode="numeric" value="${S.eta}"></div></div><div class="row"><div><label for="peso">Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${S.peso}"></div><div><label for="alt">Altezza (cm)</label><input id="alt" type="number" inputmode="numeric" value="${S.alt}"></div></div>`;
+ if(n==0)return`<label for="nome" style="margin-top:0">Come ti chiami?</label><input id="nome" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" value="${esc(S.nome)}"><p class="note">Età, peso e altezza servono per stimare quante kcal ti servono ogni giorno.</p><div class="row"><div><label for="sesso">Sesso</label><select id="sesso">${opt("m","Uomo",S.sesso)}${opt("f","Donna",S.sesso)}</select></div><div><label for="eta">Età</label><input id="eta" type="number" inputmode="numeric" value="${S.eta}"></div></div><div class="row"><div><label for="peso">Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${S.peso}"></div><div><label for="alt">Altezza (cm)</label><input id="alt" type="number" inputmode="numeric" value="${S.alt}"></div></div>`;
  if(n==1)return`<label for="att">Attività fisica</label><select id="att">${opt(1.2,"Sedentario",S.att)}${opt(1.375,"1-3 allenamenti a settimana",S.att)}${opt(1.55,"3-5 allenamenti a settimana",S.att)}${opt(1.725,"6-7 allenamenti a settimana",S.att)}</select><label for="obj">Obiettivo</label><select id="obj">${opt(.9,"Definizione (circa -10%)",S.obj)}${opt(1,"Mantenimento",S.obj)}${opt(1.1,"Massa (circa +10%)",S.obj)}</select><button class="btn${S.kcalOk?" ghost":""}" data-calc>${S.kcalOk?"Ricalcola le kcal":"Calcola le mie kcal"}</button><p class="note" id="kerr" role="status"></p>${S.kcalOk?`<label for="kcal">Il tuo fabbisogno giornaliero (kcal)</label><input id="kcal" type="number" inputmode="numeric" value="${S.kcal}"><p class="note">È una stima (formula di Mifflin-St Jeor), non un consiglio medico. Se hai un valore diverso, ad esempio dal tuo nutrizionista, puoi modificarlo.</p>`:""}`;
  if(n==2)return`<p class="note">In base alla risposta scegliamo ricette più o meno lunghe e impegnative, e quante volte cucinare a settimana.</p><div class="lv" role="group" aria-label="Quanto vuoi stare in cucina">${Object.entries(LV).map(([k,v])=>`<button data-lv="${k}" aria-pressed="${S.cucina==k}"><b>${v.nome}</b><span>${v.desc}</span></button>`).join("")}</div>`;
  if(n==3)return`<p class="note">In base a dove ti trovi ti suggeriremo dove fare la spesa. Puoi salvare più indirizzi, per esempio casa e lavoro, e scegliere ogni volta dove sei. Restano salvati solo su questo dispositivo.</p><label for="addr">Indirizzo</label><input id="addr" autocomplete="street-address" placeholder="Via, numero e città"><button class="btn ghost" data-geo>Usa la mia posizione</button><label for="etq">Nome dell'indirizzo</label><input id="etq" autocomplete="off" placeholder="Es. Casa, Lavoro, Weekend"><div class="tags sug">${["Casa","Lavoro"].map(e=>`<button class="tag b" data-et="${e}">${e}</button>`).join("")}</div><button class="btn" data-save>Salva indirizzo</button><p class="note" id="geo-st" role="status"></p><div id="luogo">${addrHTML()}</div>`;
@@ -368,15 +419,27 @@ document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.tipo!==undefined)S.exl[t.dataset.tipo].tipo=t.value;
  else if(t.dataset.c){const c=chkGet();c[t.dataset.c]=t.checked;chkSet(c)}
  else if(t.dataset.dove!==undefined){S.attivo=t.value;refreshAddr()}
+ else if(t.id=="nome")S.nome=t.value.trim();
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
  else return;
  save();sum();render()});
-document.addEventListener("input",e=>{if(e.target.id=="exq"){q=e.target.value;$("#sug").innerHTML=sugHTML()}});
+document.addEventListener("input",e=>{const t=e.target;if(t.id=="exq"){q=t.value;$("#sug").innerHTML=sugHTML()}
+ if(t.id=="sgq")sgSug(t.value);
+ if(t.dataset.sgk!==undefined){sgTmp.items[+t.dataset.sgk].kcal=+t.value||0;sgTotale()}});
 document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
+ if(e.target.id=="sgq"){e.preventDefault();sgAddTesto()}
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
  if(d.ric){apriRicetta(d.ric);return}
+ if(d.eat!==undefined){const D=diario(),j=d.eat;D[j]&&D[j].s=="ok"?delete D[j]:D[j]={s:"ok"};save();render();return}
+ if(d.sg!==undefined){apriSgarro(+d.sg);return}
+ if(d.sgi!==undefined){const o=SG[+d.sgi];sgAdd({nome:o.nome,porzione:o.porzione,kcal:o.kcal,prot:o.proteine});return}
+ if(d.sgadd!==undefined){sgAddTesto();return}
+ if(d.sgq!==undefined){const o=sgTmp.items[+d.sgq];o.q=Math.round((o.q+ +d.dq)*2)/2;if(o.q<=0)sgTmp.items.splice(+d.sgq,1);sgSug($("#sgq").value);sgList();return}
+ if(d.sgsave!==undefined){if(!sgTmp.items.length){$("#sg-err").textContent="Aggiungi almeno un cibo, oppure scegli \"Non ho mangiato\".";return}
+  diario()[sgTmp.j]={s:"sg",items:sgTmp.items};save();$("#sheet").close();render();return}
+ if(d.sgdel!==undefined){delete diario()[sgTmp.j];save();$("#sheet").close();render();return}
  if(d.fav){const i=S.preferiti.indexOf(d.fav);i<0?S.preferiti.push(d.fav):S.preferiti.splice(i,1);save();render();return}
  if(d.close!==undefined){$("#sheet").close();return}
  if(d.trip!==undefined){trip=+d.trip;render();if(d.t)showTab(d.t)}
