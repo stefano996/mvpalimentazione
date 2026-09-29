@@ -362,6 +362,19 @@ details.gia .note{margin:var(--s2) 0 0}
 #home .ph{flex-wrap:nowrap;align-items:center}
 .sug:empty{display:none}
 .dp .tag.b,.dp-g input{background:var(--surface)}
+
+/* spesa: solo il totale, dispensa in pagina */
+.w.tot{display:flex;align-items:center;gap:var(--s3)}
+.w.tot b{display:block;font:800 1.6rem "Bricolage Grotesque",sans-serif;line-height:1.1}
+.w.tot span:not(.st-ic){color:var(--mute);font-size:.9rem}
+.disp-w .disp{margin-top:0}
+.disp-w>.tags{margin-top:0}
+/* chip con icona: icona centrata sul testo */
+.tag.b{display:inline-flex;align-items:center;gap:4px;line-height:1.2}
+.tag.b .i{width:16px;height:16px;flex:none}
+/* home: "Ciao" più piccolo sopra il nome */
+h1.ciao small{display:block;font-size:.6em;font-weight:700;color:var(--mute);line-height:1.1;margin-bottom:2px}
+#home .ph .note{margin-bottom:var(--s2)}
 </style>
 </head>
 <body>
@@ -646,17 +659,17 @@ function render(){
  const a=ADDR();let head="";
  if(!a)head=`<section class="w stack"><div class="st"><span class="st-ic">${ic("map-pin")}</span><div class="st-b"><b>Dove fai la spesa?</b><span>Aggiungi dove ti trovi e ti diciamo in quale negozio comprare ogni cosa.</span></div></div><button class="btn tonal" data-sez="luogo">Aggiungi indirizzo</button></section>`;
  else{
-  head=`<label for="dove-sp">Fai la spesa vicino a</label><div class="sel">${ic("map-pin")}<select id="dove-sp" data-dove>${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta)+" · "+esc(x.testo),a.id)).join("")}</select></div>`;
+  head=`<div class="sh"><h2>Puoi fare la spesa qui</h2></div><div class="sel">${ic("map-pin")}<select id="dove-sp" data-dove aria-label="Dove fai la spesa">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta)+" · "+esc(x.testo),a.id)).join("")}</select></div>`;
   if(!a.negozi){if(a.err)head+=`<p class="warn">${ERR}</p><button class="btn ghost" data-retry>Riprova</button>`;else{head+=`<p class="note">Cerco i negozi vicino a ${esc(a.etichetta)}…</p>`;setTimeout(()=>cercaNegozi(a))}}
   else if(!a.negozi.length)head+=`<p class="warn">Nessun negozio trovato entro 15 km: ti proponiamo solo ingredienti che si trovano ovunque.</p>`;
   else{const p=primario(),l=[p,...a.negozi.filter(n=>n!==p&&isFav(n)),...a.negozi.filter(n=>n!==p&&!isFav(n))].filter(Boolean).slice(0,6);setTimeout(()=>arricchisci(a));
-   head+=`<div class="sh"><h2>Puoi fare la spesa qui</h2></div><div class="car">`+l.map(n=>`<article class="sc${n===p?" rec":""}"><div class="sc-t"><span class="st-ic">${ic("store")}</span>${n===p?'<span class="badge">Consigliato</span>':""}${favBtn(n)}</div><b>${esc(n.nome)}</b><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span><div class="sc-f"><span class="num">${dist(n.km)}</span><a href="${mapsUrl(n)}" target="_blank" rel="noopener">${ic("navigation")}Indicazioni</a></div></article>`).join("")+`</div><p class="note">Tocca il cuore per salvare i tuoi supermercati preferiti: li suggeriamo per primi.</p>`}
+   head+=`<div class="car">`+l.map(n=>`<article class="sc${n===p?" rec":""}"><div class="sc-t"><span class="st-ic">${ic("store")}</span>${n===p?'<span class="badge">Consigliato</span>':""}${favBtn(n)}</div><b>${esc(n.nome)}</b><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span><div class="sc-f"><span class="num">${dist(n.km)}</span><a href="${mapsUrl(n)}" target="_blank" rel="noopener">${ic("navigation")}Indicazioni</a></div></article>`).join("")+`</div><p class="note">Tocca il cuore per salvare i tuoi supermercati preferiti: li suggeriamo per primi.</p>`}
  }
  let body="",nTot=0,pTot=0;
  let costo=0;PS.trips.forEach((T,ti)=>{const X=spesaTrip(PS,ti),n=Object.keys(X.q).length,pr=presiIn(PS,ti);nTot+=n;pTot+=pr;costo+=X.cost;
   if(multi)body+=`<div class="trip-h" id="trip-${ti}"><span class="trip-n">${ti+1}</span><div><h2>${ti?"Seconda spesa":"Prima spesa"}</h2><p class="note">per ${T.nome.replace("Spesa per ","")} · ${pr} di ${n} presi · ${eur(X.cost)}</p></div></div>`;
   body+=lista(ti,T)+giaHTML(ti)});
- const summary=`<section class="w stack"><div class="nums"><div><b>${eur(costo)}</b><span>totale della settimana</span></div><div><b>${pTot} di ${nTot}</b><span>prodotti presi</span></div></div><div class="bar"><i style="width:${nTot?pTot/nTot*100:0}%"></i></div>${multi?`<p class="note">Due spese piccole, una per lun–gio e una per ven–dom, così non riempi il frigo.</p>`:""}</section>`+dispRiga();
+ const summary=`<section class="w tot"><span class="st-ic">${ic("wallet")}</span><div><b>${eur(costo)}</b><span>spesa stimata di questa settimana</span></div></section>`+dispSez();
  $("#spesa").innerHTML=HEAD+summary+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
  primoGiro=false;
 }
@@ -691,16 +704,20 @@ function presoInDispensa(k,on,q){const id=k.split(":").pop();if(!I[id]||!I[id].c
 function statoDisp(id){const r=resto(id),gr=giorniRimasti(id),c=I[id].conf||1000;
  return{r,gr,p:Math.min(1,r/c),basso:r<=0||gr<7,t:r<=0?"Finito: lo trovi nella spesa":gr>=60?`Circa ${fmtQ(id,r)} · basta per più di 2 mesi`:`Circa ${fmtQ(id,r)} · finisce ${gr==0?"oggi":gr==1?"domani":"tra circa "+gr+" giorni"}`}}
 const BASI=["sale","pepe","olio","zucchero","aceto","origano","rosmarino","aglio","dado","caffe","acqua"];
+let dispTutti=false;
+function dispSez(){const n=Object.keys(S.dispensa||{}).filter(id=>I[id]).length,bassi=Object.keys(S.dispensa||{}).filter(id=>I[id]&&statoDisp(id).basso).length;
+ return`<div class="sh"><h2>Dispensa</h2>${n?`<span class="note">${n} ${n==1?"prodotto":"prodotti"}${bassi?` · ${bassi} ${bassi==1?"sta":"stanno"} per finire`:""}</span>`:""}</div><section class="w stack disp-w" id="disp-b">${dispHTML()}</section>`}
 function dispRiga(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]),bassi=ids.filter(id=>statoDisp(id).basso).length;
  return`<div class="list"><button class="li" data-disp><span class="li-ic">${ic("package")}</span><span class="li-b"><b>Dispensa</b><span>${ids.length?`${ids.length} ${ids.length==1?"prodotto":"prodotti"}${bassi?` · ${bassi} ${bassi==1?"sta":"stanno"} per finire`:" · tutto a posto"}`:"Segna cosa hai già in casa"}</span></span>${bassi?`<span class="li-dot" aria-hidden="true"></span>`:""}${ic("chevron-right","li-ch")}</button></div>`}
 function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(id=>[id,statoDisp(id)]).sort((a,b)=>a[1].gr-b[1].gr||I[a[0]].nome.localeCompare(I[b[0]].nome));
  const manca=BASI.filter(id=>I[id]&&!(S.dispensa||{})[id]);
- return`<p class="note">Segna cosa hai in casa. Stimiamo quanto ne usi con il tuo piano: finché basta non lo mettiamo nella spesa, quando sta per finire lo aggiungiamo noi. Quando spunti un prodotto nella spesa, entra qui da solo.</p>
+ const vis=dispTutti?ids:ids.slice(0,4);
+ return`${ids.length?"":`<p class="note">Segna cosa hai in casa: stimiamo quanto ne usi con il tuo piano. Finché basta non lo mettiamo nella spesa, quando sta per finire lo aggiungiamo noi. Quando spunti un prodotto nella lista, entra qui da solo.</p>`}
  <label for="pq" class="sr">Aggiungi alla dispensa</label><input id="pq" data-pq autocomplete="off" placeholder="Aggiungi: olio, pasta, sale, caffè…"><div class="tags sug" id="psug"></div>
  ${manca.length?`<div class="tags">${manca.slice(0,8).map(id=>`<button class="tag b" data-padd="${id}">${ic("plus")}${I[id].nome}</button>`).join("")}</div>`:""}
- ${ids.length?`<div class="disp">${ids.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
+ ${ids.length?`<div class="disp">${vis.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
   <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div><p class="note">${s.t}</p>
-  <div class="dp-a" role="group" aria-label="Quanto ne hai"><button class="tag b" data-pset="${id}|1">Pieno</button><button class="tag b" data-pset="${id}|.5">Metà</button><button class="tag b" data-pset="${id}|0">Finito</button>${I[id].giorno||fisso(id)?`<label class="dp-g"><input type="number" inputmode="numeric" data-pg="${id}" value="${fisso(id)}" aria-label="Quanto ne usi al giorno"><span>${LIQ.has(id)?"ml":"g"} al giorno</span></label>`:""}</div></div>`).join("")}</div>`:`<p class="note">La dispensa è vuota: tocca un prodotto qui sopra per aggiungerlo.</p>`}`}
+  <div class="dp-a" role="group" aria-label="Quanto ne hai"><button class="tag b" data-pset="${id}|1">Pieno</button><button class="tag b" data-pset="${id}|.5">Metà</button><button class="tag b" data-pset="${id}|0">Finito</button>${I[id].giorno||fisso(id)?`<label class="dp-g"><input type="number" inputmode="numeric" data-pg="${id}" value="${fisso(id)}" aria-label="Quanto ne usi al giorno"><span>${LIQ.has(id)?"ml":"g"} al giorno</span></label>`:""}</div></div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
@@ -710,7 +727,7 @@ function dispSug(q){const b=$("#psug");if(!b)return;const qq=norm(q);if(!qq){b.i
 // ---------- Home ----------
 function renderHome(P){
  const now=new Date(),data=now.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}),a=ADDR(),L=LV[S.cucina]||LV.giusto;
- let html=`<header class="ph"><div><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1>Ciao${S.nome?" "+esc(S.nome):""}</h1></div>${a?`<label class="here">${ic("map-pin")}<span class="sr">Sei qui</span><select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}</header>`;
+ let html=`<header class="ph"><div><p class="note">${data[0].toUpperCase()+data.slice(1)}</p><h1 class="ciao">${S.nome?`<small>Ciao</small>${esc(S.nome)}`:"Ciao!"}</h1></div>${a?`<label class="here">${ic("map-pin")}<span class="sr">Sei qui</span><select data-dove aria-label="Dove ti trovi">${S.indirizzi.map(x=>opt(x.id,esc(x.etichetta),a.id)).join("")}</select></label>`:""}</header>`;
  // html+=mappa(); // widget "Giorni in linea" spento per ora: il codice resta pronto
  if(!P){$("#home").innerHTML=html+`<p class="warn">Con le tue scelte non resta nessuna ricetta adatta. Apri il profilo: togli qualche esclusione o aggiungi attrezzi in cucina.</p>`;return}
  const d=P.days[OGGI()],D=diario(),O=obiettivi();let ek=0,ep=0,ecb=0,egr=0,pk=0,delta=0,segnati=0;
@@ -950,7 +967,7 @@ document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.tipo!==undefined)S.exl[t.dataset.tipo].tipo=t.value;
  else if(t.dataset.c){const c=chkGet();c[t.dataset.c]=t.checked;chkSet(c);presoInDispensa(t.dataset.c,t.checked,+t.dataset.q||0)}
  else if(t.dataset.dg||t.dataset.dk){render();return}
- else if(t.dataset.pg){const id=t.dataset.pg,r=resto(id);S.dispensa[id]={q:r,t:dIso(oggi0()),g:Math.max(0,+t.value||0)};save();apriDispensa(true);render();return}
+ else if(t.dataset.pg){const id=t.dataset.pg,r=resto(id);S.dispensa[id]={q:r,t:dIso(oggi0()),g:Math.max(0,+t.value||0)};save();render();return}
  else if(t.dataset.dove!==undefined){S.attivo=t.value;refreshAddr()}
  else if(t.id=="nome")S.nome=t.value.trim();
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
@@ -973,10 +990,10 @@ document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
  if(d.ric){apriRicetta(d.ric);return}
- if(d.disp!==undefined){apriDispensa();return}
- if(d.padd){setDisp(d.padd,I[d.padd].conf||1000);apriDispensa(true);render();return}
- if(d.pset){const[id,f]=d.pset.split("|");setDisp(id,(I[id].conf||1000)*+f);apriDispensa(true);render();return}
- if(d.pdel){const D={...S.dispensa};delete D[d.pdel];S.dispensa=D;save();apriDispensa(true);render();return}
+ if(d.ptutti!==undefined){dispTutti=!dispTutti;render();return}
+ if(d.padd){setDisp(d.padd,I[d.padd].conf||1000);render();return}
+ if(d.pset){const[id,f]=d.pset.split("|");setDisp(id,(I[id].conf||1000)*+f);render();return}
+ if(d.pdel){const D={...S.dispensa};delete D[d.pdel];S.dispensa=D;save();render();return}
  if(d.sez){if(!S.done)return;if($("#profilo").hidden)showTab("profilo");apriSez(d.sez);return}
  if(d.modo){S.modo=d.modo;save();profilo();render();return}
  if(d.dday!==undefined){dDay=+d.dday;dietaPage();return}
@@ -1024,7 +1041,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929163452";
+const VER="20260929170313";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
