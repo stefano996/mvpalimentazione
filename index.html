@@ -46,12 +46,15 @@ a{color:var(--leaf);font-weight:700}
 .hm small{display:block;color:var(--mute);font-size:.78rem;font-weight:500}.hm b{display:block;font-weight:700;line-height:1.3}.hm .meta{display:block;color:var(--mute);font-size:.85rem}.hm .tag{flex:none}
 .shopw{background:var(--leaf-t);border-radius:14px;padding:12px 14px}.shopw b{display:block;font:800 1.15rem "Bricolage Grotesque",sans-serif}.shopw span{display:block;font-size:.85rem;color:var(--mute)}
 .day.today{border:2px solid var(--leaf)}
+.seg{display:flex;gap:4px;background:var(--line);padding:4px;border-radius:12px;margin-bottom:6px}
+.seg button{flex:1;border:0;background:none;color:var(--mute);font:600 15px "DM Sans",sans-serif;min-height:40px;border-radius:9px;cursor:pointer}
+.seg button[aria-selected=true]{background:var(--card);color:var(--ink)}
 .obnav{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom,0));background:linear-gradient(transparent,var(--bg) 35%)}.obnav .btn{margin-top:0}
 button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
 .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:14px}
 .kpi div{min-width:0;background:var(--leaf);color:var(--on-leaf);border-radius:14px;padding:12px 14px}
 .kpi div:not(:first-child){background:var(--card);color:var(--ink);border:1px solid var(--line)}
-.kpi b{display:block;font:800 1.2rem "Bricolage Grotesque",sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.kpi span{font-size:.85rem;opacity:.85}
+.kpi b{display:block;font:800 1.2rem "Bricolage Grotesque",sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.kpi span{display:block;font-size:.85rem;line-height:1.3;opacity:.85}
 .day,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
 .day header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
 .day header span{color:var(--mute);font-size:.85rem}
@@ -123,9 +126,11 @@ async function load(){
 }
 
 // ---------- Quanto vuoi stare in cucina ----------
-const LV={poco:{nome:"Poco",desc:"Il minimo indispensabile: piatti pronti in 15 minuti, una o due pentole, nessuna tecnica. Cucini poche volte a settimana e mangi lo stesso piatto per più giorni.",t:15,d:1,u:2,b:4},
-giusto:{nome:"Il giusto",desc:"Fino a 25 minuti per piatto, ricette semplici con qualche passaggio in più. Cucini qualche volta in più e cambi piatto più spesso.",t:25,d:2,u:3,b:3},
-tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Cucini spesso e hai più varietà durante la settimana.",t:999,d:3,u:9,b:2}};
+// t = minuti massimi, d = difficoltà massima, u = pentole massime, b = porzioni cucinate insieme (e tenute in frigo), spese = spese a settimana
+const LV={poco:{nome:"Poco",desc:"Il minimo indispensabile: piatti pronti in 15 minuti, una o due pentole, nessuna tecnica. Pensato anche per chi ha il frigo piccolo e poco spazio: due spese piccole a settimana invece di una grande.",t:15,d:1,u:2,b:3,spese:2},
+giusto:{nome:"Il giusto",desc:"Fino a 25 minuti per piatto, ricette semplici con qualche passaggio in più. Una spesa a settimana e più varietà nei piatti.",t:25,d:2,u:3,b:3,spese:1},
+tanto:{nome:"Tanto",desc:"Nessun limite di tempo: anche ricette più elaborate e più attrezzatura. Cucini spesso, hai tanta varietà e fai una spesa grande a settimana.",t:999,d:3,u:9,b:2,spese:1}};
+const GGc=["lun","mar","mer","gio","ven","sab","dom"];
 
 // ---------- Indirizzi e negozi (OpenStreetMap) ----------
 // liv = quali ingredienti ci trovi: 1 di base, 2 da supermercato ben fornito, 3 da negozio bio/specializzato
@@ -189,19 +194,30 @@ function plan(){
  if(!mains.length)return null;
  const slots=[];let s=0,minuti=0;
  while(slots.length<14){const r=mains[s%mains.length],n=Math.min(L.b,r.cons);minuti+=r.tempo;for(let j=0;j<n&&slots.length<14;j++)slots.push({r,s,first:j==0});s++}
- const days=[],tot={};
+ const days=[],tot={},need=Array.from({length:7},()=>({})),cookDay={};
  for(let d=0;d<7;d++){
   const ms=[bf.length?{r:bf[d%bf.length]}:null,slots[2*d],slots[2*d+1]];
   const raw=ms.reduce((a,x)=>a+(x?stat(x.r).k:0),0),m=Math.min(1.5,Math.max(.7,S.kcal/raw));
   let k=0,p=0,c=0;
-  ms.forEach(x=>{if(!x)return;const t=stat(x.r,m);k+=t.k;p+=t.p;c+=t.c;for(const id in x.r.ing)tot[id]=(tot[id]||0)+x.r.ing[id]*m});
+  ms.forEach(x=>{if(!x)return;const t=stat(x.r,m);k+=t.k;p+=t.p;c+=t.c;
+   if(x.s!==undefined&&x.first)cookDay[x.s]=d;const nd=need[x.s===undefined?d:cookDay[x.s]];
+   for(const id in x.r.ing){const g=x.r.ing[id]*m;tot[id]=(tot[id]||0)+g;nd[id]=(nd[id]||0)+g}});
   days.push({ms,k,p,c,m});
  }
  days.forEach(d=>d.ms[0]&&(minuti+=d.ms[0].r.tempo));
- return{days,tot,minuti,sess:s,cost:Object.entries(tot).reduce((a,[id,g])=>a+spend(g,id),0)}
+ const costo=o=>Object.entries(o).reduce((a,[id,g])=>a+spend(g,id),0);
+ const trips=(L.spese==2?[[0,1,2,3],[4,5,6]]:[[0,1,2,3,4,5,6]]).map(gg=>{const t={};gg.forEach(d=>{for(const id in need[d])t[id]=(t[id]||0)+need[d][id]});
+  return{gg,tot:t,cost:costo(t),nome:L.spese==2?`Spesa per ${GGc[gg[0]]}–${GGc[gg[gg.length-1]]}`:"Spesa della settimana"}});
+ return{days,tot,trips,minuti,sess:s,cost:costo(tot)}
 }
 const GG=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"],PN=["Colazione","Pranzo","Cena"];
 const chkGet=()=>S.presi||{},chkSet=c=>{S.presi=c};
+const lunedi=()=>{const d=new Date();d.setDate(d.getDate()-(d.getDay()+6)%7);return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
+if(S.presiWk!=lunedi()){S.presi={};S.presiWk=lunedi();save()}
+const presiIn=(P,ti)=>Object.keys(P.trips[ti].tot).filter(id=>chkGet()[ti+":"+id]).length;
+function prossima(P){const o=OGGI();let i=P.trips.findIndex(t=>t.gg.includes(o));if(i<0)i=0;
+ if(presiIn(P,i)==Object.keys(P.trips[i].tot).length&&i<P.trips.length-1)i++;return i}
+let trip=null;
 const OGGI=()=>(new Date().getDay()+6)%7;
 function render(){
  const P=plan();
@@ -212,9 +228,9 @@ function render(){
  d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m);return`<div class="meal"><small>${PN[j]}</small><div>${x.r.n}<div class="tags"><span class="tag">${x.r.tempo} min attivi</span><span class="tag">${Math.round(t.k)} kcal</span><span class="tag">${Math.round(t.p)} g prot.</span><span class="tag">${eur(t.c)}</span>${x.s===undefined?"":x.first?'<span class="tag p">da cucinare</span>':'<span class="tag">già pronto</span>'}</div></div></div>`}).join("")+`</article>`).join("")));
  renderHome(P);
  if(!P){$("#spesa").innerHTML=`<header class="ph"><h1>Spesa</h1></header>`;return}
- const chk=chkGet();
- const riga=id=>{const q=P.tot[id],u=q>=1000?(q/1000).toFixed(1).replace(".",",")+" kg":Math.round(q/10)*10+" g";return`<div class="sp"><label><input type="checkbox" data-c="${id}" ${chk[id]?"checked":""}><span class="${chk[id]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
- const ids=Object.keys(P.tot).sort((a,b)=>I[a].rep.localeCompare(I[b].rep)||I[a].nome.localeCompare(I[b].nome));
+ const chk=chkGet(),ti=trip!=null&&trip<P.trips.length?trip:prossima(P),T=P.trips[ti];
+ const riga=id=>{const q=T.tot[id],k=ti+":"+id;u=q>=1000?(q/1000).toFixed(1).replace(".",",")+" kg":Math.round(q/10)*10+" g";return`<div class="sp"><label><input type="checkbox" data-c="${k}" ${chk[k]?"checked":""}><span class="${chk[k]?"done":""}">${I[id].nome}</span></label><span>${u} · ${eur(spend(q,id))}</span></div>`};
+ const ids=Object.keys(T.tot).sort((a,b)=>I[a].rep.localeCompare(I[b].rep)||I[a].nome.localeCompare(I[b].nome));
  const a=ADDR();let head="",body="";
  if(!a)head=`<div class="card"><p class="note" style="margin:0">Aggiungi dove ti trovi nel Profilo: ti diremo in quale negozio fare la spesa.</p><button class="btn ghost" data-t="profilo">Aggiungi indirizzo</button></div>`;
  else{
@@ -231,7 +247,8 @@ function render(){
   const gr={};ids.forEach(id=>(gr[I[id].rep]=gr[I[id].rep]||[]).push(id));
   body=Object.keys(gr).map(r=>`<h2>${r}</h2><div class="card">${gr[r].map(riga).join("")}</div>`).join("");
  }
- $("#spesa").innerHTML=`<header class="ph"><h1>Spesa</h1></header><div class="kpi"><div><b>${eur(P.cost)}</b><span>totale stimato</span></div></div>`+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
+ const seg=P.trips.length>1?`<div class="seg" role="tablist" aria-label="Quale spesa">${P.trips.map((t,i)=>`<button role="tab" data-trip="${i}" aria-selected="${i==ti}">${t.nome.replace("Spesa per ","")}</button>`).join("")}</div><p class="note">Due spese piccole a settimana, così non riempi il frigo.</p>`:"";
+ $("#spesa").innerHTML=`<header class="ph"><h1>Spesa</h1></header>`+seg+`<div class="kpi"><div><b>${eur(T.cost)}</b><span>${P.trips.length>1?"totale di questa spesa":"totale stimato"}</span></div><div><b>${presiIn(P,ti)} di ${ids.length}</b><span>prodotti presi</span></div></div>`+head+body+`<p class="note">Prezzi e disponibilità nei negozi sono stime.</p>`;
 }
 
 // ---------- Home ----------
@@ -245,14 +262,14 @@ function renderHome(P){
   d.ms.map((x,j)=>{if(!x)return"";const t=stat(x.r,d.m),tag=j==0?"":x.first?'<span class="tag p">Da cucinare</span>':'<span class="tag">Già pronto</span>';
    return`<div class="hm"><div><small>${PN[j]}</small><b>${x.r.n}</b><span class="meta">${x.r.tempo} min · ${Math.round(t.k)} kcal · ${Math.round(t.p)} g prot.</span></div>${tag}</div>`}).join("")+
   `<p class="note" style="margin-bottom:0">Oggi in cucina: circa ${cuc} minuti.</p></section>`;
- const ids=Object.keys(P.tot),presi=ids.filter(id=>chkGet()[id]).length;let sh="";
+ const ti=prossima(P),T=P.trips[ti],ids=Object.keys(T.tot),presi=presiIn(P,ti);let sh="";
  if(!a)sh=`<p class="note" style="margin-top:0">Aggiungi dove ti trovi e ti diciamo dove conviene fare la spesa.</p>`;
  else if(!a.negozi)sh=`<p class="note" style="margin-top:0">${a.err?ERR:`Cerco i negozi vicino a ${esc(a.etichetta)}…`}</p>`;
  else{const p=primario();
   if(!p)sh=`<p class="note" style="margin-top:0">Nessun supermercato trovato vicino a ${esc(a.etichetta)}.</p>`;
   else{const altri=new Map();ids.forEach(id=>{const n=negozioPer(I[id].dove);if(n&&n!==p)altri.set(n,(altri.get(n)||0)+1)});
    sh=`<div class="shopw"><b>${esc(p.nome)}</b><span>${p.tipo} · ${dist(p.km)} da ${esc(a.etichetta)}</span>${[...altri].map(([n,c])=>`<span>Più ${esc(n.nome)} per ${c} ${c==1?"prodotto":"prodotti"}</span>`).join("")}</div>`}}
- html+=`<section class="w" aria-labelledby="w-spesa"><div class="w-h"><h2 id="w-spesa">Prossima spesa</h2>${a?"":'<button class="lnk" data-t="profilo">Aggiungi</button>'}</div>${sh}<div class="stats2"><div><b>${eur(P.cost)}</b><span>totale stimato</span></div><div><b>${presi} di ${ids.length}</b><span>prodotti presi</span></div></div><div class="bar"><i style="width:${ids.length?presi/ids.length*100:0}%"></i></div><button class="btn" data-t="spesa">Apri la lista della spesa</button></section>`;
+ html+=`<section class="w" aria-labelledby="w-spesa"><div class="w-h"><h2 id="w-spesa">Prossima spesa</h2>${a?"":'<button class="lnk" data-t="profilo">Aggiungi</button>'}</div>${P.trips.length>1?`<p class="note" style="margin-top:-6px">${T.nome.replace("Spesa per ","Per ")} · ${ti+1} di ${P.trips.length} questa settimana</p>`:""}${sh}<div class="stats2"><div><b>${eur(T.cost)}</b><span>totale stimato</span></div><div><b>${presi} di ${ids.length}</b><span>prodotti presi</span></div></div><div class="bar"><i style="width:${ids.length?presi/ids.length*100:0}%"></i></div><button class="btn" data-t="spesa" data-trip="${ti}">Apri la lista della spesa</button></section>`;
  $("#home").innerHTML=html;
 }
 
@@ -295,7 +312,8 @@ document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
- if(d.t){if(!S.done&&d.t=="profilo")return;showTab(d.t)}
+ if(d.trip!==undefined){trip=+d.trip;render();if(d.t)showTab(d.t)}
+ else if(d.t){if(!S.done&&d.t=="profilo")return;if(d.t=="spesa")trip=null,render();showTab(d.t)}
  else if(d.add!==undefined)addEx($("#exq").value);
  else if(d.s)addEx(d.s);
  else if(d.rm!==undefined){S.exl.splice(+d.rm,1);refreshEx()}
@@ -306,7 +324,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  else if(d.retry!==undefined){const a=ADDR();if(a)cercaNegozi(a);render()}
  else if(d.geo!==undefined)usaPosizione();
  else if(d.lv){S.cucina=d.lv;document.querySelectorAll("[data-lv]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lv==d.lv));save();sum();render()}
- else if(d.calc!==undefined){if(calc()){S.kcalOk=true;save();profilo();render();const k=$("#kcal");if(k)k.focus()}else $("#kerr").textContent=S.done?"Inserisci età, peso e altezza in \"Su di te\" per calcolare le kcal.":"Torna indietro e inserisci età, peso e altezza per calcolare le kcal."}
+ else if(d.calc!==undefined){if(calc()){S.kcalOk=true;save();profilo();render()}else $("#kerr").textContent=S.done?"Inserisci età, peso e altezza in \"Su di te\" per calcolare le kcal.":"Torna indietro e inserisci età, peso e altezza per calcolare le kcal."}
  else if(d.go){if(d.go=="restart"){S.done=false;S.step=0}else{if(S.step==1&&d.go=="1"&&calc())S.kcalOk=true;S.step+=+d.go;if(S.step>LAST){S.done=true;S.step=0}}
   save();profilo();render();showTab(S.done?"home":"profilo")}});
 
