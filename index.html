@@ -1183,7 +1183,8 @@ document.addEventListener("change",e=>{const t=e.target;
  else return;
  save();sum();render()});
 document.addEventListener("focusin",e=>{if(e.target.id=="codice")otpBox();const t=e.target;if(t.matches("input:not([type=checkbox]),textarea"))document.body.classList.add("kb")});
-document.addEventListener("focusout",e=>{const t=e.target;if(t.matches("input:not([type=checkbox]),textarea")){document.body.classList.remove("kb");document.querySelectorAll(".sug").forEach(b=>b.style.minHeight="")}});
+// la barra torna dopo un attimo: così il tocco su un suggerimento non finisce sulla barra che ricompare
+document.addEventListener("focusout",e=>{const t=e.target;if(t.matches("input:not([type=checkbox]),textarea"))setTimeout(()=>{const a=document.activeElement;if(a&&a.matches&&a.matches("input:not([type=checkbox]),textarea"))return;document.body.classList.remove("kb");document.querySelectorAll(".sug").forEach(b=>b.style.minHeight="")},300)});
 document.addEventListener("focusout",e=>{if(e.target.id=="codice")otpBox()});
 document.addEventListener("input",e=>{const t=e.target;
  if(t.dataset.dq){dSug(t.dataset.dq,t.value);return}
@@ -1295,7 +1296,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929204802";
+const VER="20260929205146";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
