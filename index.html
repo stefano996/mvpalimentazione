@@ -895,7 +895,7 @@ function dispHTML(){const ids=Object.keys(S.dispensa||{}).filter(id=>I[id]).map(
  ${manca.length?`<div class="tags">${manca.slice(0,8).map(id=>`<button class="tag b" data-padd="${id}">${ic("plus")}${I[id].nome}</button>`).join("")}</div>`:""}
  ${ids.length?`<div class="disp">${vis.map(([id,s])=>`<div class="dp${s.basso?" low":""}"><div class="dp-t"><b>${I[id].nome}</b><button class="x" data-pdel="${id}" aria-label="Togli ${esc(I[id].nome)} dalla dispensa">${ic("x")}</button></div>
   <div class="bar"><i style="width:${Math.round(s.p*100)}%"></i></div>
-  <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}${(()=>{const on=S.listaAperta&&(S.lista||[]).some(it=>it.id==id);return`<button class="tag b buy${on?" on":""}" data-pbuy="${id}" aria-pressed="${on}">${ic(on?"check":"shopping-cart")}${on?"Nella lista della spesa":"Aggiungi alla spesa"}</button>`})()}</div></div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti (${ids.length})`}</button>`:""}`:""}`}
+  <div class="dp-a" role="group" aria-label="Quanto ne hai">${S.dispensa[id].m?`<button class="tag b" data-pset="${id}|1">Pieno</button>`:""}${[[".5","Metà"],[".3333","1/3"],[".25","1/4"],["0","Finito"]].map(([f,t])=>`<button class="tag b" data-pset="${id}|${f}">${t}</button>`).join("")}${(()=>{const on=S.listaAperta&&(S.lista||[]).some(it=>it.id==id);return`<button class="tag b buy${on?" on":""}" data-pbuy="${id}" aria-pressed="${on}">${ic(on?"check":"shopping-cart")}${on?"Nella lista della spesa":"Aggiungi alla spesa"}</button>`})()}</div></div>`).join("")}</div>${ids.length>4?`<button class="btn ghost" data-ptutti>${dispTutti?"Mostra meno":`Mostra tutti`}</button>`:""}`:""}`}
 function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
@@ -1347,7 +1347,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001103812";
+const VER="20261001104529";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
