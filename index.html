@@ -768,7 +768,7 @@ function mealCard(x,di,j,home){
  <div class="mc-b"><small>${PN[j]}</small><h3>${x.r.n}</h3>${!sg&&x.r.sost?`<span class="extra sost">${ic("info")}${(t=>t[0].toUpperCase()+t.slice(1))(x.r.sost.map(o=>o.a?"con "+I[o.a].nome.toLowerCase()+" invece di "+I[o.da].nome.toLowerCase():"senza "+I[o.da].nome.toLowerCase()).join(", "))}</span>`:""}<p class="mc-m" title="P proteine · C carboidrati · G grassi"><b>${Math.round(x.st.k)} kcal</b>${macro(x.st)}</p>${x.alts&&x.alts.length>1&&!sg?`<div class="alts" role="group" aria-label="Alternative">${x.alts.map((i,n)=>`<button class="tag b${i==x.idx?" on":""}" data-alt="${di}-${j}-${i}" aria-pressed="${i==x.idx}">Opzione ${n+1}</button>`).join("")}</div>`:""}
  ${sg?`<p class="mc-sg">${ic("pizza")}<span>Sgarro: ${e.items.map(o=>esc(o.nome)).join(", ")} · ${Math.round(g.k)} kcal</span></p>`:""}</div>
  ${home?`<button class="tick" data-eat="${j}" aria-pressed="${!!ok}" aria-label="${ok?"Mangiato: tocca per annullare":"Segna "+PN[j].toLowerCase()+" come mangiato"}">${ic("check")}</button>`:""}</div>
- <div class="mc-act">${ok||sg?"":`<button class="pill tonal" data-ric="${di}-${j}">${x.mia||x.libero?ic("utensils")+"Vedi alimenti":ic("chef-hat")+"Come si cucina"}</button>`}${ok||sg?"":`<button class="pill" data-cambia="${di}-${j}">${ic("pencil")}${x.mia?"Modifica":"Cambia"}</button>`}</div></article>`}
+ <div class="mc-act">${ok||sg?"":`<button class="pill tonal" data-ric="${di}-${j}">${x.mia||x.libero?ic("utensils")+"Vedi alimenti":ic("chef-hat")+"Come si cucina"}</button>`}${ok||sg?"":`<button class="pill" data-cambia="${di}-${j}"${home?' data-home="1"':""}>${ic("pencil")}${x.mia?"Modifica":"Cambia"}</button>`}</div></article>`}
 
 function render(){
  PC={};const P=planW(lun());PL=P;const now=new Date(),y=now.getFullYear(),mo=now.getMonth();
@@ -1086,24 +1086,28 @@ function aggiungiPasto(id,di,j){const dk=dIso(addD(lun(),di));
   const items=Object.entries(x.g).filter(([i])=>!I[i].base).map(([i,g])=>({id:i,g:Math.round(g)}));if(vuota){ops[0].items=items;ops[0].nome=r.n}else ops.push({items,nome:r.n});S.scelte={...(S.scelte||{}),[di+"-"+j]:vuota?0:ops.length-1}}
  else S.cambi={...(S.cambi||{}),[dk+":"+j]:id};save();selDay=di;render()}
 let cq="";
+let cHome=false;
+function cambiaLista(di,j){const dk=dIso(addD(lun(),di)),x=PL&&PL.days[di].ms[j],p=j==0?"c":"p",qq=norm(cq),L=LV[S.cucina]||LV.giusto;
+ const l=ricettePool().filter(r=>r.p==p&&(!x||r.id!=x.r.id)&&(!qq||norm(r.n).includes(qq)||Object.keys(r.ing).some(i=>norm(I[i].nome).includes(qq)))).sort((a,b)=>(a.tt>L.tt)-(b.tt>L.tt)||hs(a.id+dk)-hs(b.id+dk)).slice(0,qq?30:8);
+ return`<p class="note">${qq?"Risultati":"Qualche idea per te"}</p><div class="rlist">${l.map(r=>riga_r(r,`data-cset="${r.id}|${di}|${j}"`)).join("")||`<p class="note">Nessuna ricetta trovata.</p>`}</div>`}
 function apriCambia(di,j,keep){const dk=dIso(addD(lun(),di)),cur=(S.cambi||{})[dk+":"+j],P=PL,x=P&&P.days[di].ms[j],p=j==0?"c":"p",qq=norm(cq),L=LV[S.cucina]||LV.giusto;
  const l=ricettePool().filter(r=>r.p==p&&(!x||r.id!=x.r.id)&&(!qq||norm(r.n).includes(qq)||Object.keys(r.ing).some(i=>norm(I[i].nome).includes(qq)))).sort((a,b)=>(a.tt>L.tt)-(b.tt>L.tt)||hs(a.id+dk)-hs(b.id+dk)).slice(0,qq?30:8);
  const dlg=$("#sheet"),y=dlg.scrollTop;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">${GG[di]} · ${PN[j]}</small><h2 id="sh-t">Cambia ${PN[j].toLowerCase()}</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header>
- ${x?`<p class="note">Adesso: ${esc(x.r.n)}</p>`:""}<button class="li li-lib" data-lib="${di}|${j}"><span class="li-ic">${ic("pencil")}</span><span class="li-b"><b>Pasto libero</b></span>${ic("chevron-right","li-ch")}</button><div class="srch">${ic("search")}<input id="cq" data-cq="${di}-${j}" autocomplete="off" placeholder="Cerca una ricetta o un ingrediente" value="${esc(cq)}"></div>
- <p class="note">${qq?"Risultati":"Qualche idea per te"}</p><div class="rlist" id="clist">${l.map(r=>riga_r(r,`data-cset="${r.id}|${di}|${j}"`)).join("")||`<p class="note">Nessuna ricetta trovata.</p>`}</div>
+ ${x?`<p class="note">Adesso: ${esc(x.r.n)}</p>`:""}<button class="li li-lib" data-lib="${di}|${j}|${cHome?1:0}"><span class="li-ic">${ic("pencil")}</span><span class="li-b"><b>Pasto libero</b></span>${ic("chevron-right","li-ch")}</button><div class="srch">${ic("search")}<input id="cq" data-cq="${di}-${j}" autocomplete="off" placeholder="Cerca una ricetta o un ingrediente" value="${esc(cq)}"></div>
+ <div id="clist">${cambiaLista(di,j)}</div>
  ${cur||(S.liberi||{})[dk+":"+j]?`<button class="btn ghost" data-creset="${di}|${j}">${ic("rotate-ccw")}Torna al pasto proposto</button>`:""}`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0}else dlg.scrollTop=y}
 
 // ---------- Pasto libero ----------
 let LB=null,lq="",nuovo=null;
-function apriLibero(di,j){const k=dIso(addD(lun(),di))+":"+j,L=(S.liberi||{})[k];LB={di,j,items:L?L.items.map(x=>({...x})):[],giorni:[di]};lq="";nuovo=null;libHTML();const dlg=$("#sheet");if(!dlg.open){dlg.showModal();blocca()}dlg.scrollTop=0}
+function apriLibero(di,j,home){const k=dIso(addD(lun(),di))+":"+j,L=(S.liberi||{})[k];LB={di,j,home,items:L?L.items.map(x=>({...x})):[],giorni:[di]};lq="";nuovo=null;libHTML();const dlg=$("#sheet");if(!dlg.open){dlg.showModal();blocca()}dlg.scrollTop=0}
 function libHTML(){const dlg=$("#sheet"),y=dlg.scrollTop,{di,j}=LB,m=lun(),g={};LB.items.forEach(it=>{if(I[it.id])g[it.id]=(g[it.id]||0)+it.q*uIng(it.id)[2]});const st=statG(g);
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">${GG[di]} · ${PN[j]}</small><h2 id="sh-t">Pasto libero</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header>
  <div class="srch">${ic("search")}<label class="sr" for="lbq">Cerca o scrivi un alimento</label><input id="lbq" data-lbq autocomplete="off" placeholder="Cerca o scrivi un alimento" value="${esc(lq)}"></div><div class="tags sug" id="lbsug">${libSug()}</div>
  ${nuovo?nuovoHTML():""}
  ${LB.items.length?`<div class="lb-list">${LB.items.map((it,i)=>{const u=uIng(it.id);return`<div class="sgi"><div class="sgi-n"><b>${esc(I[it.id].nome)}</b></div><div class="stepper"><button data-lbq-i="${i}" data-dq="-1" aria-label="Meno">${ic("minus")}</button><span>${uTxt({q:it.q,unita:u})}</span><button data-lbq-i="${i}" data-dq="1" aria-label="Più">${ic("plus")}</button></div></div>`}).join("")}</div><p class="mc-m"><b>${Math.round(st.k)} kcal</b>${macro(st)}</p>`:""}
- <h3>In quali giorni?</h3><div class="days mini" role="group" aria-label="Giorni">${GG.map((gg,i)=>`<button data-lbday="${i}" aria-pressed="${LB.giorni.includes(i)}"><span>${GGc[i]}</span><b>${addD(m,i).getDate()}</b></button>`).join("")}</div>
+ ${LB.home?"":`<h3>In quali giorni?</h3><div class="days mini" role="group" aria-label="Giorni">${GG.map((gg,i)=>`<button data-lbday="${i}" aria-pressed="${LB.giorni.includes(i)}"><span>${GGc[i]}</span><b>${addD(m,i).getDate()}</b></button>`).join("")}</div>`}
  <button class="btn sez-ok" data-lbsave ${LB.items.length&&LB.giorni.length?"":"disabled"}>Salva</button>`;
  dlg.scrollTop=y}
 function libSug(){const qq=norm(lq);if(!qq||nuovo)return"";const r=chipAlimenti(lq,i=>!i.base,i=>`<button class="tag b" data-lbadd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`);
@@ -1240,7 +1244,7 @@ document.addEventListener("input",e=>{const t=e.target;
  if(t.dataset.lq!==undefined){listaSug(t.value);return}
  if(t.dataset.lbq!==undefined){lq=t.value;const b=$("#lbsug");if(b)setSug(b,libSug());return}
  if(t.dataset.rq!==undefined){rq=t.value;rMore=false;$("#rlist").innerHTML=ricetteHTML();return}
- if(t.dataset.cq){cq=t.value;const[di,j]=t.dataset.cq.split("-").map(Number);const pos=t.selectionStart;apriCambia(di,j,true);const n=$("#cq");n.focus();n.setSelectionRange(pos,pos);return}
+ if(t.dataset.cq){cq=t.value;const[di,j]=t.dataset.cq.split("-").map(Number);const c=$("#clist");if(c)c.innerHTML=cambiaLista(di,j);return}
  if(t.dataset.dk){const c=(S.cibi||[]).find(x=>x.id==t.dataset.dk);if(c){c.kcal=+t.value||0;registraCibi();save();const[j,i]=t.dataset.dkk.split("-").map(Number);dTot(j,i)}return}
  if(t.dataset.dg){const[j,i,k]=t.dataset.dg.split("-").map(Number);opzioni(dDay,j)[i].items[k].g=+t.value||0;save();dTot(j,i);return}
  if(t.id=="codice"){t.value=t.value.replace(/\D/g,"").slice(0,6);$("#bv-err").textContent="";$("#otp").classList.remove("err");otpBox();if(t.value.length==6)entra();return}if(t.id=="exq"){q=t.value;$("#sug").innerHTML=sugHTML()}
@@ -1259,9 +1263,9 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.radd){const[id,di,j]=d.radd.split("|");aggiungiPasto(id,+di,+j);$("#sheet").close();showTab("piano");return}
  if(d.rf){rf=d.rf;rMore=false;render();return}
  if(d.rmore!==undefined){rMore=!rMore;$("#rlist").innerHTML=ricetteHTML();return}
- if(d.cambia){const[di,j]=d.cambia.split("-").map(Number);if(S.modo=="mia"){dDay=di;showTab("dieta");return}cq="";apriCambia(di,j);return}
+ if(d.cambia){const[di,j]=d.cambia.split("-").map(Number);if(S.modo=="mia"){dDay=di;showTab("dieta");return}cq="";cHome=!!d.home;apriCambia(di,j);return}
  if(d.cset){const[id,di,j]=d.cset.split("|");aggiungiPasto(id,+di,+j);$("#sheet").close();return}
- if(d.lib){const[di,j]=d.lib.split("|").map(Number);apriLibero(di,j);return}
+ if(d.lib){const[di,j,h]=d.lib.split("|").map(Number);apriLibero(di,j,!!h);return}
  if(d.lbadd){LB.items.push({id:d.lbadd,q:uIng(d.lbadd)[2]==1?100:1});lq="";libHTML();return}
  if(d.lbnew!==undefined){const t=lq.trim();nuovo={nome:t?t[0].toUpperCase()+t.slice(1):""};libHTML();const n=$("#nv-m");if(n)n.focus();return}
  if(d.nvok!==undefined){const nome=($("#nv-n").value||"").trim();if(!nome)return;const marca=($("#nv-m").value||"").trim(),unita=$("#nv-u").value;
@@ -1345,9 +1349,14 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
   save();profilo();render();showTab(S.done?(S.modo=="mia"&&dietaVuota()?"dieta":"home"):"profilo")}});
 
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
-$("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
+// iPhone: con la tastiera aperta il pannello si accorcia e resta appoggiato sopra la tastiera, così il campo resta in vista
+if(window.visualViewport){const vv=window.visualViewport,adatta=()=>{const d=$("#sheet");if(!d.open){d.style.maxHeight="";d.style.marginBottom="";return}
+ const sotto=Math.max(0,innerHeight-vv.height-vv.offsetTop);d.style.maxHeight=sotto>80?(vv.height-12)+"px":"";d.style.marginBottom=sotto>80?sotto+"px":"";
+ const a=document.activeElement;if(sotto>80&&a&&d.contains(a)&&a.matches("input,textarea"))a.scrollIntoView({block:"nearest"})};
+ vv.addEventListener("resize",adatta);vv.addEventListener("scroll",adatta)}
+$("#sheet").addEventListener("close",()=>{sblocca();$("#sheet").style.maxHeight="";$("#sheet").style.marginBottom="";delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001104529";
+const VER="20261001104952";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
