@@ -742,11 +742,6 @@ function render(){
  renderHome(P);
  // ----- spesa: una sola lista "prossima spesa", i soldi spesi davvero, la dispensa
  const HEAD=`<header class="ph"><div><h1>Spesa</h1></div></header>`;
- const X=prossimaSpesa(),LS=S.lista||[],rec=id=>id&&id in X.q;
- const riga=it=>{const id=it.id,nome=id?I[id].nome:esc(it.nome);return`<div class="sp"><label class="sp-l"><input type="checkbox" data-lc="${it.k}" ${it.fatto?"checked":""}><span class="cb">${ic("check")}</span><span class="sp-n">${nome}${rec(id)?`<span class="sugg" title="Consigliato per i tuoi pasti">${ic("sparkles")}</span>`:""}</span></label><button class="x" data-lrm="${it.k}" aria-label="Togli ${nome} dalla lista">${ic("x")}</button></div>`};
- function lista(){if(!LS.length)return`<section class="w"><p class="note">La lista è vuota.</p></section>`;
-  const gr=new Map(),neg=NEG().length;LS.forEach(it=>{const g=it.id?(neg?negozioPer(I[it.id].dove):I[it.id].rep):"Altro";if(!gr.has(g))gr.set(g,[]);gr.get(g).push(it)});
-  return[...gr].sort((x,y)=>x[0]=="Altro"?1:y[0]=="Altro"?-1:neg?(x[0]===primario()?-1:y[0]===primario()?1:x[0].km-y[0].km):String(x[0]).localeCompare(String(y[0]))).map(([g,l])=>`<div class="sh sp-h"><h3>${g=="Altro"?"Altro":neg?"Da "+esc(g.nome):g}</h3>${neg&&g!="Altro"?`<a href="${mapsUrl(g)}" target="_blank" rel="noopener">${ic(mezzo(g.km)[0])}${dist(g.km)}</a>`:""}</div><section class="w list">${l.map(riga).join("")}</section>`).join("")}
  const a=ADDR();let head="";
  if(!a)head=`<div class="sh"><h2>Puoi fare la spesa qui</h2></div><section class="w stack"><div class="st"><span class="st-ic">${ic("map-pin")}</span><div class="st-b"><b>Dove fai la spesa?</b><span>Aggiungi dove ti trovi e ti diciamo in quale negozio comprare ogni cosa.</span></div></div><button class="btn tonal" data-sez="luogo">Aggiungi indirizzo</button></section>`;
  else{
@@ -756,9 +751,8 @@ function render(){
   else{const N=NEG(),p=primario(),ls=[p,...N.filter(n=>n!==p&&isFav(n)),...N.filter(n=>n!==p&&!isFav(n))].filter(Boolean).slice(0,10);setTimeout(()=>arricchisci(a));
    head+=`<div class="car">`+ls.map(n=>`<article class="sc${n===p?" rec":""}"><div class="sc-t"><span class="st-ic">${ic("store")}</span>${n===p?'<span class="badge">Consigliato</span>':""}${favBtn(n)}</div><b>${esc(n.nome)}</b><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span><div class="sc-f"><span class="num mz" title="${mezzo(n.km)[1]}">${ic(mezzo(n.km)[0])}<span class="sr">${mezzo(n.km)[1]}, </span>${dist(n.km)}</span><a href="${mapsUrl(n)}" target="_blank" rel="noopener">${ic("navigation")}Indicazioni</a></div><button class="sc-hide" data-hide="${esc(nk(n))}" data-hn="${esc(n.nome)}">${ic("eye-off")}Non suggerirlo più</button></article>`).join("")+`</div><p class="note">Tocca il cuore per salvare i tuoi supermercati preferiti: li suggeriamo per primi.</p>`}
  }
- const n=LS.length,pr=LS.filter(it=>it.fatto).length;
- const body=`<div class="sh"><h2>Lista della spesa</h2>${n?`<span class="note">${pr} di ${n} presi</span>`:""}</div>
- `+(S.listaAperta?`<div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+lista()+`<button class="btn" data-lfine>${ic("list-checks")}Fatto!</button>`:`<button class="btn" data-lcrea>${ic("plus")}Crea lista</button>`);
+ const body=`<div class="sh"><h2>Lista della spesa</h2><span class="note" id="lista-n">${listaConto()}</span></div>
+ `+(S.listaAperta?`<div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+`<div id="lista-b">${listaHTML()}</div><button class="btn" data-lfine>${ic("list-checks")}Fatto!</button>`:`<button class="btn" data-lcrea>${ic("plus")}Crea lista</button>`);
  $("#spesa").innerHTML=HEAD+dispSez()+head+body;
  primoGiro=false;
 }
@@ -820,6 +814,15 @@ function spunta(it,on){it.fatto=on;if(!it.id){save();return}const id=it.id;
  if(on){const c=I[id].conf,q=it.q||confD(id),n=c?Math.max(1,Math.ceil(q/c-.05))*c:q;it.add={n,nuovo:!(S.dispensa||{})[id]};setDisp(id,(resto(id)||0)+n)}
  else if(it.add){if(S.dispensa[id]){if(it.add.nuovo){const D={...S.dispensa};delete D[id];S.dispensa=D}else setDisp(id,(resto(id)||0)-it.add.n)}delete it.add}save()}
 function apriLista(){if(S.listaAperta)return;S.listaAperta=true;S.lista=[...(S.rimasti||[])];S.rimasti=[];save()}
+function listaHTML(){
+ const X=prossimaSpesa(),LS=S.lista||[],rec=id=>id&&id in X.q;
+ const riga=it=>{const id=it.id,nome=id?I[id].nome:esc(it.nome);return`<div class="sp"><label class="sp-l"><input type="checkbox" data-lc="${it.k}" ${it.fatto?"checked":""}><span class="cb">${ic("check")}</span><span class="sp-n">${nome}${rec(id)?`<span class="sugg" title="Consigliato per i tuoi pasti">${ic("sparkles")}</span>`:""}</span></label><button class="x" data-lrm="${it.k}" aria-label="Togli ${nome} dalla lista">${ic("x")}</button></div>`};
+ const lista=()=>{if(!LS.length)return`<section class="w"><p class="note">La lista è vuota.</p></section>`;
+  const gr=new Map(),neg=NEG().length;LS.forEach(it=>{const g=it.id?(neg?negozioPer(I[it.id].dove):I[it.id].rep):"Altro";if(!gr.has(g))gr.set(g,[]);gr.get(g).push(it)});
+  return[...gr].sort((x,y)=>x[0]=="Altro"?1:y[0]=="Altro"?-1:neg?(x[0]===primario()?-1:y[0]===primario()?1:x[0].km-y[0].km):String(x[0]).localeCompare(String(y[0]))).map(([g,l])=>`<div class="sh sp-h"><h3>${g=="Altro"?"Altro":neg?"Da "+esc(g.nome):g}</h3>${neg&&g!="Altro"?`<a href="${mapsUrl(g)}" target="_blank" rel="noopener">${ic(mezzo(g.km)[0])}${dist(g.km)}</a>`:""}</div><section class="w list">${l.map(riga).join("")}</section>`).join("")};
+ return lista()}
+const listaConto=()=>{const L=S.lista||[],n=L.length,pr=L.filter(it=>it.fatto).length;return n?`${pr} di ${n} presi`:""};
+function aggiornaLista(){const b=$("#lista-b");if(!b){render();return}b.innerHTML=listaHTML();const c=$("#lista-n");if(c)c.textContent=listaConto()}
 function listaAdd(id,q){apriLista();if(id&&(S.lista||[]).some(it=>it.id==id))return;S.lista=[...(S.lista||[]),{k:Date.now().toString(36)+Math.random().toString(36).slice(2,6),...(id?{id,q:Math.round(q||0)}:{})}];save()}
 function setSug(b,html){if(!b||b.innerHTML===html)return;const h=b.offsetHeight;b.innerHTML=html;b.style.minHeight=html?h+"px":""}
 function listaSug(q){const b=$("#lsug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}const X=prossimaSpesa();
@@ -1182,6 +1185,7 @@ document.addEventListener("change",e=>{const t=e.target;
  else if(["sesso","eta","peso","alt","att","obj","kcal"].includes(t.id))S[t.id]=t.id=="sesso"?t.value:(+t.value||"");
  else return;
  save();sum();render()});
+document.addEventListener("mousedown",e=>{if(e.target.closest("#lsug button"))e.preventDefault()});
 document.addEventListener("focusin",e=>{if(e.target.id=="codice")otpBox();const t=e.target;if(t.matches("input:not([type=checkbox]),textarea"))document.body.classList.add("kb")});
 // la barra torna dopo un attimo: così il tocco su un suggerimento non finisce sulla barra che ricompare
 document.addEventListener("focusout",e=>{const t=e.target;if(t.matches("input:not([type=checkbox]),textarea"))setTimeout(()=>{const a=document.activeElement;if(a&&a.matches&&a.matches("input:not([type=checkbox]),textarea"))return;document.body.classList.remove("kb");document.querySelectorAll(".sug").forEach(b=>b.style.minHeight="")},300)});
@@ -1230,7 +1234,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.latt){S.lattosio=d.latt;save();profilo();render();return}
  if(d.ptutti!==undefined){dispTutti=!dispTutti;render();return}
  if(d.pbuy){const i=S.listaAperta?(S.lista||[]).findIndex(it=>it.id==d.pbuy):-1;if(i>=0){S.lista=S.lista.filter((_,x)=>x!=i);save()}else listaAdd(d.pbuy,confD(d.pbuy));render();return}
- if(d.ladd){const[id,q]=d.ladd.split("|");listaAdd(id,+q||confD(id));const i=$("#lq");if(i)i.value="";render();return}
+ if(d.ladd){const[id,q]=d.ladd.split("|"),dalCampo=!!t.closest("#lsug");listaAdd(id,+q||confD(id));if(dalCampo){const i=$("#lq");if(i){i.value="";i.focus()}const sg=$("#lsug");if(sg)sg.innerHTML="";aggiornaLista()}else render();return}
  if(d.laddall!==undefined){const X=prossimaSpesa();Object.keys(X.q).forEach(id=>listaAdd(id,X.q[id]));render();return}
  if(d.lnew!==undefined){const t=($("#lq").value||"").trim();if(t){S.lista=[...(S.lista||[]),{k:Date.now().toString(36),nome:t[0].toUpperCase()+t.slice(1)}];save()}render();return}
  if(d.lrm){const it=(S.lista||[]).find(x=>x.k==d.lrm);if(it&&it.fatto)spunta(it,false);S.lista=S.lista.filter(x=>x.k!=d.lrm);save();render();return}
@@ -1296,7 +1300,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001081842";
+const VER="20261001083137";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
