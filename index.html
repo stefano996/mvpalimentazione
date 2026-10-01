@@ -1235,7 +1235,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
  if(d.lnew!==undefined){const t=($("#lq").value||"").trim();if(t){S.lista=[...(S.lista||[]),{k:Date.now().toString(36),nome:t[0].toUpperCase()+t.slice(1)}];save()}render();return}
  if(d.lrm){const it=(S.lista||[]).find(x=>x.k==d.lrm);if(it&&it.fatto)spunta(it,false);S.lista=S.lista.filter(x=>x.k!=d.lrm);save();render();return}
  if(d.lfine!==undefined){S.rimasti=(S.lista||[]).filter(it=>!it.fatto).map(it=>({k:it.k,id:it.id,q:it.q}));S.lista=[];S.listaAperta=false;save();render();return}
- if(d.lcrea!==undefined){apriLista();render();const i=$("#lq");if(i)i.focus();return}
+ if(d.lcrea!==undefined){apriLista();render();const i=$("#lq");if(i)i.scrollIntoView({block:"center"});return}
  if(d.fsave!==undefined){chiudiLista(true);return}
  if(d.fskip!==undefined){chiudiLista(false);return}
  if(d.stutti!==undefined){storTutti=!storTutti;render();return}
@@ -1296,7 +1296,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20260929205146";
+const VER="20261001081842";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
