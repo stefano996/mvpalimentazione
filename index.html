@@ -470,6 +470,7 @@ body.kb .tabbar{display:none}
 #lista-b .sp-h{margin-top:var(--s3)}
 #lista-b .sp-h:first-child{margin-top:0}
 .tags.sug{align-items:flex-start;align-content:flex-start}
+.tags .forse{width:100%;margin:0}
 </style>
 </head>
 <body>
@@ -509,12 +510,37 @@ if(!S.attrezzi)S.attrezzi=S.done?["fornelli","pentole","forno","microonde","frig
 const save=()=>{try{localStorage.setItem("pp",JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+// ricerca alimenti tollerante: nome, sinonimi (alias), singole parole, singolare/plurale ed errori di battitura.
+// Restituisce i risultati sicuri (ok) e quelli parziali da proporre come "Forse intendevi" (forse).
+const STOPW=new Set(["di","del","della","dello","dei","degli","delle","per","al","alla","allo","ai","agli","alle","con","e","ed","in","da","il","lo","la","i","gli","le","un","una","uno","senza"]);
+const radice=w=>w.length>4?w.replace(/[aeio]$/,""):w;
+const parole=t=>norm(t).split(/[^a-z0-9]+/).filter(w=>w&&!STOPW.has(w)).map(radice);
+function cercaAlimenti(q,filtro,typo){const qq=norm(q).replace(/\s+/g," ");if(!qq)return{ok:[],forse:[]};const qt=parole(qq),sc=[];
+ ING.forEach(i=>{if(filtro&&!filtro(i))return;let best=0;
+  const nm=norm(i.nome);
+  for(const n of [nm,...(i.al||[])]){const pr=n==nm?5:0; // a parità, vince chi corrisponde nel nome e non solo in un sinonimo
+   if(n==qq){best=100+pr;break}
+   if(n.startsWith(qq))best=Math.max(best,90+pr);else if(n.includes(qq))best=Math.max(best,80+pr);
+   if(qt.length){const nt=parole(n),hit=qt.filter(w=>nt.some(x=>x.startsWith(w)||(w.startsWith(x)&&x.length>=4))).length;
+    if(hit==qt.length)best=Math.max(best,70);else if(hit)best=Math.max(best,20+30*hit/qt.length)}
+   if(typo&&qq.length>=4){const d=Math.min(lev(qq,n),lev(qq,n.slice(0,qq.length)));if(d<=(qq.length>=7?2:1))best=Math.max(best,65)}}
+  if(best)sc.push([i,best])});
+ sc.sort((a,b)=>b[1]-a[1]||a[0].nome.length-b[0].nome.length);
+ const ok=sc.filter(x=>x[1]>=60).map(x=>x[0]);
+ // errori di battitura solo se non c'è nessun risultato sicuro (così "birra" non trova "burrata")
+ if(!ok.length&&!typo)return cercaAlimenti(q,filtro,true);
+ return{ok,forse:sc.filter(x=>x[1]<60).map(x=>x[0])}}
+// chip dei risultati: se non ci sono risultati sicuri, propone "Forse intendevi"
+function chipAlimenti(q,filtro,btn,max=6){const r=cercaAlimenti(q,filtro);
+ if(r.ok.length)return{html:r.ok.slice(0,max).map(btn).join(""),trovato:true,esatto:r.ok.some(i=>norm(i.nome)==norm(q))};
+ if(r.forse.length)return{html:`<span class="note forse">Forse intendevi:</span>`+r.forse.slice(0,4).map(btn).join(""),trovato:false};
+ return{html:"",trovato:false}}
 const eur=n=>n.toLocaleString("it-IT",{style:"currency",currency:"EUR"});
 const opt=(v,t,c)=>`<option value="${v}" ${c==v?"selected":""}>${t}</option>`;
 
 async function load(){
  const [ing,ric,ex,sg]=await Promise.all(["ingredienti","ricette","esclusioni","sgarri"].map(f=>fetch(`data/${f}.json`,{cache:"no-cache"}).then(r=>{if(!r.ok)throw r.status;return r.json()})));
- ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,cb:i.carboidrati_100g||0,gr:i.grassi_100g||0,dove:i.dove||1,pz:i.pezzo,cat:i.categorie||[],conf:i.confezione||0,base:!!i.base,giorno:i.al_giorno||0}));
+ ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,cb:i.carboidrati_100g||0,gr:i.grassi_100g||0,dove:i.dove||1,pz:i.pezzo,cat:i.categorie||[],al:(i.alias||[]).map(norm),conf:i.confezione||0,base:!!i.base,giorno:i.al_giorno||0}));
  ING.forEach(i=>{if(i.base)FISSI.add(i.id)});
  CATI={};ING.forEach(i=>i.cat.forEach(c=>(CATI[c]=CATI[c]||[]).push(i.id)));
  I=Object.fromEntries(ING.map(i=>[i.id,i]));
@@ -832,8 +858,7 @@ function aggiornaLista(){const b=$("#lista-b");if(!b){render();return}b.innerHTM
 function listaAdd(id,q){apriLista();if(id&&(S.lista||[]).some(it=>it.id==id))return;S.lista=[...(S.lista||[]),{k:Date.now().toString(36)+Math.random().toString(36).slice(2,6),...(id?{id,q:Math.round(q||0)}:{})}];save()}
 function setSug(b,html){if(!b||b.innerHTML===html)return;const h=b.offsetHeight;b.innerHTML=html;b.style.minHeight=html?h+"px":""}
 function listaSug(q){const b=$("#lsug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}const X=prossimaSpesa();
- const l=ING.filter(i=>norm(i.nome).includes(qq)&&!(S.lista||[]).some(it=>it.id==i.id)).sort((a,b)=>((b.id in X.q)-(a.id in X.q))).slice(0,6);
- setSug(b,l.map(i=>`<button class="tag b" data-ladd="${i.id}|${Math.round(X.q[i.id]||0)}">${ic(i.id in X.q?"sparkles":"plus")}${esc(i.nome)}</button>`).join(""))}
+ setSug(b,chipAlimenti(q,i=>!(S.lista||[]).some(it=>it.id==i.id),i=>`<button class="tag b" data-ladd="${i.id}|${Math.round(X.q[i.id]||0)}">${ic(i.id in X.q?"sparkles":"plus")}${esc(i.nome)}</button>`).html)}
 let spAdd=false;
 // segnare un prodotto come preso lo mette in dispensa (confezioni intere); togliere la spunta lo toglie
 function presoInDispensa(k,on,q){const id=k.split(":").pop();if(!I[id])return;S.presiAdd=S.presiAdd||{};
@@ -862,7 +887,7 @@ function apriDispensa(keep){const dlg=$("#sheet"),y=dlg.scrollTop;profSez=null;
  dlg.innerHTML=`<div class="sh-bar" aria-hidden="true"></div><header><div><small class="note">Spesa</small><h2 id="sh-t">Dispensa</h2></div><button class="x" data-close aria-label="Chiudi">${ic("x")}</button></header><div class="sez" id="disp-b">${dispHTML()}</div><button class="btn sez-ok" data-close>Fatto</button>`;
  if(!keep){dlg.showModal();blocca();dlg.scrollTop=0;dlg.dataset.disp="1"}else dlg.scrollTop=y}
 function dispSug(q){const b=$("#psug");if(!b)return;const qq=norm(q);if(!qq){setSug(b,"");return}
- setSug(b,ING.filter(i=>!(S.dispensa||{})[i.id]&&norm(i.nome).includes(qq)).slice(0,6).map(i=>`<button class="tag b" data-padd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`).join("")||`<span class="note">Nessun prodotto con questo nome.</span>`)}
+ setSug(b,chipAlimenti(q,i=>!(S.dispensa||{})[i.id],i=>`<button class="tag b" data-padd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`).html||`<span class="note">Nessun prodotto con questo nome.</span>`)}
 
 // ---------- Home ----------
 function renderHome(P){
@@ -1005,8 +1030,8 @@ function dietaPage(){
  html+=`<button class="btn tonal" data-dcopy>Copia ${GG[d].toLowerCase()} su tutti i giorni vuoti</button><p class="note" id="dcopy-st" role="status"></p>`;
  el.innerHTML=html}
 function dSug(key,q){const box=$("#dsug-"+key);if(!box)return;const qq=norm(q);if(!qq){setSug(box,"");return}
- const tutti=ING.filter(f=>norm(f.nome).includes(qq)).slice(0,6);
- setSug(box,tutti.map(f=>`<button class="tag b" data-dadd="${key}|${f.id}">${esc(f.nome)}</button>`).join("")+(tutti.some(f=>norm(f.nome)==qq)?"":`<button class="tag b" data-dnew="${key}">${ic("plus")} Aggiungi "${esc(q.trim())}"</button>`))}
+ const r=chipAlimenti(q,null,f=>`<button class="tag b" data-dadd="${key}|${f.id}">${esc(f.nome)}</button>`);
+ setSug(box,r.html+(r.esatto?"":`<button class="tag b" data-dnew="${key}">${ic("plus")} Aggiungi "${esc(q.trim())}"</button>`))}
 function dAdd(key,id){const[j,i]=key.split("-").map(Number),o=opzioni(dDay,j)[i];o.items.push({id,g:100});save();dietaPage();render();
  const k=o.items.length-1,inp=$(`#dg-${j}-${i}-${k}`);if(inp){inp.focus();inp.select()}}
 function dTot(j,i){const o=opzioni(dDay,j)[i],g={};o.items.forEach(it=>{if(I[it.id])g[it.id]=(g[it.id]||0)+(+it.g||0)});const s=statG(g),e=$(`#dtot-${j}-${i}`);if(e)e.innerHTML=`<b>${Math.round(s.k)} kcal</b>${macro(s)}`}
@@ -1068,8 +1093,8 @@ function libHTML(){const dlg=$("#sheet"),y=dlg.scrollTop,{di,j}=LB,m=lun(),g={};
  <h3>In quali giorni?</h3><div class="days mini" role="group" aria-label="Giorni">${GG.map((gg,i)=>`<button data-lbday="${i}" aria-pressed="${LB.giorni.includes(i)}"><span>${GGc[i]}</span><b>${addD(m,i).getDate()}</b></button>`).join("")}</div>
  <button class="btn sez-ok" data-lbsave ${LB.items.length&&LB.giorni.length?"":"disabled"}>Salva</button>`;
  dlg.scrollTop=y}
-function libSug(){const qq=norm(lq);if(!qq||nuovo)return"";const l=ING.filter(i=>!i.base&&norm(i.nome).includes(qq)).slice(0,6);
- return l.map(i=>`<button class="tag b" data-lbadd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`).join("")+(l.some(i=>norm(i.nome)==qq)?"":`<button class="tag b" data-lbnew>${ic("plus")}Crea "${esc(lq.trim())}"</button>`)}
+function libSug(){const qq=norm(lq);if(!qq||nuovo)return"";const r=chipAlimenti(lq,i=>!i.base,i=>`<button class="tag b" data-lbadd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`);
+ return r.html+(r.esatto?"":`<button class="tag b" data-lbnew>${ic("plus")}Crea "${esc(lq.trim())}"</button>`)}
 function nuovoHTML(){return`<section class="nuovo stack"><b>Nuovo alimento</b>
  <label for="nv-n">Nome</label><input id="nv-n" value="${esc(nuovo.nome)}">
  <label for="nv-m">Marca (facoltativa)</label><input id="nv-m" autocomplete="off">
@@ -1211,7 +1236,7 @@ document.addEventListener("input",e=>{const t=e.target;
 document.addEventListener("keydown",e=>{if(e.key!="Enter")return;
  if(e.target.id=="codice"){e.preventDefault();entra()}
  if(e.target.id=="exq"){e.preventDefault();addEx(e.target.value)}
- if(e.target.id=="lq"){e.preventDefault();const b=$("#lsug [data-ladd]");if(b)b.click()}
+ if(e.target.id=="lq"){e.preventDefault();const b=!$("#lsug .forse")&&$("#lsug [data-ladd]");if(b)b.click()}
  if(e.target.id=="sgq"){e.preventDefault();sgAddTesto()}
  if(e.target.id=="addr"||e.target.id=="etq"){e.preventDefault();salvaIndirizzo()}});
 document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
@@ -1309,7 +1334,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001093644";
+const VER="20261001101558";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
