@@ -8566,5 +8566,85 @@
       "Scola e salta tutto in padella per 1 minuto."
     ],
     "avanzi": ""
+  },
+  {
+    "id": "pizza-margherita",
+    "nome": "Pizza margherita",
+    "pasto": "principale",
+    "pizza": true,
+    "tempo_attivo_min": 10,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pasta-pizza": 200,
+      "passata": 70,
+      "mozzarella-pizza": 75,
+      "olio": 5,
+      "basilico": 2,
+      "sale": 1,
+      "origano": 0.5
+    },
+    "utensili": [
+      "Teglia da forno",
+      "Carta forno",
+      "Ciotola",
+      "Cucchiaio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Accendi il forno a 220 °C statico (200 °C se ventilato).",
+      "Tira fuori il rotolo dal frigo 10 minuti prima e srotolalo con la sua carta forno nella teglia.",
+      "In una ciotola condisci la passata con sale, origano e metà dell'olio.",
+      "Stendi la passata sull'impasto lasciando libero il bordo.",
+      "Inforna nella parte bassa del forno per 8 minuti.",
+      "Taglia la mozzarella a cubetti e distribuiscila sulla pizza.",
+      "Rimetti in forno per altri 7-10 minuti, finché la mozzarella è fusa e il bordo è dorato.",
+      "Sforna, aggiungi il basilico e un filo d'olio crudo."
+    ],
+    "avanzi": "Si conserva in frigo 1 giorno: scaldala in padella con il coperchio o in forno a 200 °C per 5 minuti.",
+    "tempo_totale_min": 30,
+    "attrezzi": [
+      "forno"
+    ]
+  },
+  {
+    "id": "pizza-marinara",
+    "nome": "Pizza marinara",
+    "pasto": "principale",
+    "pizza": true,
+    "tempo_attivo_min": 10,
+    "difficolta": 1,
+    "pentole": 0,
+    "si_conserva_giorni": 1,
+    "grammi_a_porzione": {
+      "pasta-pizza": 200,
+      "passata": 90,
+      "olio": 8,
+      "aglio": 4,
+      "origano": 1,
+      "sale": 1
+    },
+    "utensili": [
+      "Teglia da forno",
+      "Carta forno",
+      "Ciotola",
+      "Cucchiaio",
+      "Coltello"
+    ],
+    "passaggi": [
+      "Accendi il forno a 220 °C statico (200 °C se ventilato).",
+      "Tira fuori il rotolo dal frigo 10 minuti prima e srotolalo con la sua carta forno nella teglia.",
+      "Taglia l'aglio a fettine sottili.",
+      "In una ciotola condisci la passata con sale, origano e metà dell'olio.",
+      "Stendi la passata sull'impasto lasciando libero il bordo e distribuisci l'aglio.",
+      "Inforna nella parte bassa del forno per 12-15 minuti, finché il bordo è dorato.",
+      "Sforna e finisci con un filo d'olio crudo e un pizzico di origano."
+    ],
+    "avanzi": "Si conserva in frigo 1 giorno: scaldala in padella con il coperchio o in forno a 200 °C per 5 minuti.",
+    "tempo_totale_min": 30,
+    "attrezzi": [
+      "forno"
+    ]
   }
 ]
