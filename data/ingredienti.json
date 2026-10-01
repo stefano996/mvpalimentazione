@@ -14404,5 +14404,475 @@
       "bottiglia",
       "bottiglie"
     ]
+  },
+  {
+    "id": "pizza-margherita",
+    "nome": "Pizza margherita",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 271,
+    "proteine_100g": 11.1,
+    "dove": 1,
+    "carboidrati_100g": 39.5,
+    "grassi_100g": 7.6,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini"
+    ],
+    "alias": [
+      "margherita",
+      "pizza pomodoro e mozzarella",
+      "pizza mozzarella"
+    ],
+    "pasto": [
+      300,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-marinara",
+    "nome": "Pizza marinara",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 243,
+    "proteine_100g": 7.1,
+    "dove": 1,
+    "carboidrati_100g": 41.4,
+    "grassi_100g": 6.6,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "verdura"
+    ],
+    "alias": [
+      "marinara",
+      "pizza rossa",
+      "pizza pomodoro aglio e origano",
+      "pizza al pomodoro"
+    ],
+    "pasto": [
+      280,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-diavola",
+    "nome": "Pizza diavola",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 291,
+    "proteine_100g": 12.8,
+    "dove": 1,
+    "carboidrati_100g": 36.6,
+    "grassi_100g": 10.4,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "carne rossa",
+      "salumi",
+      "piccante"
+    ],
+    "alias": [
+      "diavola",
+      "salamino piccante",
+      "pizza al salame piccante",
+      "pizza al salame",
+      "pizza salamino",
+      "pizza piccante",
+      "salame piccante"
+    ],
+    "pasto": [
+      325,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-capricciosa",
+    "nome": "Pizza capricciosa",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 256,
+    "proteine_100g": 11.4,
+    "dove": 1,
+    "carboidrati_100g": 31.7,
+    "grassi_100g": 9.2,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "salumi",
+      "verdura"
+    ],
+    "alias": [
+      "capricciosa",
+      "pizza capricciosa con uovo"
+    ],
+    "pasto": [
+      380,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-quattro-formaggi",
+    "nome": "Pizza quattro formaggi",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 316,
+    "proteine_100g": 15.3,
+    "dove": 1,
+    "carboidrati_100g": 36.2,
+    "grassi_100g": 12.2,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini"
+    ],
+    "alias": [
+      "quattro formaggi",
+      "4 formaggi",
+      "pizza ai formaggi",
+      "pizza 4 formaggi"
+    ],
+    "pasto": [
+      320,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-prosciutto-funghi",
+    "nome": "Pizza prosciutto e funghi",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 253,
+    "proteine_100g": 12.2,
+    "dove": 1,
+    "carboidrati_100g": 32.3,
+    "grassi_100g": 8.2,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "salumi",
+      "verdura"
+    ],
+    "alias": [
+      "prosciutto e funghi",
+      "prosciutto cotto e funghi",
+      "pizza cotto e funghi",
+      "pizza al prosciutto",
+      "pizza prosciutto cotto"
+    ],
+    "pasto": [
+      370,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-prosciutto-crudo",
+    "nome": "Pizza al prosciutto crudo",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 279,
+    "proteine_100g": 13.6,
+    "dove": 1,
+    "carboidrati_100g": 34.9,
+    "grassi_100g": 9.4,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "carne rossa",
+      "salumi"
+    ],
+    "alias": [
+      "prosciutto crudo",
+      "pizza crudo",
+      "crudo",
+      "pizza crudo e mozzarella",
+      "pizza parma"
+    ],
+    "pasto": [
+      340,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-bufala",
+    "nome": "Pizza bufala",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 273,
+    "proteine_100g": 10.6,
+    "dove": 1,
+    "carboidrati_100g": 35.9,
+    "grassi_100g": 9.6,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini"
+    ],
+    "alias": [
+      "bufala",
+      "margherita con bufala",
+      "margherita di bufala",
+      "pizza mozzarella di bufala",
+      "bufalina"
+    ],
+    "pasto": [
+      330,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-napoli",
+    "nome": "Pizza napoli",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 272,
+    "proteine_100g": 12.5,
+    "dove": 1,
+    "carboidrati_100g": 37.7,
+    "grassi_100g": 7.9,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "pesce"
+    ],
+    "alias": [
+      "napoli",
+      "napoletana",
+      "pizza napoletana",
+      "pizza acciughe e capperi",
+      "pizza alle acciughe",
+      "pizza alici"
+    ],
+    "pasto": [
+      315,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-ortolana",
+    "nome": "Pizza ortolana",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 228,
+    "proteine_100g": 9.1,
+    "dove": 1,
+    "carboidrati_100g": 31.9,
+    "grassi_100g": 7.0,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "verdura"
+    ],
+    "alias": [
+      "ortolana",
+      "pizza alle verdure",
+      "pizza verdure grigliate",
+      "vegetariana",
+      "pizza vegetariana",
+      "pizza alle verdure grigliate"
+    ],
+    "pasto": [
+      390,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-tonno-cipolla",
+    "nome": "Pizza tonno e cipolla",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 249,
+    "proteine_100g": 12.5,
+    "dove": 1,
+    "carboidrati_100g": 32.7,
+    "grassi_100g": 7.6,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "pesce",
+      "verdura"
+    ],
+    "alias": [
+      "tonno e cipolla",
+      "tonno e cipolle",
+      "pizza al tonno",
+      "pizza tonno",
+      "tonno cipolla"
+    ],
+    "pasto": [
+      370,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-wurstel-patatine",
+    "nome": "Pizza wurstel e patatine",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 296,
+    "proteine_100g": 11.1,
+    "dove": 1,
+    "carboidrati_100g": 37.1,
+    "grassi_100g": 11.5,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "carne rossa",
+      "salumi",
+      "verdura"
+    ],
+    "alias": [
+      "wurstel e patatine",
+      "patatine e wurstel",
+      "pizza americana",
+      "pizza con patatine",
+      "pizza wurstel",
+      "pizza patatine"
+    ],
+    "pasto": [
+      380,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-quattro-stagioni",
+    "nome": "Pizza quattro stagioni",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 256,
+    "proteine_100g": 11.3,
+    "dove": 1,
+    "carboidrati_100g": 32.1,
+    "grassi_100g": 9.1,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "salumi",
+      "verdura"
+    ],
+    "alias": [
+      "quattro stagioni",
+      "4 stagioni",
+      "pizza 4 stagioni"
+    ],
+    "pasto": [
+      375,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-calzone",
+    "nome": "Calzone",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 262,
+    "proteine_100g": 12.3,
+    "dove": 1,
+    "carboidrati_100g": 33.2,
+    "grassi_100g": 9.0,
+    "categorie": [
+      "cereali",
+      "glutine",
+      "lattosio",
+      "latticini",
+      "carne",
+      "salumi"
+    ],
+    "alias": [
+      "calzone",
+      "calzone al forno",
+      "pizza calzone",
+      "calzone ripieno",
+      "calzone classico"
+    ],
+    "pasto": [
+      360,
+      "calzone",
+      "calzoni"
+    ],
+    "fuori_casa": true
+  },
+  {
+    "id": "pizza-bianca",
+    "nome": "Pizza bianca (focaccia)",
+    "reparto": "Pasta, riso e scatolame",
+    "prezzo_kg": 0,
+    "kcal_100g": 270,
+    "proteine_100g": 7.3,
+    "dove": 1,
+    "carboidrati_100g": 48.0,
+    "grassi_100g": 5.5,
+    "categorie": [
+      "cereali",
+      "glutine"
+    ],
+    "alias": [
+      "pizza bianca",
+      "focaccia",
+      "focaccia della pizzeria",
+      "pizza bianca romana",
+      "focaccia al rosmarino",
+      "pizza olio e rosmarino"
+    ],
+    "pasto": [
+      240,
+      "pizza",
+      "pizze"
+    ],
+    "fuori_casa": true
   }
 ]
