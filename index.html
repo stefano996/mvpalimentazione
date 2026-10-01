@@ -471,6 +471,7 @@ body.kb .tabbar{display:none}
 #lista-b .sp-h:first-child{margin-top:0}
 .tags.sug{align-items:flex-start;align-content:flex-start}
 .tags .forse{width:100%;margin:0}
+.tags .marca{width:100%;margin:0}
 </style>
 </head>
 <body>
@@ -533,7 +534,17 @@ function cercaAlimenti(q,filtro,typo){const qq=norm(q).replace(/\s+/g," ");if(!q
  if(!ok.length&&!typo)return cercaAlimenti(q,filtro,true);
  return{ok,forse:sc.filter(x=>x[1]<60).map(x=>x[0])}}
 // chip dei risultati: se non ci sono risultati sicuri, propone "Forse intendevi"
-function chipAlimenti(q,filtro,btn,max=6){const r=cercaAlimenti(q,filtro);
+// marche: non le mostriamo, servono solo a trovare l'alimento corrispondente (es. "nutella" → crema spalmabile alle nocciole)
+function perMarca(q,filtro,parziale){const qq=norm(q).replace(/\s+/g," ");if(qq.length<3)return[];const f=i=>!filtro||filtro(i);
+ const esatte=ING.filter(i=>f(i)&&(i.mr||[]).some(m=>m==qq||(m.length>=4&&qq.startsWith(m+" "))));
+ if(esatte.length||!parziale)return esatte;
+ return qq.length>=4?ING.filter(i=>f(i)&&(i.mr||[]).some(m=>m.startsWith(qq))):[]}
+function chipAlimenti(q,filtro,btn,max=6){const testa=`<span class="note marca">Per ora salviamo gli alimenti senza marca:</span>`;
+ let mb=perMarca(q,filtro);
+ if(mb.length)return{html:testa+mb.slice(0,max).map(btn).join(""),trovato:true,esatto:false};
+ const r=cercaAlimenti(q,filtro);
+ // marca scritta a metà (es. "mulino bi"): solo se il nome non trova niente di sicuro
+ if(!r.ok.length){mb=perMarca(q,filtro,true);if(mb.length)return{html:testa+mb.slice(0,max).map(btn).join(""),trovato:true,esatto:false}}
  if(r.ok.length)return{html:r.ok.slice(0,max).map(btn).join(""),trovato:true,esatto:r.ok.some(i=>norm(i.nome)==norm(q))};
  if(r.forse.length)return{html:`<span class="note forse">Forse intendevi:</span>`+r.forse.slice(0,4).map(btn).join(""),trovato:false};
  return{html:"",trovato:false}}
@@ -542,7 +553,7 @@ const opt=(v,t,c)=>`<option value="${v}" ${c==v?"selected":""}>${t}</option>`;
 
 async function load(){
  const [ing,ric,ex,sg]=await Promise.all(["ingredienti","ricette","esclusioni","sgarri"].map(f=>fetch(`data/${f}.json`,{cache:"no-cache"}).then(r=>{if(!r.ok)throw r.status;return r.json()})));
- ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,cb:i.carboidrati_100g||0,gr:i.grassi_100g||0,dove:i.dove||1,pz:i.pezzo,cat:i.categorie||[],al:(i.alias||[]).map(norm),conf:i.confezione||0,base:!!i.base,giorno:i.al_giorno||0}));
+ ING=ing.map(i=>({id:i.id,nome:i.nome,rep:i.reparto,kg:i.prezzo_kg,kcal:i.kcal_100g,prot:i.proteine_100g,cb:i.carboidrati_100g||0,gr:i.grassi_100g||0,dove:i.dove||1,pz:i.pezzo,cat:i.categorie||[],al:(i.alias||[]).map(norm),mr:(i.marchi||[]).map(norm),conf:i.confezione||0,base:!!i.base,giorno:i.al_giorno||0}));
  ING.forEach(i=>{if(i.base)FISSI.add(i.id)});
  CATI={};ING.forEach(i=>i.cat.forEach(c=>(CATI[c]=CATI[c]||[]).push(i.id)));
  I=Object.fromEntries(ING.map(i=>[i.id,i]));
@@ -1336,7 +1347,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001101713";
+const VER="20261001103812";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}

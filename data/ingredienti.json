@@ -21,6 +21,11 @@
       "bocconcini di pollo",
       "filetti di pollo",
       "pollo a fette"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -43,6 +48,10 @@
       "merluzzo fresco",
       "cuori di merluzzo",
       "pesce bianco surgelato"
+    ],
+    "marchi": [
+      "Findus",
+      "Pescanova"
     ]
   },
   {
@@ -65,6 +74,14 @@
       "tonno al naturale",
       "tonno light",
       "scatoletta di tonno"
+    ],
+    "marchi": [
+      "Rio Mare",
+      "Nostromo",
+      "Mareblu",
+      "Callipo",
+      "As do Mar",
+      "Palmera"
     ]
   },
   {
@@ -92,6 +109,11 @@
       "uova bio",
       "uova di gallina",
       "uova allevate a terra"
+    ],
+    "marchi": [
+      "Eurovo",
+      "Le Naturelle",
+      "Aia"
     ]
   },
   {
@@ -114,6 +136,12 @@
       "yogurt greco magro",
       "yogurt proteico",
       "yogurt colato magro"
+    ],
+    "marchi": [
+      "Fage",
+      "Fage Total",
+      "Oikos",
+      "Kri Kri"
     ]
   },
   {
@@ -136,6 +164,11 @@
       "scaglie di parmigiano",
       "reggiano",
       "parmigiano stagionato"
+    ],
+    "marchi": [
+      "Parmareggio",
+      "Zanetti",
+      "Ambrosi"
     ]
   },
   {
@@ -159,6 +192,10 @@
       "porridge",
       "oats",
       "avena integrale"
+    ],
+    "marchi": [
+      "Alce Nero",
+      "Quaker"
     ]
   },
   {
@@ -182,6 +219,16 @@
       "riso originario",
       "riso per sushi",
       "riso ribe"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Gallo",
+      "Riso Gallo",
+      "Curtiriso",
+      "Ben's Original",
+      "Uncle Ben's",
+      "Flora"
     ]
   },
   {
@@ -205,6 +252,18 @@
       "penne integrali",
       "fusilli integrali",
       "pasta di grano integrale"
+    ],
+    "marchi": [
+      "Barilla",
+      "De Cecco",
+      "Garofalo",
+      "Rummo",
+      "Voiello",
+      "La Molisana",
+      "Divella",
+      "Granoro",
+      "Felicetti",
+      "Alce Nero"
     ]
   },
   {
@@ -226,6 +285,11 @@
       "ceci in scatola",
       "ceci lessati",
       "ceci precotti"
+    ],
+    "marchi": [
+      "Annalisa",
+      "Valfrutta",
+      "Bonduelle"
     ]
   },
   {
@@ -249,6 +313,18 @@
       "salsa di pomodoro",
       "pomodoro",
       "passata di pomodoro"
+    ],
+    "marchi": [
+      "Alce Nero",
+      "Mutti",
+      "Cirio",
+      "Pomì",
+      "Pomi",
+      "Pummarò",
+      "Petti",
+      "De Rica",
+      "Annalisa",
+      "Valfrutta"
     ]
   },
   {
@@ -300,6 +376,20 @@
       "olio extravergine di oliva",
       "olio",
       "olio di oliva extravergine"
+    ],
+    "marchi": [
+      "De Cecco",
+      "Carapelli",
+      "Bertolli",
+      "Monini",
+      "Sasso",
+      "Olio Dante",
+      "Dante",
+      "Farchioni",
+      "Costa d'Oro",
+      "Filippo Berio",
+      "Zucchi",
+      "Sagra"
     ]
   },
   {
@@ -323,6 +413,13 @@
     "alias": [
       "banana",
       "banane"
+    ],
+    "marchi": [
+      "Del Monte",
+      "Chiquita",
+      "Dole",
+      "Fyffes",
+      "Bonita"
     ]
   },
   {
@@ -364,6 +461,10 @@
       "spinaci surgelati",
       "spinaci a cubetti",
       "spinaci in foglia surgelati"
+    ],
+    "marchi": [
+      "Findus",
+      "Orogel"
     ]
   },
   {
@@ -384,6 +485,9 @@
       "broccoli surgelati",
       "cimette di broccoli",
       "broccoli"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -406,6 +510,9 @@
       "patate rosse",
       "patate a pasta gialla",
       "patate da forno"
+    ],
+    "marchi": [
+      "Pizzoli"
     ]
   },
   {
@@ -448,6 +555,9 @@
       "quinoa bianca",
       "quinoa rossa",
       "quinoa real"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -492,6 +602,10 @@
       "feta",
       "feta greca",
       "formaggio greco"
+    ],
+    "marchi": [
+      "Dodoni",
+      "Salakis"
     ]
   },
   {
@@ -513,6 +627,10 @@
       "tofu naturale",
       "tofu affumicato",
       "tofu alla piastra"
+    ],
+    "marchi": [
+      "Taifun",
+      "Biolab"
     ]
   },
   {
@@ -559,6 +677,11 @@
       "fesa di tacchino",
       "fettine di tacchino",
       "bocconcini di tacchino"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -580,6 +703,14 @@
       "bresaola",
       "bresaola della valtellina",
       "punta d'anca"
+    ],
+    "marchi": [
+      "Beretta",
+      "Citterio",
+      "Rigamonti",
+      "Paganoni",
+      "Del Zoppo",
+      "Mottolini"
     ]
   },
   {
@@ -601,6 +732,11 @@
       "lenticchie in scatola",
       "lenticchie lessate",
       "lenticchie precotte"
+    ],
+    "marchi": [
+      "Annalisa",
+      "Valfrutta",
+      "Bonduelle"
     ]
   },
   {
@@ -626,6 +762,11 @@
       "fagioli neri",
       "fagioli rossi",
       "fagioli in scatola"
+    ],
+    "marchi": [
+      "Annalisa",
+      "Valfrutta",
+      "Bonduelle"
     ]
   },
   {
@@ -648,6 +789,10 @@
       "couscous",
       "cuscus",
       "cous cous integrale"
+    ],
+    "marchi": [
+      "Pedon",
+      "Bia"
     ]
   },
   {
@@ -670,6 +815,9 @@
       "farro perlato",
       "farro decorticato",
       "farro integrale"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -697,6 +845,12 @@
       "piadina romagnola",
       "piadine",
       "piadina integrale"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Piadelle",
+      "Morato",
+      "Loriana"
     ]
   },
   {
@@ -718,6 +872,12 @@
       "crema di arachidi",
       "peanut butter",
       "burro d'arachidi"
+    ],
+    "marchi": [
+      "Skippy",
+      "Whole Earth",
+      "Myprotein",
+      "Prozis"
     ]
   },
   {
@@ -741,6 +901,10 @@
       "noci pecan",
       "noci brasiliane",
       "noci macadamia"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura"
     ]
   },
   {
@@ -764,6 +928,13 @@
       "bocconcini",
       "ciliegine",
       "treccia"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Galbani",
+      "Santa Lucia",
+      "Sabelli",
+      "Brimi"
     ]
   },
   {
@@ -786,6 +957,12 @@
       "ricotta fresca",
       "ricotta di pecora",
       "ricotta magra"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Galbani",
+      "Santa Lucia",
+      "Vallelata"
     ]
   },
   {
@@ -808,6 +985,16 @@
       "latte ps",
       "latte uht parzialmente scremato",
       "latte fresco parzialmente scremato"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Parmalat",
+      "Mila",
+      "Sterilgarda",
+      "Latte Sole",
+      "Arborea",
+      "Vipiteno",
+      "Latte Vipiteno"
     ]
   },
   {
@@ -830,6 +1017,10 @@
       "piselli surgelati",
       "piselli in scatola",
       "piselli fini"
+    ],
+    "marchi": [
+      "Findus",
+      "Orogel"
     ]
   },
   {
@@ -851,6 +1042,9 @@
       "grigliata di verdure",
       "melanzane grigliate",
       "zucchine grigliate"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -872,6 +1066,9 @@
       "frutti di bosco surgelati",
       "misto bosco",
       "frutti rossi surgelati"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -900,6 +1097,11 @@
       "gallette di mais",
       "gallette di farro",
       "gallette multicereali"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Fiorentini"
     ]
   },
   {
@@ -928,6 +1130,12 @@
       "riso in busta",
       "riso al microonde",
       "riso basmati pronto"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Ben's Original",
+      "Uncle Ben's"
     ]
   },
   {
@@ -951,6 +1159,9 @@
       "gamberi sgusciati",
       "gamberetti surgelati",
       "code di gamberi"
+    ],
+    "marchi": [
+      "Pescanova"
     ]
   },
   {
@@ -971,6 +1182,11 @@
       "salmone affumicato",
       "salmone a fette",
       "salmone norvegese affumicato"
+    ],
+    "marchi": [
+      "Fjord",
+      "Skandia",
+      "Norvelita"
     ]
   },
   {
@@ -992,6 +1208,11 @@
       "filetti di sgombro",
       "sgombro al naturale",
       "sgombro sott'olio"
+    ],
+    "marchi": [
+      "Rio Mare",
+      "Nostromo",
+      "Mareblu"
     ]
   },
   {
@@ -1036,6 +1257,20 @@
       "prosciutto cotto alta qualità",
       "prosciutto cotto a fette",
       "prosciutto"
+    ],
+    "marchi": [
+      "Galbani",
+      "Rovagnati",
+      "Gran Biscotto",
+      "Fiorucci",
+      "Beretta",
+      "Citterio",
+      "Negroni",
+      "Parmacotto",
+      "Levoni",
+      "Alcisa",
+      "Ferrarini",
+      "Casa Modena"
     ]
   },
   {
@@ -1057,6 +1292,9 @@
       "cottage cheese",
       "fiocchi di formaggio",
       "quark"
+    ],
+    "marchi": [
+      "Jocca"
     ]
   },
   {
@@ -1078,6 +1316,9 @@
       "albume d'uovo",
       "chiare d'uovo",
       "albume liquido"
+    ],
+    "marchi": [
+      "Eurovo"
     ]
   },
   {
@@ -1123,6 +1364,9 @@
       "polenta pronta",
       "fioretto",
       "farina gialla"
+    ],
+    "marchi": [
+      "Valsugana"
     ]
   },
   {
@@ -1145,6 +1389,9 @@
       "mais in scatola",
       "granturco",
       "pannocchia"
+    ],
+    "marchi": [
+      "Bonduelle"
     ]
   },
   {
@@ -1189,6 +1436,12 @@
       "misticanza",
       "insalatina",
       "insalata pronta"
+    ],
+    "marchi": [
+      "Bonduelle",
+      "DimmidiSì",
+      "Florette",
+      "OrtoRomi"
     ]
   },
   {
@@ -1275,6 +1528,9 @@
       "fagiolini surgelati",
       "fagiolini freschi",
       "fagiolini verdi"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -1314,6 +1570,10 @@
       "minestrone surgelato",
       "verdure per minestrone",
       "zuppa di verdure"
+    ],
+    "marchi": [
+      "Findus",
+      "Orogel"
     ]
   },
   {
@@ -1343,6 +1603,12 @@
       "mele verdi",
       "mele gala",
       "mela renetta"
+    ],
+    "marchi": [
+      "Melinda",
+      "Val Venosta",
+      "Marlene",
+      "Pink Lady"
     ]
   },
   {
@@ -1364,6 +1630,12 @@
       "miele di acacia",
       "miele millefiori",
       "miele di castagno"
+    ],
+    "marchi": [
+      "Alce Nero",
+      "Rigoni di Asiago",
+      "Ambrosoli",
+      "Mielizia"
     ]
   },
   {
@@ -1392,6 +1664,12 @@
       "fette biscottate integrali",
       "fette biscottate classiche",
       "fette tostate"
+    ],
+    "marchi": [
+      "Buitoni",
+      "Mulino Bianco",
+      "Misura",
+      "Krisprolls"
     ]
   },
   {
@@ -1415,6 +1693,14 @@
       "pesto genovese",
       "pesto al basilico",
       "pesto alla genovese"
+    ],
+    "marchi": [
+      "Barilla",
+      "Giovanni Rana",
+      "Rana",
+      "Saclà",
+      "Sacla",
+      "Polli"
     ]
   },
   {
@@ -1437,6 +1723,12 @@
       "soia salsa",
       "shoyu",
       "tamari"
+    ],
+    "marchi": [
+      "Blue Dragon",
+      "Suzi Wan",
+      "Saitaku",
+      "Kikkoman"
     ]
   },
   {
@@ -1458,6 +1750,11 @@
       "gnocchi di patate",
       "gnocchetti",
       "chicche di patate"
+    ],
+    "marchi": [
+      "Giovanni Rana",
+      "Rana",
+      "Mamma Emma"
     ]
   },
   {
@@ -1479,6 +1776,10 @@
       "sale iodato",
       "sale marino",
       "sale rosa"
+    ],
+    "marchi": [
+      "Gemma di Mare",
+      "Sosalt"
     ]
   },
   {
@@ -1500,6 +1801,11 @@
       "pepe in grani",
       "pepe bianco",
       "pepe rosa"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1517,6 +1823,11 @@
     "alias": [
       "origano",
       "origano secco"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1535,6 +1846,11 @@
       "rosmarino",
       "rosmarino secco",
       "rosmarino fresco"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1593,6 +1909,11 @@
       "curry",
       "curry in polvere",
       "spezie curry"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1615,6 +1936,11 @@
       "paprika dolce",
       "paprika affumicata",
       "paprika piccante"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1633,6 +1959,11 @@
       "cannella",
       "cannella in polvere",
       "stecche di cannella"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -1653,6 +1984,10 @@
       "zucchero bianco",
       "zucchero semolato",
       "zucchero raffinato"
+    ],
+    "marchi": [
+      "Eridania",
+      "Italia Zuccheri"
     ]
   },
   {
@@ -1673,6 +2008,10 @@
       "aceto di vino bianco",
       "aceto di vino rosso",
       "aceto bianco"
+    ],
+    "marchi": [
+      "Ponti",
+      "De Nigris"
     ]
   },
   {
@@ -1700,6 +2039,13 @@
       "dado di carne",
       "granulare per brodo",
       "brodo granulare"
+    ],
+    "marchi": [
+      "Maggi",
+      "Star",
+      "Doppio Brodo Star",
+      "Knorr",
+      "Bauer"
     ]
   },
   {
@@ -1801,6 +2147,17 @@
       "caffè in grani",
       "caffè per moka",
       "caffè espresso"
+    ],
+    "marchi": [
+      "Lavazza",
+      "Illy",
+      "Kimbo",
+      "Segafredo",
+      "Caffè Borbone",
+      "Borbone",
+      "Pellini",
+      "Vergnano",
+      "Splendid"
     ]
   },
   {
@@ -1827,6 +2184,26 @@
       "acqua liscia",
       "acqua in bottiglia",
       "acqua oligominerale"
+    ],
+    "marchi": [
+      "Levissima",
+      "Sant'Anna",
+      "Natia",
+      "Rocchetta",
+      "San Benedetto",
+      "Acqua Panna",
+      "Vera",
+      "Boario",
+      "Lauretana",
+      "Evian",
+      "Fiuggi",
+      "Norda",
+      "Guizza",
+      "Smeraldina",
+      "Lurisia",
+      "Vitasnella",
+      "San Bernardo",
+      "Pejo"
     ]
   },
   {
@@ -1850,6 +2227,11 @@
       "soia drink",
       "latte vegetale",
       "bevanda vegetale"
+    ],
+    "marchi": [
+      "Alpro",
+      "Valsoia",
+      "Isola Bio"
     ]
   },
   {
@@ -1871,6 +2253,11 @@
       "yogurt vegetale",
       "yogurt vegano",
       "yogurt soia"
+    ],
+    "marchi": [
+      "Alpro",
+      "Valsoia",
+      "Sojasun"
     ]
   },
   {
@@ -1981,6 +2368,11 @@
       "latte cocco",
       "crema di cocco",
       "cocco in lattina"
+    ],
+    "marchi": [
+      "Blue Dragon",
+      "Kara",
+      "Aroy-D"
     ]
   },
   {
@@ -1999,6 +2391,10 @@
       "cacao amaro",
       "cacao in polvere",
       "cacao per dolci"
+    ],
+    "marchi": [
+      "Perugina",
+      "Van Houten"
     ]
   },
   {
@@ -2023,6 +2419,17 @@
       "proteine whey",
       "integratore proteico",
       "proteine del siero"
+    ],
+    "marchi": [
+      "Myprotein",
+      "Prozis",
+      "Foodspring",
+      "Optimum Nutrition",
+      "Bulk",
+      "Yamamoto",
+      "Scitec Nutrition",
+      "Enervit",
+      "Pro Action"
     ]
   },
   {
@@ -2054,6 +2461,11 @@
       "piadina messicana",
       "fajitas",
       "burritos"
+    ],
+    "marchi": [
+      "Old El Paso",
+      "Morato",
+      "Mission"
     ]
   },
   {
@@ -2075,6 +2487,9 @@
       "orzo",
       "orzo perlato",
       "orzo decorticato"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -2118,6 +2533,10 @@
       "olive taggiasche",
       "olive in salamoia",
       "olive denocciolate"
+    ],
+    "marchi": [
+      "Saclà",
+      "Sacla"
     ]
   },
   {
@@ -2139,6 +2558,10 @@
       "farinata",
       "farina ceci",
       "panelle"
+    ],
+    "marchi": [
+      "Molino Spadoni",
+      "Spadoni"
     ]
   },
   {
@@ -2157,6 +2580,11 @@
       "cumino",
       "cumino in polvere",
       "semi di cumino"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -2181,6 +2609,11 @@
       "peperoncino tritato",
       "cayenna",
       "chili"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -2218,6 +2651,11 @@
       "macinato di tacchino",
       "carne bianca macinata",
       "trito di pollo"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -2240,6 +2678,10 @@
       "spaghetti di riso",
       "vermicelli di riso",
       "tagliatelle di riso"
+    ],
+    "marchi": [
+      "Blue Dragon",
+      "Suzi Wan"
     ]
   },
   {
@@ -2263,6 +2705,11 @@
       "pasta di piselli",
       "pasta proteica",
       "pasta di lenticchie rosse"
+    ],
+    "marchi": [
+      "Barilla",
+      "Garofalo",
+      "Felicia"
     ]
   },
   {
@@ -2291,6 +2738,12 @@
       "olio per patatine",
       "olio per frittura",
       "olio per fritti"
+    ],
+    "marchi": [
+      "Topazio",
+      "Desantis",
+      "Zucchi",
+      "Sagra"
     ]
   },
   {
@@ -2319,6 +2772,10 @@
       "olio per patatine",
       "olio per frittura",
       "olio per fritti"
+    ],
+    "marchi": [
+      "Desantis",
+      "Sagra"
     ]
   },
   {
@@ -2342,6 +2799,11 @@
       "olio di mais",
       "olio di semi",
       "olio mais"
+    ],
+    "marchi": [
+      "Cuore",
+      "Olio Cuore",
+      "Desantis"
     ]
   },
   {
@@ -2369,6 +2831,9 @@
       "olio per patatine",
       "olio per frittura",
       "olio per fritti"
+    ],
+    "marchi": [
+      "Zucchi"
     ]
   },
   {
@@ -2393,6 +2858,17 @@
       "olio di oliva classico",
       "olio per cucinare",
       "olio oliva"
+    ],
+    "marchi": [
+      "Carapelli",
+      "Bertolli",
+      "Monini",
+      "Sasso",
+      "Olio Dante",
+      "Dante",
+      "Farchioni",
+      "Costa d'Oro",
+      "Filippo Berio"
     ]
   },
   {
@@ -2434,6 +2910,18 @@
       "panetto di burro",
       "burro per dolci",
       "burro salato"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Mila",
+      "Latteria Soresina",
+      "Soresina",
+      "Prealpi",
+      "Lurpak",
+      "Président",
+      "President",
+      "Arla",
+      "Parmareggio"
     ]
   },
   {
@@ -2471,6 +2959,11 @@
       "margarina vegetale",
       "burro vegetale",
       "margarina da spalmare"
+    ],
+    "marchi": [
+      "Flora",
+      "Vallé",
+      "Gradina"
     ]
   },
   {
@@ -2533,6 +3026,12 @@
       "aceto di modena",
       "condimento balsamico",
       "aceto balsamico"
+    ],
+    "marchi": [
+      "Ponti",
+      "De Nigris",
+      "Mazzetti",
+      "Monari Federzoni"
     ]
   },
   {
@@ -2552,6 +3051,12 @@
       "crema di balsamico",
       "crema balsamica",
       "riduzione di balsamico"
+    ],
+    "marchi": [
+      "Ponti",
+      "De Nigris",
+      "Mazzetti",
+      "Monari Federzoni"
     ]
   },
   {
@@ -2570,6 +3075,10 @@
       "aceto di sidro",
       "aceto di mela",
       "aceto mele"
+    ],
+    "marchi": [
+      "Ponti",
+      "De Nigris"
     ]
   },
   {
@@ -2591,6 +3100,12 @@
       "salsa maionese",
       "mayo",
       "maionese light"
+    ],
+    "marchi": [
+      "Calvè",
+      "Calve",
+      "Hellmann's",
+      "Heinz"
     ]
   },
   {
@@ -2610,6 +3125,12 @@
     "alias": [
       "salsa ketchup",
       "salsa pomodoro dolce"
+    ],
+    "marchi": [
+      "Calvè",
+      "Calve",
+      "Hellmann's",
+      "Heinz"
     ]
   },
   {
@@ -2629,6 +3150,11 @@
       "salsa senape",
       "senape dijon",
       "senape delicata"
+    ],
+    "marchi": [
+      "Heinz",
+      "Develey",
+      "Maille"
     ]
   },
   {
@@ -2648,6 +3174,11 @@
       "bbq",
       "salsa bbq",
       "salsa affumicata"
+    ],
+    "marchi": [
+      "Calvè",
+      "Calve",
+      "Heinz"
     ]
   },
   {
@@ -2668,6 +3199,10 @@
     "alias": [
       "salsa rosa",
       "salsa per gamberi"
+    ],
+    "marchi": [
+      "Calvè",
+      "Calve"
     ]
   },
   {
@@ -2690,6 +3225,10 @@
       "sriracha",
       "salsa chili",
       "salsa al peperoncino"
+    ],
+    "marchi": [
+      "Tabasco",
+      "Old El Paso"
     ]
   },
   {
@@ -2711,6 +3250,9 @@
       "tahin",
       "tahini",
       "pasta di sesamo"
+    ],
+    "marchi": [
+      "Probios"
     ]
   },
   {
@@ -2735,6 +3277,11 @@
       "pesto siciliano",
       "pesto pomodoro",
       "pesto alla siciliana"
+    ],
+    "marchi": [
+      "Barilla",
+      "Saclà",
+      "Sacla"
     ]
   },
   {
@@ -2759,6 +3306,15 @@
       "sugo",
       "sugo all'arrabbiata",
       "sugo alle olive"
+    ],
+    "marchi": [
+      "Barilla",
+      "De Cecco",
+      "Star",
+      "Mutti",
+      "Cirio",
+      "Pomì",
+      "Pomi"
     ]
   },
   {
@@ -2783,6 +3339,10 @@
       "ragù di carne",
       "sugo di carne",
       "ragù alla bolognese"
+    ],
+    "marchi": [
+      "Barilla",
+      "Star"
     ]
   },
   {
@@ -2810,6 +3370,14 @@
       "pomodoro pelato",
       "lattina pomodori",
       "san marzano pelati"
+    ],
+    "marchi": [
+      "Mutti",
+      "Cirio",
+      "Petti",
+      "De Rica",
+      "Annalisa",
+      "Valfrutta"
     ]
   },
   {
@@ -2837,6 +3405,16 @@
       "pomodori a cubetti",
       "polpa a pezzettoni",
       "pomodoro in scatola"
+    ],
+    "marchi": [
+      "Mutti",
+      "Cirio",
+      "Pomì",
+      "Pomi",
+      "Petti",
+      "De Rica",
+      "Annalisa",
+      "Valfrutta"
     ]
   },
   {
@@ -2859,6 +3437,10 @@
       "triplo concentrato",
       "estratto di pomodoro",
       "tubetto pomodoro"
+    ],
+    "marchi": [
+      "Mutti",
+      "Cirio"
     ]
   },
   {
@@ -2878,6 +3460,10 @@
     "alias": [
       "pomodori secchi",
       "pomodori essiccati"
+    ],
+    "marchi": [
+      "Saclà",
+      "Sacla"
     ]
   },
   {
@@ -2920,6 +3506,12 @@
       "cetriolini sottaceto",
       "sottaceti",
       "cetriolini"
+    ],
+    "marchi": [
+      "Ponti",
+      "Saclà",
+      "Sacla",
+      "Polli"
     ]
   },
   {
@@ -2940,6 +3532,11 @@
       "carciofi sott'olio",
       "carciofini",
       "antipasto carciofi"
+    ],
+    "marchi": [
+      "Saclà",
+      "Sacla",
+      "Polli"
     ]
   },
   {
@@ -2959,6 +3556,11 @@
     "alias": [
       "funghetti",
       "antipasto funghi"
+    ],
+    "marchi": [
+      "Saclà",
+      "Sacla",
+      "Polli"
     ]
   },
   {
@@ -2979,6 +3581,10 @@
       "peperoni sottaceto",
       "peperoni sott'olio",
       "peperoncini ripieni"
+    ],
+    "marchi": [
+      "Ponti",
+      "Peperlizia"
     ]
   },
   {
@@ -3019,6 +3625,9 @@
       "cipolline in agrodolce",
       "borettane",
       "cipolline sottaceto"
+    ],
+    "marchi": [
+      "Ponti"
     ]
   },
   {
@@ -3039,6 +3648,10 @@
       "brodo in brick",
       "brodo di pollo",
       "brodo"
+    ],
+    "marchi": [
+      "Star",
+      "Knorr"
     ]
   },
   {
@@ -3060,6 +3673,10 @@
     "alias": [
       "balsamella",
       "salsa bianca"
+    ],
+    "marchi": [
+      "Chef Parmalat",
+      "Parmalat"
     ]
   },
   {
@@ -3079,6 +3696,9 @@
     "alias": [
       "limone spremuto",
       "succo limone in bottiglia"
+    ],
+    "marchi": [
+      "Polenghi"
     ]
   },
   {
@@ -3099,6 +3719,10 @@
       "condimento insalata di riso",
       "insalata di riso",
       "giardiniera per riso"
+    ],
+    "marchi": [
+      "Ponti",
+      "Condiriso"
     ]
   },
   {
@@ -3120,6 +3744,10 @@
       "latte condensato zuccherato",
       "latte concentrato",
       "latte condensato per dolci"
+    ],
+    "marchi": [
+      "Nestlé",
+      "Nestle"
     ]
   },
   {
@@ -3143,6 +3771,20 @@
       "farina di grano tenero",
       "farina per dolci",
       "farina tipo 00"
+    ],
+    "marchi": [
+      "De Cecco",
+      "Divella",
+      "Molino Spadoni",
+      "Spadoni",
+      "Caputo",
+      "Mulino Caputo",
+      "Lo Conte",
+      "Le Farine Magiche",
+      "Molino Chiavazza",
+      "Molino Rossetto",
+      "Molino Grassi",
+      "Pivetti"
     ]
   },
   {
@@ -3167,6 +3809,18 @@
       "farina 0",
       "manitoba",
       "farina tipo 0"
+    ],
+    "marchi": [
+      "Molino Spadoni",
+      "Spadoni",
+      "Caputo",
+      "Mulino Caputo",
+      "Lo Conte",
+      "Le Farine Magiche",
+      "Molino Chiavazza",
+      "Molino Rossetto",
+      "Molino Grassi",
+      "Pivetti"
     ]
   },
   {
@@ -3189,6 +3843,14 @@
       "farina integrale tenero",
       "farina tipo 2",
       "farina semintegrale"
+    ],
+    "marchi": [
+      "Molino Spadoni",
+      "Spadoni",
+      "Lo Conte",
+      "Molino Chiavazza",
+      "Molino Rossetto",
+      "Molino Grassi"
     ]
   },
   {
@@ -3211,6 +3873,14 @@
       "farina di semola",
       "semola di grano duro",
       "rimacinata"
+    ],
+    "marchi": [
+      "De Cecco",
+      "Divella",
+      "Molino Spadoni",
+      "Spadoni",
+      "Caputo",
+      "Mulino Caputo"
     ]
   },
   {
@@ -3231,6 +3901,13 @@
       "farina riso",
       "farina senza glutine",
       "farina di riso integrale"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Molino Spadoni",
+      "Spadoni",
+      "Lo Conte"
     ]
   },
   {
@@ -3310,6 +3987,9 @@
       "maizena",
       "amido",
       "addensante"
+    ],
+    "marchi": [
+      "Maizena"
     ]
   },
   {
@@ -3335,6 +4015,9 @@
       "cubetto di lievito",
       "lievito per pizza",
       "lievito di birra"
+    ],
+    "marchi": [
+      "Lievital"
     ]
   },
   {
@@ -3359,6 +4042,14 @@
       "lievito secco attivo",
       "lievito per pizza",
       "lievito secco"
+    ],
+    "marchi": [
+      "Caputo",
+      "Mulino Caputo",
+      "Paneangeli",
+      "Bertolini",
+      "Lievital",
+      "Mastro Fornaio"
     ]
   },
   {
@@ -3384,6 +4075,12 @@
       "lievito chimico",
       "bustina lievito",
       "lievito per torte"
+    ],
+    "marchi": [
+      "Paneangeli",
+      "Pane degli Angeli",
+      "Cameo",
+      "Bertolini"
     ]
   },
   {
@@ -3402,6 +4099,9 @@
     "alias": [
       "bicarbonato",
       "bicarbonato alimentare"
+    ],
+    "marchi": [
+      "Solvay"
     ]
   },
   {
@@ -3422,6 +4122,11 @@
       "aroma vaniglia",
       "bustina vanillina",
       "estratto di vaniglia"
+    ],
+    "marchi": [
+      "Paneangeli",
+      "Cameo",
+      "Bertolini"
     ]
   },
   {
@@ -3441,6 +4146,10 @@
       "zucchero integrale",
       "zucchero bruno",
       "zucchero mascobado"
+    ],
+    "marchi": [
+      "Eridania",
+      "Italia Zuccheri"
     ]
   },
   {
@@ -3458,6 +4167,10 @@
     "alias": [
       "zucchero velo",
       "zucchero per dolci"
+    ],
+    "marchi": [
+      "Paneangeli",
+      "Eridania"
     ]
   },
   {
@@ -3478,6 +4191,12 @@
       "sucralosio",
       "zucchero senza calorie",
       "dolcificante in compresse"
+    ],
+    "marchi": [
+      "Dietor",
+      "Hermesetas",
+      "Truvia",
+      "Tic"
     ]
   },
   {
@@ -3496,6 +4215,9 @@
       "sciroppo acero",
       "maple syrup",
       "sciroppo per pancake"
+    ],
+    "marchi": [
+      "Maple Joe"
     ]
   },
   {
@@ -3533,6 +4255,9 @@
       "scaglie di cioccolato",
       "cioccolato per dolci",
       "cioccolato da copertura"
+    ],
+    "marchi": [
+      "Paneangeli"
     ]
   },
   {
@@ -3559,6 +4284,9 @@
       "gelatina",
       "fogli di gelatina",
       "addensante dolci"
+    ],
+    "marchi": [
+      "Paneangeli"
     ]
   },
   {
@@ -3585,6 +4313,10 @@
       "sfoglia",
       "rotolo di sfoglia",
       "pasta sfoglia pronta"
+    ],
+    "marchi": [
+      "Stuffer",
+      "Buitoni"
     ]
   },
   {
@@ -3612,6 +4344,10 @@
       "brisee",
       "pasta per torte salate",
       "rotolo brisè"
+    ],
+    "marchi": [
+      "Stuffer",
+      "Buitoni"
     ]
   },
   {
@@ -3642,6 +4378,10 @@
       "rotolo frolla",
       "pasta frolla pronta",
       "base per crostata"
+    ],
+    "marchi": [
+      "Stuffer",
+      "Buitoni"
     ]
   },
   {
@@ -3670,6 +4410,10 @@
       "impasto pizza",
       "rotolo pizza",
       "pasta lievitata"
+    ],
+    "marchi": [
+      "Stuffer",
+      "Buitoni"
     ]
   },
   {
@@ -3717,6 +4461,25 @@
       "linguine",
       "pasta corta",
       "pasta lunga"
+    ],
+    "marchi": [
+      "Barilla",
+      "De Cecco",
+      "Garofalo",
+      "Rummo",
+      "Voiello",
+      "La Molisana",
+      "Divella",
+      "Granoro",
+      "Agnesi",
+      "Felicetti",
+      "Di Martino",
+      "Liguori",
+      "Del Verde",
+      "Delverde",
+      "Pasta Zara",
+      "Alce Nero",
+      "Buitoni"
     ]
   },
   {
@@ -3743,6 +4506,15 @@
       "paglia e fieno",
       "pasta all'uovo",
       "nidi all'uovo"
+    ],
+    "marchi": [
+      "Barilla",
+      "Emiliane",
+      "De Cecco",
+      "La Molisana",
+      "Divella",
+      "Granoro",
+      "Spinosi"
     ]
   },
   {
@@ -3765,6 +4537,10 @@
       "pasta fresca",
       "tagliatelle fresche",
       "orecchiette fresche"
+    ],
+    "marchi": [
+      "Giovanni Rana",
+      "Rana"
     ]
   },
   {
@@ -3788,6 +4564,13 @@
       "lasagne all'uovo",
       "pasta per lasagne",
       "lasagne"
+    ],
+    "marchi": [
+      "Barilla",
+      "Emiliane",
+      "De Cecco",
+      "Rummo",
+      "La Molisana"
     ]
   },
   {
@@ -3815,6 +4598,13 @@
       "cappelletti",
       "tortellini freschi",
       "pasta ripiena"
+    ],
+    "marchi": [
+      "Barilla",
+      "Giovanni Rana",
+      "Rana",
+      "Fini",
+      "Bertagni"
     ]
   },
   {
@@ -3842,6 +4632,11 @@
       "tortelloni",
       "ravioli di magro",
       "agnolotti"
+    ],
+    "marchi": [
+      "Giovanni Rana",
+      "Rana",
+      "Bertagni"
     ]
   },
   {
@@ -3862,6 +4657,19 @@
       "pasta gluten free",
       "pasta di mais e riso",
       "pasta per celiaci"
+    ],
+    "marchi": [
+      "Barilla",
+      "De Cecco",
+      "Garofalo",
+      "Rummo",
+      "La Molisana",
+      "Felicia",
+      "Schär",
+      "Schar",
+      "Le Asolane",
+      "Biaglut",
+      "Nutrifree"
     ]
   },
   {
@@ -3889,6 +4697,13 @@
       "spaghetti cinesi",
       "noodles in busta",
       "noodles all'uovo"
+    ],
+    "marchi": [
+      "Saikebon",
+      "Nissin",
+      "Samyang",
+      "Indomie",
+      "Maggi"
     ]
   },
   {
@@ -3911,6 +4726,16 @@
       "riso profumato",
       "riso thai",
       "riso jasmine"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Gallo",
+      "Riso Gallo",
+      "Curtiriso",
+      "Ben's Original",
+      "Uncle Ben's",
+      "Tilda"
     ]
   },
   {
@@ -3930,6 +4755,13 @@
     "alias": [
       "riso grezzo",
       "riso semintegrale"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Gallo",
+      "Riso Gallo",
+      "Curtiriso"
     ]
   },
   {
@@ -3953,6 +4785,14 @@
       "vialone nano",
       "riso risotto",
       "riso arborio"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Gallo",
+      "Riso Gallo",
+      "Curtiriso",
+      "Acquerello"
     ]
   },
   {
@@ -3973,6 +4813,12 @@
       "riso nero",
       "riso integrale nero",
       "riso rosso"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Gallo",
+      "Riso Gallo"
     ]
   },
   {
@@ -3994,6 +4840,9 @@
       "grano spezzato",
       "tabulè",
       "bulghur"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -4131,6 +4980,13 @@
       "pane bauletto",
       "pane per tramezzini",
       "pan carre"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Pan Bauletto",
+      "Harrys",
+      "Harry's",
+      "Morato"
     ]
   },
   {
@@ -4159,6 +5015,11 @@
       "panini burger",
       "panini al latte",
       "panini per hot dog"
+    ],
+    "marchi": [
+      "Harrys",
+      "Harry's",
+      "Morato"
     ]
   },
   {
@@ -4183,6 +5044,10 @@
       "pane al latte",
       "brioche a fette",
       "pan bauletto dolce"
+    ],
+    "marchi": [
+      "Harrys",
+      "Harry's"
     ]
   },
   {
@@ -4250,6 +5115,11 @@
     "alias": [
       "pane gluten free",
       "pane per celiaci"
+    ],
+    "marchi": [
+      "Schär",
+      "Schar",
+      "Nutrifree"
     ]
   },
   {
@@ -4318,6 +5188,19 @@
       "crackers salati",
       "crackers integrali",
       "cracker non salati"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Valledoro",
+      "Misura",
+      "Wasa",
+      "Pavesi",
+      "Gran Pavesi",
+      "Crich",
+      "Saiwa",
+      "Ritz",
+      "Tuc",
+      "Galbusera"
     ]
   },
   {
@@ -4344,6 +5227,13 @@
       "grissini torinesi",
       "grissini stirati",
       "grissini integrali"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Roberto",
+      "Grissin Bon",
+      "Valledoro",
+      "Pavesi"
     ]
   },
   {
@@ -4365,6 +5255,9 @@
       "tarallini",
       "taralli pugliesi",
       "taralli all'olio"
+    ],
+    "marchi": [
+      "Tarall'oro"
     ]
   },
   {
@@ -4385,6 +5278,10 @@
       "tortilla chips",
       "chips di mais",
       "tortillas chips"
+    ],
+    "marchi": [
+      "Old El Paso",
+      "Doritos"
     ]
   },
   {
@@ -4407,6 +5304,11 @@
       "fiocchi di mais",
       "cereali",
       "cereali colazione"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "Frosties"
     ]
   },
   {
@@ -4430,6 +5332,10 @@
       "cereali con frutta secca",
       "cereali colazione",
       "muesli con frutta"
+    ],
+    "marchi": [
+      "Jordans",
+      "Vitalis"
     ]
   },
   {
@@ -4452,6 +5358,12 @@
       "cereali croccanti",
       "crunchy",
       "muesli croccante"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "Jordans",
+      "Vitalis"
     ]
   },
   {
@@ -4474,6 +5386,17 @@
       "cereali per bambini",
       "choco",
       "palline di cereali al cioccolato"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "Coco Pops",
+      "Chocapic",
+      "Lion",
+      "Krave",
+      "Nestlé",
+      "Nestle",
+      "Nesquik"
     ]
   },
   {
@@ -4493,6 +5416,11 @@
     "alias": [
       "cereali di riso",
       "riso croccante"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "Rice Krispies"
     ]
   },
   {
@@ -4516,6 +5444,12 @@
       "fiocchi di crusca",
       "cereali fibra",
       "fiocchi di frumento"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "All-Bran",
+      "All Bran"
     ]
   },
   {
@@ -4538,6 +5472,14 @@
       "biscotti da colazione",
       "biscotti semplici",
       "biscotti per bambini"
+    ],
+    "marchi": [
+      "Plasmon",
+      "Mulino Bianco",
+      "Saiwa",
+      "Oro Saiwa",
+      "Pavesini",
+      "Colussi"
     ]
   },
   {
@@ -4564,6 +5506,21 @@
       "macine",
       "biscotti colazione",
       "pastefrolle"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Macine",
+      "Abbracci",
+      "Baiocchi",
+      "Tarallucci",
+      "Galletti",
+      "Campagnole",
+      "Rigoli",
+      "Molinetti",
+      "Gran Turchese",
+      "Colussi",
+      "Balocco",
+      "Doria"
     ]
   },
   {
@@ -4586,6 +5543,14 @@
       "biscotti ai cereali",
       "biscotti con fibre",
       "biscotti avena"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Misura",
+      "Galbusera",
+      "Grancereale",
+      "Digestive",
+      "McVitie's"
     ]
   },
   {
@@ -4611,6 +5576,17 @@
       "cookies",
       "biscotti cioccolato",
       "biscotti ripieni"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Pavesi",
+      "Pan di Stelle",
+      "Gocciole",
+      "Batticuori",
+      "Ringo",
+      "Togo",
+      "Oreo",
+      "Nutella Biscuits"
     ]
   },
   {
@@ -4632,6 +5608,11 @@
     "alias": [
       "biscotti per tiramisù",
       "lady fingers"
+    ],
+    "marchi": [
+      "Vicenzi",
+      "Vicenzovo",
+      "Forno Bonomi"
     ]
   },
   {
@@ -4655,6 +5636,16 @@
       "marmellata di fragole",
       "marmellata di arance",
       "composta di frutta"
+    ],
+    "marchi": [
+      "Rigoni di Asiago",
+      "Fiordifrutta",
+      "Zuegg",
+      "Hero",
+      "Santa Rosa",
+      "Bonne Maman",
+      "Vis",
+      "Menz&Gasser"
     ]
   },
   {
@@ -4679,6 +5670,15 @@
       "crema gianduia",
       "cioccolata spalmabile",
       "crema nocciole"
+    ],
+    "marchi": [
+      "Pan di Stelle",
+      "Ferrero",
+      "Nutella",
+      "Novi",
+      "Nocciolata",
+      "Rigoni di Asiago",
+      "Nutkao"
     ]
   },
   {
@@ -4701,6 +5701,10 @@
       "crema pistacchio",
       "crema al pistacchio",
       "pistacchio spalmabile"
+    ],
+    "marchi": [
+      "Pistì",
+      "Pisti"
     ]
   },
   {
@@ -4743,6 +5747,14 @@
       "latte fresco",
       "latte a lunga conservazione",
       "latte uht"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Parmalat",
+      "Mila",
+      "Sterilgarda",
+      "Latte Sole",
+      "Arborea"
     ]
   },
   {
@@ -4763,6 +5775,11 @@
     "alias": [
       "latte magro",
       "latte zero grassi"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Parmalat",
+      "Sterilgarda"
     ]
   },
   {
@@ -4783,6 +5800,14 @@
       "latte delattosato",
       "latte ad alta digeribilità",
       "latte per intolleranti"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Accadì",
+      "Accadi",
+      "Parmalat",
+      "Zymil",
+      "Mila"
     ]
   },
   {
@@ -4806,6 +5831,12 @@
       "bevanda vegetale",
       "latte vegetale",
       "bevanda avena"
+    ],
+    "marchi": [
+      "Alpro",
+      "Oatly",
+      "Valsoia",
+      "Isola Bio"
     ]
   },
   {
@@ -4827,6 +5858,13 @@
       "bevanda vegetale",
       "latte vegetale",
       "bevanda mandorla"
+    ],
+    "marchi": [
+      "Alpro",
+      "Valsoia",
+      "Isola Bio",
+      "Almond Breeze",
+      "Blue Diamond"
     ]
   },
   {
@@ -4848,6 +5886,13 @@
       "bevanda vegetale",
       "latte vegetale",
       "bevanda riso"
+    ],
+    "marchi": [
+      "Scotti",
+      "Riso Scotti",
+      "Alpro",
+      "Valsoia",
+      "Isola Bio"
     ]
   },
   {
@@ -4866,6 +5911,10 @@
       "latte di cocco da bere",
       "bevanda vegetale cocco",
       "latte vegetale"
+    ],
+    "marchi": [
+      "Alpro",
+      "Isola Bio"
     ]
   },
   {
@@ -4883,6 +5932,11 @@
     "alias": [
       "caffè istantaneo",
       "caffè in polvere"
+    ],
+    "marchi": [
+      "Lavazza",
+      "Nescafé",
+      "Nescafe"
     ]
   },
   {
@@ -4907,6 +5961,23 @@
       "cialde caffè",
       "caffè in cialde",
       "capsule espresso"
+    ],
+    "marchi": [
+      "Lavazza",
+      "Illy",
+      "Kimbo",
+      "Segafredo",
+      "Caffè Borbone",
+      "Borbone",
+      "Pellini",
+      "Vergnano",
+      "Nespresso",
+      "Dolce Gusto",
+      "Nescafé",
+      "Nescafe",
+      "Toraldo",
+      "Gimoka",
+      "Starbucks"
     ]
   },
   {
@@ -4926,6 +5997,12 @@
       "decaffeinato",
       "caffè deca",
       "caffè senza caffeina"
+    ],
+    "marchi": [
+      "Lavazza",
+      "Illy",
+      "Hag",
+      "Caffè Hag"
     ]
   },
   {
@@ -4948,6 +6025,11 @@
       "orzo in polvere",
       "bevanda d'orzo",
       "orzo in tazza"
+    ],
+    "marchi": [
+      "Orzo Bimbo",
+      "Crastan",
+      "Orzoro"
     ]
   },
   {
@@ -4975,6 +6057,15 @@
       "the in bustine",
       "tè verde",
       "tè earl grey"
+    ],
+    "marchi": [
+      "Twinings",
+      "Lipton",
+      "Pompadour",
+      "Tetley",
+      "Sir Winston",
+      "Ahmad Tea",
+      "Clipper"
     ]
   },
   {
@@ -5002,6 +6093,14 @@
       "tisana al finocchio",
       "tisana zenzero e limone",
       "infuso di frutta"
+    ],
+    "marchi": [
+      "Twinings",
+      "Pompadour",
+      "Bonomelli",
+      "Sogni d'Oro",
+      "Yogi Tea",
+      "Infrè"
     ]
   },
   {
@@ -5021,6 +6120,10 @@
       "cioccolata in tazza",
       "cacao zuccherato",
       "cioccolata densa"
+    ],
+    "marchi": [
+      "Perugina",
+      "Ciobar"
     ]
   },
   {
@@ -5048,6 +6151,19 @@
       "yogurt naturale",
       "yogurt intero",
       "yogurt bianco"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Mila",
+      "Vipiteno",
+      "Latte Vipiteno",
+      "Müller",
+      "Muller",
+      "Danone",
+      "Activia",
+      "Yomo",
+      "Kyr",
+      "Fattoria Scaldasole"
     ]
   },
   {
@@ -5075,6 +6191,10 @@
       "yogurt zero grassi",
       "yogurt scremato",
       "yogurt 0%"
+    ],
+    "marchi": [
+      "Yomo",
+      "Kyr"
     ]
   },
   {
@@ -5102,6 +6222,15 @@
       "greco intero",
       "yogurt colato",
       "yogurt greco 5%"
+    ],
+    "marchi": [
+      "Müller",
+      "Muller",
+      "Yomo",
+      "Fage",
+      "Fage Total",
+      "Oikos",
+      "Kri Kri"
     ]
   },
   {
@@ -5131,6 +6260,18 @@
       "yogurt alla pesca",
       "yogurt cremoso",
       "yogurt al cocco"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Vipiteno",
+      "Latte Vipiteno",
+      "Müller",
+      "Muller",
+      "Danone",
+      "Activia",
+      "Yomo",
+      "Kyr",
+      "Fattoria Scaldasole"
     ]
   },
   {
@@ -5156,6 +6297,11 @@
       "yogurt delattosato",
       "yogurt zero lattosio",
       "yogurt bianco senza lattosio"
+    ],
+    "marchi": [
+      "Accadì",
+      "Accadi",
+      "Zymil"
     ]
   },
   {
@@ -5182,6 +6328,13 @@
       "drink yogurt",
       "latte fermentato da bere",
       "fermentato probiotico"
+    ],
+    "marchi": [
+      "Danone",
+      "Activia",
+      "Actimel",
+      "Danacol",
+      "Yakult"
     ]
   },
   {
@@ -5229,6 +6382,10 @@
       "yogurt islandese",
       "yogurt proteico",
       "yogurt alto contenuto proteico"
+    ],
+    "marchi": [
+      "Arla",
+      "Isey Skyr"
     ]
   },
   {
@@ -5255,6 +6412,11 @@
       "dessert proteico",
       "pudding proteico",
       "crema proteica"
+    ],
+    "marchi": [
+      "Danone",
+      "HiPRO",
+      "Ehrmann"
     ]
   },
   {
@@ -5282,6 +6444,12 @@
       "budino alla vaniglia",
       "dessert al cucchiaio",
       "crème caramel"
+    ],
+    "marchi": [
+      "Cameo",
+      "Danone",
+      "Danette",
+      "Elah"
     ]
   },
   {
@@ -5304,6 +6472,12 @@
       "panna per cucinare",
       "panna uht",
       "panna chef"
+    ],
+    "marchi": [
+      "Chef Parmalat",
+      "Granarolo",
+      "Parmalat",
+      "Sterilgarda"
     ]
   },
   {
@@ -5327,6 +6501,12 @@
       "panna per dolci",
       "panna da montare",
       "panna spray"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Parmalat",
+      "Mila",
+      "Sterilgarda"
     ]
   },
   {
@@ -5349,6 +6529,12 @@
       "panna vegana",
       "panna vegetale",
       "panna senza lattosio"
+    ],
+    "marchi": [
+      "Hoplà",
+      "Hopla",
+      "Alpro",
+      "Oatly"
     ]
   },
   {
@@ -5369,6 +6555,9 @@
     "alias": [
       "crema di mascarpone",
       "formaggio per tiramisù"
+    ],
+    "marchi": [
+      "Galbani"
     ]
   },
   {
@@ -5390,6 +6579,13 @@
       "crescenza",
       "formaggio morbido",
       "squacquerone"
+    ],
+    "marchi": [
+      "Granarolo",
+      "Galbani",
+      "Certosa",
+      "Invernizzina",
+      "Nonno Nanni"
     ]
   },
   {
@@ -5414,6 +6610,11 @@
       "formaggio cremoso",
       "spalmabile light",
       "formaggio da spalmare"
+    ],
+    "marchi": [
+      "Nonno Nanni",
+      "Philadelphia",
+      "Exquisa"
     ]
   },
   {
@@ -5487,6 +6688,11 @@
       "provolone dolce",
       "provolone piccante",
       "provolone valpadana"
+    ],
+    "marchi": [
+      "Latteria Soresina",
+      "Soresina",
+      "Auricchio"
     ]
   },
   {
@@ -5625,6 +6831,10 @@
     "alias": [
       "camembert",
       "formaggio crosta fiorita"
+    ],
+    "marchi": [
+      "Président",
+      "President"
     ]
   },
   {
@@ -5646,6 +6856,11 @@
       "gorgonzola piccante",
       "erborinato",
       "formaggio blu"
+    ],
+    "marchi": [
+      "Igor",
+      "Arrigoni",
+      "Mauri"
     ]
   },
   {
@@ -5665,6 +6880,11 @@
     "alias": [
       "formaggio molle",
       "quartirolo"
+    ],
+    "marchi": [
+      "Arrigoni",
+      "Mauri",
+      "Valtaleggio"
     ]
   },
   {
@@ -5686,6 +6906,12 @@
       "pecorino sardo",
       "pecorino grattugiato",
       "pecorino toscano"
+    ],
+    "marchi": [
+      "Locatelli",
+      "Brunelli",
+      "Fulvi",
+      "Pinna"
     ]
   },
   {
@@ -5706,6 +6932,12 @@
       "grana",
       "formaggio stagionato",
       "grana a scaglie"
+    ],
+    "marchi": [
+      "Latteria Soresina",
+      "Soresina",
+      "Zanetti",
+      "Ambrosi"
     ]
   },
   {
@@ -5726,6 +6958,11 @@
       "grattugiato",
       "grana grattugiato",
       "formaggio in busta"
+    ],
+    "marchi": [
+      "Parmareggio",
+      "Zanetti",
+      "Biraghi"
     ]
   },
   {
@@ -5770,6 +7007,9 @@
     "alias": [
       "stracciatella",
       "burratina"
+    ],
+    "marchi": [
+      "Sabelli"
     ]
   },
   {
@@ -5795,6 +7035,10 @@
     "alias": [
       "mozzarella magra",
       "mozzarella leggera"
+    ],
+    "marchi": [
+      "Galbani",
+      "Santa Lucia"
     ]
   },
   {
@@ -5821,6 +7065,11 @@
       "bufala",
       "mozzarella di bufala campana",
       "bocconcini di bufala"
+    ],
+    "marchi": [
+      "Mandara",
+      "Rivabianca",
+      "Fattorie Garofalo"
     ]
   },
   {
@@ -5842,6 +7091,10 @@
       "filone di mozzarella",
       "julienne di mozzarella",
       "mozzarella a cubetti"
+    ],
+    "marchi": [
+      "Galbani",
+      "Brimi"
     ]
   },
   {
@@ -5866,6 +7119,12 @@
     "alias": [
       "mozzarella delattosata",
       "mozzarella zero lattosio"
+    ],
+    "marchi": [
+      "Accadì",
+      "Accadi",
+      "Galbani",
+      "Santa Lucia"
     ]
   },
   {
@@ -5891,6 +7150,10 @@
     "alias": [
       "formaggio fuso",
       "formaggini per bambini"
+    ],
+    "marchi": [
+      "Mio",
+      "Tigre"
     ]
   },
   {
@@ -5917,6 +7180,11 @@
       "fette di formaggio",
       "formaggio per toast",
       "fettine di formaggio"
+    ],
+    "marchi": [
+      "Sottilette",
+      "Kraft",
+      "Hochland"
     ]
   },
   {
@@ -5939,6 +7207,14 @@
       "latte per bambini",
       "latte 2",
       "latte 3"
+    ],
+    "marchi": [
+      "Mellin",
+      "Plasmon",
+      "Hipp",
+      "Humana",
+      "Nidina",
+      "Aptamil"
     ]
   },
   {
@@ -5966,6 +7242,11 @@
       "fusi di pollo",
       "pollo cosce",
       "fusi"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -5991,6 +7272,11 @@
       "sovracoscia",
       "sovracosce disossate",
       "pollo sovracosce"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -6017,6 +7303,11 @@
       "ali",
       "chicken wings",
       "alette"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -6044,6 +7335,11 @@
       "galletto",
       "pollo a pezzi",
       "pollo busto"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -6095,6 +7391,11 @@
       "pollo impanato",
       "cotoletta alla milanese",
       "petto di pollo impanato"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -6119,6 +7420,10 @@
       "pollo fritto",
       "bocconcini impanati",
       "chicken nuggets"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori"
     ]
   },
   {
@@ -6148,6 +7453,10 @@
     "alias": [
       "cotoletta ripiena",
       "cotoletta con prosciutto e formaggio"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori"
     ]
   },
   {
@@ -6174,6 +7483,11 @@
       "burger di pollo",
       "hamburger di tacchino",
       "burger di tacchino"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Fileni"
     ]
   },
   {
@@ -6198,6 +7512,11 @@
       "petto di tacchino a fette",
       "affettato di tacchino",
       "pollo arrosto affettato"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Rovagnati"
     ]
   },
   {
@@ -6605,6 +7924,9 @@
       "spiedini",
       "spiedini misti",
       "arrosticini"
+    ],
+    "marchi": [
+      "Amadori"
     ]
   },
   {
@@ -6634,6 +7956,14 @@
       "frankfurter",
       "salsicce wurstel",
       "wurstel di suino"
+    ],
+    "marchi": [
+      "Aia",
+      "Amadori",
+      "Wudy",
+      "Wüber",
+      "Wuber",
+      "Senfter"
     ]
   },
   {
@@ -6683,6 +8013,11 @@
       "carne in gelatina",
       "carne bovina in scatola",
       "scatoletta di carne"
+    ],
+    "marchi": [
+      "Simmenthal",
+      "Manzotin",
+      "Montana"
     ]
   },
   {
@@ -6704,6 +8039,10 @@
     "alias": [
       "zampone",
       "cotechino precotto"
+    ],
+    "marchi": [
+      "Fini",
+      "Montorsi"
     ]
   },
   {
@@ -6728,6 +8067,15 @@
       "san daniele",
       "prosciutto crudo affettato",
       "prosciutto toscano"
+    ],
+    "marchi": [
+      "Rovagnati",
+      "Fiorucci",
+      "Beretta",
+      "Citterio",
+      "Negroni",
+      "Parmacotto",
+      "Ferrarini"
     ]
   },
   {
@@ -6749,6 +8097,13 @@
     "alias": [
       "speck alto adige",
       "prosciutto affumicato"
+    ],
+    "marchi": [
+      "Senfter",
+      "Recla",
+      "Moser",
+      "Beretta",
+      "Citterio"
     ]
   },
   {
@@ -6775,6 +8130,17 @@
       "cacciatorini",
       "soppressata",
       "felino"
+    ],
+    "marchi": [
+      "Rovagnati",
+      "Fiorucci",
+      "Beretta",
+      "Citterio",
+      "Negroni",
+      "Golfera",
+      "Levoni",
+      "Villani",
+      "Casa Modena"
     ]
   },
   {
@@ -6796,6 +8162,15 @@
     "alias": [
       "mortadella bologna",
       "mortazza"
+    ],
+    "marchi": [
+      "Fiorucci",
+      "Beretta",
+      "Villani",
+      "Alcisa",
+      "Felsineo",
+      "Casa Modena",
+      "Montorsi"
     ]
   },
   {
@@ -6822,6 +8197,11 @@
       "bacon",
       "pancetta tesa",
       "pancetta arrotolata"
+    ],
+    "marchi": [
+      "Fiorucci",
+      "Citterio",
+      "Casa Modena"
     ]
   },
   {
@@ -6864,6 +8244,10 @@
     "alias": [
       "capocollo",
       "coppa piacentina"
+    ],
+    "marchi": [
+      "Fiorucci",
+      "Citterio"
     ]
   },
   {
@@ -6953,6 +8337,9 @@
       "sogliola",
       "filetti di platessa surgelati",
       "pesce bianco"
+    ],
+    "marchi": [
+      "Findus"
     ]
   },
   {
@@ -7201,6 +8588,16 @@
       "scatolette di tonno",
       "tonno all'olio d'oliva",
       "tonno in vasetto"
+    ],
+    "marchi": [
+      "Rio Mare",
+      "Nostromo",
+      "Mareblu",
+      "Callipo",
+      "As do Mar",
+      "Palmera",
+      "Consorcio",
+      "Angelo Parodi"
     ]
   },
   {
@@ -7222,6 +8619,13 @@
       "filetti di alici",
       "pasta d'acciughe",
       "acciughe"
+    ],
+    "marchi": [
+      "Angelo Parodi",
+      "Delicius",
+      "Rizzoli",
+      "Recca",
+      "Zarotti"
     ]
   },
   {
@@ -7306,6 +8710,9 @@
       "totani",
       "calamaretti",
       "calamari surgelati"
+    ],
+    "marchi": [
+      "Pescanova"
     ]
   },
   {
@@ -7369,6 +8776,9 @@
       "scampi",
       "code di gambero",
       "gamberi argentini"
+    ],
+    "marchi": [
+      "Pescanova"
     ]
   },
   {
@@ -7411,6 +8821,9 @@
       "misto scoglio",
       "preparato pescatora",
       "frutti di mare surgelati"
+    ],
+    "marchi": [
+      "Pescanova"
     ]
   },
   {
@@ -7459,6 +8872,10 @@
       "pesce impanato",
       "fish sticks",
       "filetti impanati"
+    ],
+    "marchi": [
+      "Findus",
+      "Capitan Findus"
     ]
   },
   {
@@ -7481,6 +8898,10 @@
       "bastoncini di granchio",
       "polpa di granchio",
       "surimi stick"
+    ],
+    "marchi": [
+      "Coraya",
+      "Fleury Michon"
     ]
   },
   {
@@ -7501,6 +8922,9 @@
       "lenticchie di castelluccio",
       "lenticchie piccole",
       "lenticchie crude"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -7522,6 +8946,9 @@
       "lenticchie decorticate",
       "dal",
       "lenticchie rosse secche"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -7541,6 +8968,9 @@
     "alias": [
       "ceci da ammollare",
       "ceci crudi"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -7562,6 +8992,9 @@
       "cannellini secchi",
       "fagioli neri secchi",
       "fagioli da ammollare"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -7703,6 +9136,9 @@
     "alias": [
       "polpette di ceci",
       "crocchette di ceci"
+    ],
+    "marchi": [
+      "Kioene"
     ]
   },
   {
@@ -7744,6 +9180,9 @@
       "glutine di frumento",
       "bistecca vegetale",
       "carne vegetale"
+    ],
+    "marchi": [
+      "Biolab"
     ]
   },
   {
@@ -7772,6 +9211,13 @@
       "burger di legumi",
       "veggie burger",
       "polpette vegetali"
+    ],
+    "marchi": [
+      "Valsoia",
+      "Biolab",
+      "Kioene",
+      "Beyond Meat",
+      "Garden Gourmet"
     ]
   },
   {
@@ -7818,6 +9264,10 @@
       "proteine di pisello",
       "proteine di riso",
       "proteine in polvere vegane"
+    ],
+    "marchi": [
+      "Myprotein",
+      "Foodspring"
     ]
   },
   {
@@ -7863,6 +9313,9 @@
       "alga nori",
       "fogli per sushi",
       "alghe per sushi"
+    ],
+    "marchi": [
+      "Saitaku"
     ]
   },
   {
@@ -8602,6 +10055,9 @@
       "julienne di verdure",
       "verdure saltate",
       "wok di verdure"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -8624,6 +10080,9 @@
       "battuto",
       "odori",
       "preparato per soffritto"
+    ],
+    "marchi": [
+      "Orogel"
     ]
   },
   {
@@ -8746,6 +10205,9 @@
       "arance tarocco",
       "arance navel",
       "arance rosse"
+    ],
+    "marchi": [
+      "Oranfrizer"
     ]
   },
   {
@@ -8840,6 +10302,9 @@
     "alias": [
       "kiwi gold",
       "actinidia"
+    ],
+    "marchi": [
+      "Zespri"
     ]
   },
   {
@@ -8859,6 +10324,10 @@
     "alias": [
       "fragoline",
       "fragola"
+    ],
+    "marchi": [
+      "Sant'Orsola",
+      "Driscoll's"
     ]
   },
   {
@@ -8879,6 +10348,10 @@
       "mirtilli freschi",
       "blueberry",
       "frutti di bosco freschi"
+    ],
+    "marchi": [
+      "Sant'Orsola",
+      "Driscoll's"
     ]
   },
   {
@@ -8900,6 +10373,10 @@
       "ribes",
       "frutti rossi",
       "lamponi freschi"
+    ],
+    "marchi": [
+      "Sant'Orsola",
+      "Driscoll's"
     ]
   },
   {
@@ -9087,6 +10564,11 @@
     "alias": [
       "ananas fresco",
       "ananas a fette"
+    ],
+    "marchi": [
+      "Del Monte",
+      "Chiquita",
+      "Dole"
     ]
   },
   {
@@ -9220,6 +10702,10 @@
       "ananas sciroppato",
       "macedonia sciroppata",
       "frutta in scatola"
+    ],
+    "marchi": [
+      "Valfrutta",
+      "Del Monte"
     ]
   },
   {
@@ -9247,6 +10733,11 @@
       "frutta frullata",
       "omogeneizzati frutta",
       "purea di frutta"
+    ],
+    "marchi": [
+      "Mellin",
+      "Plasmon",
+      "Hipp"
     ]
   },
   {
@@ -9268,6 +10759,10 @@
       "mandorle sgusciate",
       "mandorle tostate",
       "mandorle a lamelle"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura"
     ]
   },
   {
@@ -9288,6 +10783,9 @@
       "nocciole tostate",
       "nocciole sgusciate",
       "granella di nocciole"
+    ],
+    "marchi": [
+      "Ventura"
     ]
   },
   {
@@ -9308,6 +10806,9 @@
       "pistacchi salati",
       "pistacchi sgusciati",
       "granella di pistacchio"
+    ],
+    "marchi": [
+      "Ventura"
     ]
   },
   {
@@ -9327,6 +10828,10 @@
     "alias": [
       "anacardi tostati",
       "cashew"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura"
     ]
   },
   {
@@ -9349,6 +10854,9 @@
       "arachidi salate",
       "noccioline americane",
       "bagigi"
+    ],
+    "marchi": [
+      "Ventura"
     ]
   },
   {
@@ -9371,6 +10879,11 @@
       "misto noci",
       "trail mix",
       "frutta secca"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura",
+      "Euro Company"
     ]
   },
   {
@@ -9470,6 +10983,10 @@
       "uva sultanina",
       "uva passa",
       "uva secca"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura"
     ]
   },
   {
@@ -9490,6 +11007,10 @@
       "datteri secchi",
       "datteri medjool",
       "datteri denocciolati"
+    ],
+    "marchi": [
+      "Noberasco",
+      "Ventura"
     ]
   },
   {
@@ -9509,6 +11030,9 @@
     "alias": [
       "prugne denocciolate",
       "prugne essiccate"
+    ],
+    "marchi": [
+      "Noberasco"
     ]
   },
   {
@@ -9529,6 +11053,9 @@
       "albicocche disidratate",
       "albicocche essiccate",
       "albicocche secche morbide"
+    ],
+    "marchi": [
+      "Noberasco"
     ]
   },
   {
@@ -9549,6 +11076,9 @@
       "fichi essiccati",
       "fichi secchi pugliesi",
       "fichi dottati"
+    ],
+    "marchi": [
+      "Noberasco"
     ]
   },
   {
@@ -9570,6 +11100,9 @@
       "mirtilli rossi",
       "mirtilli secchi",
       "frutti rossi secchi"
+    ],
+    "marchi": [
+      "Noberasco"
     ]
   },
   {
@@ -9609,6 +11142,11 @@
       "noce moscata macinata",
       "noce moscata intera",
       "moscata"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9627,6 +11165,11 @@
     "alias": [
       "zenzero secco",
       "zenzero macinato"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9645,6 +11188,11 @@
     "alias": [
       "curcuma in polvere",
       "turmeric"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9664,6 +11212,11 @@
       "garofano",
       "chiodi garofano",
       "spezia garofano"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9682,6 +11235,11 @@
     "alias": [
       "pistilli di zafferano",
       "bustine zafferano"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Drogheria e Alimentari",
+      "Tre Cuochi"
     ]
   },
   {
@@ -9703,6 +11261,9 @@
       "spezie indiane",
       "mix di spezie",
       "ras el hanout"
+    ],
+    "marchi": [
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9722,6 +11283,10 @@
       "cardamomo verde",
       "semi di cardamomo",
       "bacche di cardamomo"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9741,6 +11306,11 @@
       "semi di coriandolo",
       "coriandolo macinato",
       "coriandolo secco"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9759,6 +11329,11 @@
     "alias": [
       "timo secco",
       "timo essiccato"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9778,6 +11353,11 @@
       "maggiorana secca",
       "maggiorana essiccata",
       "persa"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9796,6 +11376,11 @@
     "alias": [
       "foglie di alloro",
       "lauro"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9819,6 +11404,11 @@
       "erbe secche",
       "erbe aromatiche",
       "spezie per arrosto"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9840,6 +11430,11 @@
       "aglio granulare",
       "aglio secco",
       "aglio disidratato"
+    ],
+    "marchi": [
+      "Cannamela",
+      "Ducros",
+      "Drogheria e Alimentari"
     ]
   },
   {
@@ -9858,6 +11453,10 @@
     "alias": [
       "sale per pasta",
       "sale marino grosso"
+    ],
+    "marchi": [
+      "Gemma di Mare",
+      "Sosalt"
     ]
   },
   {
@@ -9883,6 +11482,18 @@
       "cioccolato amaro",
       "cioccolato 70%",
       "cioccolato 85%"
+    ],
+    "marchi": [
+      "Novi",
+      "Lindt",
+      "Lindt Excellence",
+      "Perugina",
+      "Ritter Sport",
+      "Venchi",
+      "Caffarel",
+      "Icam",
+      "Vanini",
+      "Domori"
     ]
   },
   {
@@ -9910,6 +11521,19 @@
       "cioccolato bianco",
       "cioccolatini",
       "cioccolato"
+    ],
+    "marchi": [
+      "Kinder",
+      "Ferrero",
+      "Novi",
+      "Lindt",
+      "Perugina",
+      "Milka",
+      "Ritter Sport",
+      "Toblerone",
+      "Venchi",
+      "Caffarel",
+      "Icam"
     ]
   },
   {
@@ -9937,6 +11561,16 @@
       "protein bar",
       "barrette proteine",
       "snack proteico"
+    ],
+    "marchi": [
+      "Myprotein",
+      "Prozis",
+      "Foodspring",
+      "Enervit",
+      "Pro Action",
+      "Grenade",
+      "Barebells",
+      "Quest"
     ]
   },
   {
@@ -9965,6 +11599,13 @@
       "snack ai cereali",
       "barrette alla frutta",
       "barretta energetica"
+    ],
+    "marchi": [
+      "Kellogg's",
+      "Kelloggs",
+      "Nature Valley",
+      "Corny",
+      "Grancereale"
     ]
   },
   {
@@ -9988,6 +11629,19 @@
       "patatine classiche",
       "snack salati",
       "patatine paprika"
+    ],
+    "marchi": [
+      "Pringles",
+      "San Carlo",
+      "Amica Chips",
+      "Pai",
+      "Lay's",
+      "Cipster",
+      "Crik Crok",
+      "Tyrrells",
+      "Dixi",
+      "Fonzies",
+      "Pata"
     ]
   },
   {
@@ -10013,6 +11667,10 @@
       "pop corn",
       "popcorn microonde",
       "mais per popcorn"
+    ],
+    "marchi": [
+      "Pata",
+      "Act II"
     ]
   },
   {
@@ -10036,6 +11694,9 @@
       "stuzzichini",
       "bruschettine",
       "crostini"
+    ],
+    "marchi": [
+      "Tuc"
     ]
   },
   {
@@ -10059,6 +11720,19 @@
       "gelato al cioccolato",
       "vaschetta di gelato",
       "gelato alla vaniglia"
+    ],
+    "marchi": [
+      "Valsoia",
+      "Motta",
+      "Algida",
+      "Magnum",
+      "Sammontana",
+      "Barattolino",
+      "Häagen-Dazs",
+      "Haagen-Dazs",
+      "Ben & Jerry's",
+      "Carte d'Or",
+      "Antica Gelateria del Corso"
     ]
   },
   {
@@ -10088,6 +11762,12 @@
       "gelato su stecco",
       "biscotto gelato",
       "stecco gelato"
+    ],
+    "marchi": [
+      "Algida",
+      "Cornetto",
+      "Cornetto Algida",
+      "Sammontana"
     ]
   },
   {
@@ -10112,6 +11792,10 @@
       "granita",
       "sorbetto",
       "ghiaccioli alla frutta"
+    ],
+    "marchi": [
+      "Algida",
+      "Calippo"
     ]
   },
   {
@@ -10143,6 +11827,23 @@
       "plumcake",
       "tortine",
       "muffin"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Misura",
+      "Kinder",
+      "Kinder Brioss",
+      "Kinder Delice",
+      "Ferrero",
+      "Fiesta",
+      "Buondì",
+      "Buondi",
+      "Motta",
+      "Girella",
+      "Flauti",
+      "Tegolino",
+      "Saccottino",
+      "Balconi"
     ]
   },
   {
@@ -10171,6 +11872,9 @@
       "crostatina albicocca",
       "crostata confezionata",
       "crostata"
+    ],
+    "marchi": [
+      "Mulino Bianco"
     ]
   },
   {
@@ -10203,6 +11907,12 @@
       "brioche confezionate",
       "cornetti alla crema",
       "cornetti surgelati"
+    ],
+    "marchi": [
+      "Mulino Bianco",
+      "Bauli",
+      "7 Days",
+      "7Days"
     ]
   },
   {
@@ -10227,6 +11937,16 @@
       "wafer alla nocciola",
       "wafer al cacao",
       "cialde"
+    ],
+    "marchi": [
+      "Crich",
+      "Saiwa",
+      "Balocco",
+      "Loacker",
+      "Lago",
+      "KitKat",
+      "Kit Kat",
+      "Kinder Bueno"
     ]
   },
   {
@@ -10247,6 +11967,21 @@
       "liquirizia",
       "orsetti gommosi",
       "gelatine"
+    ],
+    "marchi": [
+      "Elah",
+      "Sperlari",
+      "Ambrosoli",
+      "Haribo",
+      "Golia",
+      "Rossana",
+      "Mentos",
+      "Tic Tac",
+      "Halls",
+      "Leone",
+      "Galatine",
+      "Morositas",
+      "Saila"
     ]
   },
   {
@@ -10269,6 +12004,12 @@
       "torroncini",
       "croccante",
       "croccante di mandorle"
+    ],
+    "marchi": [
+      "Sperlari",
+      "Vergani",
+      "Nurzia",
+      "Scaldaferro"
     ]
   },
   {
@@ -10294,6 +12035,17 @@
       "pandoro",
       "colomba",
       "dolce natalizio"
+    ],
+    "marchi": [
+      "Balocco",
+      "Doria",
+      "Motta",
+      "Bauli",
+      "Melegatti",
+      "Tre Marie",
+      "Paluani",
+      "Maina",
+      "Galup"
     ]
   },
   {
@@ -10318,6 +12070,24 @@
       "acqua con le bollicine",
       "acqua minerale frizzante",
       "acqua leggermente frizzante"
+    ],
+    "marchi": [
+      "San Pellegrino",
+      "Sanpellegrino",
+      "Levissima",
+      "Sant'Anna",
+      "Ferrarelle",
+      "Uliveto",
+      "Rocchetta",
+      "San Benedetto",
+      "Lete",
+      "Vera",
+      "Lauretana",
+      "Guizza",
+      "Smeraldina",
+      "Lurisia",
+      "Nepi",
+      "Perrier"
     ]
   },
   {
@@ -10342,6 +12112,13 @@
       "bevanda gassata",
       "bibita gassata",
       "bibite"
+    ],
+    "marchi": [
+      "Coca-Cola",
+      "Coca Cola",
+      "Coca",
+      "Coke",
+      "Pepsi"
     ]
   },
   {
@@ -10367,6 +12144,13 @@
       "bibita senza zucchero",
       "bibita zero",
       "bibite light"
+    ],
+    "marchi": [
+      "Coca-Cola Zero",
+      "Coca Cola Zero",
+      "Coca Zero",
+      "Coke Zero",
+      "Pepsi Max"
     ]
   },
   {
@@ -10395,6 +12179,14 @@
       "gassosa",
       "bibita all'arancia",
       "bibita al limone"
+    ],
+    "marchi": [
+      "San Pellegrino",
+      "Sanpellegrino",
+      "San Benedetto",
+      "Lurisia",
+      "Fanta",
+      "Oransoda"
     ]
   },
   {
@@ -10420,6 +12212,15 @@
       "tè alla pesca",
       "thè freddo",
       "ice tea"
+    ],
+    "marchi": [
+      "Lipton",
+      "Sant'Anna",
+      "Santhè",
+      "San Benedetto",
+      "Estathé",
+      "Estathe",
+      "Fuze Tea"
     ]
   },
   {
@@ -10438,6 +12239,10 @@
       "tonica",
       "mixer",
       "ginger ale"
+    ],
+    "marchi": [
+      "Schweppes",
+      "Fever-Tree"
     ]
   },
   {
@@ -10461,6 +12266,12 @@
       "bevanda energetica",
       "lattina energy",
       "energetico"
+    ],
+    "marchi": [
+      "Red Bull",
+      "Monster",
+      "Burn",
+      "Rockstar"
     ]
   },
   {
@@ -10486,6 +12297,11 @@
       "bevanda sportiva",
       "isotonico",
       "sport drink"
+    ],
+    "marchi": [
+      "Enervit",
+      "Gatorade",
+      "Powerade"
     ]
   },
   {
@@ -10512,6 +12328,11 @@
       "drink proteico",
       "shake proteico",
       "protein drink"
+    ],
+    "marchi": [
+      "Danone",
+      "HiPRO",
+      "Yfood"
     ]
   },
   {
@@ -10532,6 +12353,14 @@
       "succo di arancia",
       "succo arancia 100%",
       "spremuta in bottiglia"
+    ],
+    "marchi": [
+      "Zuegg",
+      "Santal",
+      "Yoga",
+      "Skipper",
+      "Tropicana",
+      "Amita"
     ]
   },
   {
@@ -10562,6 +12391,14 @@
       "succo ace",
       "succo di mela",
       "succo di mirtillo"
+    ],
+    "marchi": [
+      "Zuegg",
+      "Santal",
+      "Yoga",
+      "Skipper",
+      "Derby Blue",
+      "Pago"
     ]
   },
   {
@@ -10583,6 +12420,9 @@
       "spremuta d'arancia",
       "succo fresco",
       "spremuta fresca"
+    ],
+    "marchi": [
+      "Oranfrizer"
     ]
   },
   {
@@ -10603,6 +12443,10 @@
       "frullato",
       "centrifugato",
       "estratto di frutta"
+    ],
+    "marchi": [
+      "DimmidiSì",
+      "Innocent"
     ]
   },
   {
@@ -10632,6 +12476,29 @@
       "birra lager",
       "birra in lattina",
       "birra rossa"
+    ],
+    "marchi": [
+      "Peroni",
+      "Nastro Azzurro",
+      "Birra Moretti",
+      "Moretti",
+      "Heineken",
+      "Menabrea",
+      "Ichnusa",
+      "Dreher",
+      "Forst",
+      "Poretti",
+      "Corona",
+      "Beck's",
+      "Tennent's",
+      "Stella Artois",
+      "Leffe",
+      "Ceres",
+      "Raffo",
+      "Birra Messina",
+      "Pedavena",
+      "Guinness",
+      "Paulaner"
     ]
   },
   {
@@ -10657,6 +12524,14 @@
     "alias": [
       "birra 0.0",
       "birra senza alcol"
+    ],
+    "marchi": [
+      "Heineken 0.0",
+      "Nastro Azzurro 0.0",
+      "Birra Moretti Zero",
+      "Tourtel",
+      "Buckler",
+      "Beck's Blue"
     ]
   },
   {
@@ -10683,6 +12558,19 @@
       "montepulciano",
       "primitivo",
       "nero d'avola"
+    ],
+    "marchi": [
+      "Tavernello",
+      "Ronco",
+      "Zonin",
+      "Cavit",
+      "Mezzacorona",
+      "Antinori",
+      "Ruffino",
+      "Donnafugata",
+      "Banfi",
+      "Frescobaldi",
+      "Masi"
     ]
   },
   {
@@ -10708,6 +12596,17 @@
       "vermentino",
       "falanghina",
       "vino bianco secco"
+    ],
+    "marchi": [
+      "Tavernello",
+      "Ronco",
+      "Zonin",
+      "Cavit",
+      "Mezzacorona",
+      "Antinori",
+      "Ruffino",
+      "Donnafugata",
+      "Santa Margherita"
     ]
   },
   {
@@ -10732,6 +12631,16 @@
       "bollicine",
       "champagne",
       "vino frizzante"
+    ],
+    "marchi": [
+      "Zonin",
+      "Ruffino",
+      "Santa Margherita",
+      "Mionetto",
+      "Valdo",
+      "Bottega",
+      "Carpenè Malvolti",
+      "La Marca"
     ]
   },
   {
@@ -10758,6 +12667,30 @@
       "whisky",
       "liquore",
       "amaro"
+    ],
+    "marchi": [
+      "Smirnoff",
+      "Absolut",
+      "Grey Goose",
+      "Keglevich",
+      "Bacardi",
+      "Havana Club",
+      "Jack Daniel's",
+      "Johnnie Walker",
+      "Ballantine's",
+      "Gordon's",
+      "Bombay Sapphire",
+      "Tanqueray",
+      "Jägermeister",
+      "Jagermeister",
+      "Montenegro",
+      "Averna",
+      "Ramazzotti",
+      "Amaro Lucano",
+      "Disaronno",
+      "Molinari",
+      "Vecchia Romagna",
+      "Nonino"
     ]
   },
   {
@@ -10781,6 +12714,12 @@
       "bitter analcolico",
       "aperitivo",
       "bitter"
+    ],
+    "marchi": [
+      "Crodino",
+      "Sanbittèr",
+      "Sanbitter",
+      "Gingerino"
     ]
   },
   {
@@ -10813,6 +12752,15 @@
       "pizza da forno",
       "pizza",
       "pizza pronta"
+    ],
+    "marchi": [
+      "Cameo",
+      "Buitoni",
+      "Bella Napoli",
+      "Ristorante",
+      "Dr. Oetker",
+      "Catarì",
+      "Italpizza"
     ]
   },
   {
@@ -10836,6 +12784,11 @@
       "patatine al forno",
       "french fries",
       "patate prefritte"
+    ],
+    "marchi": [
+      "McCain",
+      "Aviko",
+      "Pizzoli"
     ]
   },
   {
@@ -10856,6 +12809,10 @@
     "alias": [
       "crocchette",
       "crocchè"
+    ],
+    "marchi": [
+      "McCain",
+      "Aviko"
     ]
   },
   {
@@ -10878,6 +12835,9 @@
       "fiocchi di patate",
       "purè istantaneo",
       "purè pronto"
+    ],
+    "marchi": [
+      "Pfanni"
     ]
   },
   {
@@ -10905,6 +12865,10 @@
       "lasagne surgelate",
       "piatto pronto",
       "lasagne alla bolognese"
+    ],
+    "marchi": [
+      "Giovanni Rana",
+      "Rana"
     ]
   },
   {
@@ -10928,6 +12892,11 @@
       "pasta surgelata",
       "primo piatto pronto",
       "paella surgelata"
+    ],
+    "marchi": [
+      "Findus",
+      "Quattro Salti in Padella",
+      "4 Salti in Padella"
     ]
   },
   {
@@ -10981,6 +12950,10 @@
       "crema di verdure",
       "passato di verdure",
       "zuppa di farro"
+    ],
+    "marchi": [
+      "Knorr",
+      "DimmidiSì"
     ]
   },
   {
@@ -11111,6 +13084,9 @@
       "salsiccia di tacchino",
       "salsiccia bianca",
       "salsicce di pollo"
+    ],
+    "marchi": [
+      "Amadori"
     ]
   },
   {
@@ -11230,6 +13206,10 @@
       "more di rovo",
       "more di gelso",
       "more fresche"
+    ],
+    "marchi": [
+      "Sant'Orsola",
+      "Driscoll's"
     ]
   },
   {
@@ -11254,6 +13234,9 @@
       "mix legumi e cereali",
       "legumi secchi",
       "mix per zuppa"
+    ],
+    "marchi": [
+      "Pedon"
     ]
   },
   {
@@ -11277,6 +13260,9 @@
       "mix per pancake",
       "crêpes",
       "preparato per crêpes"
+    ],
+    "marchi": [
+      "Molino Rossetto"
     ]
   },
   {
@@ -11301,6 +13287,9 @@
     "alias": [
       "cocco drink",
       "bevanda al cocco naturale"
+    ],
+    "marchi": [
+      "Vita Coco"
     ]
   },
   {
@@ -11329,6 +13318,12 @@
       "latte macchiato pronto",
       "caffè in bottiglia",
       "caffè in lattina"
+    ],
+    "marchi": [
+      "Illy",
+      "Starbucks",
+      "Shakissimo",
+      "Emmi Caffè Latte"
     ]
   },
   {
@@ -11355,6 +13350,9 @@
       "latte al cioccolato",
       "cioccolato da bere",
       "bevanda al cacao"
+    ],
+    "marchi": [
+      "Nesquik"
     ]
   },
   {
@@ -11377,6 +13375,9 @@
     "alias": [
       "tè fermentato",
       "bevanda fermentata"
+    ],
+    "marchi": [
+      "Lo Bros"
     ]
   }
 ]
