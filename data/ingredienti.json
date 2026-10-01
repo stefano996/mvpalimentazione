@@ -82,6 +82,11 @@
       "Callipo",
       "As do Mar",
       "Palmera"
+    ],
+    "pasto": [
+      56,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -114,6 +119,11 @@
       "Eurovo",
       "Le Naturelle",
       "Aia"
+    ],
+    "pasto": [
+      50,
+      "uovo",
+      "uova"
     ]
   },
   {
@@ -142,6 +152,11 @@
       "Fage Total",
       "Oikos",
       "Kri Kri"
+    ],
+    "pasto": [
+      170,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -169,6 +184,11 @@
       "Parmareggio",
       "Zanetti",
       "Ambrosi"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -349,6 +369,11 @@
       "pane di segale",
       "pane multicereali",
       "pagnotta integrale"
+    ],
+    "pasto": [
+      50,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -390,6 +415,11 @@
       "Filippo Berio",
       "Zucchi",
       "Sagra"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -420,6 +450,11 @@
       "Dole",
       "Fyffes",
       "Bonita"
+    ],
+    "pasto": [
+      120,
+      "banana",
+      "banane"
     ]
   },
   {
@@ -440,6 +475,11 @@
       "zucchine",
       "zucchine trombetta",
       "zucchine romanesche"
+    ],
+    "pasto": [
+      170,
+      "zucchina",
+      "zucchine"
     ]
   },
   {
@@ -465,6 +505,11 @@
     "marchi": [
       "Findus",
       "Orogel"
+    ],
+    "pasto": [
+      30,
+      "cubetto",
+      "cubetti"
     ]
   },
   {
@@ -513,6 +558,11 @@
     ],
     "marchi": [
       "Pizzoli"
+    ],
+    "pasto": [
+      150,
+      "patata",
+      "patate"
     ]
   },
   {
@@ -582,6 +632,11 @@
       "avocado",
       "avocado hass",
       "guacamole"
+    ],
+    "pasto": [
+      140,
+      "avocado",
+      "avocado"
     ]
   },
   {
@@ -711,6 +766,11 @@
       "Paganoni",
       "Del Zoppo",
       "Mottolini"
+    ],
+    "pasto": [
+      8,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -851,6 +911,11 @@
       "Piadelle",
       "Morato",
       "Loriana"
+    ],
+    "pasto": [
+      110,
+      "piadina",
+      "piadine"
     ]
   },
   {
@@ -878,6 +943,11 @@
       "Whole Earth",
       "Myprotein",
       "Prozis"
+    ],
+    "pasto": [
+      15,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -905,6 +975,11 @@
     "marchi": [
       "Noberasco",
       "Ventura"
+    ],
+    "pasto": [
+      5,
+      "noce",
+      "noci"
     ]
   },
   {
@@ -935,6 +1010,11 @@
       "Santa Lucia",
       "Sabelli",
       "Brimi"
+    ],
+    "pasto": [
+      125,
+      "mozzarella",
+      "mozzarelle"
     ]
   },
   {
@@ -995,6 +1075,11 @@
       "Arborea",
       "Vipiteno",
       "Latte Vipiteno"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -1102,6 +1187,11 @@
       "Scotti",
       "Riso Scotti",
       "Fiorentini"
+    ],
+    "pasto": [
+      8,
+      "galletta",
+      "gallette"
     ]
   },
   {
@@ -1136,6 +1226,11 @@
       "Riso Scotti",
       "Ben's Original",
       "Uncle Ben's"
+    ],
+    "pasto": [
+      250,
+      "busta",
+      "buste"
     ]
   },
   {
@@ -1187,6 +1282,11 @@
       "Fjord",
       "Skandia",
       "Norvelita"
+    ],
+    "pasto": [
+      17,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -1213,6 +1313,11 @@
       "Rio Mare",
       "Nostromo",
       "Mareblu"
+    ],
+    "pasto": [
+      90,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -1271,6 +1376,11 @@
       "Alcisa",
       "Ferrarini",
       "Casa Modena"
+    ],
+    "pasto": [
+      20,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -1295,6 +1405,11 @@
     ],
     "marchi": [
       "Jocca"
+    ],
+    "pasto": [
+      150,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -1392,6 +1507,11 @@
     ],
     "marchi": [
       "Bonduelle"
+    ],
+    "pasto": [
+      130,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -1414,6 +1534,11 @@
       "pachino",
       "ciliegini",
       "pomodorini datterini"
+    ],
+    "pasto": [
+      15,
+      "pomodorino",
+      "pomodorini"
     ]
   },
   {
@@ -1464,6 +1589,11 @@
       "peperoni gialli",
       "peperoni verdi",
       "friggitelli"
+    ],
+    "pasto": [
+      180,
+      "peperone",
+      "peperoni"
     ]
   },
   {
@@ -1484,6 +1614,11 @@
       "carote",
       "carote baby",
       "carote julienne"
+    ],
+    "pasto": [
+      80,
+      "carota",
+      "carote"
     ]
   },
   {
@@ -1549,6 +1684,11 @@
     "alias": [
       "cetriolo",
       "cetrioli"
+    ],
+    "pasto": [
+      200,
+      "cetriolo",
+      "cetrioli"
     ]
   },
   {
@@ -1609,6 +1749,11 @@
       "Val Venosta",
       "Marlene",
       "Pink Lady"
+    ],
+    "pasto": [
+      160,
+      "mela",
+      "mele"
     ]
   },
   {
@@ -1636,6 +1781,11 @@
       "Rigoni di Asiago",
       "Ambrosoli",
       "Mielizia"
+    ],
+    "pasto": [
+      8,
+      "cucchiaino",
+      "cucchiaini"
     ]
   },
   {
@@ -1670,6 +1820,11 @@
       "Mulino Bianco",
       "Misura",
       "Krisprolls"
+    ],
+    "pasto": [
+      10,
+      "fetta biscottata",
+      "fette biscottate"
     ]
   },
   {
@@ -2071,6 +2226,11 @@
       "limoni",
       "limoni non trattati",
       "scorza di limone"
+    ],
+    "pasto": [
+      70,
+      "limone",
+      "limoni"
     ]
   },
   {
@@ -2098,6 +2258,11 @@
       "cipolla rossa",
       "cipolle bianche",
       "cipolla di tropea"
+    ],
+    "pasto": [
+      110,
+      "cipolla",
+      "cipolle"
     ]
   },
   {
@@ -2126,6 +2291,11 @@
       "spicchi d'aglio",
       "testa d'aglio",
       "aglio fresco"
+    ],
+    "pasto": [
+      4,
+      "spicchio d'aglio",
+      "spicchi d'aglio"
     ]
   },
   {
@@ -2158,6 +2328,11 @@
       "Pellini",
       "Vergnano",
       "Splendid"
+    ],
+    "pasto": [
+      7,
+      "tazzina",
+      "tazzine"
     ]
   },
   {
@@ -2204,6 +2379,11 @@
       "Vitasnella",
       "San Bernardo",
       "Pejo"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -2232,6 +2412,11 @@
       "Alpro",
       "Valsoia",
       "Isola Bio"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -2258,6 +2443,11 @@
       "Alpro",
       "Valsoia",
       "Sojasun"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -2350,6 +2540,11 @@
       "melanzane",
       "melanzane tonde",
       "melanzane lunghe"
+    ],
+    "pasto": [
+      270,
+      "melanzana",
+      "melanzane"
     ]
   },
   {
@@ -2430,6 +2625,11 @@
       "Scitec Nutrition",
       "Enervit",
       "Pro Action"
+    ],
+    "pasto": [
+      30,
+      "misurino",
+      "misurini"
     ]
   },
   {
@@ -2466,6 +2666,11 @@
       "Old El Paso",
       "Morato",
       "Mission"
+    ],
+    "pasto": [
+      40,
+      "tortilla",
+      "tortillas"
     ]
   },
   {
@@ -2537,6 +2742,11 @@
     "marchi": [
       "Saclà",
       "Sacla"
+    ],
+    "pasto": [
+      4,
+      "oliva",
+      "olive"
     ]
   },
   {
@@ -2744,6 +2954,11 @@
       "Desantis",
       "Zucchi",
       "Sagra"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -2776,6 +2991,11 @@
     "marchi": [
       "Desantis",
       "Sagra"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -2804,6 +3024,11 @@
       "Cuore",
       "Olio Cuore",
       "Desantis"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -2834,6 +3059,11 @@
     ],
     "marchi": [
       "Zucchi"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -2869,6 +3099,11 @@
       "Farchioni",
       "Costa d'Oro",
       "Filippo Berio"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -4704,6 +4939,11 @@
       "Samyang",
       "Indomie",
       "Maggi"
+    ],
+    "pasto": [
+      85,
+      "confezione",
+      "confezioni"
     ]
   },
   {
@@ -4950,6 +5190,11 @@
       "baguette",
       "rosetta",
       "pane di grano duro"
+    ],
+    "pasto": [
+      50,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -4987,6 +5232,11 @@
       "Harrys",
       "Harry's",
       "Morato"
+    ],
+    "pasto": [
+      25,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -5020,6 +5270,11 @@
       "Harrys",
       "Harry's",
       "Morato"
+    ],
+    "pasto": [
+      75,
+      "panino",
+      "panini"
     ]
   },
   {
@@ -5048,6 +5303,11 @@
     "marchi": [
       "Harrys",
       "Harry's"
+    ],
+    "pasto": [
+      30,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -5096,6 +5356,11 @@
       "pita",
       "pane per kebab",
       "pane greco"
+    ],
+    "pasto": [
+      60,
+      "pita",
+      "pita"
     ]
   },
   {
@@ -5120,6 +5385,11 @@
       "Schär",
       "Schar",
       "Nutrifree"
+    ],
+    "pasto": [
+      30,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -5161,6 +5431,11 @@
     "alias": [
       "frise",
       "freselle"
+    ],
+    "pasto": [
+      40,
+      "frisella",
+      "friselle"
     ]
   },
   {
@@ -5201,6 +5476,11 @@
       "Ritz",
       "Tuc",
       "Galbusera"
+    ],
+    "pasto": [
+      25,
+      "pacchetto",
+      "pacchetti"
     ]
   },
   {
@@ -5234,6 +5514,11 @@
       "Grissin Bon",
       "Valledoro",
       "Pavesi"
+    ],
+    "pasto": [
+      5,
+      "grissino",
+      "grissini"
     ]
   },
   {
@@ -5480,6 +5765,11 @@
       "Oro Saiwa",
       "Pavesini",
       "Colussi"
+    ],
+    "pasto": [
+      6,
+      "biscotto",
+      "biscotti"
     ]
   },
   {
@@ -5521,6 +5811,11 @@
       "Colussi",
       "Balocco",
       "Doria"
+    ],
+    "pasto": [
+      11,
+      "biscotto",
+      "biscotti"
     ]
   },
   {
@@ -5551,6 +5846,11 @@
       "Grancereale",
       "Digestive",
       "McVitie's"
+    ],
+    "pasto": [
+      10,
+      "biscotto",
+      "biscotti"
     ]
   },
   {
@@ -5587,6 +5887,11 @@
       "Togo",
       "Oreo",
       "Nutella Biscuits"
+    ],
+    "pasto": [
+      11,
+      "biscotto",
+      "biscotti"
     ]
   },
   {
@@ -5613,6 +5918,11 @@
       "Vicenzi",
       "Vicenzovo",
       "Forno Bonomi"
+    ],
+    "pasto": [
+      8,
+      "savoiardo",
+      "savoiardi"
     ]
   },
   {
@@ -5755,6 +6065,11 @@
       "Sterilgarda",
       "Latte Sole",
       "Arborea"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5780,6 +6095,11 @@
       "Granarolo",
       "Parmalat",
       "Sterilgarda"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5808,6 +6128,11 @@
       "Parmalat",
       "Zymil",
       "Mila"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5837,6 +6162,11 @@
       "Oatly",
       "Valsoia",
       "Isola Bio"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5865,6 +6195,11 @@
       "Isola Bio",
       "Almond Breeze",
       "Blue Diamond"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5893,6 +6228,11 @@
       "Alpro",
       "Valsoia",
       "Isola Bio"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5915,6 +6255,11 @@
     "marchi": [
       "Alpro",
       "Isola Bio"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -5978,6 +6323,11 @@
       "Toraldo",
       "Gimoka",
       "Starbucks"
+    ],
+    "pasto": [
+      5,
+      "capsula",
+      "capsule"
     ]
   },
   {
@@ -6003,6 +6353,11 @@
       "Illy",
       "Hag",
       "Caffè Hag"
+    ],
+    "pasto": [
+      7,
+      "tazzina",
+      "tazzine"
     ]
   },
   {
@@ -6066,6 +6421,11 @@
       "Sir Winston",
       "Ahmad Tea",
       "Clipper"
+    ],
+    "pasto": [
+      2,
+      "bustina",
+      "bustine"
     ]
   },
   {
@@ -6101,6 +6461,11 @@
       "Sogni d'Oro",
       "Yogi Tea",
       "Infrè"
+    ],
+    "pasto": [
+      2,
+      "bustina",
+      "bustine"
     ]
   },
   {
@@ -6124,6 +6489,11 @@
     "marchi": [
       "Perugina",
       "Ciobar"
+    ],
+    "pasto": [
+      25,
+      "bustina",
+      "bustine"
     ]
   },
   {
@@ -6164,6 +6534,11 @@
       "Yomo",
       "Kyr",
       "Fattoria Scaldasole"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6195,6 +6570,11 @@
     "marchi": [
       "Yomo",
       "Kyr"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6231,6 +6611,11 @@
       "Fage Total",
       "Oikos",
       "Kri Kri"
+    ],
+    "pasto": [
+      170,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6272,6 +6657,11 @@
       "Yomo",
       "Kyr",
       "Fattoria Scaldasole"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6302,6 +6692,11 @@
       "Accadì",
       "Accadi",
       "Zymil"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6335,6 +6730,11 @@
       "Actimel",
       "Danacol",
       "Yakult"
+    ],
+    "pasto": [
+      100,
+      "bottiglietta",
+      "bottigliette"
     ]
   },
   {
@@ -6356,6 +6756,11 @@
       "kefir di latte",
       "latte fermentato",
       "kefir naturale"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -6386,6 +6791,11 @@
     "marchi": [
       "Arla",
       "Isey Skyr"
+    ],
+    "pasto": [
+      150,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6417,6 +6827,11 @@
       "Danone",
       "HiPRO",
       "Ehrmann"
+    ],
+    "pasto": [
+      200,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6450,6 +6865,11 @@
       "Danone",
       "Danette",
       "Elah"
+    ],
+    "pasto": [
+      125,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -6641,6 +7061,11 @@
       "formaggio di capra",
       "caprino fresco",
       "formaggio caprino"
+    ],
+    "pasto": [
+      70,
+      "caprino",
+      "caprini"
     ]
   },
   {
@@ -6938,6 +7363,11 @@
       "Soresina",
       "Zanetti",
       "Ambrosi"
+    ],
+    "pasto": [
+      10,
+      "cucchiaio",
+      "cucchiai"
     ]
   },
   {
@@ -7010,6 +7440,11 @@
     ],
     "marchi": [
       "Sabelli"
+    ],
+    "pasto": [
+      125,
+      "burrata",
+      "burrate"
     ]
   },
   {
@@ -7039,6 +7474,11 @@
     "marchi": [
       "Galbani",
       "Santa Lucia"
+    ],
+    "pasto": [
+      125,
+      "mozzarella",
+      "mozzarelle"
     ]
   },
   {
@@ -7070,6 +7510,11 @@
       "Mandara",
       "Rivabianca",
       "Fattorie Garofalo"
+    ],
+    "pasto": [
+      125,
+      "mozzarella",
+      "mozzarelle"
     ]
   },
   {
@@ -7125,6 +7570,11 @@
       "Accadi",
       "Galbani",
       "Santa Lucia"
+    ],
+    "pasto": [
+      125,
+      "mozzarella",
+      "mozzarelle"
     ]
   },
   {
@@ -7154,6 +7604,11 @@
     "marchi": [
       "Mio",
       "Tigre"
+    ],
+    "pasto": [
+      21,
+      "formaggino",
+      "formaggini"
     ]
   },
   {
@@ -7185,6 +7640,11 @@
       "Sottilette",
       "Kraft",
       "Hochland"
+    ],
+    "pasto": [
+      18,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -7215,6 +7675,11 @@
       "Humana",
       "Nidina",
       "Aptamil"
+    ],
+    "pasto": [
+      200,
+      "tazza",
+      "tazze"
     ]
   },
   {
@@ -7247,6 +7712,11 @@
       "Aia",
       "Amadori",
       "Fileni"
+    ],
+    "pasto": [
+      170,
+      "coscia",
+      "cosce"
     ]
   },
   {
@@ -7277,6 +7747,11 @@
       "Aia",
       "Amadori",
       "Fileni"
+    ],
+    "pasto": [
+      110,
+      "sovracoscia",
+      "sovracosce"
     ]
   },
   {
@@ -7308,6 +7783,11 @@
       "Aia",
       "Amadori",
       "Fileni"
+    ],
+    "pasto": [
+      55,
+      "aletta",
+      "alette"
     ]
   },
   {
@@ -7396,6 +7876,11 @@
       "Aia",
       "Amadori",
       "Fileni"
+    ],
+    "pasto": [
+      110,
+      "cotoletta",
+      "cotolette"
     ]
   },
   {
@@ -7424,6 +7909,11 @@
     "marchi": [
       "Aia",
       "Amadori"
+    ],
+    "pasto": [
+      20,
+      "bocconcino",
+      "bocconcini"
     ]
   },
   {
@@ -7457,6 +7947,11 @@
     "marchi": [
       "Aia",
       "Amadori"
+    ],
+    "pasto": [
+      110,
+      "cordon bleu",
+      "cordon bleu"
     ]
   },
   {
@@ -7488,6 +7983,11 @@
       "Aia",
       "Amadori",
       "Fileni"
+    ],
+    "pasto": [
+      100,
+      "hamburger",
+      "hamburger"
     ]
   },
   {
@@ -7517,6 +8017,11 @@
       "Aia",
       "Amadori",
       "Rovagnati"
+    ],
+    "pasto": [
+      15,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -7565,6 +8070,11 @@
       "hamburger di carne",
       "burger di manzo",
       "hamburger di scottona"
+    ],
+    "pasto": [
+      100,
+      "hamburger",
+      "hamburger"
     ]
   },
   {
@@ -7751,6 +8261,11 @@
       "salamella",
       "salsicce",
       "salsiccia di maiale"
+    ],
+    "pasto": [
+      100,
+      "salsiccia",
+      "salsicce"
     ]
   },
   {
@@ -7801,6 +8316,11 @@
       "braciole",
       "nodino di maiale",
       "bistecca di maiale"
+    ],
+    "pasto": [
+      150,
+      "braciola",
+      "braciole"
     ]
   },
   {
@@ -7964,6 +8484,11 @@
       "Wüber",
       "Wuber",
       "Senfter"
+    ],
+    "pasto": [
+      50,
+      "würstel",
+      "würstel"
     ]
   },
   {
@@ -7987,6 +8512,11 @@
       "polpettine",
       "polpette di carne",
       "polpette al sugo"
+    ],
+    "pasto": [
+      20,
+      "polpetta",
+      "polpette"
     ]
   },
   {
@@ -8018,6 +8548,11 @@
       "Simmenthal",
       "Manzotin",
       "Montana"
+    ],
+    "pasto": [
+      90,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -8076,6 +8611,11 @@
       "Negroni",
       "Parmacotto",
       "Ferrarini"
+    ],
+    "pasto": [
+      12,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8104,6 +8644,11 @@
       "Moser",
       "Beretta",
       "Citterio"
+    ],
+    "pasto": [
+      10,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8141,6 +8686,11 @@
       "Levoni",
       "Villani",
       "Casa Modena"
+    ],
+    "pasto": [
+      5,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8171,6 +8721,11 @@
       "Felsineo",
       "Casa Modena",
       "Montorsi"
+    ],
+    "pasto": [
+      15,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8248,6 +8803,11 @@
     "marchi": [
       "Fiorucci",
       "Citterio"
+    ],
+    "pasto": [
+      8,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8315,6 +8875,11 @@
       "roast beef",
       "arrosto di manzo affettato",
       "manzo arrosto"
+    ],
+    "pasto": [
+      15,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -8364,6 +8929,11 @@
       "pesce intero",
       "orate d'allevamento",
       "filetti di orata"
+    ],
+    "pasto": [
+      200,
+      "orata",
+      "orate"
     ]
   },
   {
@@ -8388,6 +8958,11 @@
       "spigola",
       "filetti di branzino",
       "pesce al forno"
+    ],
+    "pasto": [
+      200,
+      "branzino",
+      "branzini"
     ]
   },
   {
@@ -8598,6 +9173,11 @@
       "Palmera",
       "Consorcio",
       "Angelo Parodi"
+    ],
+    "pasto": [
+      52,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -8646,6 +9226,11 @@
       "sardine sott'olio",
       "sardine in latta",
       "sardine all'olio"
+    ],
+    "pasto": [
+      85,
+      "scatoletta",
+      "scatolette"
     ]
   },
   {
@@ -8876,6 +9461,11 @@
     "marchi": [
       "Findus",
       "Capitan Findus"
+    ],
+    "pasto": [
+      25,
+      "bastoncino",
+      "bastoncini"
     ]
   },
   {
@@ -8902,6 +9492,11 @@
     "marchi": [
       "Coraya",
       "Fleury Michon"
+    ],
+    "pasto": [
+      16,
+      "bastoncino",
+      "bastoncini"
     ]
   },
   {
@@ -9139,6 +9734,11 @@
     ],
     "marchi": [
       "Kioene"
+    ],
+    "pasto": [
+      20,
+      "falafel",
+      "falafel"
     ]
   },
   {
@@ -9218,6 +9818,11 @@
       "Kioene",
       "Beyond Meat",
       "Garden Gourmet"
+    ],
+    "pasto": [
+      90,
+      "burger",
+      "burger"
     ]
   },
   {
@@ -9268,6 +9873,11 @@
     "marchi": [
       "Myprotein",
       "Foodspring"
+    ],
+    "pasto": [
+      30,
+      "misurino",
+      "misurini"
     ]
   },
   {
@@ -9316,6 +9926,11 @@
     ],
     "marchi": [
       "Saitaku"
+    ],
+    "pasto": [
+      2.5,
+      "foglio",
+      "fogli"
     ]
   },
   {
@@ -9650,6 +10265,11 @@
       "cuori di carciofo",
       "carciofi surgelati",
       "mammole"
+    ],
+    "pasto": [
+      70,
+      "carciofo",
+      "carciofi"
     ]
   },
   {
@@ -9674,6 +10294,11 @@
       "asparagi verdi",
       "asparagi bianchi",
       "punte di asparagi"
+    ],
+    "pasto": [
+      15,
+      "asparago",
+      "asparagi"
     ]
   },
   {
@@ -9697,6 +10322,11 @@
     "alias": [
       "finocchio",
       "finocchietto"
+    ],
+    "pasto": [
+      180,
+      "finocchio",
+      "finocchi"
     ]
   },
   {
@@ -9722,6 +10352,11 @@
       "sedano verde",
       "sedano bianco",
       "odori per soffritto"
+    ],
+    "pasto": [
+      40,
+      "costa",
+      "coste"
     ]
   },
   {
@@ -9772,6 +10407,11 @@
       "cipollina",
       "cipolla verde",
       "cipolle novelle"
+    ],
+    "pasto": [
+      25,
+      "cipollotto",
+      "cipollotti"
     ]
   },
   {
@@ -9796,6 +10436,11 @@
       "scalogni",
       "scalogna",
       "cipolla scalogno"
+    ],
+    "pasto": [
+      20,
+      "scalogno",
+      "scalogni"
     ]
   },
   {
@@ -9820,6 +10465,11 @@
       "porro",
       "porro fresco",
       "porri per zuppa"
+    ],
+    "pasto": [
+      150,
+      "porro",
+      "porri"
     ]
   },
   {
@@ -9847,6 +10497,11 @@
       "pomodori tondi",
       "pomodori costoluti",
       "pomodori san marzano"
+    ],
+    "pasto": [
+      145,
+      "pomodoro",
+      "pomodori"
     ]
   },
   {
@@ -9870,6 +10525,11 @@
     "alias": [
       "rapanelli",
       "ravanello"
+    ],
+    "pasto": [
+      8,
+      "ravanello",
+      "ravanelli"
     ]
   },
   {
@@ -9889,6 +10549,11 @@
       "rapa",
       "rape bianche",
       "navone"
+    ],
+    "pasto": [
+      120,
+      "rapa",
+      "rape"
     ]
   },
   {
@@ -9910,6 +10575,11 @@
       "barbabietole rosse",
       "rape rosse",
       "bietola rossa"
+    ],
+    "pasto": [
+      120,
+      "barbabietola",
+      "barbabietole"
     ]
   },
   {
@@ -9928,6 +10598,11 @@
     "alias": [
       "patatine novelle",
       "patate piccole"
+    ],
+    "pasto": [
+      45,
+      "patata novella",
+      "patate novelle"
     ]
   },
   {
@@ -9987,6 +10662,11 @@
       "fiori di zucchina",
       "fiori di zucchine",
       "fiori da friggere"
+    ],
+    "pasto": [
+      8,
+      "fiore di zucca",
+      "fiori di zucca"
     ]
   },
   {
@@ -10179,6 +10859,11 @@
       "pere williams",
       "pere abate",
       "pere kaiser"
+    ],
+    "pasto": [
+      160,
+      "pera",
+      "pere"
     ]
   },
   {
@@ -10208,6 +10893,11 @@
     ],
     "marchi": [
       "Oranfrizer"
+    ],
+    "pasto": [
+      160,
+      "arancia",
+      "arance"
     ]
   },
   {
@@ -10233,6 +10923,11 @@
       "clementine",
       "clementina",
       "mandaranci"
+    ],
+    "pasto": [
+      70,
+      "mandarino",
+      "mandarini"
     ]
   },
   {
@@ -10255,6 +10950,11 @@
     ],
     "alias": [
       "pompelmo rosa",
+      "pompelmi"
+    ],
+    "pasto": [
+      240,
+      "pompelmo",
       "pompelmi"
     ]
   },
@@ -10279,6 +10979,11 @@
     "alias": [
       "limetta",
       "limette"
+    ],
+    "pasto": [
+      45,
+      "lime",
+      "lime"
     ]
   },
   {
@@ -10305,6 +11010,11 @@
     ],
     "marchi": [
       "Zespri"
+    ],
+    "pasto": [
+      80,
+      "kiwi",
+      "kiwi"
     ]
   },
   {
@@ -10328,6 +11038,11 @@
     "marchi": [
       "Sant'Orsola",
       "Driscoll's"
+    ],
+    "pasto": [
+      14,
+      "fragola",
+      "fragole"
     ]
   },
   {
@@ -10425,6 +11140,11 @@
       "nettarine",
       "percoche",
       "pesca tabacchiera"
+    ],
+    "pasto": [
+      160,
+      "pesca",
+      "pesche"
     ]
   },
   {
@@ -10449,6 +11169,11 @@
       "albicocca",
       "albicocche fresche",
       "armellina"
+    ],
+    "pasto": [
+      40,
+      "albicocca",
+      "albicocche"
     ]
   },
   {
@@ -10474,6 +11199,11 @@
       "prugna",
       "susina",
       "prugne rosse"
+    ],
+    "pasto": [
+      50,
+      "prugna",
+      "prugne"
     ]
   },
   {
@@ -10493,6 +11223,11 @@
       "ciliegia",
       "amarene",
       "duroni"
+    ],
+    "pasto": [
+      7,
+      "ciliegia",
+      "ciliegie"
     ]
   },
   {
@@ -10541,6 +11276,11 @@
       "melone giallo",
       "melone cantalupo",
       "melone d'inverno"
+    ],
+    "pasto": [
+      80,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -10569,6 +11309,11 @@
       "Del Monte",
       "Chiquita",
       "Dole"
+    ],
+    "pasto": [
+      80,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -10592,6 +11337,11 @@
     "alias": [
       "manghi",
       "mango maturo"
+    ],
+    "pasto": [
+      260,
+      "mango",
+      "manghi"
     ]
   },
   {
@@ -10615,6 +11365,11 @@
     "alias": [
       "fico",
       "fichi freschi"
+    ],
+    "pasto": [
+      40,
+      "fico",
+      "fichi"
     ]
   },
   {
@@ -10640,6 +11395,11 @@
       "loti",
       "caco mela",
       "caco"
+    ],
+    "pasto": [
+      170,
+      "caco",
+      "cachi"
     ]
   },
   {
@@ -10663,6 +11423,11 @@
     "alias": [
       "melagrana",
       "chicchi di melograno"
+    ],
+    "pasto": [
+      200,
+      "melograno",
+      "melograni"
     ]
   },
   {
@@ -10681,6 +11446,11 @@
     "alias": [
       "marroni",
       "caldarroste"
+    ],
+    "pasto": [
+      9,
+      "castagna",
+      "castagne"
     ]
   },
   {
@@ -10738,6 +11508,11 @@
       "Mellin",
       "Plasmon",
       "Hipp"
+    ],
+    "pasto": [
+      100,
+      "vasetto",
+      "vasetti"
     ]
   },
   {
@@ -10763,6 +11538,11 @@
     "marchi": [
       "Noberasco",
       "Ventura"
+    ],
+    "pasto": [
+      1.2,
+      "mandorla",
+      "mandorle"
     ]
   },
   {
@@ -10786,6 +11566,11 @@
     ],
     "marchi": [
       "Ventura"
+    ],
+    "pasto": [
+      1.2,
+      "nocciola",
+      "nocciole"
     ]
   },
   {
@@ -10832,6 +11617,11 @@
     "marchi": [
       "Noberasco",
       "Ventura"
+    ],
+    "pasto": [
+      1.6,
+      "anacardo",
+      "anacardi"
     ]
   },
   {
@@ -11011,6 +11801,11 @@
     "marchi": [
       "Noberasco",
       "Ventura"
+    ],
+    "pasto": [
+      7,
+      "dattero",
+      "datteri"
     ]
   },
   {
@@ -11033,6 +11828,11 @@
     ],
     "marchi": [
       "Noberasco"
+    ],
+    "pasto": [
+      9,
+      "prugna secca",
+      "prugne secche"
     ]
   },
   {
@@ -11056,6 +11856,11 @@
     ],
     "marchi": [
       "Noberasco"
+    ],
+    "pasto": [
+      8,
+      "albicocca secca",
+      "albicocche secche"
     ]
   },
   {
@@ -11079,6 +11884,11 @@
     ],
     "marchi": [
       "Noberasco"
+    ],
+    "pasto": [
+      15,
+      "fico secco",
+      "fichi secchi"
     ]
   },
   {
@@ -11494,6 +12304,11 @@
       "Icam",
       "Vanini",
       "Domori"
+    ],
+    "pasto": [
+      6,
+      "quadretto",
+      "quadretti"
     ]
   },
   {
@@ -11534,6 +12349,11 @@
       "Venchi",
       "Caffarel",
       "Icam"
+    ],
+    "pasto": [
+      6,
+      "quadretto",
+      "quadretti"
     ]
   },
   {
@@ -11571,6 +12391,11 @@
       "Grenade",
       "Barebells",
       "Quest"
+    ],
+    "pasto": [
+      50,
+      "barretta",
+      "barrette"
     ]
   },
   {
@@ -11606,6 +12431,11 @@
       "Nature Valley",
       "Corny",
       "Grancereale"
+    ],
+    "pasto": [
+      25,
+      "barretta",
+      "barrette"
     ]
   },
   {
@@ -11642,6 +12472,11 @@
       "Dixi",
       "Fonzies",
       "Pata"
+    ],
+    "pasto": [
+      25,
+      "pacchetto",
+      "pacchetti"
     ]
   },
   {
@@ -11733,6 +12568,11 @@
       "Ben & Jerry's",
       "Carte d'Or",
       "Antica Gelateria del Corso"
+    ],
+    "pasto": [
+      50,
+      "pallina",
+      "palline"
     ]
   },
   {
@@ -11768,6 +12608,11 @@
       "Cornetto",
       "Cornetto Algida",
       "Sammontana"
+    ],
+    "pasto": [
+      70,
+      "cono",
+      "coni"
     ]
   },
   {
@@ -11796,6 +12641,11 @@
     "marchi": [
       "Algida",
       "Calippo"
+    ],
+    "pasto": [
+      60,
+      "ghiacciolo",
+      "ghiaccioli"
     ]
   },
   {
@@ -11844,6 +12694,11 @@
       "Tegolino",
       "Saccottino",
       "Balconi"
+    ],
+    "pasto": [
+      35,
+      "merendina",
+      "merendine"
     ]
   },
   {
@@ -11875,6 +12730,11 @@
     ],
     "marchi": [
       "Mulino Bianco"
+    ],
+    "pasto": [
+      40,
+      "crostatina",
+      "crostatine"
     ]
   },
   {
@@ -11913,6 +12773,11 @@
       "Bauli",
       "7 Days",
       "7Days"
+    ],
+    "pasto": [
+      45,
+      "cornetto",
+      "cornetti"
     ]
   },
   {
@@ -11947,6 +12812,11 @@
       "KitKat",
       "Kit Kat",
       "Kinder Bueno"
+    ],
+    "pasto": [
+      45,
+      "pacchetto",
+      "pacchetti"
     ]
   },
   {
@@ -11982,6 +12852,11 @@
       "Galatine",
       "Morositas",
       "Saila"
+    ],
+    "pasto": [
+      5,
+      "caramella",
+      "caramelle"
     ]
   },
   {
@@ -12046,6 +12921,11 @@
       "Paluani",
       "Maina",
       "Galup"
+    ],
+    "pasto": [
+      80,
+      "fetta",
+      "fette"
     ]
   },
   {
@@ -12088,6 +12968,11 @@
       "Lurisia",
       "Nepi",
       "Perrier"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12119,6 +13004,11 @@
       "Coca",
       "Coke",
       "Pepsi"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12151,6 +13041,11 @@
       "Coca Zero",
       "Coke Zero",
       "Pepsi Max"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12187,6 +13082,11 @@
       "Lurisia",
       "Fanta",
       "Oransoda"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12221,6 +13121,11 @@
       "Estathé",
       "Estathe",
       "Fuze Tea"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12243,6 +13148,11 @@
     "marchi": [
       "Schweppes",
       "Fever-Tree"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12272,6 +13182,11 @@
       "Monster",
       "Burn",
       "Rockstar"
+    ],
+    "pasto": [
+      250,
+      "lattina",
+      "lattine"
     ]
   },
   {
@@ -12302,6 +13217,11 @@
       "Enervit",
       "Gatorade",
       "Powerade"
+    ],
+    "pasto": [
+      500,
+      "bottiglia",
+      "bottiglie"
     ]
   },
   {
@@ -12333,6 +13253,11 @@
       "Danone",
       "HiPRO",
       "Yfood"
+    ],
+    "pasto": [
+      330,
+      "bottiglia",
+      "bottiglie"
     ]
   },
   {
@@ -12361,6 +13286,11 @@
       "Skipper",
       "Tropicana",
       "Amita"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12399,6 +13329,11 @@
       "Skipper",
       "Derby Blue",
       "Pago"
+    ],
+    "pasto": [
+      200,
+      "brick",
+      "brick"
     ]
   },
   {
@@ -12423,6 +13358,11 @@
     ],
     "marchi": [
       "Oranfrizer"
+    ],
+    "pasto": [
+      200,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12447,6 +13387,11 @@
     "marchi": [
       "DimmidiSì",
       "Innocent"
+    ],
+    "pasto": [
+      250,
+      "bottiglietta",
+      "bottigliette"
     ]
   },
   {
@@ -12499,6 +13444,11 @@
       "Pedavena",
       "Guinness",
       "Paulaner"
+    ],
+    "pasto": [
+      330,
+      "bottiglia",
+      "bottiglie"
     ]
   },
   {
@@ -12532,6 +13482,11 @@
       "Tourtel",
       "Buckler",
       "Beck's Blue"
+    ],
+    "pasto": [
+      330,
+      "bottiglia",
+      "bottiglie"
     ]
   },
   {
@@ -12571,6 +13526,11 @@
       "Banfi",
       "Frescobaldi",
       "Masi"
+    ],
+    "pasto": [
+      125,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12607,6 +13567,11 @@
       "Ruffino",
       "Donnafugata",
       "Santa Margherita"
+    ],
+    "pasto": [
+      125,
+      "bicchiere",
+      "bicchieri"
     ]
   },
   {
@@ -12641,6 +13606,11 @@
       "Bottega",
       "Carpenè Malvolti",
       "La Marca"
+    ],
+    "pasto": [
+      125,
+      "calice",
+      "calici"
     ]
   },
   {
@@ -12691,6 +13661,11 @@
       "Molinari",
       "Vecchia Romagna",
       "Nonino"
+    ],
+    "pasto": [
+      40,
+      "bicchierino",
+      "bicchierini"
     ]
   },
   {
@@ -12720,6 +13695,11 @@
       "Sanbittèr",
       "Sanbitter",
       "Gingerino"
+    ],
+    "pasto": [
+      100,
+      "bottiglietta",
+      "bottigliette"
     ]
   },
   {
@@ -12761,6 +13741,11 @@
       "Dr. Oetker",
       "Catarì",
       "Italpizza"
+    ],
+    "pasto": [
+      350,
+      "pizza",
+      "pizze"
     ]
   },
   {
@@ -12813,6 +13798,11 @@
     "marchi": [
       "McCain",
       "Aviko"
+    ],
+    "pasto": [
+      25,
+      "crocchetta",
+      "crocchette"
     ]
   },
   {
@@ -12925,6 +13915,11 @@
       "arancine",
       "supplì",
       "crocchette di riso"
+    ],
+    "pasto": [
+      150,
+      "arancino",
+      "arancini"
     ]
   },
   {
@@ -12998,6 +13993,11 @@
     "alias": [
       "uovette",
       "ovetti di quaglia"
+    ],
+    "pasto": [
+      9,
+      "uovo di quaglia",
+      "uova di quaglia"
     ]
   },
   {
@@ -13087,6 +14087,11 @@
     ],
     "marchi": [
       "Amadori"
+    ],
+    "pasto": [
+      70,
+      "salsiccia",
+      "salsicce"
     ]
   },
   {
@@ -13290,6 +14295,11 @@
     ],
     "marchi": [
       "Vita Coco"
+    ],
+    "pasto": [
+      330,
+      "bottiglia",
+      "bottiglie"
     ]
   },
   {
@@ -13324,6 +14334,11 @@
       "Starbucks",
       "Shakissimo",
       "Emmi Caffè Latte"
+    ],
+    "pasto": [
+      250,
+      "bottiglietta",
+      "bottigliette"
     ]
   },
   {
@@ -13353,6 +14368,11 @@
     ],
     "marchi": [
       "Nesquik"
+    ],
+    "pasto": [
+      200,
+      "brick",
+      "brick"
     ]
   },
   {
@@ -13378,6 +14398,11 @@
     ],
     "marchi": [
       "Lo Bros"
+    ],
+    "pasto": [
+      330,
+      "bottiglia",
+      "bottiglie"
     ]
   }
 ]
