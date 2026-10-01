@@ -757,7 +757,7 @@ function render(){
    head+=`<div class="car">`+ls.map(n=>`<article class="sc${n===p?" rec":""}"><div class="sc-t"><span class="st-ic">${ic("store")}</span>${n===p?'<span class="badge">Consigliato</span>':""}${favBtn(n)}</div><b>${esc(n.nome)}</b><span>${n.tipo}${n.via?" · "+esc(n.via):""}</span><div class="sc-f"><span class="num mz" title="${mezzo(n.km)[1]}">${ic(mezzo(n.km)[0])}<span class="sr">${mezzo(n.km)[1]}, </span>${dist(n.km)}</span><a href="${mapsUrl(n)}" target="_blank" rel="noopener">${ic("navigation")}Indicazioni</a></div><button class="sc-hide" data-hide="${esc(nk(n))}" data-hn="${esc(n.nome)}">${ic("eye-off")}Non suggerirlo più</button></article>`).join("")+`</div><p class="note">Tocca il cuore per salvare i tuoi supermercati preferiti: li suggeriamo per primi.</p>`}
  }
  const body=`<div class="sh"><h2>Lista della spesa</h2><span class="note" id="lista-n">${listaConto()}</span></div>
- `+(S.listaAperta?`<div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+`<button class="tag b nonsai" data-nonsai>${ic("sparkles")}Non sai cosa comprare?</button><p class="note" id="nonsai-st" role="status"></p><div id="lista-b">${listaHTML()}</div><button class="btn" data-lfine>${ic("list-checks")}Fatto!</button>`:`<button class="btn" data-lcrea>${ic("plus")}Crea lista</button><button class="tag b nonsai" data-nonsai>${ic("sparkles")}Non sai cosa comprare?</button>`);
+ `+(S.listaAperta?`<div class="srch">${ic("plus")}<label class="sr" for="lq">Aggiungi alla lista</label><input id="lq" data-lq autocomplete="off" enterkeyhint="done" placeholder="Aggiungi un alimento"></div><div class="tags sug" id="lsug"></div>`+`<button class="tag b nonsai" data-nonsai>${ic("sparkles")}Non sai cosa comprare?</button><p class="note" id="nonsai-st" role="status"></p><div id="lista-b">${listaHTML()}</div><button class="btn" data-lfine>${ic("list-checks")}Ho fatto la spesa</button>`:`<button class="btn" data-lcrea>${ic("plus")}Crea lista</button><button class="tag b nonsai" data-nonsai>${ic("sparkles")}Non sai cosa comprare?</button>`);
  $("#spesa").innerHTML=HEAD+dispSez()+head+body;
  primoGiro=false;
 }
@@ -1308,7 +1308,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
 $("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001092724";
+const VER="20261001092747";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
