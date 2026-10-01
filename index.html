@@ -313,6 +313,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);b
 .sez{display:flex;flex-direction:column;gap:var(--s2)}
 .sez>label{margin-top:var(--s2)}
 .sez-ok{margin-top:var(--s5);width:100%}
+/* pulsante principale del pannello sempre attaccato al bordo basso: mentre scrivi resta sotto la tastiera e non si sposta */
+#sheet .sh-cta{position:sticky;bottom:calc(-1*(var(--s5) + env(safe-area-inset-bottom,0)));z-index:3;margin:var(--s5) calc(-1*var(--s5)) calc(-1*(var(--s5) + env(safe-area-inset-bottom,0)));padding:var(--s3) var(--s5) calc(var(--s5) + env(safe-area-inset-bottom,0));background:var(--surface);display:flex;flex-direction:column;gap:var(--s2)}
+#sheet .sh-cta .btn{width:100%;margin:0}
 .gear{flex:none}
 /* home: meno spazio tra intestazione e primo blocco */
 #home .ph{margin-bottom:0}
@@ -1110,7 +1113,7 @@ function libHTML(){const dlg=$("#sheet"),y=dlg.scrollTop,{di,j}=LB,m=lun(),g={};
  ${nuovo?nuovoHTML():""}
  ${LB.items.length?`<div class="lb-list">${LB.items.map((it,i)=>{const u=uIng(it.id);return`<div class="sgi"><div class="sgi-n"><b>${esc(I[it.id].nome)}</b></div><div class="stepper"><button data-lbq-i="${i}" data-dq="-1" aria-label="Meno">${ic("minus")}</button><span>${uTxt({q:it.q,unita:u})}</span><button data-lbq-i="${i}" data-dq="1" aria-label="Più">${ic("plus")}</button></div></div>`}).join("")}</div><p class="mc-m"><b>${Math.round(st.k)} kcal</b>${macro(st)}</p>`:""}
  ${LB.home?"":`<h3>In quali giorni?</h3><div class="days mini" role="group" aria-label="Giorni">${GG.map((gg,i)=>`<button data-lbday="${i}" aria-pressed="${LB.giorni.includes(i)}"><span>${GGc[i]}</span><b>${addD(m,i).getDate()}</b></button>`).join("")}</div>`}
- <button class="btn sez-ok" data-lbsave ${LB.items.length&&LB.giorni.length?"":"disabled"}>Salva</button>`;
+ <div class="sh-cta"><button class="btn" data-lbsave ${LB.items.length&&LB.giorni.length?"":"disabled"}>Salva</button></div>`;
  dlg.scrollTop=y}
 function libSug(){const qq=norm(lq);if(!qq||nuovo)return"";const r=chipAlimenti(lq,i=>!i.base,i=>`<button class="tag b" data-lbadd="${i.id}">${ic("plus")}${esc(i.nome)}</button>`);
  return r.html+(r.esatto?"":`<button class="tag b" data-lbnew>${ic("plus")}Crea "${esc(lq.trim())}"</button>`)}
@@ -1134,7 +1137,7 @@ function apriSgarro(j){
  <p class="note">Al posto di ${x.r.n.toLowerCase()} (${Math.round(sgTmp.pk)} kcal). Scegli dai suggerimenti o scrivi tu: facciamo un conto veloce delle calorie.</p>
  <label for="sgq">Cerca un cibo</label><div class="addr"><input id="sgq" autocomplete="off" enterkeyhint="done" placeholder="Es. pizza, sushi, birra"><button class="btn" data-sgadd>Aggiungi</button></div>
  <div class="tags sug" id="sg-sug"></div><div id="sg-list"></div><div id="sg-tot"></div><p class="note" id="sg-err" role="status"></p>
- <button class="btn" data-sgsave>Salva</button>${prev&&prev.s=="sg"?'<button class="btn ghost" data-sgdel>Togli lo sgarro</button>':""}`;
+ <div class="sh-cta"><button class="btn" data-sgsave>Salva</button>${prev&&prev.s=="sg"?'<button class="btn ghost" data-sgdel>Togli lo sgarro</button>':""}</div>`;
  sgSug("");sgList();dlg.showModal();blocca();dlg.scrollTop=0}
 const SG_TOP=[["Cornetto o brioche","Cappuccino","Caffè latte","Biscotti","Pane e marmellata","Yogurt con cereali","Cereali con latte","Fetta di torta","Latte di soia","Non ho mangiato"],["Pizza margherita","Sushi","Hamburger","Kebab","Pasta alla carbonara","Poke bowl","Panino con prosciutto e formaggio","Gelato","Birra media","Non ho mangiato"]];
 // porzioni sensate per gli alimenti cercati nell'elenco degli ingredienti
@@ -1354,14 +1357,9 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
   save();profilo();render();showTab(S.done?(S.modo=="mia"&&dietaVuota()?"dieta":"home"):"profilo")}});
 
 $("#sheet").addEventListener("click",e=>{if(e.target.id=="sheet")e.target.close()});
-// iPhone: con la tastiera aperta il pannello si accorcia e resta appoggiato sopra la tastiera, così il campo resta in vista
-if(window.visualViewport){const vv=window.visualViewport,adatta=()=>{const d=$("#sheet");if(!d.open){d.style.maxHeight="";d.style.marginBottom="";return}
- const sotto=Math.max(0,innerHeight-vv.height-vv.offsetTop);d.style.maxHeight=sotto>80?(vv.height-12)+"px":"";d.style.marginBottom=sotto>80?sotto+"px":"";
- const a=document.activeElement;if(sotto>80&&a&&d.contains(a)&&a.matches("input,textarea"))a.scrollIntoView({block:"nearest"})};
- vv.addEventListener("resize",adatta);vv.addEventListener("scroll",adatta)}
-$("#sheet").addEventListener("close",()=>{sblocca();$("#sheet").style.maxHeight="";$("#sheet").style.marginBottom="";delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
+$("#sheet").addEventListener("close",()=>{sblocca();delete $("#sheet").dataset.disp;if(profSez){profSez=null;if(S.done)profilo()}});
 // aggiornamenti: se online c'è una versione più nuova di quella aperta, la carica subito (senza aspettare la cache)
-const VER="20261001105430";
+const VER="20261001110210";
 // l'app installata sulla schermata Home di iPhone non si ricarica da sola: controlliamo all'apertura e ogni volta che torna in primo piano
 function nuovaVersione(){fetch("index.html?c="+Date.now(),{cache:"no-store"}).then(r=>r.text()).then(t=>{const m=t.match(/const VER\s*=\s*"([^"]+)"/);
  if(m&&m[1]!=VER&&new URLSearchParams(location.search).get("v")!=m[1])location.replace(location.pathname+"?v="+m[1])}).catch(()=>{})}
